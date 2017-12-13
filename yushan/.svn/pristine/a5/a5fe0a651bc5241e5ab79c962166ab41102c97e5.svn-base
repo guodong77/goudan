@@ -1,0 +1,23 @@
+<div class="widget-body win form-horizontal bgc_b">
+  <div class="winbody summary" w="508px" h="auto" style="padding-top: 0px;border:0;">
+  <div id="resultval">
+ 
+ <div class="summaryint" ng-if="winData.len.length==0">
+	 <span class="fc_1">请先设置组数</span>  
+	</div>
+	<div ng-if="winData.len.length>0" class="summaryint" ng-repeat="(key, value) in winData.len">
+		<!-- <span>201505试件</span> -->
+		<input class="form-control" placeholder="{{win.extname}}" value="{{winData[win.extendtwo][key].val}}" type="text">
+	</div>
+
+	 
+	 
+  </div>
+
+	
+	</div>
+	<div class=" ysbtn t_c" style="margin-top: 10px">
+		 <button type="button" saveresult class="btn btn-blue">保存</button>
+		 <button type="button" class="b_2 btn btn-default layui-layer-close">取消</button>
+	</div>
+</div>

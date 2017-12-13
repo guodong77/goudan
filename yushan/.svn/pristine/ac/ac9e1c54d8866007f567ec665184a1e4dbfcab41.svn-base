@@ -1,0 +1,107 @@
+<!--  同养弹窗 -->
+ <div class="widget-body win form-horizontal bgc_b" style="padding-left: 40px">
+	 <div class="winbody minlist" w="400px" h="auto" style="padding-top: 12px">	
+
+	 	 <table class="table table-striped table-bordered table-hover">
+                    <thead class="bordered-palegreen">
+                        <tr align="center">                          
+      <td height="24" width="142">日期</td>
+              <td width="142">龄期</td>
+              
+                        </tr>
+
+                    </thead>
+               <tbody>
+              <tr align="center"> 
+              <td height="29" class="ps_r"><span class="ps_alt">浇</span></td>
+              <td align="left"></td>
+              
+             
+           </tr>
+
+            <tr align="center"> 
+              <td height="29" ></td>
+              <td align="left"></td>
+             
+             
+           </tr>
+
+            <tr align="center"> 
+              <td height="29" ></td>
+              <td align="left"></td>
+             
+             
+           </tr>
+           <tr align="center"> 
+              <td height="29" ></td>
+              <td align="left"></td>
+             
+             
+           </tr>
+           <tr align="center"> 
+              <td height="29" ></td>
+              <td align="left"></td>
+             
+             
+           </tr>
+           <tr align="center"> 
+              <td height="29" ></td>
+              <td align="left"></td>
+             
+             
+           </tr>
+           <tr align="center"> 
+              <td height="29" ></td>
+              <td align="left"></td>
+             
+             
+           </tr>
+           <tr align="center"> 
+              <td height="29" ></td>
+              <td align="left"></td>
+             
+             
+           </tr>
+           <tr align="center"> 
+              <td height="29" class="ps_r"><span class="ps_alt">送</span></td>
+              <td align="left"></td>
+             
+             
+           </tr>
+           <tr align="center"> 
+              <td height="29" ></td>
+              <td align="left"></td>
+             
+             
+           </tr>
+           <tr align="center"> 
+              
+               <td height="29" ></td>
+              <td align="left"></td>
+             
+             
+           </tr>
+           <tr align="center"> 
+              <td height="29" ></td>
+              <td align="left"></td>
+             
+             
+           </tr>
+           <tr align="center"> 
+             <td height="29" class="ps_r"><span class="ps_alt">今</span></td>
+              <td align="left"></td>
+             
+             
+           </tr>
+           <tr align="center"> 
+              <td height="29" ></td>
+              <td align="left"></td>
+             
+             
+           </tr>
+      </tbody>
+ </table>	
+
+
+	</div>
+</div>

@@ -1,0 +1,94 @@
+
+<div>
+    <!--  柱头标养 -->
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th width="50"  style="padding: 6px;">
+                    <label >
+                        <input type="checkbox" class="colored-blue" checkallbykey="program_plan_betonlist" key="ztcheck">
+                        <span class="text"></span>
+                    </label>
+                </th>
+                <!-- <th width="50" >排序</th> -->
+                <th width="95" >分部</th>
+                <th   style="min-width: 150px;" >工程部位</th>
+                <th  width="80" >强度等级</th>
+                <th  width="100" >浇筑日期</th>
+                <th width="100" >送检日期</th>
+                <th  width="60" >龄期</th>
+                <th width="50"  >组数</th>
+                <th width="70" >是否已送</th>
+                <th  width="170" >结果</th>
+                <th  width="150">芯片编号</th>
+                <th  width="170" >样品编号</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-class="{true:'yssel',false:''}[value.ztcheck==1]"  ng-repeat="(key, value) in program_plan_betonlist.datalist|orderBy:'myorder'|planfil:'zt'">
+                <!--  -->
+                <td  align="center">
+                    <div class="checkbox">
+                        <label yscheck="ztselected">
+                            <input type="checkbox" class="colored-blue" ng-checked="value.ztcheck==1" comcheck="ztcheck" name="{{stype}}" value="{{value.codeid}}">
+                            <span class="text"></span>
+                        </label>
+                    </div>
+
+                </td>
+                <!-- <td>
+                    <input type="text" value="{{value.myorder}}" class="form-control" comedit="myorder"></td> -->
+                <td style="position: relative;">
+                    <div moresel="{{program_plan_betonlist.datalist.length}}" partkey="{{key}}" style="min-width: 68px;height: 36px;overflow: hidden;font-size: 12px" ng-bind="part(value.fid)" title="{{part(value.fid)}}">                    
+                    </div>
+                     <ul  class="moreop dpn" id="{{'openpart'+[key]}}">
+                        <img src="/main/images/dete1.png" alt="" closepart="{{key}}" moresel="{{program_plan_betonlist.datalist.length}}">
+                        <li mysid="{{$id}}" ng-repeat="(k, val) in ftypelist" ng-bind="val.title" sinsel2 ng-class="setcolor(value.fid,val.t)" o={{val.t}} q={{value.fid}}></li>
+                    </ul>
+                </td>
+
+                <td >
+                    <textarea name="" style="text-align: left;padding: 4px 8px;width: 100%;height: 35px;font-size: 12px" ng-model="value.ztname" comedit="ztname"> 
+                    </textarea>
+                </td>
+                <td>
+                     <select id="e2"  comedit="byqiangdu" style="width:100%;">
+                       <!--  <option value="0" ng-selected="value.byqiangdu==0"></option> -->
+                        <option value="{{val.t}}" ng-repeat="(k, val) in qdypelist" ng-selected="value.byqiangdu==val.t">{{val.title}}</option>
+                       
+                    </select>
+
+                </td>
+
+                <td>
+                    <input type="text" bylaydate="byriqi" value="{{value.byriqi}}"  class="form-control {{bytip}}"> </td>
+                <td>
+                    <input type="text" value="{{value.zttime}}"  class="form-control {{bytip}}" laydateedit="zttime"></td>
+                <td>
+                    <input type="text" readonly value="{{lq(value.byriqi,value.zttime)}}"  class="form-control {{bytip}}"> </td>
+                <td>
+                    <input type="text" comedit="ztzushu" value="{{value.ztzushu}}"  class="form-control"></td>
+                <td align="center">
+                    <label class="chkys">
+                        <input class="checkbox-slider slider-icon colored-blue" type="checkbox" ng-checked="value.ztys==1" checkedit="ztys">
+                        <span class="text"></span>
+                    </label>
+
+                </td>
+                  <td  class="def" comsetwin="program_plan_comset" extname="{{value.bybuwei}}-检测结果" key="ztjg" len='{{value.ztzushu}}'>
+                 <div ng-repeat="(k, v) in value.ztjgarr" ng-bind="v.val"></div> 
+                </td> 
+                 <td  class="def" comsetwin="program_plan_comset" extname="{{value.bybuwei}}-芯片编号" key="ztxinpian" len='{{value.ztzushu}}'>
+                 <div ng-repeat="(k, v) in value.ztxinpianarr" ng-bind="v.val"></div> 
+                </td>               
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.bybuwei}}-样品编号" key="ztbh" len='{{value.ztzushu}}'>
+                 <div ng-repeat="(k, v) in value.ztbharr" ng-bind="v.val"></div> 
+                </td>
+
+            </tr>
+
+        </tbody>
+    </table>
+    <div id='page2' class="t_c mt_10"></div>
+</div>

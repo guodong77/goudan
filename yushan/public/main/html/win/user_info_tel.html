@@ -1,0 +1,49 @@
+ <div class="widget-body win form-horizontal bgc_b my-sm-3" ng-init="data = {}">
+ 	<div class="winbody" w="400px" h="auto" style="padding-top: 12px;padding-right: 15px;">
+ 		<!-- 定弹框的宽 高 --> 
+ 		<div class="form-group" style="margin:0px 0px 15px 0px">
+ 			<div class="hsl_info">
+
+ 				<div class="row pt_10">
+ 					<label for="" class="col-sm-3 control-label no-padding-right lh_35">密码：</label>
+ 					<div class="col-sm-8">
+ 						<input type="password" name="oldpassword" class="oldpasswd form-control bai_4 ng-pristine ng-invalid ng-invalid-required ng-touched" style="border-radius: 4px!important;" ng-model="data.oldpasswd" required="" placeholder="请输入登录密码"></div>
+ 					<div class="col-sm-1">
+ 						<span style="color:red" ng-show="pswForm.oldpassword.$dirty &amp;&amp; pswForm.oldpassword.$invalid" class="ng-hide">
+ 							<span ng-show="pswForm.oldpassword.$error.required">*&nbsp;&nbsp;&nbsp;密码</span>
+ 						</span>
+ 					</div>
+ 				</div>
+ 				<div class="row pt_10">
+ 					<label for="" class="col-sm-3 control-label no-padding-right lh_35">新手机号：</label>
+ 					<div class="col-sm-8">
+ 						<input type="text" name="oldpassword" class="oldpasswd form-control bai_4 ng-pristine ng-invalid ng-invalid-required ng-touched" style="border-radius: 4px!important;" ng-model="data.tel" required="" placeholder="请输入您要绑定的手机号">
+ 						</div>
+ 						<div class="col-sm-1">
+ 							
+ 						</div>
+
+ 				</div>
+
+ 				<div class="row  pt_10 pb_20">
+ 					<label for="" class="col-sm-3 control-label no-padding-right lh_35">短信验证：</label>
+ 					<div class="col-sm-4" style="padding-right: 0px;">
+ 						<input type="text" name="phcode" ng-model="data.phcode" class="form-control bai_4 ng-pristine ng-invalid ng-invalid-required ng-touched" style="border-radius: 4px!important;" required=""></div>
+ 					<div class="col-sm-4">
+ 						<input type="button" id="sendcode" modsendcode value="发送验证码" class=" sendcode" placeholder="请输入短信验证码"></div>
+ 					<div class="col-sm-1">
+ 						<!-- <span style="color:red" ng-show="pswForm.phcode.$dirty &amp;&amp; pswForm.phcode.$invalid" class="ng-hide">
+ 							<span ng-show="pswForm.phcode.$error.required">*&nbsp;&nbsp;&nbsp;验证码</span>
+ 						</span> -->
+ 					</div>
+ 				</div>
+ 				<div class="form-group hslblue" style="margin:0px 0px 15px 0px">
+ 					<div class="col-sm-12 ysbtn t_c">
+ 						<button changepsw type="button"  class="btn btn-blue" style="margin-left: 40px">确定</button>
+ 						<button type="button" class="b_2 btn btn-default layui-layer-close">取消</button>
+ 					</div>
+ 				</div>
+ 			</div>
+ 		</div>
+ 	</div>
+ </div>

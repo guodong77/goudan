@@ -1,0 +1,260 @@
+$(function(){
+    //获取表单input的value
+    var companyname = $('.company'),
+     email = $('.email'),
+     phone = $('.phone'),
+     selectOptions = $('.select select')[0],
+     select = $('.select select'),
+     btn = $('.but');
+    //验证总的方法
+    var myRegExp = {
+        // 检查字符串是否为合法手机号码
+        isPhone: function(str) {
+            // var reg = /^(0|86|17951)?(13[0-9]|15[012356789]|18[0-9]|14[57]|17[678])[0-9]{8}$/;
+               var reg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1})|145|147|159|153)+\d{8})$/;
+            if (reg.test(str)) {
+                return true;
+            } else {
+               layer.msg('请输入正确格式的手机号码');
+                return false;
+            }
+        },
+        // 检查字符串是否为合法Email地址
+        isEmail: function(str) {
+            var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+            if (reg.test(str)) {
+                return true;
+            } else {
+                layer.msg('请输入正确格式的Email');
+                return false;
+            }
+        },
+        //检查是否选择下拉邮箱
+       isSelected:function(obj) {
+            if(obj.options[0].selected){
+                layer.msg('请选择下拉邮箱');
+                return false;
+            }else{
+                return true;
+            }
+        },
+        to:function(obj){
+            if(obj.val() != ''){
+                return true;
+            }else{
+                layer.msg('请填入短信接收方的号码');
+                return false;
+            }
+        },
+        text:function(obj){
+            if(obj.val() != ''){
+                return true;
+            }else{
+                layer.msg('请输入要发送的内容');
+                return false;
+            }
+        },
+        sender:function(obj){
+            if(obj.val() != ''){
+                return true;
+            }else{
+                layer.msg('请输入签名');
+                return false;
+            }
+        },
+        startTime:function(starttime){
+            if(starttime == ''){
+                layer.msg('请输入查询的开始时间');
+                return false;
+            }else{
+                return true;
+            }
+        },
+        endTime:function(endtime){
+            if(endtime == ''){
+                layer.msg('请输入查询的结束时间');
+                return false;
+            }else{
+                return true;
+            }
+        },
+        compare:function(first,second){
+            if(first > second){
+                layer.msg('开始日期必须小于结束日期');
+                return false;
+            }else{
+                return true;
+            }
+        }
+    }
+    btn.click(function(){
+        //全部为真
+        var check = myRegExp.isEmail(email.val()) && myRegExp.isPhone(phone.val()) && myRegExp.isSelected(selectOptions);
+        if(check){
+            $.ajax({
+                type: "post",
+                async: true,
+                data: {
+                    "email":select.val(),
+                    "companyname":companyname.val(),
+                    "companyemail": email.val(),
+                    "telphone":phone.val()
+                },
+                url: 'index.php/portal/index/send_email',
+                success: function(data) {
+                     layer.msg(data.msg);
+                }
+            });
+        }
+    })
+
+
+    //控制禁止属性
+    var selectON = $('#gwt-uid-23'),
+        selectOFF = $('#gwt-uid-22'),
+        selectStatus = $('#senderNumericListBox');
+        selectON.click(function(){
+            selectStatus[0].attributes.removeNamedItem('disabled');
+            // aBtn.attr('style','display:inline-block')
+        });
+        selectOFF.click(function(){
+            var dis=document.createAttribute('disabled');
+            selectStatus[0].attributes.setNamedItem(dis);
+            // aBtn.attr('style','display:none');
+        })
+
+    //表格排序
+    var tab = $('.sort');
+        tab.tablesort();
+
+    //发短信
+    var to = $('.to'),
+        sender = $('.sender'),
+        text = $('.text'),
+        commit = $('.commit');
+    commit.click(function(){
+        //全部为真
+        var checkall = myRegExp.to(to) && myRegExp.sender(sender) && myRegExp.text(text);
+        if(checkall){
+            $.ajax({
+                type: "post",
+                async: true,
+                data: {
+                    "to":to.val(),
+                    "sender":sender.val(),
+                    "text": text.val()
+                },
+                url: '/user/index/try_send_msg',
+                success: function(data) {
+                    layer.msg('发送成功');
+                }
+            });
+        }
+    })
+
+    //展示信息的公共函数的封装，异步回调函数
+    function callBack(res){
+        if(res.data.datalist.length < 1){
+            msRa.css('display','block')
+        } else{
+            len = res.data.datalist.length;
+            res.data.datalist.map((item) => {
+                tr = document.createElement('tr');
+            msBody.appendChild(tr);
+            msTh.map((text) => {
+                td = document.createElement('td');
+/*            sw(text,apiArr,item);*/
+            switch(text){
+                case 0 : td.innerText = item.id; break;
+                case 1 : td.innerText = item.messageid; break;
+                case 2 : td.innerText = item.to; break;
+                case 3 : td.innerText  = item.price; break;
+                case 4 : td.innerText = new Date(parseInt(item.send_time) * 1000).toLocaleString().replace(/:\d{1,2}$/,' '); break;
+                case 5 : td.innerText = new Date(parseInt(item.create_time) * 1000).toLocaleString().replace(/:\d{1,2}$/,' '); break;
+            }
+            tr.appendChild(td);
+        })
+        })
+            msRa.css('display','none')
+        }
+    }
+
+
+
+    //获取api短信记录并显示,以下用var来定义函数会在文件加载时渲染完毕，所以当callBack函数声明的时候就存在这些变量了，即便是callBack声明在这些变量之前
+    var start = $('.start-time'),
+        end = $('.end-time'),
+        apiRefresh = $('.api-refresh'),
+        msRa = $('.ms-ra'),
+        msBody = $('.ms-body')[0],
+        msTh = $('.ms-head tr th'),
+        startOld = start.val(),
+        endOld = end.val();
+    apiRefresh.click(function(){
+        msBody.innerHTML = '';
+        //判断是否输入查询开始和结束时间
+        var allRing = myRegExp.startTime(start.val()) && myRegExp.endTime(end.val()) && myRegExp.compare(start.val(),end.val());
+        if(allRing){
+            $.ajax({
+                type: "post",
+                async: true,
+                data: {
+                    "starttime":start.val(),
+                    "endtime":end.val()
+                },
+                url: '/user/index/get_msgRecord',
+                success: function(res) {
+                    callBack(res);
+                }
+            });
+        }
+
+    });
+    //获取使用短信记录并显示
+    var smsRefresh = $('.sms-refresh'),
+         sms = $('.sms'),
+         smsBody = $('.sms-body')[0],
+         smsTh = $('.sms-head tr th');
+    smsRefresh.click(function(){
+        smsBody.innerHTML = '';//先全部清空 然后重新加载 这里省去好多判断
+        $.ajax({
+            type: "post",
+            async: true,
+            url: '/user/index/get_try_msgRecord',
+            success: function(res) {
+                if(res.data.datalist.length < 1){
+                   sms.css('display','block');
+                }else{
+                    len = res.data.datalist.length;
+                    res.data.datalist.map((item) => {
+                        tr = document.createElement('tr');
+                    smsBody.appendChild(tr);
+                    smsTh.map((text) => {
+                        td = document.createElement('td');
+
+                    switch(text){
+                        case 0 : td.innerText = item.id; break;
+                        case 1 : td.innerText = item.content; break;
+                        case 2 : td.innerText = item.messageid; break;
+                        case 3 : td.innerText  = item.price; break;
+                        case 4 : td.innerText = item.to; break;
+                        case 5 : td.innerText = new Date(parseInt(item.send_time) * 1000).toLocaleString().replace(/:\d{1,2}$/,' '); break;
+                        case 6 : td.innerText = new Date(parseInt(item.create_time) * 1000).toLocaleString().replace(/:\d{1,2}$/,' '); break;
+                    }
+                    tr.appendChild(td);
+                })
+                })
+                    sms.css('display','none');
+                }
+                layer.msg(res.msg);
+            }
+        });
+    })
+
+    //首页我的产品下的图片
+    var pic = $('.index-pic li .pic');
+    for(var i = 0;i < pic.length;i++){
+        this_index = i + 1;
+        pic[i].src = pic[i].src + this_index + ".jpg";
+    }
+})

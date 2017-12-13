@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>恒信达</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <include file="public@head"/>
+</head>
+<body>
+
+<header class="m-hd paging-hd">
+    <section class="am-show-md-up">
+        <div class="top-nav">
+            <a href="index.html" rel="nofollow" class="m-logo"><img src="__TMPL__/portal/images/logo2.png"/></a>
+            <include file="public@nav"/>
+	                                                                                        
+	
+    <nav data-am-widget="header" class="am-header am-show-sm-only">
+      <div class="am-header-left am-header-nav">
+        <a href="/" rel="nofollow">
+          <i class="am-header-icon am-icon-home"></i> 首页
+        </a>
+      </div>
+      <h1 class="am-header-title">
+        <a href="/" rel="nofollow">恒信达</a>
+      </h1>
+      <div class="am-header-right am-header-nav">
+        <a href="#right-link" class="" data-am-offcanvas="{target: '#r-nav'}">
+          <i class="am-header-icon am-icon-bars"></i> 菜单
+        </a>
+      </div>
+    </nav>
+
+    <!-- 侧边栏内容 -->
+    <include file="public@sider"/>
+ 
+    </div>                                                                                        
+</header>    
+
+
+
+<div class="common-ad">
+<div class="box">
+   <dl>
+      <dt>{$category.name}</dt>
+	  <dd>{$category.description}</dd>
+   </dl>
+</div>
+<img src="__TMPL__/portal/images/banner-s2.jpg"/>
+</div>
+
+<div class="main-box">
+   <div class="breadcrumb"><a href="javascript:;">首页</a>   /   <a href="#">{$category.name}</a></div>
+   <div class="d-box">
+       <div class="d-left">
+           <dl class="title"><dt>{$category.name}</dt><dd>{$category.alias} </dd></dl>
+           <ul class="s-nav">
+               <php>
+                   $navId = $category['parent_id'] == 0 || $category['parent_id'] == 3 ? 5 : 7;
+                   $showmap = $category['parent_id'] == 0 || $category['parent_id'] == 3 ? false : true;
+               </php>
+               <navigation nav-id="$navId" root="" id="main-navigation" class="nav navbar-nav navbar-nav-custom" max-level="0">
+                   <navigationMenu root="li" class="menu-item menu-item-level-{$level}">
+                       <a href="{$menu.href|default=''}" target="{$menu.target|default=''}">
+                           {$menu.name|default=''}
+                       </a>
+                   </navigationMenu>
+                   <navigationFolder root="li"
+                                     class="dropdown dropdown-custom dropdown-custom-level-{$level}"
+                                     dropdown="ul"
+                                     dropdown-class="dropdown-menu dropdown-menu-level-{$level}">
+                       <a href="#" class="dropdown-toggle dropdown-toggle-{$level}" data-toggle="dropdown">
+                           {$menu.name|default=''}<span class="caret"></span>
+                       </a>
+                   </navigationFolder>
+               </navigation>
+           </ul>
+       </div>
+     <!--<div class="d-left">-->
+	    <!--<dl class="title"><dt>关于我们</dt><dd>About us </dd></dl>-->
+		<!--<ul class="s-nav">-->
+		  <!--<li><a href="#">公司简介</a></li>-->
+		  <!--<li><a href="#">加入我们</a></li>-->
+		  <!--<li><a href="#">免责声明</a></li>-->
+		  <!--<li class="hover"><a href="#">联系方式</a></li>-->
+		<!--</ul>-->
+	 <!--</div>-->
+
+       <div class="d-right contact-box">
+
+           <dl class="info">
+               <php>
+                   $where=[
+                   'post.create_time'=>['egt',0]
+                   ];
+               </php>
+               <portal:articles item="vo" where="$where" order="post.create_time DESC" page="1"
+                                relation="categories"
+                                categoryIds="$category.id"
+                                returnVarName="articles_data">
+                   <dt>{$vo.post_title}</dt>
+                   <dd><p>{$vo.post_content}</p></dd>
+               </portal:articles>
+           </dl>
+           <switch name="showmap">
+               <case value="true"><div class="map" id="dituContent">
+
+               </div></case>
+               <default />
+           </switch>
+
+       </div>
+
+	 </div>
+	 
+   </div>
+</div>
+
+
+
+
+
+<include file="public@footer"/>
+
+<include file="public@scripts"/>
+
+
+<script>
+    //创建和初始化地图函数：
+    function initMap(){
+        createMap();//创建地图
+        setMapEvent();//设置地图事件
+        addMapControl();//向地图添加控件
+    }
+
+    //创建地图函数：
+    function createMap(){
+        var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
+        var point = new BMap.Point(113.942967,22.561206);//定义一个中心点坐标
+        map.centerAndZoom(point,14);//设定地图的中心点和坐标并将地图显示在地图容器中
+        window.map = map;//将map变量存储在全局
+    }
+
+    //地图事件设置函数：
+    function setMapEvent(){
+        map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
+        map.enableScrollWheelZoom();//启用地图滚轮放大缩小
+        map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
+        map.enableKeyboard();//启用键盘上下左右键移动地图
+    }
+
+    //地图控件添加函数：
+    function addMapControl(){
+        //向地图中添加缩放控件
+        var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+        map.addControl(ctrl_nav);
+    }
+
+
+    initMap();//创建和初始化地图
+</script>
+
+<hook name="before_body_end"/>
+
+</body>
+</html>

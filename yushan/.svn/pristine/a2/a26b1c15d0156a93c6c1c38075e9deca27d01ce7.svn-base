@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>恒信达</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="stylesheet" href="__TMPL__/portal/assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="__TMPL__/portal/style/account.css"/>
+</head>
+<body>
+
+<header class="m-hd">
+    <section class="am-show-md-up">
+        <div class="top-nav">
+
+
+            <nav>
+                <ul class="am-nav am-nav-pills ">
+                    <li class="home"><a href="index.html"></a></li>
+                    <li class="am-active"><a href="#">Messaging</a></li>
+                    <li><a href="#">Utilities & tools</a></li>
+                    <li><a href="#">Reseller</a></li>
+                    <li><a href="#">General</a></li>
+                </ul>
+            </nav>
+
+            <div class="snav"><a class="cc" href="#">Balance: $10.00</a><a href="#">Username</a></div>
+        </div>
+    </section>
+
+
+    <nav data-am-widget="header" class="am-header am-show-sm-only">
+        <div class="am-header-left am-header-nav">
+            <a href="/" rel="nofollow">
+                <i class="am-header-icon am-icon-home"></i> 首页
+            </a>
+        </div>
+        <h1 class="am-header-title">
+            <a href="/" rel="nofollow">恒信达</a>
+        </h1>
+        <div class="am-header-right am-header-nav">
+            <a href="#right-link" class="" data-am-offcanvas="{target: '#r-nav'}">
+                <i class="am-header-icon am-icon-bars"></i> 菜单
+            </a>
+        </div>
+    </nav>
+
+    <!-- 侧边栏内容 -->
+    <div id="r-nav" class="am-offcanvas">
+        <div class="am-offcanvas-bar am-offcanvas-bar-flip">
+            <nav class="am-offcanvas-content">
+                <a href="/" rel="nofollow"><span class="logo"><img src="images/logo2.png"/></span></a>
+                <div class="am-active"><a href="#" rel="nofollow">Messaging</a></div>
+                <div><a href="#" rel="nofollow">Utilities & tools</a></div>
+                <div><a href="#" rel="nofollow">Reseller</a></div>
+                <div><a href="#" rel="nofollow">General</a></div>
+                <div><a href="#" rel="nofollow">Username</a></div>
+            </nav>
+        </div>
+
+    </div>
+</header>
+
+
+<div class="common-ad">
+    <div class="box">
+        <h2>Analytics</h2>
+        <div class="logo"></div>
+    </div>
+</div>
+
+<div class="common-box">
+    <div class="htitle"><span>Type of account: Personal</span> <a class="common-but" href="#">Cancel</a><a
+            class="common-but" href="#">Save</a></div>
+    <div class="main-box">
+        <div class="d-left">
+            <ul class="s-nav">
+                <li class="hover"><a href="#">Account Information</a></li>
+                <li><a href="#">Contact information</a></li>
+            </ul>
+        </div>
+
+        <div class="d-right">
+            <div class="main-form anal">
+                <div class="am-tabs" data-am-tabs="{noSwipe: 1}" id="doc-tab-demo-1">
+                    <ul class="am-tabs-nav am-nav am-nav-tabs">
+                        <li class="am-active"><a href="javascript: void(0)">Dashboard</a></li>
+                        <li><a href="javascript: void(0)">SMS log 48h </a></li>
+                        <li><a href="javascript: void(0)">SMS bulk list </a></li>
+                        <li><a href="javascript: void(0)">Report centre</a></li>
+                    </ul>
+
+                    <div style="overflow: visible" class="am-tabs-bd">
+                        <div class="am-tab-panel am-active">
+                            <form class="am-form-inline" role="form">
+                                <div class="am-form-group">
+                                    <p>from</p>
+                                    <input style="width:150px;" type="text" class="am-form-field start-time"
+                                           placeholder="请选择时间" data-am-datepicker="{theme: 'success'}"/>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <p>to</p>
+                                    <input style="width:150px;" type="text" class="am-form-field end-time"
+                                           placeholder="请选择时间" data-am-datepicker="{theme: 'success'}"/>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <p>Traffic</p>
+                                    <select data-am-selected>
+                                        <option value="a" selected>All</option>
+                                        <option value="b">SMS MT</option>
+                                    </select>
+                                </div>
+                                <div class="am-checkbox">
+                                    <p>Only charged</p>
+                                    <label style="display:inline-block;height:37px;margin-left:20px;">
+                                        <input type="checkbox">
+                                    </label>
+                                </div>
+                                <button style="margin-left:20px;" type="button" class="am-btn am-btn-default api-refresh">Refresh
+                                </button>
+                            </form>
+                            <table style="margin-top:10px;"
+                                   class="am-table am-table-bordered am-table-striped am-table-compact con-ra">
+                                <thead class="ms-head">
+                                <tr>
+                                    <th style="vertical-align: middle;text-align: center">id</th>
+                                    <th style="vertical-align: middle;text-align: center">messageid</th>
+                                    <th style="vertical-align: middle;text-align: center">to</th>
+                                    <th style="vertical-align: middle;text-align: center">price</th>
+                                    <th style="vertical-align: middle;text-align: center">send_time</th>
+                                    <th style="vertical-align: middle;text-align: center">create_time</th>
+                                </tr>
+                                </thead>
+                                <tbody class="ms-body">
+                                </tbody>
+                            </table>
+                            <div class="am-alert con-ra ms-ra">
+                                No data to show
+                            </div>
+                        </div>
+                        <div class="am-tab-panel">
+                            <div class="am-alert am-alert-warning con-ra" data-am-alert>To provide the best possible data,
+                                please allow up to 5 mins for data extraction/presentation.
+                            </div>
+                            <form class="am-form-inline" role="form">
+                                <div class="am-form-group">
+                                    <span>Traffic</span>
+                                    <label>
+                                        <input style="width:75px;" type="text">
+                                    </label>
+                                </div>
+                                <div class="am-checkbox" style="height:30px;margin-left:5px;">
+                                    <label>
+                                        <input type="checkbox">
+                                    </label>
+                                    <span>Pending</span>
+                                </div>
+                                <div class="am-checkbox" style="height:30px;">
+                                    <label>
+                                        <input type="checkbox">
+                                    </label>
+                                    <span>Delivered</span>
+                                </div>
+                                <div class="am-checkbox" style="height:30px;">
+                                    <label>
+                                        <input type="checkbox">
+                                    </label>
+                                    <span>Failed</span>
+                                </div>
+                                <div class="am-checkbox" style="height:30px;">
+                                    <label>
+                                        <input type="checkbox">
+                                    </label>
+                                    <span>Submitted</span>
+                                </div>
+                                <div class="am-form-group" style="margin-left:10px;">
+                                    <span>External message id</span>
+                                    <label>
+                                        <input style="width:75px;" type="text">
+                                    </label>
+                                </div>
+                                <button type="button" class="am-btn am-btn-warning con-ra sms-refresh">Refresh</button>
+                            </form>
+                            <form class="am-form-inline" role="form">
+                                <div class="am-form-group">
+                                    <span>Export to:</span>
+                                    <button type="button" class="am-btn am-btn-default">Excel</button>
+                                    <button type="button" class="am-btn am-btn-default">CSV</button>
+                                </div>
+                                <div class="am-checkbox" style="height:30px;margin-left:5px;">
+                                    <label>
+                                        <input type="checkbox">
+                                    </label>
+                                    <span>Submitted</span>
+                                </div>
+                            </form>
+                            <table style="margin-top:10px;" class="am-table am-table-bordered am-table-striped am-table-compact con-ra">
+                                <thead class="sms-head">
+                                <tr>
+                                    <th style="vertical-align: middle;text-align: center">id</th>
+                                    <th style="vertical-align: middle;text-align: center">content</th>
+                                    <th style="vertical-align: middle;text-align: center">message id</th>
+                                    <th style="vertical-align: middle;text-align: center">price </th>
+                                    <th style="vertical-align: middle;text-align: center">to</th>
+                                    <th style="vertical-align: middle;text-align: center">create time</th>
+                                    <th style="vertical-align: middle;text-align: center">send time</th>
+                                </tr>
+                                </thead>
+                                <tbody class="sms-body">
+
+                                </tbody>
+                            </table>
+                            <div class="am-alert con-ra sms">
+                                No data to show
+                            </div>
+                            <button type="button" class="am-btn am-btn-default con-ra">⌂</button>
+                            <button type="button" class="am-btn am-btn-default con-ra">▶</button>
+                        </div>
+                        <div class="am-tab-panel">
+                            <div class="con">
+                                <form class="am-form-inline" role="form">
+                                    <div class="am-form-group">
+                                        <select data-am-selected>
+                                            <option value="a" selected>Uploaded at</option>
+                                            <option value="b">Scheduled for</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="am-form-group">
+                                        <span>from</span>
+                                        <input style="width:150px;" type="text" class="am-form-field"
+                                               placeholder="2017-11-17" data-am-datepicker="{theme: 'success'}"/>
+                                    </div>
+
+                                    <div class="am-form-group">
+                                        <span>to</span>
+                                        <input style="width:150px;" type="text" class="am-form-field"
+                                               placeholder="2017-11-17" data-am-datepicker="{theme: 'success'}"/>
+                                    </div>
+                                    <button type="button" class="am-btn am-btn-warning con-ra">Refresh</button>
+                                </form>
+                                <form class="am-form-inline" role="form" style="margin-top:10px;">
+                                    <span>Show:</span>
+                                    <div class="am-checkbox ml_7" style="height:30px;margin-left:5px;">
+                                        <label>
+                                            <input type="checkbox">
+                                        </label>
+                                        <span>Pending</span>
+                                    </div>
+                                    <div class="am-checkbox ml_7" style="height:30px;">
+                                        <label>
+                                            <input type="checkbox">
+                                        </label>
+                                        <span>In process</span>
+                                    </div>
+                                    <div class="am-checkbox ml_7" style="height:30px;">
+                                        <label>
+                                            <input type="checkbox">
+                                        </label>
+                                        <span>Canceled</span>
+                                    </div>
+                                    <div class="am-checkbox ml_7" style="height:30px;">
+                                        <label>
+                                            <input type="checkbox">
+                                        </label>
+                                        <span>Failed</span>
+                                    </div>
+                                    <div class="am-checkbox ml_7" style="height:30px;">
+                                        <label>
+                                            <input type="checkbox">
+                                        </label>
+                                        <span>Paused</span>
+                                    </div>
+                                    <div class="am-checkbox ml_7" style="height:30px;">
+                                        <label>
+                                            <input type="checkbox">
+                                        </label>
+                                        <span>Finished</span>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <table style="margin-top:10px;" class="am-table am-table-bordered am-table-striped am-table-compact con-ra">
+                                <thead>
+                                <tr>
+                                    <th style="vertical-align: middle;text-align: center">Pending</th>
+                                    <th style="vertical-align: middle;text-align: center">In process</th>
+                                    <th style="vertical-align: middle;text-align: center">Delivery speed limit</th>
+                                    <th style="vertical-align: middle;text-align: center">Delivery time window</th>
+                                    <th style="vertical-align: middle;text-align: center">Description</th>
+                                    <th style="vertical-align: middle;text-align: center">Send count</th>
+                                    <th style="vertical-align: middle;text-align: center">Status</th>
+                                    <th style="vertical-align: middle;text-align: center">Download summary</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="am-alert con-ra">
+                                No data to show
+                            </div>
+                        </div>
+                        <div class="am-tab-panel">
+                            <div class="am-alert con-ra">
+                                To create a report choose traffic type, set start and end dates, add filters and toggle additional options. Note that reports with more data take longer to create. Enter your email address to recieve a notification once a report is ready to download.
+                            </div>
+                            <div class="con">
+                                <form class="am-form-inline" role="form" style="margin-top:10px;">
+                                    <span class="w_65">Report on:</span>
+                                    <div class="am-checkbox ml_7" style="height:30px;margin-left:5px;">
+                                        <label>
+                                            <input type="checkbox">
+                                        </label>
+                                        <span>Show hierarchy expenses</span>
+                                    </div>
+                                    <div class="ml_98">
+                                        <div class="am-checkbox ml_7" style="height:30px;margin-left:5px;">
+                                            <label>
+                                                <input type="checkbox">
+                                            </label>
+                                            <span>Split report into records files of up to 64k (old-Excel friendly)</span>
+                                        </div>
+                                        <div class="am-checkbox ml_7" style="height:30px;margin-left:5px;">
+                                            <label>
+                                                <input type="checkbox">
+                                            </label>
+                                            <span>Exclude new lines from message text</span>
+                                        </div>
+                                    </div>
+                                </form>
+                                <form class="am-form-inline" role="form" style="margin-top:10px;">
+                                    <span class="w_65">Traffic type:</span>
+                                    <div class="am-form-group">
+                                        <select data-am-selected>
+                                            <option value="a" selected>SMS</option>
+                                            <option value="b">Number Context</option>
+                                        </select>
+                                    </div>
+                                </form>
+                                <form class="am-form-inline" role="form" style="margin-top:10px;">
+
+                                    <div class="am-form-group">
+                                        <span class="w_65">Date from:</span>
+                                        <input style="width:150px;" type="text" class="am-form-field"
+                                               placeholder="2017-11-17" data-am-datepicker="{theme: 'success'}"/>
+                                    </div>
+                                    <input type="text" class="textBox in-con">
+                                    <div class="am-form-group">
+                                        <i class="fa fa-chevron-up"></i>
+                                        <i class="fa fa-chevron-down"></i>
+                                    </div>
+                                    <input type="text" class="textBox in-con">
+                                    <div class="am-form-group am-form-icon">
+                                        <i class="fa fa-chevron-up"></i>
+                                        <i class="fa fa-chevron-down"></i>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <span>Date To:</span>
+                                        <input style="width:150px;" type="text" class="am-form-field"
+                                               placeholder="2017-11-17" data-am-datepicker="{theme: 'success'}"/>
+                                    </div>
+                                    <input type="text" class="textBox in-con">
+                                    <div class="am-form-group am-form-icon">
+                                        <i class="fa fa-chevron-up"></i>
+                                        <i class="fa fa-chevron-down"></i>
+                                    </div>
+                                    <input type="text" class="textBox in-con">
+                                    <div class="am-form-group">
+                                        <i class="fa fa-chevron-up"></i>
+                                        <i class="fa fa-chevron-down"></i>
+                                    </div>
+                                    <div class="time-zone">
+                                        <select data-am-selected>
+                                            <option value="a" selected>SMS</option>
+                                            <option value="b">Number Context</option>
+                                        </select>
+                                    </div>
+                                </form>
+                                <form class="am-form-inline" role="form" style="margin-top:10px;">
+
+                                    <div class="am-form-group">
+                                        <span class="w_65">Recipient filter:</span>
+                                        <input class="h_37 pl_10" type="text">
+                                    </div>
+                                </form>
+                                <form class="am-form-inline" role="form" style="margin-top:10px;">
+
+                                    <div class="am-form-group">
+                                        <span class="w_65">Sender filter:</span>
+                                        <input class="h_37 pl_10" type="text">
+                                    </div>
+                                </form>
+
+                                <form class="am-form-inline" role="form" style="margin-top:10px;">
+                                    <span class="w_65">Include in report:</span>
+                                    <form class="am-form-inline" role="form" style="margin-top:10px;">
+                                        <div class="am-checkbox ml_7" style="height:30px;margin-left:5px;">
+                                            <label>
+                                                <input type="checkbox">
+                                            </label>
+                                            <span>Client name</span>
+                                        </div>
+                                        <div class="am-checkbox ml_7" style="height:30px;margin-left:5px;">
+                                            <label>
+                                                <input type="checkbox">
+                                            </label>
+                                            <span>Country name</span>
+                                        </div>
+                                        <div class="am-checkbox ml_7" style="height:30px;margin-left:5px;">
+                                            <label>
+                                                <input type="checkbox">
+                                            </label>
+                                            <span>Country prefix</span>
+                                        </div>
+                                        <div class="am-checkbox ml_7" style="height:30px;margin-left:5px;">
+                                            <label>
+                                                <input type="checkbox">
+                                            </label>
+                                            <span>Network name</span>
+                                        </div>
+                                        <div class="am-checkbox ml_7" style="height:30px;margin-left:5px;">
+                                            <label>
+                                                <input type="checkbox">
+                                            </label>
+                                            <span>Status</span>
+                                        </div>
+                                        <div class="am-checkbox ml_7" style="height:30px;margin-left:128px;">
+                                            <label>
+                                                <input type="checkbox">
+                                            </label>
+                                            <span>Recipient</span>
+                                        </div>
+                                        <div class="am-checkbox ml_7" style="height:30px;margin-left:5px;">
+                                            <label>
+                                                <input type="checkbox">
+                                            </label>
+                                            <span>Sender</span>
+                                        </div>
+                                        <div class="am-checkbox ml_7" style="height:30px;margin-left:5px;">
+                                            <label>
+                                                <input type="checkbox">
+                                            </label>
+                                            <span>Total price</span>
+                                        </div>
+                                        <div class="am-checkbox ml_7" style="height:30px;margin-left:5px;">
+                                            <label>
+                                                <input type="checkbox">
+                                            </label>
+                                            <span>Message text</span>
+                                        </div>
+                                    </form>
+
+                                </form>
+
+                                <form class="am-form-inline" role="form" style="margin-top:10px;">
+
+                                    <div class="am-form-group">
+                                        <span class="w_65">Notify by e-mail:</span>
+                                        <input class="h_37 pl_10" type="text">
+                                    </div>
+                                </form>
+                            </div>
+                            <button type="button" class="am-btn am-btn-default con-ra mt_10">Refresh</button>
+                            <table style="margin-top:10px;" class="am-table am-table-bordered am-table-striped am-table-compact con-ra sort">
+                                <thead>
+                                <tr>
+                                    <th style="vertical-align: middle;text-align: center">Traffic type</th>
+                                    <th style="vertical-align: middle;text-align: center">Submitted via</th>
+                                    <th style="vertical-align: middle;text-align: center">From</th>
+                                    <th style="vertical-align: middle;text-align: center">To</th>
+                                    <th style="vertical-align: middle;text-align: center">Requested</th>
+                                    <th style="vertical-align: middle;text-align: center">Time zone</th>
+                                    <th style="vertical-align: middle;text-align: center">Status</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="am-alert con-ra">
+                                No data to show
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div class="but-box">
+                    <a class="common-but" href="#">Cancel</a> <input class="common-but" type="submit" value="Save"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer class="footer">
+
+    <div class="txtall">
+        <div class="tbox">
+            <div class="fleft"><i>优秀的短信服务商</i></div>
+            <div class="fright"> Copyright  2007-2017 HXDSMS, All Rights Reserved.</div>
+        </div>
+    </div>
+
+</footer>
+
+
+<include file="public@scripts"/>
+
+<hook name="before_body_end"/>
+
+
+</body>
+</html>

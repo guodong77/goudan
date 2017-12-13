@@ -1,0 +1,229 @@
+  <div ng-controller="zl_ctrl" id="printtable" class="alltablecss">
+
+    <table style="width: 640px;height: 960px;margin-left: 60px;margin-top: 35px;">
+      <tbody>
+        <tr  ng-repeat="(key, value) in Sdata"><!-- ng-repeat="(key, value) in Sdata" -->
+          <td>
+            <!-- 资料头部 -->  
+            <div class="zltitle" style="height: 80px;">
+              <table width="100%">
+                <tbody>
+                  <tr>
+                    <td>
+                      <table class="ma_0 w_p100 mt_15">
+                        <tr>
+                          <td align="center">
+                            <div class="tc lh32">
+                              <span class="htitle">工程材料、构配件、设备报审表</span>
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
+
+                      <div  class="tc ">
+                        <span class="ftitle"></span>
+                      </div>
+
+                      <div class="bianhao mt_10" style="margin-right: 20px;">
+                        <span>GD220209</span>
+                        <input class="lip">  
+                        <input class="lip"></div>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- 资料表格 -->  
+            <div class="zlcontent" style="height: 880px;border: 1px solid #000;">
+
+              <!-- 内容头部 -->  
+              <table class="zlhead w_p100" width="100%" height="42">
+
+                <tr>
+                  <td width="165" height="42" class="pl12">单位(子单位)工程名称</td>
+                  <td colspan="">
+                    <div class="divl3" contenteditable="true" divb="0"  ng-bind="value.b[0]"></div>
+                  </td>
+                </tr>
+
+              </table>
+              <!-- 内容中间 -->  
+              <table class="zlcont w_p100 "  height="372">
+                <tbody class="bline">
+
+                  <tr >
+                    <td class=" " >
+                      <table width="100%" class="noborder" >
+                        <tr>
+                          <td class=" pt_10 pl5" height="40" align="right">致</td>
+                          <td  width="470">
+                         <div class="divl3 bd_1" contenteditable="true" divb="1"  ng-bind="value.b[1]" style="height: 25px;padding-top: 8px;"></div>
+                          </td>
+                          <td style="padding-top: 6px;">（项目监理机构）：</td>
+                        </tr>
+                      </table>
+                      <table class="noborder">
+                        <tr>
+                          <td class="pl_45 pt_10"> 我方于
+                        <input type="text" class="ip_1 "  divb="2"  value="{{value.b[2]}}"  style="width:70px; text-align: center;height: 30x;border-bottom: 1px solid #000;color: #000;">  
+                        年
+                        <input type="text" class="ip_1 "  divb="3"  value="{{value.b[3]}}" style="width:50px; text-align: center;height: 30x;border-bottom: 1px solid #000;color: #000;">  
+                        月
+                        <input type="text" class="ip_1 "  divb="4"  value="{{value.b[4]}}" style="width:50px; text-align: center;height: 30x;border-bottom: 1px solid #000;color: #000;">日进场的工程材料/构配件/设备数量如下(见附件)。现</td>
+
+
+
+                        </tr> 
+                      </table>
+                      <table class="noborder">
+                        <tr>
+                          <td class="pl_10 pt_25">将质量证明文件及结果报上，拟用于下述部位：
+                          <input type="text" class="ip_1 tl" divb="5"  value="{{value.b[5]}}" style="width:310px;height: 20px;border-bottom: 1px solid #000;color: #000;">。
+                          </td>
+                        </tr>
+                      </table>
+
+                      <table class="noborder">
+                      <tr>
+                        <td>
+                          <div class="pl_30 pt_50">
+                            <div class="lh25">请予以审核。</div>
+                            <div class="lh25">附件:1、数量清单(包括名称、来源和产地、用途、规格)。</div>
+                            <div class="pl_30 lh25">2、出厂质量证明文件</div>
+                          </div>
+                        </td>
+                      </tr>
+                        
+                      </table>
+
+
+                      <table class="noborder mb_10 mt_25" width="100%" >
+                            <tr>
+                            <td class="tr pr_60" colspan="2" height="25">项目经理部(项目章)</td>
+                          </tr>
+
+                            <tr>
+                              <td align="right" height="35">项目负责人：</td>
+                              <td width="220"><input type="text" class="ip_duan " value="" style="width: 200px;border-bottom: 1px solid #000;height: 35px;"></td>
+                            </tr>
+                            <tr>
+                              <td align="right" height="35" ><span class="pr_40">日</span><span class="">期：</span></td>
+                              <td align="center" >
+                              <div class="lh_30 mr_20" style=" border-bottom: 1px solid #000;width: 200px;"> <span >年</span><span class="pl_20">月</span><span class="pl_20">日</span></div>
+                               </td>
+                            </tr>
+                          </table>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+
+              <!-- 内容底部 1-->  
+
+              <table class="zlcont w_p100" height="225">
+                <tbody class="bline">
+                  <tr>
+                    <td height="30" style="border-bottom: 0px;">
+                      <span class="pl_10 " >进场前审查意见：</span>
+
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td height="69" class=" " style="border-bottom: 0px;border-top: 0px;">
+                      <div class="divl3 mh_50" contenteditable="true" divb="6"  ng-bind="value.b[6]"></div>
+                    </td>
+                  </tr>
+                  <tr>
+                  <td style="border-top: 0px;">
+                     <table class="noborder mb_10 mt_20" width="100%" >
+                            <tr>
+                            <td class="tr pr_60" colspan="2" height="25">项目监理机构(项目章)</td>
+                          </tr>
+
+                            <tr>
+                              <td align="right" height="35">专业监理工程师/总监代表：</td>
+                              <td width="220"><input type="text" class="ip_duan " value="" style="width: 200px;border-bottom: 1px solid #000;height: 35px;"></td>
+                            </tr>
+                            <tr>
+                              <td align="right" height="35" ><span class="pr_40">日</span><span class="">期：</span></td>
+                              <td align="center" >
+                              <div class="lh_30 mr_20" style=" border-bottom: 1px solid #000;width: 200px;"> <span >年</span><span class="pl_20">月</span><span class="pl_20">日</span></div>
+                               </td>
+                            </tr>
+                          </table>
+                          </td>
+                  </tr>
+
+                
+
+              </tbody>
+            </table>
+
+       <!-- 内容底部 2-->  
+
+              <table class="zlcont w_p100"  height="243">
+                <tbody class="bline">
+                  <tr>
+                    <td height="30" style="border-bottom: 0px;">
+                      <span class="pl_10 " >使用前审查意见：</span>
+
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td height="63" class=" " style="border-bottom: 0px;border-top: 0px;">
+                      <div class="divl3 mh_50" contenteditable="true" divb="7"  ng-bind="value.b[7]" ></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td  style="border-top: 0px;">
+                      <table class="noborder mb_10 mt_20" width="100%" >
+                            <tr>
+                            <td class="tr pr_60" colspan="2" height="25">项目监理机构(项目章)</td>
+                          </tr>
+
+                            <tr>
+                              <td align="right" height="35"> 总/专业监理工程师：</td>
+                              <td width="220"><input type="text" class="ip_duan " value="" style="width: 200px;border-bottom: 1px solid #000;height: 35px;"></td>
+                            </tr>
+                            <tr>
+                              <td align="right" height="35" ><span class="pr_40">日</span><span class="">期：</span></td>
+                              <td align="center" >
+                              <div class="lh_30 mr_20" style=" border-bottom: 1px solid #000;width: 200px;"> <span >年</span><span class="pl_20">月</span><span class="pl_20">日</span></div>
+                               </td>
+                            </tr>
+
+                       
+                          </table>
+                 <div class="pl_10 pb_5">附:承包单位报送的必要复试报告</div>
+                    </td>
+                  </tr>
+
+                
+
+              </tbody>
+            </table>
+
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+  </div>

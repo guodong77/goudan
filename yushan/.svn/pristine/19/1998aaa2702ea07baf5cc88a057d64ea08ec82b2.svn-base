@@ -1,0 +1,101 @@
+
+
+
+
+<!-- 项目统计  -->
+<div class="widget-main biaoge urlbodyh" ng-controller="com_ctrl">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="bg-themeprimary h_10"></div>
+
+        </div>
+    </div>
+    <div class="tabbable">
+        <ul class="nav nav-tabs planmytab">
+            <li class="active">
+                <a >项目统计</a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+        <div class="row mb_10">
+            <div class="col-xs-7"></div>
+            <div class="col-xs-3">
+             <div class="row">
+                <div class="col-sm-6">
+                    <select changepro="operate_pro_listData" key="pid" class="w_p100" >
+                    <option value="0">选择省份</option> 
+                        <option value="{{value.pid}}" ng-repeat="(key, value) in com_province">{{value.province}}</option> 
+                    </select>
+                </div>
+                <div class="col-sm-6">
+                    <select class="w_p100" changecity="operate_pro_listData" key="cityid">
+                    <option value="0">选择城市</option> 
+                        <option  value="{{value.ctid}}" ng-repeat="(key, value) in com_city">{{value.city}}</option> 
+                    </select>
+                </div>
+            </div>               
+            </div>
+            <div class="col-xs-2">
+                <button type="button" comfind="operate_pro_list" class="btn btn-blue">提交</button>
+            </div>
+        </div>
+
+
+            <div id="matter" class="tab-pane in active">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead class="bordered-palegreen">
+                        <tr>
+<!--                             <th width="50" style="padding: 6px;">
+                                <label yscheckall="matterdata" yskey="ycselected">
+                                    <input type="checkbox" class="colored-blue">
+                                    <span class="text"></span>
+                                </label>
+                            </th> -->
+                            <th>序号</th>
+                            <th>所在城市</th>                           
+                            <th>项目名称</th>
+                            <th> 项目所属用户</th>
+                            <th>用户真实姓名</th>  
+                            <th>施工单位</th> 
+                            <th>项目地址</th>  
+                            <th>创建时间</th>
+                        </tr>						
+                    </thead>
+                    <tbody>
+                        <tr align="center" ng-class="{true:'yssel',false:''}[value.ycselected==1]" ng-repeat="(key, value) in operate_pro_list.datalist">
+  <!--                           <td align="center">
+                                <div class="checkbox">
+                                    <label yscheck="ycselected">
+                                        <input type="checkbox" class="colored-blue" ng-checked="value.ycselected==1">
+                                        <span class="text"></span>
+                                    </label>
+                                </div>
+                            </td> -->
+                            <td ng-bind="$index+1"></td>
+                            <td ng-bind="value.city"></td>                           
+                            <td ng-bind="value.prname">  </td> 
+                            
+                            <td ng-bind="value.username"></td> 
+                            <td ng-bind="value.realname"></td>
+
+                            <td ng-bind="value.sgname"></td>
+                            <td ng-bind="value.gcdizhi"></td>  
+
+                            <td >
+                            <span  ng-bind="value.add_time"></span>
+                                
+                            </td>
+                            	
+                           
+                           
+                           
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div id='page' class="t_c mt_10"></div>
+            </div>
+        </div>
+    </div>
+</div>

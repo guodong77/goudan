@@ -1,0 +1,122 @@
+<!--  标准养护 -->
+<div style="height: calc(100vh - 100px)">
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th width="36" style="padding: 6px;">
+                    <label>
+                        <input type="checkbox" comcheckall="program_plan_betonlist" class="colored-blue">
+                        <span class="text"></span>
+                    </label>
+                </th>
+                <th width="50">排序</th>
+                <th width="95">分部</th>
+                <th style="min-width: 150px;">工程部位</th>
+                <th  width="80">强度等级</th>
+                <th  width="60">用量</th>
+                <th  width="100">浇筑日期</th>
+                <th width="100">标养送检日期</th>
+                <th  width="60">龄期</th>
+                <th width="50" >组数</th>
+                <th width="70">是否已送</th>
+                <th  width="170">结果</th>
+                <th  width="150">芯片编号</th>
+                <th  width="150">样品编号</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr  ng-if="value.isdel!=1" ng-class="{true:'yssel',false:''}[value.check==1]" ng-repeat="(key, value) in program_plan_betonlist.datalist|orderBy:'myorder'">
+                <!--  -->
+                <td  align="center">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" class="colored-blue" comcheck="check" ng-checked="value.check==1" name="{{stype}}" value="{{value.codeid}}">
+                            <span class="text"></span>
+                        </label>
+                    </div>
+
+                </td>
+                <td>
+                    <input type="text" comedit="myorder" value="{{value.myorder}}" class="form-control"></td>
+                <td style="position: relative;">
+                    <!-- <select id="e1" style="width:100%;"  comedit="fid">
+                         <option value="{{val.t}}" ng-repeat="(k, val) in ftypelist" ng-selected="value.fid==val.t">{{val.title}}</option>                 
+                    </select> -->
+                    <select>
+                        <option value="1">基础</option>
+                        <option value="2">主体</option>
+                        <option value="3">装修</option>
+                        <option value="4">幕墙</option>
+                        <option value="5">屋面</option>
+                        <option value="6">节能</option>
+                        <option value="7">给排水</option>
+                        <option value="8">电气</option>
+                    </select>
+                </td>
+
+                <td style="position: relative;">
+                    <section style="position: absolute;top: -30px" id="{{'propart'+[key]}}" class="dpn">
+                        <p >sadaasdasdasdasdsd</p> 
+                    </section>
+                    <textarea name="" style="text-align: left;padding: 4px 8px;width: 100%;height: 35px;font-size: 12px" ng-model="value.bybuwei" sjpalnpart="{{program_plan_betonlist.datalist.length}}" partkey="{{key}}"> 
+                    </textarea>
+                    <!-- <input type="text" class="form-control" value="{{value.bybuwei}}"  comedit="bybuwei" style="text-align: left;color:red;font-size: 8px"> -->
+                    
+
+                </td>
+                <td>
+                    <select id="e2"  comedit="byqiangdu" style="width:100%;">
+                      <!--   <option value="0" ng-selected="value.byqiangdu==0"></option> -->
+                        <option value="{{val.t}}" ng-repeat="(k, val) in qdypelist" ng-selected="value.byqiangdu==val.t">{{val.title}}</option>
+                       
+                    </select>
+                </td>
+                <td>
+                    <input type="text" byyledit="byyl" value="{{value.byyl}}"  class="form-control {{yltip}}"></td>
+                <td>
+                    <input type="text" readonly bylaydate="byriqi" value="{{value.byriqi}}" ng-model="value.byriqi" class="form-control {{bytip}}">
+                    
+                    </td>
+                <td>
+                    <input type="text" readonly laydateedit="bytime" value="{{value.bytime}}" ng-model="value.bytime" class="form-control {{bytip}}"></td>
+                <td class="t_c">
+                    <input type="text" readonly value="{{lq(value.byriqi,value.bytime)}}"  class="form-control {{bytip}}"> 
+                </td>
+                <td>
+                    <input type="text"  comedit="byzushu" value="{{value.byzushu}}"  class="form-control {{yltip}}">
+                    </td>
+                <td align="center">
+                    <label class="chkys">
+                        <input class="checkbox-slider slider-icon colored-blue" type="checkbox" checkedit="byys"  emchk="byys" ng-checked="value.byys==1">
+                        <span class="text"></span>
+                    </label>
+
+                </td>
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.bybuwei}}-检测结果" key="byjg" len='{{value.byzushu}}'>
+                 <div ng-repeat="(k, v) in value.byjgarr" ng-bind="v.val"></div> 
+                </td>
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.bybuwei}}-芯片编号" key="xinpian" len='{{value.byzushu}}'>
+                 <div ng-repeat="(k, v) in value.xinpianarr" ng-bind="v.val"></div> 
+                </td>
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.bybuwei}}-样品编号" key="bybh" len='{{value.byzushu}}'>
+                 <div ng-repeat="(k, v) in value.bybharr" ng-bind="v.val"></div> 
+                </td>
+
+
+               <!--  <td>
+                    <textarea class="form-control"  comedit="byjg" ng-bind="value.byjg" style="text-align:left;"></textarea>
+                </td>
+                <td>
+                    <textarea class="form-control" comedit="xinpian" style="text-align:left;" ng-bind="value.byxinpian"></textarea>
+                </td>
+                <td>
+                    <textarea class="form-control" comedit="bybh" style="text-align:left;" ng-bind="value.bybh"></textarea>
+                </td> -->
+
+
+            </tr>
+
+        </tbody>
+    </table>
+</div>

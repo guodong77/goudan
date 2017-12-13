@@ -1,0 +1,169 @@
+<div ng-controller="comctrl">
+<!-- <div class="prname">
+  <span ng-bind="store('prname')"></span>
+</div> -->
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div  style="width: 100%;background: #fff;border-radius: 5px;">
+<div  class="artleft">
+<div class="widget-body" style="width: 400px;overflow-x: auto;padding:10px;background-color: #fff;">
+<div class="fw_b">
+<i class="house"></i>
+<span ng-bind="program_struct_sel.name"></span>
+
+</div>
+  <div id="MyTree2" class="tree tree-plus-minus">
+   <!--  <div class="tree-folder" style="display:block;" ng-repeat="(key, value) in program_struct_sel">
+      <div class="tree-folder-header" arcchange="value"> <i class="fa fa-folder-open"  ></i>
+        <div class="tree-folder-name" showtab="value">
+          <span ng-bind="value.name"></span>
+          <div class="tree-actions"></div>
+        </div>
+      </div>
+      <div class="tree-folder-content"> -->
+
+
+
+        <div class="tree-folder"  style="display:block;" ng-repeat="(key, v1) in program_struct_sel.chl">
+          <div class="tree-folder-header" showtab="v1"> 
+          <i closeopen="v1" class="fa fa-folder{{v1.o}}"></i>
+            <div class="tree-folder-name" >
+              <span ng-bind="v1.name"></span>
+              <div class="tree-actions"></div>
+            </div>
+          </div>
+          <div ng-if="v1.o!=''" class="tree-folder-content">
+            <div ng-if="v2.c==1" class="tree-folder"  style="display:block;" ng-repeat="(key, v2) in v1.chl">
+              <div class="tree-folder-header" showtab="v2">
+                <i closeopen="v2" class="fa fa-folder{{v2.o}}" ng-if="v2.chl.length>0"></i>
+                <i class="fa fa-file-o  ps_a t_7" ng-if="!v2.chl"></i>
+                <div class="tree-folder-name" ng-class="{true:'nowrap',false:''}[!v2.chl]" style="display: inline-block;" >
+                  <span ng-bind="v2.name"></span>
+                  <div class="tree-actions"></div>
+                </div>
+              </div>
+              <div  ng-if="v2.o!=''" class="tree-folder-content">
+                <div class="tree-folder"  ng-if="v3.c==1" style="display:block;" ng-repeat="(key, v3) in v2.chl">
+                  <div class="tree-folder-header" showtab="v3">
+                    <i  closeopen="v3" class="fa fa-folder{{v3.o}}" ></i>
+                    <i class="fa fa-file-o" ng-if="v3.chl.length==0"></i>
+                    <div class="tree-folder-name" >
+                      <span ng-bind="v3.name"></span>
+                      <div class="tree-actions"></div>
+                    </div>
+                  </div>
+                  <div ng-if="v3.o!=''" class="tree-folder-content">
+                    <div class="tree-folder"  ng-if="v4.c==1" style="display:block;" ng-repeat="(key, v4) in v3.chl">
+                      <div class="tree-folder-header" showtab="v4">
+                        <i closeopen="v4" class="fa fa-folder{{v4.o}}" ></i>
+                        <i class="fa fa-file-o" ng-if="v4.chl.length==0"></i>
+                        <div class="tree-folder-name" >
+                          <span ng-bind="v4.name"></span>
+                          <div class="tree-actions"></div>
+                        </div>
+                      </div>
+                      <div ng-if="v4.o!=''" class="tree-folder-content">
+                        <div class="tree-folder"  ng-if="v5.c==1" style="display:block;" ng-repeat="(key, v5) in v4.chl">
+                          <div class="tree-folder-header" showtab="v5">
+                           <!--  <i closeopen="v5" class="fa fa-folder-open"></i>  -->
+                            <i class="fa fa-file-o ps_a t_7"></i>
+                            <div class="tree-folder-name nowrap"  style="display: inline-block;" >
+                              <span title="{{v5.name}}" ng-bind="v5.name"></span>
+                              <div class="tree-actions"></div>
+                            </div>
+                          </div>
+                          <div class="tree-folder-content"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+<!--       </div>
+    </div> -->
+
+
+
+  </div>
+</div>
+
+
+
+</div>
+
+<div id="arttable" class="artright" ng-controller="zlhz_ctrl">
+<div class="h_48">
+<div class="bb_3 h_48">
+<div class="fl pl_12 lh_48 f_16">
+  <span ng-bind="zllistdata.name"></span>
+</div>
+  
+
+<span class="fr mt_6 mr_20">
+   <a  ng-if="has==0" class="btn btn-blue btn-xs stru" saveasuser style="width: 110px;" >保存为用户数据</a>
+   <a href="" ng-if="has>0" class="btn btn-warning btn-xs stru" saveassystem style="width: 110px;" >重置为系统数据</a>
+      <a href="" printtable class="btn btn-primary btn-xs stru">批量打印</a>
+      <a href="" print class="btn btn-primary btn-xs stru">打印预览</a>
+
+
+</span>
+ <!--   <a class="btn btn-blue btn-xs delete"  >添加</a>  -->
+
+  
+</div>
+ </div>
+
+<div ng-include="body.zlurl" scope="zl_ctrl" onload="">
+  
+</div>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+</div>
+</div>
+
+</div>

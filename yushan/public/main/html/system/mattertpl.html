@@ -1,0 +1,78 @@
+<div class="h_p100 of_h pb_74 ps_r biaoge" ng-controller="com_ctrl">
+  <div class="h_34" >
+
+    <a delmore="system_mattertpl_del" from="system_mattertpl_list" class="btn btn-danger btn-xs delete"> <i class="fa fa-trash-o"></i>
+      删除
+    </a>
+    <a comadd="system_mattertpl_list" class="btn btn-blue btn-xs delete">添加</a>
+
+  </div>
+
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="bordered-palegreen">
+      <tr align="center">
+        <th width="50" scope="col" style="padding: 6px;">
+          <label>
+            <input type="checkbox" comcheckall="system_mattertpl_list" class="colored-blue">
+            <span class="text"></span>
+          </label>
+        </th>
+        <th width="8%">排序</th>
+        <th>材料名称</th>
+        <th width="8%">分部</th>
+        <th width="8%">材料类型</th>
+        <th>使用部位</th>
+        <th>型号</th>
+        <th>规格</th>
+        <th>数量</th>
+        <th>强度</th>
+      </tr>
+
+    </thead>
+    <tbody>
+      <tr ng-if="value.isdel!=1"  align="center" ng-repeat="(key, value) in system_mattertpl_list.datalist">
+
+        <td  align="center">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" class="colored-blue" comcheck="check" ng-checked="value.check==1">
+              <span class="text"></span>
+            </label>
+          </div>
+
+        </td>
+        <td width="8%">
+          <input type="text" comedit="morder" value="{{value.morder}}" class="form-control"></td>
+        <td>
+          <input type="text" comedit="mname" value="{{value.mname}}" class="form-control"></td>
+        <td width="8%">
+          <select id="e1" style="width:100%;"  comedit="fid">
+            <option value="{{val.t}}" ng-repeat="(k, val) in ftypelist" ng-selected="value.fid==val.t">{{val.title}}</option>
+          </select>
+        </td>
+        <td width="8%">
+          <select style="width:100%;" comedit="yctype">
+            <option value="{{val.t}}" ng-repeat="(k, val) in yctypelist" ng-selected="value.yctype==val.t">{{val.title}}</option>
+          </select>
+        </td>
+        <td >
+          <input type="text" comedit="buwei" value="{{value.buwei}}" class="form-control"></td>
+        <td>
+          <input type="text" comedit="xinghao" value="{{value.xinghao}}" class="form-control">
+        </td>   
+        <td>
+          <input type="text" comedit="guige" value="{{value.guige}}" class="form-control">
+        </td> 
+        <td>
+          <input type="text" comedit="number" value="{{value.number}}" class="form-control">
+        </td> 
+        <td>
+          <input type="text" comedit="qiangdu" value="{{value.qiangdu}}" class="form-control">
+        </td>                                      
+      </tr>
+    </tbody>
+  </table>
+
+  <div id='page' class="t_c mt_10"></div>
+
+</div>

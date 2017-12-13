@@ -1,0 +1,99 @@
+<div class="h_p100 of_h pb_74 ps_r biaoge " ng-controller="com_ctrl">
+<!-- 查询条件 -->
+<div class="row mb_10">
+    <div class="col-xs-3">
+     <div class="row">
+        <div class="col-sm-6">
+            <select changepro="service_weather_listData" key="pid" class="w_p100" >
+            <option value="0">选择省份</option> 
+                <option value="{{value.pid}}" ng-repeat="(key, value) in com_province">{{value.province}}</option> 
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <select class="w_p100" changecity="service_weather_listData" key="cityid" key2="city">
+            <option value="0" >选择城市</option> 
+                <option value="{{value.ctid}}"  ng-repeat="(key, value) in com_city">{{value.city}}</option> 
+            </select>
+        </div>
+    </div>               
+    </div>
+    <div class="col-xs-7">
+      <div class="row">
+        <div class="col-xs-3">
+          <input type="text" class="form-control" layerdateone="service_weather_listData" key="wdate" placeholder="日期">
+        </div>  
+        <div class="col-xs-3">
+           <input type="text" class="form-control" ng-model="service_weather_listData.htem" placeholder="最高温度">           
+        </div>        
+        <div class="col-xs-3">
+           <input type="text" class="form-control" ng-model="service_weather_listData.ltem" placeholder="最低温度">           
+        </div>  
+        <div class="col-xs-3">
+           <input type="text" class="form-control" ng-model="service_weather_listData.vtem" placeholder="平均温度">           
+        </div>                
+      </div>
+    </div>    
+    <div class="col-xs-2">
+        <button type="button" comfind="service_weather_list" class="btn btn-blue">提交</button>
+    </div>
+</div>
+
+
+<table class="table table-striped table-bordered table-hover">
+                    <thead class="bordered-palegreen">
+                        <tr align="center">   
+                                        <td width="3%" scope="col" style="padding: 6px;">
+                    <label>
+                        <input type="checkbox" comcheckall="service_weather_list" class="colored-blue">
+                        <span class="text"></span>
+                    </label>
+                </td>                       
+			<td height="24" width="3%">序号</td>
+              <td width="8%">城市</td>
+              <td width="8%">日期</td>
+              <td width="8%">最高气温</td>
+              <td width="8%">最低气温</td>
+              <td width="8%">平均</td>	
+              <td width="8%">更新日期</td>		         
+                        </tr>
+
+                    </thead>
+               <tbody>
+              <tr align="center" ng-if="value.isdel!=1" ng-repeat="(key, value) in service_weather_list.datalist"> 
+              <td  align="center">
+                  <div class="checkbox">
+                      <label>
+                          <input type="checkbox" class="colored-blue" comcheck="check" ng-checked="value.check==1">
+                          <span class="text"></span>
+                      </label>
+                  </div>
+
+              </td>              
+              <td height="29" width="3%">{{key+1}}</td>
+              <td width="8%">{{value.city}}</td>
+              <td width="8%">
+                <input type="text" class="form-control" laydateedit="wdate" value="{{value.wdate}}" placeholder="日期" style="border: none;"/>             
+              </td>
+              <td width="8%" >
+                <input value="{{value.htem}}"  comedit='htem' class="form-control b_0" style="border: none;" type="text">
+              </td>
+              <td width="8%" >
+                <input value="{{value.ltem}}"  comedit='ltem' class="form-control b_0" style="border: none;" type="text">
+              </td>
+              <td width="8%" >
+                <input value="{{value.vtem}}"  comedit='vtem' class="form-control b_0" style="border: none;" type="text">
+              </td>  
+              <td width="8%" >
+               <span ng-bind="value.lastupdate"></span>
+              </td>                          
+         	 </tr>
+			</tbody>
+ </table>
+
+                <div id='page' class="t_c mt_10"></div>
+<div class="col-sm-12 ysbtn ">
+       <button type="button" comadd="service_weather_list" ext1="ctid" ext1v="{{service_weather_listData.cityid}}" ext2="city" ext2v="{{service_weather_listData.city}}"class="btn btn-blue">添加</button>
+       <button type="button" delmore="service_weather_del" from="service_weather_list" class="b_2 btn btn-red layui-layer-close">删除</button>
+    </div>
+</div>
+

@@ -1,0 +1,119 @@
+<!--  同条件养护 -->
+<div>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th width="36"  style="padding: 6px;">
+                    <label>
+                        <input type="checkbox" class="colored-blue" checkallbykey="program_plan_betonlist" key="tycheck">
+                        <span class="text"></span>
+                    </label>
+                </th>
+                <!-- <th width="50" >排序</th> -->
+                <th width="95" >分部</th>
+                <th   style="min-width: 150px;" >工程部位</th>
+                <th  width="80" >强度等级</th>
+                <!-- <th  width="100" >累计温度</th> -->
+                <th colspan="2" width="100" >浇筑日期</th>
+                <th colspan="2"  width="100" >同养送检日期</th>
+                <!-- <th  width="60" >龄期</th> -->
+                <th width="50">组数</th>
+                <th width="70">是否已送</th>
+                <th  width="170">结果</th>
+                 <th  width="150">芯片编号</th>
+                <th  width="170">样品编号</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-class="{true:'yssel',false:''}[value.tycheck==1]"  ng-repeat="(key, value) in program_plan_betonlist.datalist|orderBy:'myorder'|planfil:'ty'"   >
+                <!--  -->
+                <td  align="center">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" class="colored-blue" ng-checked="value.tycheck==1" comcheck="tycheck" name="{{stype}}" value="{{value.codeid}}">
+                            <span class="text"></span>
+                        </label>
+                    </div> 
+                </td>
+               <!--  <td>
+                    <input type="text" value="{{value.myorder}}" class="form-control" comedit="myorder"></td>-->
+                <td> 
+                    <select id="e1" style="width:100%;"  comedit="fid">
+                     <option value="{{val.t}}" ng-repeat="(k, val) in ftypelist" ng-selected="value.fid==val.t">{{val.title}}</option> 
+                    </select>
+
+                </td>
+
+                <td >
+                    <input type="text" class="form-control" value="{{value.tyname}}" comedit="tyname"  style="text-align: left;"></td>
+                <td>
+                      <select id="e2"  comedit="byqiangdu" style="width:100%;">
+                     <!--    <option value="0" ng-selected="value.byqiangdu==0"></option> -->
+                        <option value="{{val.t}}" ng-repeat="(k, val) in qdypelist" ng-selected="value.byqiangdu==val.t">{{val.title}}</option>
+                       
+                    </select>
+
+                </td>
+
+                <!-- <td>
+                    <input type="text" value="{{value.tem}}"  class="form-control" comedit="tem"></td>-->
+                <td width="100"> 
+                     <input type="text" bylaydate="byriqi" value="{{value.byriqi}}"  class="form-control {{bytip}}"> </td>
+                     <td align="center" width="50" class="f_12">
+<div ng-if="value.byriqi!=''"> 
+  <div ng-if="value.tyys==0" title="当前龄期" ng-bind="slq(value.byriqi,value.tytime,value.tyys)"> </div> 
+<div ng-if="value.tyys==0" class="br_2 hand dangqian{{tystl(value.wstem,value.tyys)['stl']}}" title="{{tystl(value.wstem)['str']}}"  extname="{{value.bybuwei}}" wenduwin="program_plan_wealist"><span ng-bind="value.wstem"></span>℃</div>
+</div>
+                     <!-- <div ng-if="value.byriqi&&value.tyys==0">
+                          <div class="hand"  ><span ng-bind="dqlq(value.byriqi)"></span>天</div>
+                        
+                     </div> -->
+                       
+                     </td>
+                <td  width="100">
+                    <input type="text" laydateedit="tytime" value="{{value.tytime}}"  class="form-control {{bytip}}">
+                    </td>
+                     <td align="center" width="50"  class="f_12">
+                     <div ng-if="value.tyys==1" title="送检龄期" ng-bind="slq(value.byriqi,value.tytime,value.tyys)"> </div> 
+                     <div ng-if="value.tyys==1" class="br_2 hand dangqian{{tystl(value.ystem,value.tyys)['stl']}}"  extname="{{value.bybuwei}}"  wenduwin="program_plan_wealist" ><span  ng-bind="value.ystem"></span>℃</div>
+                     <!-- <div  ng-if="value.byriqi&&value.tyys==1&&value.tytime">
+                          <div class="hand"><span ng-bind="lq(value.byriqi,value.tytime)"></span>天</div> 
+                        <div class="br_2 hand dangqian{{sumtem(value.ystemarr)['stl']}}"  comwinedit="program_plan_wealist" extendtwo="{{value.byriqi}}"  ng-if="value.ystemarr.length>0" extendone="ystemarr" extname="{{value.bybuwei}}"><span  title="送检累计温度" ng-bind="sumtem(value.ystemarr)['tem']"></span>℃</div>
+                     </div> -->
+                        
+                     </td>
+             <!--    <td>
+                    <input type="text" readonly value="{{lq(value.byriqi,value.tytime)}}"  class="form-control {{bytip}}"> </td> -->
+                <td>
+                    <input type="text" comedit="tyzushu" value="{{value.tyzushu}}"  class="form-control"></td>
+                <td align="center">
+                    <label class="chkys">
+                        <input class="checkbox-slider slider-icon colored-blue" type="checkbox" checkedit="tyys" ng-checked="value.tyys==1">
+                        <span class="text"></span>
+                    </label>
+
+                </td>
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.bybuwei}}-检测结果" key="tyjg" len='{{value.tyzushu}}'>
+                 <div ng-repeat="(k, v) in value.tyjgarr" ng-bind="v.val"></div> 
+                </td> 
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.bybuwei}}-芯片编号" key="tyxinpian" len='{{value.tyzushu}}'>
+                 <div ng-repeat="(k, v) in value.tyxinpianarr" ng-bind="v.val"></div> 
+                </td>
+
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.bybuwei}}-样品编号" key="tybh" len='{{value.tyzushu}}'>
+                 <div ng-repeat="(k, v) in value.tybharr" ng-bind="v.val"></div> 
+                </td>
+                <!-- <td>
+                    <textarea class="form-control" comedit="tybh" style="text-align:left;" ng-bind="value.tybh"></textarea>
+                </td>
+                <td>
+                    <textarea class="form-control" comedit="tyjg" ng-bind="value.tyjg" style="text-align:left;"></textarea>
+                </td> -->
+
+            </tr>
+
+        </tbody>
+    </table>
+    <div id='page2' class="t_c mt_10"></div>
+</div>

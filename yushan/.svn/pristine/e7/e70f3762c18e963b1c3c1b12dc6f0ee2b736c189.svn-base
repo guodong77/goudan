@@ -1,0 +1,29 @@
+<include file="public@header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:url('index')}">本站用户</a></li>
+			<li><a href="{:url('add')}">添加用户</a></li>
+			<li class="active"><a>编辑用户</a></li>
+		</ul>
+		<form method="post" class="form-horizontal js-ajax-form margin-top-20" action="{:url('editPost')}">
+			<div class="form-group">
+				<label for="input-balance" class="col-sm-2 control-label"><span class="form-required">*</span>余额</label>
+				<div class="col-md-6 col-sm-10">
+					<input type="text" class="form-control" id="input-balance" name="balance" value="{$balance}">
+				</div>
+            <div class="col-md-6 col-sm-10">
+                <input type="hidden" name="id" value="{$id}">
+            </div>
+
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary   js-ajax-submit">{:lang("SAVE")}</button>
+            <a class="btn btn-default" href="{:url('index')}">返回</a>
+        </div>
+			</div>
+		</form>
+	</div>
+	<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html    >
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+  <meta content="河狸建筑,河狸建筑工程信息化平台" name="keywords" />
+  <meta content="河狸建筑工程信息化平台，是专门为资料员量身打造的工程管理系统，集成功能：送检计划，
+送检汇总，进度管理，漏送统计及提示，送检异常统计，城市温度采集，同养温度计算及累计，
+形象进度图，横道图，资料打印等功能。手机微信关注河狸建筑，让你随时随地了解现场及送检进度，
+是资料员得力助手，为您提供贴心服务。河狸建筑在手，工程无忧！" name="description" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./css/by.css" />
+  <link rel="stylesheet" href="./css/font.css" />
+  <link rel="stylesheet" href="./css/global.css" />
+  <!-- 引入seajs -->
+  <script src="./YS-frame/seajs/2.2.0/sea.js" ></script>
+  <!-- js配置文件 -->
+  <script>  
+       window.root2 = 'php/';
+       window.root3 = 'php/';  
+      
+      //1、定义基本配置  
+seajs.config({
+  base: '/',  // 设置别名，如果在二级目录这样配置：则base:'/erjimulu/'
+  alias: {
+    //YSframe框架基础 js模块
+    'jquery': 'YS-frame/jquery/jquery/1.10.1/jquery.js',
+    'angularjs':'YS-frame/angular/1.4.6/angular.min.js',  
+    'YS':'YS-frame/YS.js',  
+    //这里加载项目js
+     'global':'/js/global.js'  
+  }
+}); 
+// 3、加载 项目js模块
+seajs.use(['angularjs','jquery','YS','global'],function(){ 
+    seajs.use(['fac','main','conf'],function(){
+      angular.element(document).ready(function() { 
+            angular.module('app',['myfact','main']); 
+            angular.bootstrap(document, ['app']); 
+        });
+    }); 
+}); 
+
+    </script>
+ 
+
+  <style>
+#printtable{
+  padding-bottom:50px;
+}
+  .mt_50{
+    margin-top:50px;
+  }
+  .zltitle{
+    margin-top:50px;
+  }
+</style>
+</head>
+<body ng-controller="hdtworklist_ctrl">
+  <div id="loader" style="display: none;"></div>
+  <div class="ifie8">
+    <div class=mui-global-browser-update id=J_BrowserUpdate data-spm="a2226mw">
+      <span class=mui-global-update-inner>
+        <a title='河狸建筑' class=mui-global-tmall-app-icon href="//www.tmall.com/wow/portal/act/app-download"></a>
+        <span id=J_updateNotice>
+          为了享受更棒的用户体验，建议您使用
+          <a target="_blank" title=360浏览器 href="http://se.360.cn/">360</a>
+          、
+          <a target="_blank" title=360浏览器 href="http://browser.qq.com/">QQ浏览器</a>
+          浏览，或者使用
+          <a target="_blank" title=点击升级浏览器 href="http://www.microsoft.com/zh-cn/windows/windows-10-upgrade" target=_blank>新版本IE浏览器</a>
+        </span>
+      </span>
+    </div>
+  </div>
+
+  <div class="spinner ysspinner">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+  </div>
+
+  <!-- 导航栏 -->
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="navbar-container">
+        <div class="navbar-header pull-left">
+          <a href="#" class="navbar-brand">
+            <small>
+              <img src="images/logo.png" alt="12313" />
+            </small>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!--   右上角按钮 开始-->
+    <div class="ps_tr">
+     <!-- <button type="button" class="btn btn-blue html2png" html2png="{{title}}">生成图片</button>
+       <a id="down_button" type="button" class="btn btn-success" style="display: none;line-height: 28px">下载png</a>  -->
+      <button type="button" class="btn btn-blue" id="btnPrint" >打印预览</button>
+      <button type="button" class="btn btn-danger" closewin>退出</button>
+    </div>
+    <div class="cl"></div>
+    <!--   右上角按钮 结束--> </div>
+  <!-- 导航栏 结束-->
+
+  <!-- 内容 开始 -->
+  <div >
+  <div class="h_p100" id="printContent" style=" padding-top: 50px;text-align:center;">
+      <svg id="svg"  width="{{svgw}}" height="{{svgh}}" style="background: #eeeeee;" version="1.1" xmlns="http://www.w3.org/2000/svg" style='font-size:12px;'>
+        <!-- 1、画两个方框,总框、图框 -->
+        <g>
+          <!--  <rect x="1" y="1" width="{{svgw-2}}" height="{{svgh-2}}" stroke="#ccc" stroke-width="1" fill="none"></rect>
+        -->
+        <!-- <rect x="100" y="100" width="{{tablew}}" height="{{tableh}}" stroke="#000" stroke-width="1" fill="none"></rect>
+      -->
+    </g>
+    <!-- 2、标题分组 分组 -->
+    <g>
+      <text x="{{svgw/2}}" y="40" text-anchor="middle" style="font-size:30px;margin-top: 20px;">
+        <tspan>{{title}}</tspan>
+      </text>
+      <text x="100" y="90" text-anchor="start"  style="font-size:20px;">
+        <tspan>{{danwei}}</tspan>
+      </text>
+      <text x="{{svgw/2}}" y="90" text-anchor="middle"  style="font-size:20px;">
+        <tspan>{{ftitle}}</tspan>
+      </text>
+      <text x="{{tablew+100}}" y="96"  text-anchor="end"  text-anchor="left"  style="font-size:14px;">
+        <tspan>{{crtime}}</tspan>
+      </text>
+    </g>
+
+    <!-- 3、6条竖线一组 -->
+    <g>
+      <path fill="none" d="M 100.5 100 l 0 {{tableh}}" stroke="#000" stroke-width="1" opacity="1"></path>
+      <path fill="none" d="M 134.5 100 l 0 {{tableh}}" stroke="#000" stroke-width="1" opacity="1"></path>
+      <path fill="none" d="M {{134+titlew}}.5 100 l 0 {{tableh}}" stroke="#000" stroke-width="1" opacity="1"></path>
+      <path fill="none" d="M {{244+titlew}}.5 100 l 0 {{tableh}}" stroke="#000" stroke-width="1" opacity="1"></path>
+      <path fill="none" d="M {{354+titlew}}.5 100 l 0 {{tableh}}" stroke="#000" stroke-width="1" opacity="1"></path>
+      <path fill="none" d="M {{388+titlew}}.5 100 l 0 {{tableh}}" stroke="#000" stroke-width="1" opacity="1"></path>
+
+    </g>
+
+    <!-- 4、2条横线一组 -->
+    <g>
+      <path fill="none" d="M 100 100.5 l {{tablew}} 0" stroke="#000" stroke-width="1" opacity="1"></path>
+      <path fill="none" d="M 100 150.5 l {{tablew}} 0" stroke="#000" stroke-width="1" opacity="1"></path>
+      <path fill="none" d="M {{100+biaotouwidth}} 125.5 l {{tbodyw}} 0" stroke="#000" stroke-width="1" opacity="1"></path>
+      <text x="117" y="131" text-anchor="middle"  style="font-size:14px; font-weight:bold;">
+        <tspan>{{bianhao}}</tspan>
+      </text>
+      <text x="{{134+titlew/2}}" y="131" text-anchor="middle" style="font-size:14px; font-weight:bold;">
+        <tspan>{{renwu}}</tspan>
+      </text>
+      <text x="{{134+titlew+55}}" y="131" text-anchor="middle" style="font-size:14px; font-weight:bold;">
+        <tspan>{{kaishi}}</tspan>
+      </text>
+      <text x="{{134+titlew+110+55}}" y="131" text-anchor="middle" style="font-size:14px; font-weight:bold;">
+        <tspan>{{jieshu}}</tspan>
+      </text>
+      <text x="{{134+titlew+110+110+17}}" y="131" text-anchor="middle" style="font-size:14px; font-weight:bold;">
+        <tspan>{{gongqi}}</tspan>
+      </text>
+      <!--  --> </g>
+
+    <!-- 5、垂直方向重复组 -->
+    <g>
+      <g  ng-repeat="(key,value) in mddata" transform="translate({{120*key}}, 0)">
+        <path fill="none" d="M {{100+biaotouwidth+20}}.5 125 l 0 {{tableh-25}}" stroke="#000" stroke-width="1" opacity="1"></path>
+        <path fill="none" d="M {{100+biaotouwidth+40}}.5 125 l 0 {{tableh-25}}" stroke="#000" stroke-width="1" opacity="1"></path>
+        <path fill="none" d="M {{100+biaotouwidth+60}}.5 125 l 0 {{tableh-25}}" stroke="#000" stroke-width="1" opacity="1"></path>
+        <path fill="none" d="M {{100+biaotouwidth+80}}.5 125 l 0 {{tableh-25}}" stroke="#000" stroke-width="1" opacity="1"></path>
+        <path fill="none" d="M {{100+biaotouwidth+100}}.5 125 l 0 {{tableh-25}}" stroke="#000" stroke-width="1" opacity="1"></path>
+        <path fill="none" d="M {{100+biaotouwidth+120}}.5 100 l 0 {{tableh}}" stroke="#000" stroke-width="1" opacity="1"></path>
+        <text x="{{134+titlew+110+110+34+60}}" y="120" text-anchor="middle"  style="font-size:16px;">
+          <tspan>{{value.title}}</tspan>
+        </text>
+        <text ng-repeat="(k,v) in value.chl" x="{{134+titlew+110+110+34+20*k+10}}" y="144" text-anchor="middle" style="font-size:14px;">
+          <tspan>{{v}}</tspan>
+        </text>
+        <!-- <text x="{{134+titlew+110+110+34+20+10}}" y="144" text-anchor="middle" class="f_14">
+        <tspan>5</tspan>
+      </text>
+      <text x="{{134+titlew+110+110+34+20+20+10}}" y="144" text-anchor="middle" class="f_14">
+        <tspan>5</tspan>
+      </text>
+      -->
+    </g>
+  </g>
+
+  <!-- 5、水平方向重复组 -->
+  <g>
+    <g ng-repeat="(key,value) in data" transform="translate(0, {{key*25}})">
+      <path fill="none" d="M 100 175.5 l {{tablew}} 0" stroke="#000" stroke-width="1" opacity="1"></path>
+      <text x="117" y="170" text-anchor="middle"  style="font-size:14px;">
+        <tspan>{{key+1}}</tspan>
+      </text>
+      <text x="{{140}}" y="170" text-anchor="start" style="font-size:14px;">
+        <tspan>{{value.title}}</tspan>
+      </text>
+      <text x="{{134+titlew+55}}" y="170" text-anchor="middle" style="font-size:14px;">
+        <tspan>{{strtime(value.riqi)}}</tspan>
+      </text>
+      <text x="{{134+titlew+110+55}}" y="170" text-anchor="middle" style="font-size:14px;">
+        <tspan>{{strtime(value.time)}}</tspan>
+      </text>
+      <text x="{{134+titlew+110+110+17}}" y="170" text-anchor="middle" style="font-size:14px;">
+        <tspan>{{jianfa(value.riqi,value.time)}}</tspan>
+      </text>
+
+      <rect x="{{bglen(btime,value.riqi,biaotouwidth)}}.5" y="160.5" width="{{cerlen(value.riqi,value.time)}}" height="6" fill="#434348" rx="0" ry="0" stroke="#FFFFFF" stroke-width="1"></rect>
+    </g>
+
+  </g>
+</svg>
+</div>
+
+</div>
+
+</body>
+</html>

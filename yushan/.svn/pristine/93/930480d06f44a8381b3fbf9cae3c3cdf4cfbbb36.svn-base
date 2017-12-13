@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="">
+	<meta name="discription" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>河狸建筑用户注册</title> 
+<link rel="stylesheet" type="text/css" href="css/weui.min.css"> 
+<link rel="stylesheet" type="text/css" href="css/global.css">
+<style type="text/css" media="screen">
+  .w_p32{
+    width:32%;
+  }
+</style>
+</head>
+<body> 
+ <div id="vM" class="h_p100 loginbj">
+      <div class="pt_1_8em">
+        <div class="weui-cells">
+          <div class="weui-cell overdetail"  >
+            <div class="weui-cell__hd c18_wb" >
+              <label class="weui-label">手机号</label>
+            </div>
+            <div class="weui-cell__bd w_p64">
+               <input v-model="username"  type="text" class="overinpu weui-input" placeholder="请输入手机号"/> 
+            </div>
+          </div>
+          <div class="weui-cell overdetail"  >
+            <div class="weui-cell__hd c18_wb" >
+              <label class="weui-label">密码</label>
+            </div>
+            <div class="weui-cell__bd w_p64">
+               <input v-model="password" type="password"  class="overinpu weui-input" placeholder="请输入密码"/> 
+            </div>
+          </div>
+
+            <div v-cloak class="weui-cell overdetail" id="tuijian" >
+            <div class="weui-cell__hd c18_wb" >
+              <label class="weui-label">推荐码(选填)</label>
+            </div>
+            <div class="weui-cell__bd w_p64">
+               <input v-model="from" type="text"  class="overinpu weui-input" placeholder="推荐码"/> 
+            </div>
+          </div>
+
+       <div  class="weui-cell overdetail" >
+            <div class="weui-cell__hd c18_wb" >
+              <label class="weui-label">图形验证码</label>
+            </div>
+            <div class="weui-cell__bd w_p32">
+                 <input  type="text" v-model="code" class="weui-input" placeholder="验证码"/>
+            </div>
+            <div class="weui-cell__bd w_p32">
+                <img  style="display: inline-block;width: 121px;height: 51px;margin-top: 15px;" id="yzm" alt="" @click="yzm()">
+            </div>
+          </div>
+           <div class="weui-cell overdetail">
+                <div class="weui-cell__hd c18_wb">
+                  <label>验证码</label>
+                </div>
+                <div class="weui-cell__bd ml_1rem mr_05rem">
+                    <input  v-model="phcode" class="weui-input" type="number" placeholder="请输入验证码">
+                </div>
+                <div class="weui-cell__ft" :class="comCss1">
+                  <a class="verificode" href="javascript:;"  @click="getphcode()">获取短信验证码</a>
+                </div>
+                 <div class="weui-cell_ft dpn"  :class="comCss2">        
+                 <a href="javascript:;" class="weui_btn weui_btn_mini weui_btn_default" >{{IntervalTime}}秒后可重新发送</a>
+              </div> 
+            </div>
+        
+
+        <!-- <div class="weui-cells">
+          <div class="weui-cell">
+            <div class="weui-cell__bd weui-cell_primary">
+              <p>已有河狸账号？ </p>
+            </div>
+            <div class="weui-cell_ft">
+             <a href="login.html" title="">直接登录</a>
+            </div>
+          </div>
+        </div> -->
+
+        </div>
+        <div class="page__bd page__bd_spacing mt_20">
+          <a href="javascript:;" class="weui-btn weui-btn_primary bgc_1"  @click="bind()">注册</a>
+        </div>
+       <div class="loginb "> 
+          
+          <a class="dpib" href="login.html">已有河狸账号? 直接登录</a>
+           <!-- <a href="javascript:;" class="weui-tabbar__item" @click="bind()">
+              <p>注册</p>
+          </a> -->
+      </div> 
+    </div>
+  </div> 
+
+ 
+ 
+
+
+</body> 
+ <script src="./js/zepto.min.js"></script> 
+ <script src="./js/vue.js"></script>
+ <script src="../YS-frame/mlayer/2.0/mlayer.js"></script>
+ <script src="./js/md5.js"></script>
+<script>
+
+
+
+ 
+
+
+
+
+
+
+
+   var f = localStorage.getItem('from')?localStorage.getItem('from'):'';
+
+
+ var post = function(da,url,fun){      
+       var re;    
+       $.ajax({        
+        url:url,
+        async:false,
+        type:'POST',
+        data:da,
+        dataType:'json',
+        success:function(re){
+          if(typeof(fun)==="function"){          
+               fun(re);             
+          }},
+        error:function(re){ if(typeof(fun)==="function"){fun(re);}}
+       }); 
+    }
+
+  var get=function(da,url,fun){      
+     var re;    
+     $.ajax({
+      url:url,
+      async:false,
+      type:'GET',
+      data:da,
+      dataType:'json',
+      success:function(re){
+        if(typeof(fun)==="function"){
+             fun(re);
+        }},
+      error:function(re){ if(typeof(fun)==="function"){fun(re);}}
+     }); 
+  }
+
+
+
+
+var testphone = function (num){    
+    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1})|145|147|159|153)+\d{8})$/;
+  if(!myreg.test(num)){
+    return false;
+  }else{
+    return true;
+  }
+}
+ 
+      function postlogin(username,password,phcode,form){ 
+      //  sendurl = '/api/wechat/Login/register';
+      //  api/ver1/Login/register
+       sendurl = '/api/wechat/Login/register';
+        var send = {
+            "tel":username,
+            "password":MD5(password),
+            "msgcode":phcode,
+            "from":form
+            }
+         post(send,sendurl,function(re){
+          if (re.code>0) {           
+             layer.open({content:'登陆成功',skin: 'msg',time: 2});
+            window.location.href = "./index.php";   
+           }else{
+            layer.open({content:re.msg,skin: 'msg',time: 2});
+          }      
+        });
+       }
+ 
+		
+
+            var vM = new Vue({            
+              el: "#vM",
+              data:{      
+              IntervalTime:0,         
+                username:'',                
+                password:'',
+                phcode:'',
+                'from':f,
+                "code":''
+
+              },
+              computed: {   
+                comCss1: function () {
+                 return this.IntervalTime!==0?"dpn":"dpb"; 
+                },
+                comCss2: function () {
+                 return this.IntervalTime==0?"dpn":"dpb"; 
+                }
+              },
+              created:function(){
+                this.yzm();
+              },
+              methods:{  
+                  yzm:function(){
+                   // var root2 = '/php/index.php/';
+                 //   var url = root2 + 'Ysback/Login/code';
+                  var url =   '/index.php/captcha/new.html?height=32&width=150&font_size=18';
+                     get({},url,function(re){
+                      $('#yzm').attr('src','/index.php/captcha/new.html?height=32&width=150&font_size=18');
+                    });     
+                  },
+                  bind:function() { 
+                  	if (this.username == "") {layer.open({content:'请输入手机号',skin: 'msg',time: 2}); return}
+          					if (this.password == "") {layer.open({content:'请输入密码',skin: 'msg',time: 2});return}
+                    if (this.password.length < 6 ) {layer.open({content:'密码不少于6位',skin: 'msg',time: 2});return}                   
+                    if (this.phcode=="" ) {layer.open({content:'请输入验证码',skin: 'msg',time: 2}); return}
+                     postlogin(this.username,this.password,this.phcode,this.from);                                                  
+                  },
+                  getphcode:function() { 
+                    if (!testphone(this.username)) {layer.open({content:'请正确输入手机号码',skin: 'msg',time: 2});return} 
+                  //  var surl =  sendurl = '/php/index.php/Yswechat/Login/getphonecode';
+                  //  tel 13877620240"  yzmcode
+                      var surl =  sendurl = '/api/wechat/Login/getphonecode';
+                              _this = this ;
+                               post({tel:this.username,yzmcode:this.code},surl,function(re){
+                                if (re.code>0) {
+                                 _this.IntervalTime = 120 ;                               
+                                var Intervaler = setInterval(function(){
+                                  _this.IntervalTime -= 1;
+                                  if (_this.IntervalTime==0) {
+                                   clearInterval(Intervaler); 
+                                  }
+                                 },1000)
+                                }else{
+                                 layer.open({content:re.msg,skin: 'msg',time: 2}); 
+                                }   
+                              });                                                                       
+                        }
+                      }             
+                  }) 
+ 
+
+$(function(argument) {
+    localStorage.getItem('from')?$('#tuijian').hide():'';
+ 
+});
+</script>
+
+ <script>
+ 
+ 
+
+</script>
+</html> 

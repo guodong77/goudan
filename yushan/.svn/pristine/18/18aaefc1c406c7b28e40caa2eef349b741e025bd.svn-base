@@ -1,0 +1,370 @@
+<?php	return array (
+  '首页/:id' => 
+  array (
+    0 => 'portal/Article/index?cid=1',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+      'cid' => '\d+',
+    ),
+  ),
+  '产品/:id' => 
+  array (
+    0 => 'portal/Article/index?cid=2',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+      'cid' => '\d+',
+    ),
+  ),
+  'API document/:id' => 
+  array (
+    0 => 'portal/Article/index?cid=3',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+      'cid' => '\d+',
+    ),
+  ),
+  '关于我们/:id' => 
+  array (
+    0 => 'portal/Article/index?cid=13',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+      'cid' => '\d+',
+    ),
+  ),
+  'company Info/:id' => 
+  array (
+    0 => 'portal/Article/index?cid=21',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+      'cid' => '\d+',
+    ),
+  ),
+  'join to us/:id' => 
+  array (
+    0 => 'portal/Article/index?cid=22',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+      'cid' => '\d+',
+    ),
+  ),
+  'disclaimer/:id' => 
+  array (
+    0 => 'portal/Article/index?cid=23',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+      'cid' => '\d+',
+    ),
+  ),
+  'connection/:id' => 
+  array (
+    0 => 'portal/Article/index?cid=24',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+      'cid' => '\d+',
+    ),
+  ),
+  'international sms/:id' => 
+  array (
+    0 => 'portal/Article/index?cid=25',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+      'cid' => '\d+',
+    ),
+  ),
+  'global voice/:id' => 
+  array (
+    0 => 'portal/Article/index?cid=26',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+      'cid' => '\d+',
+    ),
+  ),
+  'sended record/:id' => 
+  array (
+    0 => 'portal/Article/index?cid=28',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+      'cid' => '\d+',
+    ),
+  ),
+  'account balance/:id' => 
+  array (
+    0 => 'portal/Article/index?cid=29',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+      'cid' => '\d+',
+    ),
+  ),
+  'state callback/:id' => 
+  array (
+    0 => 'portal/Article/index?cid=30',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+      'cid' => '\d+',
+    ),
+  ),
+  'code demo/:id' => 
+  array (
+    0 => 'portal/Article/index?cid=31',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+      'cid' => '\d+',
+    ),
+  ),
+  'global number/:id' => 
+  array (
+    0 => 'portal/Article/index?cid=27',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+      'cid' => '\d+',
+    ),
+  ),
+  '产品更新/:id' => 
+  array (
+    0 => 'portal/Article/index?cid=32',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+      'cid' => '\d+',
+    ),
+  ),
+  '首页' => 
+  array (
+    0 => 'portal/List/index?id=1',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+    ),
+  ),
+  '产品' => 
+  array (
+    0 => 'portal/List/index?id=2',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+    ),
+  ),
+  'API document' => 
+  array (
+    0 => 'portal/List/index?id=3',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+    ),
+  ),
+  '关于我们' => 
+  array (
+    0 => 'portal/List/index?id=13',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+    ),
+  ),
+  'company Info' => 
+  array (
+    0 => 'portal/List/index?id=21',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+    ),
+  ),
+  'join to us' => 
+  array (
+    0 => 'portal/List/index?id=22',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+    ),
+  ),
+  'disclaimer' => 
+  array (
+    0 => 'portal/List/index?id=23',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+    ),
+  ),
+  'connection' => 
+  array (
+    0 => 'portal/List/index?id=24',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+    ),
+  ),
+  'international sms' => 
+  array (
+    0 => 'portal/List/index?id=25',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+    ),
+  ),
+  'global voice' => 
+  array (
+    0 => 'portal/List/index?id=26',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+    ),
+  ),
+  'sended record' => 
+  array (
+    0 => 'portal/List/index?id=28',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+    ),
+  ),
+  'account balance' => 
+  array (
+    0 => 'portal/List/index?id=29',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+    ),
+  ),
+  'state callback' => 
+  array (
+    0 => 'portal/List/index?id=30',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+    ),
+  ),
+  'code demo' => 
+  array (
+    0 => 'portal/List/index?id=31',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+    ),
+  ),
+  'global number' => 
+  array (
+    0 => 'portal/List/index?id=27',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+    ),
+  ),
+  '产品更新' => 
+  array (
+    0 => 'portal/List/index?id=32',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+    ),
+  ),
+);

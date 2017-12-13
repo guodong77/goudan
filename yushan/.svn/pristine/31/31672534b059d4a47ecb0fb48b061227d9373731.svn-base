@@ -1,0 +1,302 @@
+  <div ng-controller="zl_ctrl" id="printtable" class="alltablecss">
+
+    <table style="width: 640px;height: 960px;margin-left: 60px;margin-top: 35px;">
+      <tbody>
+        <tr ><!-- ng-repeat="(key, value) in Sdata" -->
+          <td>
+            <!-- 资料头部 -->  
+            <div class="zltitle" style="height: 100px;">
+              <table width="100%">
+                <tbody>
+                  <tr>
+                    <td>
+
+                      <div class="tc lh32">
+                        <span class="htitle">墙体节能工程见证取样复验报告汇总表</span>
+                      </div>
+
+                    <div  class="tc h_30 mt_5">
+                        <span class="">(带﹡号者为标准要求必须复验项目)</span>
+                      </div> 
+
+                      <div class="bianhao " style="margin-right:60px;margin-top: 8px;">
+                        <span>GD23020202</span>
+                        <input class="lip">
+                        <input class="lip">
+                         </div> 
+                     </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+
+
+
+
+            <!-- 资料表格 -->  
+            <div class="zlcontent" style="height: 880px;border: 1px solid #000;">
+
+              <!-- 内容头部 -->  
+              <table class="zlhead w_p100 " width="100%" height="732">
+ 
+                <tr class="tc" >
+                  <td   height="68">编<br>号</td>
+                  <td  >材料、构件、配件名称</td>
+                  <td  >复验项目</td>
+                  <td   colspan="2">检测<br>报告<br>数量</td>
+                  <td   colspan="2">标准<br>规定<br>数量</td>
+                  <td  >报告名称及编号</td>
+                </tr>
+
+                <tr class="ys_b" >
+                <td width="30" height="0"></td>
+                <td width="160"></td>
+                <td width="215"></td>
+                <td width="45"></td>
+                <td width="20"></td>
+                <td width="45"></td>
+                <td width="20"></td>
+                <td width="100"></td>
+                  
+                </tr> 
+
+                 <tr>
+                   <td class="tc" height="61">1</td>
+                   <td class="pl5">﹡保温材料</td>
+                   <td  class="pl_8" >
+                     导热系数、密度
+                     <br>                 
+                     抗压强度或压缩强度
+                     <br>燃烧性能(只限有机保温材料)</td>
+                   <td style="border-right: 0px;" >
+                     <input type="text" class="ip_1 "  value="{{value.b[0]}}"   ng-model="value.b[0]" ></td>
+                   <td style="border-left: 0px;" >组</td>
+                   <td style="border-right: 0px;" >
+                     <input type="text" class="ip_1 "  value="{{value.b[1]}}"   ng-model="value.b[1]"  ></td>
+                   <td style="border-left: 0px;" >组</td>
+                   <td>
+                     <div class="divc3 mh_20" contenteditable="true" divb="2"  ng-bind="value.b[2]"></div>
+                   </td>
+
+                 </tr>
+
+                <tr>
+                  <td class="tc" height="61">2</td>
+                  <td class="pl5">﹡保温层粘结材料</td>
+                  <td  class="pl_8" >粘结强度</td>
+                  <td style="border-right: 0px;" >
+                    <input type="text" class="ip_1 " value="{{value.b[3]}}"   ng-model="value.b[3]" ></td>
+                  <td style="border-left: 0px;">组</td>
+                  <td style="border-right: 0px;" >
+                    <input type="text" class="ip_1 " value="{{value.b[4]}}"   ng-model="value.b[4]" ></td>
+                  <td style="border-left: 0px;">组</td>
+                  <td>
+                    <div class="divc3 mh_20" contenteditable="true" divb="5"  ng-bind="value.b[5]"></div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="tc" height="61">3</td>
+                  <td class="pl5">﹡增强网</td>
+                  <td class="pl_8" >力学性能抗腐蚀性能</td>
+                  <td style="border-right: 0px;" >
+                    <input type="text" class="ip_1 " value="{{value.b[6]}}"   ng-model="value.b[6]"  ></td>
+                  <td style="border-left: 0px;">组</td>
+                  <td style="border-right: 0px;" >
+                    <input type="text" class="ip_1 " value="{{value.b[7]}}"   ng-model="value.b[7]"  ></td>
+                  <td style="border-left: 0px;">组</td>
+                  <td>
+                    <div class="divc3 mh_20" contenteditable="true" divb="8"  ng-bind="value.b[8]"></div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="tc" height="61">4</td>
+                  <td class="pl5">浅色饰面材料</td>
+                  <td class="pl_8" >太阳辐射吸收系数耐候性能</td>
+                  <td style="border-right: 0px;" >
+                    <input type="text" class="ip_1 " value="{{value.b[9]}}"   ng-model="value.b[9]"  ></td>
+                  <td style="border-left: 0px;">组</td>
+                  <td style="border-right: 0px;" >
+                    <input type="text" class="ip_1 " value="{{value.b[10]}}"   ng-model="value.b[10]"  ></td>
+                  <td style="border-left: 0px;">组</td>
+                  <td>
+                    <div class="divc3 mh_20" contenteditable="true" divb="11"  ng-bind="value.b[11]"></div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="tc" height="95"> 5</td>
+                  <td  class="pl5">﹡非匀质材料(构造)砌块<br>(砖)</td>
+                  <td class="pl_8" >密度<br>抗压强度<br>
+                     传热系数(应为样品自然养护28天以<br>上干燥状态下的实验室检测报告</td>
+                 <td style="border-right: 0px;" >
+                    <input type="text" class="ip_1 " value="{{value.b[12]}}"   ng-model="value.b[12]"  > </td>
+                    <td style="border-left: 0px;">组</td>
+                  <td style="border-right: 0px;" >
+                    <input type="text" class="ip_1 " value="{{value.b[13]}}"   ng-model="value.b[13]"  > </td>
+                    <td style="border-left: 0px;">组</td>
+                  <td><div class="divc3 mh_20" contenteditable="true" divb="14"  ng-bind="value.b[14]"></div></td>
+                </tr>
+                
+                <tr>
+                  <td class="tc" height="61"> 6</td>
+                  <td class="pl5">﹡遮阳材料</td>
+                  <td  class="pl_8" > 太阳光透射比<br>太阳光反射比</td>
+                 <td style="border-right: 0px;" >
+                    <input type="text" class="ip_1 " value="{{value.b[15]}}"   ng-model="value.b[15]"  > </td>
+                    <td style="border-left: 0px;">组</td>
+                  <td style="border-right: 0px;" >
+                    <input type="text" class="ip_1 " value="{{value.b[16]}}"   ng-model="value.b[16]"  > </td>
+                    <td style="border-left: 0px;">组</td>
+                  <td><div class="divc3 mh_20" contenteditable="true" divb="17"  ng-bind="value.b[17]"></div></td>
+                </tr>
+
+                <tr>
+                  <td class="tc" height="61"> 7</td>
+                  <td class="pl5">预制保温墙板</td>
+                  <td  class="pl5" >
+                    <div class="divl3 " contenteditable="true" divb="18"  ng-bind="value.b[18]"></div></td>
+                   <td style="border-right: 0px;" >
+                    <input type="text" class="ip_1 " value="{{value.b[19]}}"   ng-model="value.b[19]"  > </td>
+                    <td style="border-left: 0px;">组</td>
+                  <td style="border-right: 0px;" >
+                    <input type="text" class="ip_1 " value="{{value.b[20]}}"   ng-model="value.b[20]"  > </td>
+                    <td style="border-left: 0px;">组</td>
+                  <td><div class="divc3 mh_20" contenteditable="true" divb="21"  ng-bind="value.b[21]"></div></td>
+                </tr>
+
+                <tr>
+                  <td class="tc" height="61"> 8</td>
+                  <td class="pl5">﹡匀质材料(构造)砌块<br>(砖)</td>
+                  <td class="pl_8"  > 密度<br>抗压强度<br>
+                    导热系数(构造的热阻或传热系数)</td>
+                   <td style="border-right: 0px;" >
+                    <input type="text" class="ip_1 " value="{{value.b[22]}}"   ng-model="value.b[22]"  > </td>
+                    <td style="border-left: 0px;">组</td>
+                  <td style="border-right: 0px;" >
+                    <input type="text" class="ip_1 " value="{{value.b[23]}}"   ng-model="value.b[23]"  > </td>
+                    <td style="border-left: 0px;">组</td>
+                  <td><div class="divc3 mh_20" contenteditable="true" divb="24"  ng-bind="value.b[24]"></div></td>
+                </tr>
+
+                <tr>
+                  <td class="tc" height="80"> 9</td>
+                  <td class="pl5">﹡复合砌筑墙</td>
+                  <td  class="pl_8" >密度<br>抗压强度<br>传热系数(应为样品自然养护28天以<br>
+                      上干燥状态下的实验室检测报告)</td>
+                   <td style="border-right: 0px;" >
+                    <input type="text" class="ip_1 " value="{{value.b[25]}}"   ng-model="value.b[25]"  > </td>
+                    <td style="border-left: 0px;">组</td>
+                  <td style="border-right: 0px;" >
+                    <input type="text" class="ip_1 " value="{{value.b[26]}}"   ng-model="value.b[26]"  > </td>
+                    <td style="border-left: 0px;">组</td>
+                  <td><div class="divc3 mh_20" contenteditable="true" divb="27"  ng-bind="value.b[27]"></div></td>
+                </tr>
+
+                <tr>
+                  <td class="tc" height="60"> 10</td>
+                  <td class="pl5">
+                     <div class="divl3 mh_20" contenteditable="true" divb="28"  ng-bind="value.b[28]"></div></td>
+                  <td  class="pl5" >
+                    <div class="divl3 mh_20" contenteditable="true" divb="29"  ng-bind="value.b[29]"></div></td>
+                  <td style="border-right: 0px;" >
+                    <input type="text" class="ip_1 " value="{{value.b[30]}}"   ng-model="value.b[30]"  > </td>
+                    <td style="border-left: 0px;">组</td>
+                  <td style="border-right: 0px;" >
+                    <input type="text" class="ip_1 " value="{{value.b[31]}}"   ng-model="value.b[31]"  > </td>
+                    <td style="border-left: 0px;">组</td>
+                  <td><div class="divc3 mh_20" contenteditable="true" divb="32"  ng-bind="value.b[32]"></div></td>
+                </tr>
+
+                
+
+              </table>
+
+              <!-- 内容底部 -->  
+
+              <div class="zlcont">
+                 <table width="100%" class="zlhead tc" height="149" >
+                 <tbody>
+                   <tr>
+                <td colspan="2" class="tl pl_8" height="25" style="border-bottom: 0px;"> 填表人：</td>
+                <td colspan="2" class="tl pl_8" style="border-bottom: 0px;">项目专业质量检查员：</td>
+                <td colspan="2" class="tl pl_8" style="border-bottom: 0px;"> 项目技术负责人：</td>
+              </tr>
+              <tr>
+               <td colspan="2" height="49" style=";border-top: 0px;">
+               <div class="divc3 mh_20 " contenteditable="true" divb="33"  ng-bind="value.b[33]"></div></td>
+                <td colspan="2" style="border-top: 0px;">
+                <div class="divc3 mh_20" contenteditable="true" divb="34"  ng-bind="value.b[34]"></div></td>
+                <td colspan="2" style="border-top: 0px;">
+                <div class="divc3 mh_20" contenteditable="true" divb="35"  ng-bind="value.b[35]"></div></td>
+              
+              </tr>
+              <tr class="ys_b">
+                <td width="140"></td>
+                 <td width="50"></td>
+                 <td width="166"></td> 
+                 <td width="50"></td>
+                 <td width="182"></td>
+                 <td width="50"></td>
+                
+              </tr> 
+              <tr>
+                <td height="35" style="border-bottom: 0px;border-top: 0px;border-right: 0px;" class="pt_18">
+                  <input type="text" class="divc3" value="" style="border-bottom: 1px solid #000"></td>
+                <td colspan="1" class="tr pt_18" style="border-left: 0px;border-bottom: 0px;">
+                  <span>(签&nbsp;名)&nbsp;</span>
+                </td>
+                <td style="border-bottom: 0px;border-top: 0px;border-right: 0px;" class="pt_18">
+                  <input type="text" class="divc3 bd_1" value="" style="border-bottom: 1px solid #000"></td>
+
+                <td colspan="1" class="tr pt_18" style="border-left: 0px;border-bottom: 0px;">
+                  <span>(签&nbsp;名)&nbsp;&nbsp;</span>
+                </td>
+                <td style="border-bottom: 0px;border-top: 0px;border-right: 0px;" class="pt_18">
+                  <input type="text" class="divc3" value="" style="border-bottom: 1px solid #000"></td>
+                <td colspan="1" class="tr pt_18" style="border-left: 0px;border-bottom: 0px;">
+                  <span>(签&nbsp;名)&nbsp;&nbsp;</span>
+                </td>
+
+              </tr>
+              <tr>
+                <td colspan="2" height="31" class="tr pr_15" style="border-top: 0px;">
+                  <span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;年 &nbsp;&nbsp;&nbsp;&nbsp; 月&nbsp;&nbsp;&nbsp;&nbsp; 日
+                  </span>
+                </td>
+                <td colspan="2" class="tr pr_20" style="border-top: 0px;">
+                  <span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;年 &nbsp;&nbsp;&nbsp;&nbsp; 月&nbsp;&nbsp;&nbsp;&nbsp; 日
+                  </span>
+                </td>
+                <td colspan="2" class="tr pr_30" style="border-top: 0px;">
+                  <span >
+                    &nbsp;&nbsp;&nbsp;&nbsp;年 &nbsp;&nbsp;&nbsp;&nbsp; 月&nbsp;&nbsp;&nbsp;&nbsp; 日
+                  </span>
+                </td>
+              </tr>
+                 </tbody>
+
+                  </table>
+
+                
+                 
+         
+              </div>
+
+
+
+          </div>
+    
+
+      </td>
+  </tr>
+	</tbody>
+	</table>
+
+	</div>
+
+               

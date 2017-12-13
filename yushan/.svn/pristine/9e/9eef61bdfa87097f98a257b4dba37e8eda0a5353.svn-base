@@ -1,0 +1,427 @@
+  <style>
+  .textareawid{
+    width: 22px;
+    overflow: hidden;
+    vertical-align: middle;
+  }
+
+  .pl7{
+        padding-left: 7px;
+  }
+  </style> 
+
+
+
+
+  <div  id="printtable" class="alltablecss">
+
+    <table style="width: 640px;height: 960px;margin-left: 60px;margin-top: 35px;">
+      <tbody>
+        <tr>
+          <td>
+            <!-- 资料头部 -->  
+            <div class="zltitle" style="height: 70px;">
+              <table width="100%">
+                <tbody>
+                  <tr ng-repeat="(key, value) in Sdata">
+                    <td>
+
+                      <div class="tc lh32">
+                        <span class="htitle">工程建设前期法定基建程序文件核查表</span>
+                      </div>
+
+                      <div  class="tc " style="height:15px;" >
+                        <span class="ftitle"></span>
+                      </div>
+
+                      <div class="bianhao">
+                        <span style="font-weight: bold;">GD-A1-117</span> 
+                        <input class="lip">
+                        <input class="lip">
+                        <input class="lip">
+
+                        </div>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- 资料表格 style="height:910px;"-->  
+            <div class="zlcontent" >
+
+
+              <!-- 内容头部 -->  
+              <table class="zlhead w_p100" width="100%" height="145">
+
+              <tr class="noborder">
+  <td width="40" height="0"></td>
+  <td width="65"></td>
+  <td width="280"></td>
+  <td width="100"></td>
+  <td width="100"></td>
+  <td width="100"></td>
+
+</tr>
+
+                <tr align="center">
+                  <td  height="35" colspan="2">工程名称</td>
+                  <td colspan="1" >
+                    <div class="divc3" contenteditable="true" diva="0" ng-bind="value.a[0]"></div>
+                  </td>
+             
+                 <td >工程地址</td>
+                  <td colspan="2" >
+                    <div class="divc3" contenteditable="true" diva="1" ng-bind="value.a[1]"></div></td>
+
+                </tr>
+              <tr align="center">
+                  <td  height="35"  colspan="2">工程规模</td>
+                  <td colspan="1" >
+                    <div class="divc3" contenteditable="true" diva="2" ng-bind="value.a[2]"></div>
+                  </td>
+             
+                 <td  >工程类别</td>
+                  <td colspan="2" >
+                    <div class="divc3" contenteditable="true" diva="3" ng-bind="value.a[3]"></div></td>
+
+                </tr>
+              <tr align="center">
+                  <td  height="35"  colspan="2">地面层数</td>
+                  <td colspan="1" >
+                    <div class="divc3" contenteditable="true" diva="4" ng-bind="value.a[4]"></div>
+                  </td>
+             
+                 <td  >地下室层数</td>
+                  <td colspan="2" >
+                    <div class="divc3" contenteditable="true" diva="5" ng-bind="value.a[5]"></div></td>
+
+                </tr>
+              <tr align="center">
+                  <td  height="35"  colspan="2">建设单位</td>
+                  <td colspan="1" >
+                    <div class="divc3" contenteditable="true" diva="6" ng-bind="value.a[6]"></div>
+                  </td>
+             
+                 <td  >勘察单位</td>
+                  <td colspan="2" >
+                    <div class="divc3" contenteditable="true" diva="7" ng-bind="value.a[7]"></div></td>
+
+                </tr>
+              <tr align="center">
+                  <td  height="35"  colspan="2">设计单位</td>
+                  <td colspan="1" >
+                    <div class="divc3" contenteditable="true" diva="8" ng-bind="value.a[8]"></div>
+                  </td>
+             
+                 <td  >施工单位</td>
+                  <td colspan="2" >
+                    <div class="divc3" contenteditable="true" diva="9" ng-bind="value.a[9]"></div></td>
+
+                </tr>
+              <tr align="center">
+                  <td  height="35"  colspan="2">监理单位</td>
+                  <td colspan="1" >
+                    <div class="divc3" contenteditable="true" diva="10" ng-bind="value.a[10]"></div>
+                  </td>
+             
+                 <td  >审图单位</td>
+                  <td colspan="2" >
+                    <div class="divc3" contenteditable="true" diva="11" ng-bind="value.a[11]"></div></td>
+
+                </tr>
+            
+
+
+              </table>
+              <!-- 内容中间 height="471" -->  
+           
+
+                <table class="zlcont w_p100" >
+                  <tbody>
+<tr class="noborder">
+<td style="width: 40px;height: 0;"></td>
+<td style="width:65px;"></td>
+<td style="width: 280px;"></td>
+<td style="width: 100px;"></td>
+<td style="width: 100px;"></td>
+<td style="width: 100px;"></td>
+
+</tr>
+                      <tr>
+                        <td height="30" align="center">序号</td>
+                        <td colspan="2" align="center" class="pl7">文件资料名称</td>
+                        <td colspan="2" align="center">检查结果</td>
+                        <td align="center">备注</td>
+
+                      </tr>
+
+
+                     <tr>
+                       <td height="30" align="center">1</td>
+                       <td colspan="2" class="pl7">工程建设立项审批、核准或备案文件</td>
+                       <td colspan="2" align="center">
+                         <div class="divc3" contenteditable="true" divb="0" ng-bind="value.b[0]"></div>
+                       </td>
+                       <td align="center">
+                         <div class="divc3" contenteditable="true" divb="1" ng-bind="value.b[1]"></div>
+                       </td>
+
+                     </tr>
+
+
+                       <tr>
+                         <td height="30" align="center">2</td>
+                         <td colspan="2"class="pl7">固定资产投资项目节能审查意见或登记备案文件</td>
+                         <td colspan="2" align="center">
+                           <div class="divc3" contenteditable="true" divb="2" ng-bind="value.b[2]"></div>
+                         </td>
+                         <td align="center">
+                           <div class="divc3" contenteditable="true" divb="3" ng-bind="value.b[3]"></div>
+                         </td>
+
+                       </tr>
+
+
+                       <tr>
+                         <td height="30" align="center">3</td>
+                         <td colspan="2" class="pl7">建设用地批准书或土地使用证</td>
+                         <td colspan="2" align="center">
+                           <div class="divc3" contenteditable="true" divb="4" ng-bind="value.b[4]"></div>
+                         </td>
+                         <td align="center">
+                           <div class="divc3" contenteditable="true" divb="5" ng-bind="value.b[5]"></div>
+                         </td>
+
+                       </tr>
+
+
+                       <tr>
+                         <td height="30" align="center">4</td>
+                         <td colspan="2" class="pl7">建设用地规划许可证</td>
+                         <td colspan="2" align="center">
+                           <div class="divc3" contenteditable="true"  divb="6" ng-bind="value.b[6]"></div>
+                         </td>
+                         <td align="center">
+                           <div class="divc3" contenteditable="true"  divb="7" ng-bind="value.b[7]"></div>
+                         </td>
+
+                       </tr>
+
+                      <tr>
+                        <td height="30" align="center">5</td>
+                        <td colspan="2"class="pl7">建设工程规划许可证</td>
+                        <td colspan="2" align="center">
+                          <div class="divc3" contenteditable="true"  divb="8" ng-bind="value.b[8]"></div>
+                        </td>
+                        <td align="center">
+                          <div class="divc3" contenteditable="true"  divb="9" ng-bind="value.b[9]"></div>
+                        </td>
+
+                      </tr>
+                      <tr>
+                        <td height="30" align="center">6</td>
+                        <td colspan="2" class="pl7">消防设计文件审核意见书或备案凭证</td>
+                        <td colspan="2" align="center">
+                          <div class="divc3" contenteditable="true"  divb="10" ng-bind="value.b[10]"></div>
+                        </td>
+                        <td align="center">
+                          <div class="divc3" contenteditable="true"  divb="11" ng-bind="value.b[11]"></div>
+                        </td>
+
+                      </tr>
+
+                      <tr>
+                        <td height="30" align="center">7</td>
+                        <td colspan="2" class="pl7">环境影响报告书或环境影响报告表或环境影响登记表</td>
+                        <td colspan="2" align="center">
+                          <div class="divc3" contenteditable="true"  divb="12" ng-bind="value.b[12]"></div>
+                        </td>
+                        <td align="center">
+                          <div class="divc3" contenteditable="true"  divb="13" ng-bind="value.b[13]"></div>
+                        </td>
+
+                      </tr>
+
+                      <tr>
+                        <td height="30" align="center">8</td>
+                        <td colspan="2" class="pl7">民用建筑项目人防工程审批文件</td>
+                        <td colspan="2" align="center">
+                          <div class="divc3" contenteditable="true"  divb="14" ng-bind="value.b[14]"></div>
+                        </td>
+                        <td align="center">
+                          <div class="divc3" contenteditable="true"  divb="15" ng-bind="value.b[15]"></div>
+                        </td>
+
+                      </tr>
+                      <tr>
+                        <td height="30" align="center">9</td>
+                        <td colspan="2" class="pl7">超限高层建筑工程抗震设防审查意见书</td>
+                        <td colspan="2" align="center">
+                          <div class="divc3" contenteditable="true"  divb="16" ng-bind="value.b[16]"></div>
+                        </td>
+                        <td align="center">
+                          <div class="divc3" contenteditable="true"  divb="17" ng-bind="value.b[17]"></div>
+                        </td>
+
+                      </tr>
+
+                      <tr>
+                        <td height="30" align="center">10</td>
+                        <td colspan="2" class="pl7">防雷装置设计审核意见书</td>
+                        <td colspan="2" align="center">
+                          <div class="divc3" contenteditable="true"  divb="18" ng-bind="value.b[18]"></div>
+                        </td>
+                        <td align="center">
+                          <div class="divc3" contenteditable="true"  divb="19" ng-bind="value.b[19]"></div>
+                        </td>
+
+                      </tr>
+
+                      <tr>
+                        <td height="30" align="center">11</td>
+                        <td colspan="2" class="pl7">施工图设计文件审查合格书</td>
+                        <td colspan="2" align="center">
+                          <div class="divc3" contenteditable="true"  divb="20" ng-bind="value.b[20]"></div>
+                        </td>
+                        <td align="center">
+                          <div class="divc3" contenteditable="true"  divb="21" ng-bind="value.b[21]"></div>
+                        </td>
+
+                      </tr>
+
+                      <tr>
+                        <td height="30" align="center">12</td>
+                        <td colspan="2" class="pl7">勘察、设计、施工、监理、检测中标通知书</td>
+                        <td colspan="2" align="center">
+                          <div class="divc3" contenteditable="true"  divb="22" ng-bind="value.b[22]"></div>
+                        </td>
+                        <td align="center">
+                          <div class="divc3" contenteditable="true"  divb="23" ng-bind="value.b[23]"></div>
+                        </td>
+
+                      </tr>
+                       <tr>
+                         <td height="30" align="center">13</td>
+                         <td colspan="2" class="pl7" style="line-height: 15px;">
+                           勘察、设计、施工、监理、检测合同
+                           <br>（含施工专业、劳务分包）</td>
+                         <td colspan="2" align="center">
+                           <div class="divc3" contenteditable="true"  divb="24" ng-bind="value.b[24]"></div>
+                         </td>
+                         <td align="center">
+                           <div class="divc3" contenteditable="true"  divb="25" ng-bind="value.b[25]"></div>
+                         </td>
+
+                       </tr>
+                       <tr>
+                         <td height="30" align="center">14</td>
+                         <td colspan="2" class="pl7">质量、安全监督登记表</td>
+                         <td colspan="2" align="center">
+                           <div class="divc3" contenteditable="true"  divb="26" ng-bind="value.b[26]"></div>
+                         </td>
+                         <td align="center">
+                           <div class="divc3" contenteditable="true"  divb="27" ng-bind="value.b[27]"></div>
+                         </td>
+
+                       </tr>
+
+                       <tr>
+                         <td height="30" align="center">15</td>
+                         <td colspan="2" class="pl7">建筑工程施工许可证或开工报告</td>
+                         <td colspan="2" align="center">
+                           <div class="divc3" contenteditable="true"  divb="28" ng-bind="value.b[28]"></div>
+                         </td>
+                         <td align="center">
+                           <div class="divc3" contenteditable="true"  divb="29" ng-bind="value.b[29]"></div>
+                         </td>
+
+                       </tr>
+                      
+ <tr>
+   <td height="30" align="center">16</td>
+   <td colspan="2" class="pl7">法律、法规、规章规定应办理的其他建设程序文件</td>
+   <td colspan="2" align="center">
+     <div class="divc3" contenteditable="true"  divb="30" ng-bind="value.b[30]"></div>
+   </td>
+   <td align="center">
+     <div class="divc3" contenteditable="true"  divb="31" ng-bind="value.b[31]"></div>
+   </td>
+
+ </tr>
+
+                      
+
+                    </tbody>
+                  </table>
+
+                  <!-- 内容底部 -->  
+                  <!-- 底部头 -->
+              <table class="zlcont w_p100" height="">
+                    <tbody>
+                    <tr>
+                      <td rowspan="4" align="center" >检查<br>意见</td>
+                      <td colspan="2"  height="40" class="pl7" align="left" style="vertical-align: bottom;border-bottom: 0;">经检查，工程建设前期法定基建程序文件合法、齐全、有效。</td>
+
+                    </tr>
+
+                    <tr>
+                     <td colspan="2"  height="40" align="left" style="vertical-align: bottom;border:0;border-right: 1px solid #000;">
+                       <input type="text" name="" value=""  divb="32" ng-bind="value.b[32]" style="height: 35px;border-bottom: 1px solid #000;width: 120px;margin-left: 5px;">                     
+                       <span class="pl5" style="vertical-align: bottom;">文件依法不需办理。</span>
+                     </td>
+                    </tr>
+
+                    <tr>
+                      <td colspan=""   height="30"  align="left" style="border: 0;padding-left: 15px;">总监理工程师（建设单位项目负责人）：</td>
+                      <td colspan=""   style="border: 0;border-right: 1px solid #000;">
+                        <div class="divc3" contenteditable="true"></div>
+                      </td>
+                    </tr>
+
+                      <tr>
+                        <td colspan="2" height="30" style="border: 0;text-align: right;border-right: 1px solid #000;border-bottom: 1px solid #000;">
+                          <!-- margin-right: 0px;margin-left: auto; -->                      
+                          <div style="width:100%;height: 30px;line-height: 30px;padding-right:47px;">
+                            <span >年</span>
+                            <span class="pl_15">月</span>
+                            <span class="pl_15">日</span>
+                          </div>
+
+                        </td>
+                      </tr>
+
+                     <tr class="noborder">
+                       <td width="40"></td>
+                       <td width="265"></td>
+                       <td width="379"></td>
+                     </tr>
+
+
+                     <tr class="noborder">
+                       <td colspan="3">
+                         <div>
+<div style="padding: 5px;">
+  填表说明：依法不需要办理人民防空工程、超限高层建筑工程审批的建设项目，<br>
+应在相应备注栏中注明“依法不需办理”。
+</div>
+<img src="images/GD117.png" alt="" style="padding-left: 20px;">
+
+<!-- <img  id="t1"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAAAoCAYAAAAcwQPnAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAABBKSURBVHhe7dxHiDVFtAfwMeecMOeEWTEgGBFzwpxzRhTUnQHEgIggYli4UhQRRXEjbvQzLUwoKkbMOecc+82vxv+88zU9M9+T5+7+oajqUyfXqeq+PffO2LvvvtuN2qj9f7ex008/vfvxxx87OPnkk7s//vijO/roo7uzzjqr+/nnn7sjjzyyO/HEE7tff/21O/fcc7tffvmlO+qooxp/+iOOOKL133//fXf22Wd3Bx54YLs+7rjjZuMlSwdddNINv//+e3fMMce0sT4yof3222/dCSec0MbHHnts99dff3Wnnnpqk//777+7M888szv44IPbPN9POumkplMPBx10UOshOk855ZQ2FqNYyYldDkBO5AaOP/74ZodtzRgNjE877bTmU/ym49BDD21jfl1wwQXNH/6y++eff3aHHHJIm59Jno9kMg4SEz/4XfPJbzS+wnT57ccDNd7IkTEeGxvrTp73om7WCrMGCyptnG+sCVq8RRZZpPWLLrpoN9dcczX64osv3s0zzzytKOadd95m0DW+BRdcsPHglRhz888/f7fAAgs0+txzz9148JIxTwddrum2sOhLLrlkW8xllllm0h4/yErSQgst1HSStzCuzRuLYYUVVmjzxksttdSkv4p4scUWa3MKP3b4yT7wP7aSA6CL7eSIzfiRObwLL7xwWzw6QNwrrbRS98UXXzTbePmRmAGN7zPJ4+crn/kuBqCXTjJk6Vt55ZW7r7/+etJf8c+U3348/XjxZL3Ixg86hwoqbVzHhBLIWD/VeLoejCu9zzM0B0P0qebTTzeuCUoPfb6hcdCnzcRnQ6XQK99UY7wZw5zIB5WWwtIUap0LKm2qcTDVfB3DUEGljS2xxBLdd9991xjtFCC49NJLt+pEs4vBDuB4dp05OyI7zRze7Ah80Wlsng7Alzm81Wk7AjIvcXZ1drfebmIH6CZnF4kHHU/8ciKJBWLHnDG6WEOPTTmhi86cKPPNN19r8ccc5MTmt1OGXPTpV1111TYvZsXz1Vdfdcstt1zLHcwknzhC4zMZoNMptsoqq0zOO72dZk46mC6//Xj68SYfZKoOOocK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1qxZ7ZreFHCVee211yafOfXybOwUEkPyXHXDhx9+2N15553dww8/PKlLkZKx1no+DhVUWissjBK53377dXvttVd3xhlntJ9X1QoFuxEv1J3tZ0GO2DfffLPRKEbbcsstG38SnUXzU6J99923jQH9oosuakFbXEiRCSwLnyBju6IWVD1F4fzzz28/idptt91aTNGDL7y1iN97772WC/4899xzsxWKeFIgZOuioNOdHGUu9qDmlM2dd965PUc9+uijk3yRjx32M/fJJ590O+20U3umevHFF2cr+r6865qrPDPfe++9k75lTZKH119/vf2UTK7OOeec7rDDDms+9zcL9IuptlZYCZZS937PIZI7J7jnnnuas7kNgoA4gi54Tgsgu9Rv5rQUHX5J3H777bvLL798MkjIOD7W0wnq4iWxdEYun4gUrD4ncdVTF+eFF15oD/IXX3xx43/22Wcnbz/9HhJDRfSFj+9Z7MThJPTu6NJLL2123nrrrTaXYgpfihWcJArK7xTJvPLKK40+HWouxZTfHlZ6NjE4+V599dV2UOy4447NZnyBGvtQQaWNqeIYuf7667snn3yy7W6nz1CV9uHHlG6Ddl8SwHh2SnUq2HPPPWf7EWlw0003dfvss08bT3VMWyD69UO66w41f//997fTFw4//PDuyiuvbGO+ijs7NgXC3iOPPNJseO0yU2EFdNGhj+4hsMcvdh588MF2K3SbeuaZZ2aLp7+BrJMcP/bYY+3aQ/cTTzzRxjOBLwrGr5HYcTuDur71Wfiaa67pHnrooba2TsjkSNxiyyYZKqi0ic+P42AklSuooeQNwS3jkksuaWM7NQnlgETZcRqdHDI+4IAD2hHr1oqPLQUhIJ+GgGwCsAhudVP5RGfmamGhb7PNNt1dd93V5u+77762iHXRY0P86HVx5+TEIhN9daHYFp8exBlUPvDxXzFXZEPlFs3PGhvf3A3mBPy98cYbJz8Fu07ckEIDsaSo1UONgUyVGyqotDGMFOX4rkVVDU4FP6O/4YYbuk8//bRdX3fddS1o70W8Wrjjjjtmu9VIsId3cn04+cjWRagIPQupCEKzEHUR8diFPsLbcYnJTr/99tvbOEVErsrKiRPC+6A5ObGyEJDFzyaNDf7UuNAVGFkxP/30041edSfO0HLNBhnPf3MCNrzCuPvuu/+hzP6J2HwK5p133ml9UP2pRQVDBZU2eWJBAq9GZ4Lf+V944YX/XE3AIlnoPfbYo7v66qsnd2gWb//99+923XXXliB85iX61ltv7fbee+/GIyCLa97x7WVmPuG4Tafoo1OfxKe/6qqrGr/mpZ5CMT7vvPNasSVRWXy2avI8z8xUWBZXsWp0WxjPJUBv/APj3FaALTn38J7Txy2r6odakMklmaeeeqqNpwNd8iV32eDWl+3kKWAHf/Ig/wE6/urbUEGljdVFjyHCoc+EBx54oCVU1dckgk+Gt9xyS3OUzhSsfxqiuCCJFrSXsTfffPNst9TAtVMgRQA5KSotfkuSF305CcCivfzyy83fmrQsnEJPwunEN1Nhibl+cAE66m0rfkIt6IAdz7bQj7t+WoXoJSOWmcA/ur0sTf6tB9QNBflRL9RiDvp+DxVUWjux4mwEhxI4Hbyi2GWXXSZ30Ntvv91ddtll7XbouaYmlg0P7j4VJjCfQK+44oqWrI8++qjRIEXXL3IFVgOvp0AKxsOnvz8maXRk0byhVvDh7ScxfvnUNqcP70B/jTW3w1pkARt8svDizkN5QFe1Q0diATI+wc4E+fao4r/10NcvjuQkvgK/5KR/UPQxVFBpY0lqlGQRa4LmBJ6tvKoQsILyr4HqUZ0kgsLCl9uTF3f+jZB3aYA39mvRk69FBP0dDnh9tPZpUDITEzhd3CJ32GGHdp3FY6dfMHycqbCM+VAXoS5SLSrFFL4UiWu3ebd7yMJXG/V0BbJ8m9NnLI8XigtSNFl39vhfC67mFL3OhZ/fQwWVNtsz1ggj/F8wVFBpo8Ia4V9jqKDSRoU1wr/GUEGljQprhH+NoYJKG/1z21H7T9qosEbtP2mjwhq1/6C92/0P3SGpkVDbGDcAAAAASUVORK5CYII=" /> -->
+
+</div>
+                       </td>
+                     </tr>
+
+                  </tbody>
+                </table>
+
+              </div>
+
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>

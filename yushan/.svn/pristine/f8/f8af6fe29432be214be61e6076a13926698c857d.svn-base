@@ -1,0 +1,192 @@
+  <div ng-controller="zl_ctrl" id="printtable" class="alltablecss">
+
+    <table style="width: 640px;height: 960px;margin-left: 60px;margin-top: 35px;">
+      <tbody>
+        <tr ng-repeat="(key, value) in Sdata"><!--  -->
+          <td>
+            <!-- 资料头部 -->  
+            <div class="zltitle" style="height: 80px;">
+              <table width="100%">
+                <tbody>
+                  <tr>
+                    <td>
+
+                      <div class="tc lh32">
+                        <span class="htitle">水泥出厂、复验质量证明文件汇总表</span>
+                      </div>
+
+
+                      <div class="bianhao " style="margin-right: 20px;margin-top:18px;">
+                        <span>GD2301048</span>
+                        <input class="lip">  
+                       <input class="lip"></div>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+
+
+
+
+            <!-- 资料表格 -->  
+            <div class="zlcontent" style="height: 880px;border: 1px solid #000;">
+
+              <!-- 内容头部 -->  
+              <table class="zlhead w_p100" width="100%" height="880">
+
+                <tr>
+                  <td height="50" align="center" colspan="3">单位（子单位）工程名称</td>
+                  <td colspan="3">
+                    <div class="divl3" contenteditable="true" divb="0"  ng-bind="value.b[0]"></div>
+                  </td>
+                </tr>
+  
+
+               <tr  class="ys_b" height="0">
+                  <td width="27"></td>
+                   <td width="100"></td>
+                   <td width="30"></td> 
+                   <td width="300"></td>
+                   <td width="60"></td>
+                   <td width="120"></td>
+                </tr> 
+                
+                <tr>
+                  <td align="center"  height="50" colspan="2">总承包施工单位</td>
+                  <td colspan="2">
+                    <div class="divc3" contenteditable="true" divb="1"  ng-bind="value.b[1]"></div></td>
+
+                  <td   align="center" >编号</td>
+                  <td >
+                   <div class="divc3" contenteditable="true" divb="2"  ng-bind="value.b[2]"></div></td>
+                </tr>
+                
+
+              <!-- 内容中间 -->  
+          
+          <tr align="center">
+          <td rowspan="7" >
+          <div>水</div><div class="mt_5">泥</div><div class="mt_5">出</div><div class="mt_5">厂</div><div class="mt_5">质</div><div class="mt_5">量</div><div class="mt_5">证</div><div class="mt_5">明</div><div class="mt_5">书</div></td>
+          <td  height="52">购料单位</td>
+          <td  colspan="2"> <div class="divc3" contenteditable="true" divc="0" key="0" ng-bind="value.c[0][0]"></div></td>
+          <td  colspan="2">备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注</td>
+          </tr>
+
+          <tr align="center">
+          <td height="52">原(复)件</td> 
+          <td colspan="2"> <div class="divc3" contenteditable="true" divc="0" key="1" ng-bind="value.c[0][1]"></div></td> 
+          <td colspan="2"> <div class="divc3" contenteditable="true" divc="1" key="1"></div></td>
+          </tr>
+
+          <tr align="center">
+          <td height="52">生产厂名</td> 
+          <td colspan="2"> <div class="divc3" contenteditable="true" divc="0" key="2" ng-bind="value.c[0][2]"></div></td> 
+          <td colspan="2"> <div class="divc3" contenteditable="true" divc="2" key="1"></div></td>
+          </tr>
+
+          <tr align="center">
+          <td height="52">品&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;种</td> 
+          <td colspan="2"> <div class="divc3" contenteditable="true" divc="0" key="3" ng-bind="value.c[0][3]"></div></td> 
+          <td colspan="2"> <div class="divc3" contenteditable="true" divc="3" key="1"></div></td>
+          </tr>
+
+          <tr align="center">
+          <td height="52">数量(t)</td> 
+          <td colspan="2"> <div class="divc3" contenteditable="true" divc="0" key="4" ng-bind="value.c[0][4]"></div></td> 
+          <td colspan="2"> <div class="divc3" contenteditable="true" divc="4" key="1"></div></td>
+          </tr>
+
+          <tr align="center">
+          <td height="52">安&nbsp; 定&nbsp; 性</td> 
+          <td colspan="2"> <div class="divc3" contenteditable="true" divc="0" key="5" ng-bind="value.c[0][5]"></div></td> 
+          <td colspan="2"> <div class="divc3" contenteditable="true" divc="5" key="1"></div></td>
+          </tr>
+
+          <tr align="center">
+          <td height="52">28d强度(MPa)</td> 
+          <td colspan="2"> <div class="divc3" contenteditable="true" divc="0" key="6" ng-bind="value.c[0][6]"></div></td> 
+          <td colspan="2"> <div class="divc3" contenteditable="true" divc="6" key="1"></div></td>
+          </tr>
+
+          <tr align="center">
+          <td rowspan="7" > 
+          <div>水</div><div class="mt_5">泥</div><div class="mt_5">进</div><div class="mt_5">场</div><div class="mt_5">复</div><div class="mt_5">验</div><div class="mt_5">报</div><div class="mt_5">告</div>
+          </td>
+          <td  height="52">试验单位</td>
+          <td colspan="2"> <div class="divc3" contenteditable="true" divc="0" key="7" ng-bind="value.c[0][7]"></div></td> 
+          <td colspan="2"> <div class="divc3" contenteditable="true" divc="7" key="1"></div></td>
+          </tr>
+
+          <tr align="center">
+          <td height="52">原(复)件</td> 
+          <td colspan="2"> <div class="divc3" contenteditable="true" divc="0" key="8" ng-bind="value.c[0][8]"></div></td> 
+          <td colspan="2"> <div class="divc3" contenteditable="true" divc="8" key="1"></div></td>
+          </tr>
+
+          <tr align="center">
+          <td height="52">生产厂名</td> 
+          <td colspan="2"> <div class="divc3" contenteditable="true" divc="0" key="9" ng-bind="value.c[0][9]"></div></td> 
+          <td colspan="2"> <div class="divc3" contenteditable="true" divc="9" key="1"></div></td>
+          </tr>
+
+          <tr align="center">
+          <td height="52">试验日期</td> 
+          <td colspan="2"> <div class="divc3" contenteditable="true" divc="0" key="10" ng-bind="value.c[0][10]"></div></td> 
+          <td colspan="2"> <div class="divc3" contenteditable="true" divc="10" key="1"></div></td>
+          </tr>
+
+          <tr align="center">
+          <td height="52">数量(t)</td> 
+          <td colspan="2"> <div class="divc3" contenteditable="true" divc="0" key="11" ng-bind="value.c[0][11]"></div></td> 
+          <td colspan="2"> <div class="divc3" contenteditable="true" divc="11" key="1"></div></td>
+          </tr>
+
+          <tr align="center">
+          <td height="52">安 &nbsp;定&nbsp; 性</td> 
+          <td colspan="2"> <div class="divc3" contenteditable="true" divc="0" key="12" ng-bind="value.c[0][12]"></div></td> 
+          <td colspan="2"> <div class="divc3" contenteditable="true" divc="12" key="1"></div></td>
+          </tr>
+
+          <tr align="center">
+          <td height="50">28d强度(MPa)</td> 
+          <td colspan="2"> <div class="divc3" contenteditable="true" divc="0" key="13" ng-bind="value.c[0][13]"></div></td> 
+          <td colspan="2"> <div class="divc3" contenteditable="true" divc="13" key="1"></div></td>
+          </tr>
+
+          <tr align="center">
+          <td colspan="2" height="52">核 查 结 果</td>
+          <td colspan="2"> <div class="divc3" contenteditable="true" divc="0" key="14" ng-bind="value.c[0][14]"></div></td> 
+          <td colspan="2"> <div class="divc3" contenteditable="true" divc="14" key="1"></div></td>
+          </tr>
+
+          </tbody>
+          </table>
+
+                  <!-- 内容底部 -->  
+
+                 
+         
+          
+
+
+          </div>
+     <div class="pt_15 pl_10 fz_13" >
+                <span>检查日期:</span>
+                <span class="pl_45"> 年  </span>  <span class="pl_10">月</span>   <span class="pl_10">日</span>  
+                  <span class="pl_30">核查人:</span>
+                   <span style="padding-left:50px;">复查日期:</span>
+                   <span class="pl_30"> 年  </span>  <span  class="pl_10">月</span>   <span class="pl_10">日</span>  
+                  <span class="pl_30">复查人:</span>
+              </div>
+
+      </td>
+  </tr>
+  </tbody>
+  </table>
+
+  </div>
+
+               

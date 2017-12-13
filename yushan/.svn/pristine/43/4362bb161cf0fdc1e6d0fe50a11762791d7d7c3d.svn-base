@@ -1,0 +1,517 @@
+  <style>
+  .textareawid{
+    width: 22px;
+    overflow: hidden;
+    vertical-align: middle;
+  }
+
+  .pl7{
+        padding-left: 7px;
+  }
+
+
+  td .divl3,td .divc3{
+    line-height:13px !important;
+  }
+  </style> 
+
+
+
+
+  <div id="printtable" class="alltablecss">
+
+    <table style="width: 640px;height: 960px;margin-left: 60px;margin-top: 35px;color: #000;">
+      <tbody>
+        <tr ng-repeat="(key, value) in Sdata">
+          <td>
+            <!-- 资料头部 -->  
+            <div class="zltitle" style="height: 70px;">
+              <table width="100%">
+                <tbody>
+                  <tr>
+                    <td>
+
+                      <div class="tc lh32">
+                        <span class="htitle">通风道、烟道、垃圾道检查记录</span>
+                      </div>
+
+                      <div  class="tc " style="height:15px;" >
+                        <span class="ftitle"></span>
+                      </div>
+
+                      <div class="bianhao">
+                        <span style="font-weight: bold;">GD-C4-6356</span> 
+                        <input class="lip">
+                        <input class="lip">
+                        <input class="lip">
+
+                        </div>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- 资料表格 style="height:910px;" -->  
+            <div class="zlcontent" >
+
+              <!-- 内容头部 -->  
+              <table class="zlhead w_p100" width="100%" height="145">
+
+
+<!-- 
+            <tr class="noborder">
+              <td style="width:46px;"></td>
+
+              <td style="width:95px;"></td>
+
+              <td style="width:45px;"></td>
+
+              <td style="width:45px;"></td>
+
+              <td style="width:45px;"></td>
+
+              <td style="width:60px;"></td>
+
+              <td style="width:50px;"></td>
+
+              <td style="width:30px;"></td>
+
+              <td style="width:42px;"></td>
+
+              <td style="width:55px;"></td>
+
+              <td style="width:18px;"></td>
+
+              <td style="width:65px;"></td>
+
+              <td style="width:;"></td>
+
+            </tr>
+
+             -->
+
+            <tr class="noborder">
+              <td style="width:40px;"></td>
+
+              <td style="width:95px;"></td>
+
+              <td style="width:43px;"></td>
+
+              <td style="width:43px;"></td>
+
+              <td style="width:44px;"></td>
+
+              <td style="width:58px;"></td>
+
+              <td style="width:49px;"></td>
+
+              <td style="width:30px;"></td>
+
+              <td style="width:42px;"></td>
+
+              <td style="width:53px;"></td>
+
+              <td style="width:18px;"></td>
+
+              <td style="width:63px;"></td>
+
+              <td style="width:63px;"></td>
+
+            </tr>
+
+            
+
+                <tr align="center">
+                  <td  height="50" colspan="3" align="center"> 单位(子单位)工程名称</td>
+                  <td  colspan="10">
+                    <div class="divl3" contenteditable="true"  divb="0" ng-bind="value.b[0]"></div>
+                  </td>
+                </tr>
+
+
+                <tr align="center">
+                  <td height="50" colspan="3" align="center">施工单位</td>
+                  <td  colspan="10">
+                    <div class="divl3" contenteditable="true"  divb="1" ng-bind="value.b[1]"></div>
+                  </td>
+                </tr>
+
+
+                <tr align="center">
+                  <td height="50" colspan="3" align="center">分部/子分部/分项</td>
+                  <td  colspan="5">
+                    <div class="divc3" contenteditable="true"  divb="2" ng-bind="value.b[2]"></div>
+                  </td>
+
+                  <td   colspan="2" align="center">检验批编号</td>
+                  <td  colspan="3">
+                    <div class="divc3" contenteditable="true"  divb="3" ng-bind="value.b[3]"></div>
+                  </td>
+
+
+                </tr>
+
+              </table>
+              <!-- 内容中间 height="471" -->  
+           
+
+                <table class="zlcont w_p100" >
+                  <tbody>
+<!--                <tr class="noborder">
+                 <td style="width:46px;"></td>
+
+                 <td style="width:95px;"></td>
+
+                 <td style="width:45px;"></td>
+
+                 <td style="width:45px;"></td>
+
+                 <td style="width:45px;"></td>
+
+                 <td style="width:60px;"></td>
+
+                 <td style="width:50px;"></td>
+
+                 <td style="width:30px;"></td>
+
+                 <td style="width:42px;"></td>
+
+                 <td style="width:55px;"></td>
+
+                 <td style="width:18px;"></td>
+
+                 <td style="width:65px;"></td>
+
+                 <td style="width:65px;"></td>
+               </tr> -->
+
+                           <tr class="noborder">
+              <td style="width:38px;"></td>
+
+              <td style="width:95px;"></td>
+
+              <td style="width:43px;"></td>
+
+              <td style="width:43px;"></td>
+
+              <td style="width:44px;"></td>
+
+              <td style="width:58px;"></td>
+
+              <td style="width:49px;"></td>
+
+              <td style="width:30px;"></td>
+
+              <td style="width:42px;"></td>
+
+              <td style="width:53px;"></td>
+
+              <td style="width:17px;"></td>
+
+              <td style="width:67px;"></td>
+
+              <td style="width:62px;"></td>
+
+            </tr>
+
+               <tr style="text-align: center;">
+                 <td colspan="1" rowspan="2" >序号</td>
+                 <td colspan="1" rowspan="2" >检查部位</td>
+                 <td colspan="3" rowspan="1" height="37">内表面质量</td>
+                 <td colspan="2" rowspan="1">通风（烟）情况</td>
+                 <td colspan="2" rowspan="2" >检查<br>时间</td>
+                 <td colspan="2" rowspan="2">整改情况</td>
+                 <td  rowspan="2">复检时间</td>
+                 <td  rowspan="2">备注</td>
+
+               </tr>
+
+               <tr  style="text-align: center;">
+                 <td height="40">光滑</td>
+                 <td >平整</td>
+                 <td >无裂纹</td>
+                 <td >通风</td>
+                 <td >无漏风<br>串烟</td>
+
+               </tr>
+
+               <tr>
+               <td height="36"><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td colspan="2"><div class="divc3" contenteditable="true"></div></td>
+               <td colspan="2"><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td> 
+               </tr>
+
+               <tr>
+               <td height="36"><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td colspan="2"><div class="divc3" contenteditable="true"></div></td>
+               <td colspan="2"><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td> 
+               </tr>
+
+               <tr>
+               <td height="36"><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td colspan="2"><div class="divc3" contenteditable="true"></div></td>
+               <td colspan="2"><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td> 
+               </tr>
+
+               <tr>
+               <td height="36"><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td colspan="2"><div class="divc3" contenteditable="true"></div></td>
+               <td colspan="2"><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td> 
+               </tr>
+
+               <tr>
+               <td height="36"><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td colspan="2"><div class="divc3" contenteditable="true"></div></td>
+               <td colspan="2"><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td> 
+               </tr>
+
+               <tr>
+               <td height="36"><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td colspan="2"><div class="divc3" contenteditable="true"></div></td>
+               <td colspan="2"><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td> 
+               </tr>
+
+               <tr>
+               <td height="36"><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td colspan="2"><div class="divc3" contenteditable="true"></div></td>
+               <td colspan="2"><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td> 
+               </tr>
+
+               <tr>
+               <td height="36"><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td colspan="2"><div class="divc3" contenteditable="true"></div></td>
+               <td colspan="2"><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td> 
+               </tr>
+
+               <tr>
+               <td height="36"><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td colspan="2"><div class="divc3" contenteditable="true"></div></td>
+               <td colspan="2"><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td> 
+               </tr>
+
+               <tr>
+               <td height="36"><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td colspan="2"><div class="divc3" contenteditable="true"></div></td>
+               <td colspan="2"><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td> 
+               </tr>
+
+               <tr>
+               <td height="36"><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td colspan="2"><div class="divc3" contenteditable="true"></div></td>
+               <td colspan="2"><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td> 
+               </tr>
+
+               <tr>
+               <td height="36"><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td colspan="2"><div class="divc3" contenteditable="true"></div></td>
+               <td colspan="2"><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td> 
+               </tr>
+
+               <tr>
+               <td height="36"><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td colspan="2"><div class="divc3" contenteditable="true"></div></td>
+               <td colspan="2"><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td> 
+               </tr>
+
+               <tr>
+               <td height="36"><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td colspan="2"><div class="divc3" contenteditable="true"></div></td>
+               <td colspan="2"><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td> 
+               </tr>
+
+               <tr>
+               <td height="36"><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td colspan="2"><div class="divc3" contenteditable="true"></div></td>
+               <td colspan="2"><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td>
+               <td><div class="divc3" contenteditable="true"></div></td> 
+               </tr>
+
+              
+
+
+            
+
+
+
+
+
+                    </tbody>
+                  </table>
+
+                  <!-- 内容底部 -->  
+               
+      <table class="zlcont w_p100" height="">
+        <tbody>
+
+          <tr>
+            <td colspan="2" height="35" align="center">监理（建设）单位</td>
+            <td colspan="3" align="center">施工单位</td>
+          </tr>
+
+
+          <tr>
+            <td rowspan="2" style="border-right: 0;padding-left: 3px;"> 专业监理工程师<br>（建设单位项目专业技术负责人）：</td>
+            <td rowspan="2" style="border-left:0;"><div class="divc3" contenteditable="true"></div></td>
+            <td align="center" height="35ss">专业工长</td>
+            <td align="center">专业质检员</td>
+            <td align="center">测量人</td>
+          </tr>
+
+          <tr>
+            <td height="35"><div class="divc3" contenteditable="true"></div></td>
+           <td><div class="divc3" contenteditable="true"></div></td>
+           <td><div class="divc3" contenteditable="true"></div></td>
+
+          </tr>
+<tr class="noborder">
+            <td style="width:220px;"></td>
+            <td style="width:75px;"></td>
+            <td style="width:105px;"></td>
+            <td style="width:105px;"></td>
+            <td style="width:136px;"></td>
+
+          </tr>
+
+          <tr class="noborder">
+            <td colspan="5">
+              <div >
+<img src="images/GD6356.png" alt="" style="padding: 10px 0 5px 45px;">
+</div>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+
+
+
+              </div>
+
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>

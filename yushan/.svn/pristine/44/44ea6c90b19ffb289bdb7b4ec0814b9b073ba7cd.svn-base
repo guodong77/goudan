@@ -1,0 +1,399 @@
+  <style>
+.text55{
+   width: 22px;
+    height: 54px;
+    overflow: hidden;
+    vertical-align: middle;}
+
+
+
+.mindlexie{
+  text-align: center; border: 0;background: #e4e4e4;width: 20px;border-bottom: 1px solid #000;}
+
+  td .divl3,td .divc3{
+    line-height:13px !important;
+  }
+  </style>
+
+
+<div  id="printtable" class="alltablecss">
+
+    <table style="width: 640px;height: 960px;margin-left: 60px;margin-top: 35px;">
+      <tbody>
+        <tr ng-repeat="(key, value) in Sdata">
+          <td>
+            <!-- 资料头部 -->  
+            <div class="zltitle" style="height: 80px;">
+              <table width="100%">
+                <tbody>
+                  <tr >
+                    <td>
+
+                      <div class="tc lh32">
+                        <span class="htitle">钢筋加工检验批质量验收记录</span>
+                      </div>
+
+                      <div  class="tc h_25">
+                        <span class="ftitle"></span>
+                      </div>
+
+                      <div class="bianhao">
+                        <span style="font-weight: bold;">GD-C5-71160</span> 
+                        <input class="lip">
+                        <input class="lip">
+                        <input class="lip">
+
+                        </div>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- 资料表格 -->  
+            <div class="zlcontent" style="height:910px;">
+
+              <!-- 内容头部 -->  
+              <table class="zlhead w_p100" width="100%" height="145">
+
+                <tr align="center">
+                  <td  height="35" width="95" >单位(子单位)<br>工程名称</td>
+                  <td colspan="1" width="110">
+                    <div class="divc3" contenteditable="true" divb="0" ng-bind="value.b[0]"></div>
+                  </td>
+             
+                 <td  width="95">分部(子分部)<br>工程名称</td>
+                  <td colspan="1" width="110">
+                    <div class="divc3" contenteditable="true" divb="1" ng-bind="value.b[1]"></div></td>
+
+                   <td width="95">分项工程名称</td>
+                  <td  colspan="1">
+                    <div class="divc3" contenteditable="true" divb="2" ng-bind="value.b[2]"></div>
+                    </td> 
+
+                </tr>
+
+                <tr align="center">
+                  <td height="35">施工单位</td>
+                  <td >
+                    <div class="divc3" contenteditable="true" divb="3" ng-bind="value.b[3]"></div>
+                  </td>
+                  <td   align="center">项目负责人</td>
+                  <td >
+                    <div class="divc3" contenteditable="true" divb="4" ng-bind="value.b[4]"></div>
+                  </td>
+
+                  <td   align="center">检验批容量</td>
+                  <td >
+                    <div class="divc3" contenteditable="true" divb="5" ng-bind="value.b[5]"></div>
+                  </td>
+
+                </tr>
+                <tr align="center">
+                  <td height="35" >分包单位</td>
+                  <td >
+                    <div class="divl3" contenteditable="true" divb="6" ng-bind="value.b[6]"></div>
+                  </td>
+                  <td     align="center">分包单位<br>项目负责人</td>
+                  <td  >
+                    <div class="divc3" contenteditable="true" divb="7" ng-bind="value.b[7]"></div>
+                  </td>
+                  
+                  <td     align="center">检验批部位</td>
+                  <td  >
+                    <div class="divc3" contenteditable="true" divb="8" ng-bind="value.b[8]"></div>
+                  </td>
+                  
+
+
+                </tr>
+                <tr align="center">
+                  <td height="35" >施工依据</td>
+                  <td colspan="2">
+                   <div class="divc3" contenteditable="true"  divb="9" ng-bind="value.b[9]"></div></td>
+
+                   <td height="40" >验收依据</td>
+                  <td colspan="2">
+                   <div class="divc3" contenteditable="true" divb="10" ng-bind="value.b[10]"></div></td>
+
+
+                </tr>
+
+              </table>
+              <!-- 内容中间 height="471" -->  
+           
+
+                <table class="zlcont w_p100" >
+                  <tbody>
+                    <tr align="center">
+                      <td height="50"  colspan="4">验收项目</td>
+                      <td   colspan="1" >设计要求及<br>规范规定</td>
+                      <td   colspan="3" >最小/实际<br>抽样数量</td>
+
+                      <td  width="260">检查记录</td>
+
+                      <td  width="35">检查<br>结果</td>
+
+
+                    </tr>
+                    <tr>
+                      <td rowspan="4" width="20" align="center">
+                        主
+                        <br>                    
+                        控
+                        <br>                    
+                        项
+                        <br>目</td>
+                      <td align="center" width="20" height="55">1</td>
+                      <td class="pl12"  colspan="2">受力钢筋的弯钩和弯折</td>
+                      <td align="center">第5.3.1条</td>
+                      <td colspan="1" style=" border: 0;border-bottom: 1px solid #000;">
+                        <textarea name="" divc="0" key="0" ng-bind="value.c[0][0]"  class="text55"></textarea>
+                      </td>
+                      <td colspan="1" class="mindlexie">/</td>
+                      <td colspan="1"  style=" border: 0;border-bottom: 1px solid #000;">
+                        <textarea name="" divc="0" key="1" ng-bind="value.c[0][1]" class="text55"></textarea>
+                      </td>
+                      <td align="center" >
+                        <div class="divl3" divd="0" ng-bind="value.d[0]" contenteditable="true"  ></div>
+                      </td>
+                      <td align="center" >
+                        <div class="divl3" divc="0" key="2" ng-bind="value.c[0][2]" contenteditable="true"  ></div>
+                      </td>
+
+                    </tr>
+
+                    <tr>
+
+                      <td align="center"  height="40">2</td>
+                      <td class="pl12" colspan="2">纵向受力钢筋的弯折后平直长度</td>
+                      <td align="center" >第5.3.2条</td>
+                      <td colspan="1" style=" border: 0;border-bottom: 1px solid #000;">
+                        <textarea name="" class="text55"  divc="1" key="0" ng-bind="value.c[1][0]"></textarea>
+                      </td>
+                      <td colspan="1" class="mindlexie">/</td>
+                      <td colspan="1"  style=" border: 0;border-bottom: 1px solid #000;">
+                        <textarea name="" class="text55" divc="1" key="1" ng-bind="value.c[1][1]"></textarea>
+                      </td>
+                      <td align="center" >
+                        <div class="divl3" contenteditable="true" divd="1" ng-bind="value.d[1]"></div>
+                      </td>
+                      <td align="center" >
+                        <div class="divl3"  contenteditable="true" divc="1" key="2" ng-bind="value.c[1][2]" ></div>
+                      </td>
+
+                    </tr>
+
+
+                     <tr>
+
+                       <td align="center"  height="40">3</td>
+                       <td class="pl12" colspan="2">箍筋弯钩形式</td>
+                       <td align="center" >第5.3.3条</td>
+                       <td colspan="1" style=" border: 0;border-bottom: 1px solid #000;">
+                         <textarea name="" class="text55" divc="2" key="0" ng-bind="value.c[2][0]"></textarea>
+                       </td>
+                       <td colspan="1" class="mindlexie">/</td>
+                       <td colspan="1"  style=" border: 0;border-bottom: 1px solid #000;">
+                         <textarea name="" class="text55"  divc="2" key="1" ng-bind="value.c[2][1]"></textarea>
+                       </td>
+                       <td align="center" >
+                         <div class="divl3" contenteditable="true" divd="2" ng-bind="value.d[2]"></div>
+                       </td>
+                       <td align="center" >
+                         <div class="divl3"  contenteditable="true"  divc="2" key="2" ng-bind="value.c[2][2]" ></div>
+                       </td>
+
+                     </tr>
+
+                     <tr>
+
+                       <td align="center"  height="40">4</td>
+                       <td class="pl12" colspan="2">钢筋调直后应进行力学性能和重量偏差检验</td>
+                       <td align="center" >第5.3.3条</td>
+                       <td colspan="1" style=" border: 0;border-bottom: 1px solid #000;">
+                         <textarea name="" class="text55" divc="3" key="0" ng-bind="value.c[3][0]"></textarea>
+                       </td>
+                       <td colspan="1" class="mindlexie">/</td>
+                       <td colspan="1"  style=" border: 0;border-bottom: 1px solid #000;">
+                         <textarea name="" class="text55" divc="3" key="1" ng-bind="value.c[3][1]"></textarea>
+                       </td>
+                       <td align="center" >
+                         <div class="divl3" contenteditable="true" divd="3" ng-bind="value.d[3]" ></div>
+                       </td>
+                       <td align="center" >
+                          <div class="divl3"  contenteditable="true"  divc="3" key="2" ng-bind="value.c[3][2]" ></div>
+                       </td>
+
+                     </tr>
+
+
+                        <tr>
+                          <td rowspan="3" width="25" align="center">
+                            一
+                            <br>                        
+                            般
+                            <br>                        
+                            项
+                            <br>目</td>
+                          <td rowspan="3" width="20"  align="center">1</td>
+                          <td width="52" align="center" rowspan="3" >
+                            钢筋加
+                            <br>工的形状、尺寸</td>
+                          <td class="pl12" height="50" width="100" >
+                            受力钢筋沿长度
+                            <br>方向的净尺寸</td>
+                          <td align="center"  width="80">±10mm</td>
+                          <td colspan="1" style=" border: 0;border-bottom: 1px solid #000;">
+                            <textarea name="" class="text55" divc="4" key="0" ng-bind="value.c[4][0]"></textarea>
+                          </td>
+                          <td colspan="1" class="mindlexie">/</td>
+                          <td colspan="1"  style=" border: 0;border-bottom: 1px solid #000;">
+                            <textarea name="" class="text55" divc="4" key="1" ng-bind="value.c[4][1]"></textarea>
+                          </td>
+                          <td align="center" >
+                            <div class="divl3" contenteditable="true"  divd="4" ng-bind="value.d[4]"></div>
+                          </td>
+                          <td align="center" >
+                            <div class="divl3"  contenteditable="true"  divc="4" key="2" ng-bind="value.c[4][2]" ></div>
+                          </td>
+
+                        </tr>
+
+
+                     <tr>
+
+                       <td class="pl12" height="50" >
+                         弯起钢筋的
+                         <br>弯折位置</td>
+                       <td align="center">±20mm</td>
+                       <td colspan="1" style=" border: 0;border-bottom: 1px solid #000;">
+                         <textarea name="" class="text55" divc="5" key="0" ng-bind="value.c[5][0]"></textarea>
+                       </td>
+                       <td colspan="1" class="mindlexie">/</td>
+                       <td colspan="1"  style=" border: 0;border-bottom: 1px solid #000;">
+                         <textarea name="" class="text55" divc="5" key="1" ng-bind="value.c[5][1]"></textarea>
+                       </td>
+                       <td align="center" >
+                         <div class="divl3" contenteditable="true"  divd="5" ng-bind="value.d[5]" ></div>
+                       </td>
+                       <td align="center" >
+                          <div class="divl3"  contenteditable="true"  divc="5" key="2" ng-bind="value.c[5][2]" ></div>
+                       </td>
+                     </tr>
+
+                     <tr>
+
+                       <td class="pl12" height="50" >箍筋内廓尺寸</td>
+                       <td align="center">±5mm</td>
+                       <td colspan="1" style=" border: 0;border-bottom: 1px solid #000;">
+                         <textarea name="" class="text55"  divc="6" key="0" ng-bind="value.c[6][0]"></textarea>
+                       </td>
+                       <td colspan="1" style="text-align: center; border: 0;background: #e4e4e4;width: 20px;">/</td>
+                       <td colspan="1"  style=" border: 0;border-bottom: 1px solid #000;">
+                         <textarea name="" class="text55"  divc="6" key="1" ng-bind="value.c[6][1]"></textarea>
+                       </td>
+                       <td align="center" >
+                         <div class="divl3" contenteditable="true" divd="6" ng-bind="value.d[6]" ></div>
+                       </td>
+                       <td align="center" >
+                          <div class="divl3"  contenteditable="true"  divc="6" key="2" ng-bind="value.c[6][2]" ></div>
+                       </td>
+                     </tr>
+  
+                  
+                    </tbody>
+                  </table>
+
+                  <!-- 内容底部 -->  
+                  <!-- 底部头 -->
+              <table class="zlcont w_p100" height="">
+                    <tbody>
+                      <tr>
+                        <td rowspan="4" align="center" width="197" style="background: #E0E0E0;">
+                          施工单位<br>检查结果</td>
+
+                        <td rowspan="4" width="190" class=" fz_13" style="background: #CCFFFF;border: 0;
+    border-top: 1px solid #000;border-bottom:1px solid #000;">
+                          <div class="divc3 mh_100 ng-binding" contenteditable="true"   divd="7" ng-bind="value.d[7]"></div>
+                        </td>
+                        <td colspan="1" height="15" style="background: #E0E0E0;border: 0;
+    border-top: 1px solid #000;"></td>
+                        <td colspan="1" align="center" style="background: #E0E0E0;border: 0;
+    border-top: 1px solid #000;border-right: 1px solid #000;"></td>
+
+                      </tr>
+
+                      <tr>
+                         <td height="40" width="160" class="t_r " style="border: 0;background: #E0E0E0;padding-right:10px;">专业工长：</td>
+                         <td  style="border: 0;background:#fff;border-right: 1px solid #000;"><input type="text" class="divc3" value="" style=""></td>
+                      </tr>
+
+                      
+                       <tr>
+                         <td height="40" width="160" class="t_r " style="border: 0;background: #E0E0E0;padding-right:10px;">项目专业质量检查员：</td>
+                         <td  style="border: 0;background:#fff;border-right: 1px solid #000;"><input type="text" class="divc3" value="" style=""></td>
+                      </tr>
+
+                      <tr>
+                        <td colspan="4" height="40" style="background: #EE82EE;border: 0;text-align: center;border-right: 1px solid #000;">
+                          <span >年</span>
+                          <span class="pl_15">月</span>
+                          <span class="pl_15">日</span>
+
+                        </td>
+                      </tr>
+
+
+
+
+
+                      <tr>
+                        <td rowspan="3" align="center" width="197" style="background: #E0E0E0;">
+                           监理单位<br>验收结论</td>
+
+                        <td rowspan="4" width="190" class=" fz_13" style="background: #CCFFFF;border: 0;
+    border-top: 1px solid #000;border-bottom:1px solid #000;">
+    <div class="divc3 mh_100 ng-binding" contenteditable="true"  divd="8" ng-bind="value.d[8]"></div>
+    </td>
+                        <td colspan="1" height="45" style="background: #E0E0E0;border: 0;
+    border-top: 1px solid #000;"></td>
+                        <td colspan="1" align="center" style="background: #E0E0E0;border: 0;
+    border-top: 1px solid #000;border-right: 1px solid #000;"></td>
+                       
+                      </tr>
+
+
+                      
+                       <tr>
+                         <td height="40" width="160" class="t_r " style="border: 0;background: #E0E0E0;padding-right:10px;">项目专业质量检查员：</td>
+                         <td  style="border: 0;background:#fff;border-right: 1px solid #000;"><input type="text" class="divc3" value="" style=""></td>
+                      </tr>
+
+                      <tr>
+                        <td colspan="4" height="40" style="background: #EE82EE;border: 0;text-align: center;border-right: 1px solid #000;border-bottom: 1px solid #000;">
+                          <span >年</span>
+                          <span class="pl_15">月</span>
+                          <span class="pl_15">日</span>
+
+                        </td>
+                      </tr>
+                  
+                  </tbody>
+                </table>
+<div style="padding: 5px 0 0 20px;
+    background: #e0e0e0;">
+<img src="images/GD71160.png" alt="">
+</div>
+
+
+
+              </div>
+
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>

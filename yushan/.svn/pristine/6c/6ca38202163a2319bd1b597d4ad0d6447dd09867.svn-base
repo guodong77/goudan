@@ -1,0 +1,34 @@
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="__TMPL__/portal/assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="__TMPL__/portal/assets/js/amazeui.min.js"></script>
+<script src="__TMPL__/portal/assets/js/store.common.js"></script>
+<script src="__TMPL__/portal/assets/js/layer/layer.js"></script>
+<script src="__TMPL__/portal/assets/js/form.js"></script>
+<script src="__TMPL__/portal/assets/js/common.js"></script>
+<script language="javascript" src="__TMPL__/portal/assets/dist/amazeui.swiper.min.js"></script>
+<script language="javascript" src="__TMPL__/portal/assets/js/jquery.tablesort.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+<script language="javascript">
+    $(function () {
+
+        var mySwiper = new Swiper('#mySwiper', {
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            slidesPerView: 'auto',
+            autoplay: 4000
+        })
+
+
+
+
+    })
+</script>

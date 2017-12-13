@@ -1,0 +1,104 @@
+<div ng-controller="com_ctrl" >
+
+<div class="dpn" id="win" ng-include="win.url" onload="winready()"></div>
+
+<!-- 新页面 -->
+<section style="margin-top: 90px" ng-if="program_pro_list.datalist.length!==0">
+	<div class="content chearfixed" style="overflow-y: auto;height: calc(100vh - 110px)" >
+	    <div class="chearfixed" style="position: relative;">
+	        <a class="btn4 fr" comwinadd="program_pro_add">新建项目</a>
+	    </div>
+	        <ul class="ul chearfixed" style="margin-top: 70px;">
+	            <li ng-if="value.isdel!=1" ng-repeat="(key, value) in program_pro_list.datalist" style="margin-left: 50px"> 
+	                <a href="#/program/sinlist" getcodeid={{value}} sendid="{{value.codeid}}" cityid="{{value.cityid}}">
+	                    <span ng-bind="value.prname" gotopro>{{value.prname}}</span>
+	                    <a href="javascript:;" class="dete1" comdelone="program_pro_del" sendid="{{value.codeid}}"></a>
+	                </a>
+                    <img ng-src="{{value.proimg||'./main/images/defproimg.png'}}" alt="" style="position:absolute;height: 100%;width: 100%;border-radius: 6px">
+	            </li>
+	        </ul>
+	</div>
+
+	
+</section>
+<!-- 新页面 -->
+
+
+
+	<div class="row" >
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    	<div class="row ">
+    		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">  
+
+
+<!-- 子单位 -->
+	      
+    	<!-- 子单位 -->
+
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    	 		<div  ng-if="program_pro_list.datalist.length==0" style="margin-top: 90px"><!-- ng-if="!program_pro_list.datalist.length" --> 
+    	 			<!-- <div class="row"> 
+    	 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    	 					 <div class="apstyle" comwinadd="program_pro_add">
+    	 					 <div style="display: inline-block;"><img src="/main/images/addpro.png" alt=""></div>
+	    	 					<span >添加工程</span> 
+	    	 				 </div>
+    	 				</div>
+    	 				
+    	 				
+    	 			</div> -->
+
+    	 			<div class="content chearfixed" style="height: calc(100vh - 110px);">
+    	 			    <div>
+    	 			        <img src="./main/images/none.png" style="display: block;margin:112px auto 74px ;">
+    	 			        <button class="btn1" comwinadd="program_pro_add">
+    	 			            <img src="./main/images/ic_add.png" style="margin-top:-4px">
+    	 			            <span>创建工程</span>   
+    	 			        </button>
+    	 			    </div>
+    	 			</div>
+    	 			 
+    	 			
+    	 		</div>
+    	 		<!-- <div  comwinadd="program_pro_add" ng-if="program_pro_list.datalist.length" class="prohasadd">
+    	 		</div>	 -->
+
+    	 		</div>
+
+
+    		<div id='page' class="t_c"> </div>
+    	</div>
+    </div>
+</div>
+
+
+
+
+</div>

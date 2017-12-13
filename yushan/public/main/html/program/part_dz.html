@@ -1,0 +1,87 @@
+
+<div>
+  <!--  焊接 -->
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th width="36"  style="padding: 6px;">
+          <label yscheckall="sjdata" yskey="cmselected">
+            <input type="checkbox" class="colored-blue" checkallbykey="program_plan_betonlist" key="dzcheck">
+            <span class="text"></span>
+          </label>
+        </th>
+        <th width="95" >分部</th>
+        <th   style="min-width: 150px;" >焊接部位</th>
+        <th  width="250" >钢筋牌号</th>
+        <th  width="100" >规格直径</th>
+        <th  width="100" >厂家</th>
+        <th  width="100" >砼浇筑日期</th>
+        <th width="100" >焊接制作日期</th>
+        <th width="100" >焊接送检日期</th>
+        <th  width="100" >组数</th>
+        <th width="70" >是否已送</th>
+        <th  width="170" >结果</th>
+        <th  width="170" >样品编号</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-class="{true:'yssel',false:''}[value.dzselected==1]"  ng-repeat="(key, value) in program_plan_betonlist.datalist|orderBy:'myorder'|planfil:'dz'">
+        <td  align="center">
+          <div class="checkbox">
+            <label yscheck="cmselected">
+              <input type="checkbox" class="colored-blue" ng-checked="value.dzcheck==1" comcheck="cmcheck" name="{{stype}}" value="{{value.codeid}}">
+              <span class="text"></span>
+            </label>
+          </div>
+        </td>
+
+        <td>
+          <select id="e1" style="width:100%;"  comedit="fid">
+            <option value="{{val.t}}" ng-repeat="(k, val) in ftypelist" ng-selected="value.fid==val.t">{{val.title}}</option>
+          </select>
+
+        </td>
+
+        <td >
+          <textarea name="" style="text-align: left;padding: 4px 8px;width: 100%;height: 35px;font-size: 12px" ng-model="value.dzname" comedit="dzname"> 
+          </textarea>
+        </td>
+
+        <td  class="def" comsetwin="program_plan_comset" extname="{{value.dzname}}-钢筋牌号" key="dzpaihao" len='{{value.dzzushu}}'>
+          <div ng-repeat="(k, v) in value.dzpaihaoarr" ng-bind="v.val"></div>
+        </td>
+        <td  class="def" comsetwin="program_plan_comset" extname="{{value.dzname}}-规格直径" key="dzguige" len='{{value.dzzushu}}'>
+          <div ng-repeat="(k, v) in value.dzguigearr" ng-bind="v.val"></div>
+        </td>
+
+        <td  class="def" comsetwin="program_plan_comset" extname="{{value.dzname}}-厂家" key="dzchangjia" len='{{value.dzzushu}}'>
+          <div ng-repeat="(k, v) in value.dzchangjiaarr" ng-bind="v.val"></div>
+        </td>
+        <td align="center" ng-bind="value.byriqi"></td>
+        <td>
+          <input type="text" value="{{value.dzriqi}}"  class="form-control" laydateedit="dzriqi"></td>
+        <td>
+          <input type="text" value="{{value.dztime}}"  class="form-control" laydateedit="dztime"></td>
+        <td>
+          <input type="text" value="{{value.dzzushu}}"  class="form-control" comedit="dzzushu"></td>
+
+        <td align="center">
+          <label class="chkys">
+            <input class="checkbox-slider slider-icon colored-blue" type="checkbox" ng-checked="value.dzys==1" checkedit="dzys">
+            <span class="text"></span>
+          </label>
+
+        </td>
+        <td  class="def" comsetwin="program_plan_comset" extname="{{value.dzname}}-检测结果" key="dzjg" len='{{value.dzzushu}}'>
+          <div ng-repeat="(k, v) in value.dzjgarr" ng-bind="v.val"></div>
+        </td>
+        <td  class="def" comsetwin="program_plan_comset" extname="{{value.dzname}}-样品编号" key="dzbh" len='{{value.dzzushu}}'>
+          <div ng-repeat="(k, v) in value.dzbharr" ng-bind="v.val"></div>
+        </td>
+
+      </tr>
+
+    </tbody>
+  </table>
+
+</div>

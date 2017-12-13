@@ -1,0 +1,93 @@
+<div ng-controller="com_ctrl" style="margin-top:90px">
+    <div class="dpn" id="win" ng-include="win.url" onload="winready()" ></div>
+
+    <div class="content chearfixed wrap" style="padding-left: 0">
+    <a href="#/program/pro"> <b class="fl"></b>
+        <span class="fl" style="line-height: 15px;
+    margin-left: 5px;">工程列表</span>
+    </a>
+    <div class="title" >
+        <span class="title1" ng-bind="proinfo.prname"></span>
+        <span class="title2">
+            开始日期：
+            <span ng-bind="proinfo.kaigong"></span>
+             结束日期：
+            <span ng-bind="proinfo.jungong"></span>
+        </span>
+    </div>
+    <div   class="ziliao" style="max-width: 1200px;margin: 0 auto">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="bg-themeprimary  h_10"></div>
+            </div>
+        </div>
+        <div class="tabbable">
+            <ul class="nav nav-tabs planmytab" style="box-shadow:0 0 0">
+                <li class="active" style="background: #fff;">
+                    <a data-toggle="tab" goto="#tujian" style="color:#262626">横道图</a>
+                </li>
+                <!--  <li>
+                <a data-toggle="tab" goto="#anquan">安全资料</a>
+            </li>
+            -->
+        </ul>
+        <div class="tab-content">
+            <div class="h_30"></div>
+            <div class="gantta">
+
+                <!--             <div class="ganttin" style="position: relative;">
+                <div>
+                    <h3>旭日品萃园一期商住楼工程（8-21幢及其地下室工程）</h3>
+                    <p>
+                        旭日品萃园一期商住楼工程1栋进度计划工程1栋进度计划旭日品萃园一期商住楼工程1栋进度计划工程1栋进度计划旭日品萃园一期商住楼工程1栋进度计划工程1栋进度计划
+                    </p>
+                    <div class="ganttinspan">
+                        <span >创建日期:2016.8.14 10:00</span>
+                    </div>
+                </div>
+                <div class="ganttinshodw ysbtn t_c">
+                    <button type="button" class="btn btn-blue">编辑作业计划</button>
+                    <button type="button" class="btn btn-blue">编 辑</button>
+                    <button type="button" class="btn btn-blue">打印预览</button>
+                </div>
+            </div>
+            -->
+            <div ng-if="value.isdel!=1" class="ganttin" ng-repeat="(key, value) in program_gantt_list.datalist">
+            <i class="sclose" comdelone="program_gantt_del" sendid="{{value.codeid}}" ></i> 
+                <div>
+                    <h3 class="mohu htitle" ng-bind="value.htitle"></h3>
+                    <p ng-bind="value.ftitle"  class="mohu"></p>
+                    <div class="ganttinspan mohu" >
+                        编制日期：<span ng-bind="value.creat_time"></span>
+                    </div>
+                </div>
+                <div class="ganttinshodw ysbtn t_c">
+                 <div class="ps_r">
+                    <button type="button" class="btn btn-success"  ganttwin="program_gantt_workedit" >作业列表</button>
+                    <button type="button" class="btn btn-blue"  comwinedit="program_gantt_edit">编 辑</button>
+                    <!-- <button type="button" class="btn btn-blue">打印预览</button>
+                -->
+                <button type="button" class="btn btn-danger"  comdelone="program_gantt_del" sendid='{{value.codeid}}'>删除</button>
+<!--                 <button type="button" class="btn btn-blue" sendid="{{value.codeid}}" comdelone="program_gantt_del">删除</button> -->
+               <!--  <i class="sclosegatt" comdelone="program_pro_sindel" sendid="HryWG_bq_bjuB4hdLUrynAXQ"></i> -->
+                </div>
+            </div>
+        </div>
+        <div class="ganttinadd hand" :gantt="1" comwinadd="program_gantt_add">
+            <h3>+</h3>
+        </div>
+        <div class="cl"></div>
+
+    </div>
+
+<div id="popolwindow" ng-include="winpop.url" >
+    
+</div>
+
+
+
+</div>
+</div>
+</div>
+    </div>
+</div>

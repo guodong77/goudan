@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name='renderer' content='webkit' />
+  <meta name="baidu-site-verification" content="9dwQTYf2OD" />
+  <title>河狸建筑</title>
+  <meta content="河狸建筑,河狸工程信息化平台" name="keywords" />
+  <meta content="河狸工程信息化平台，是专门为资料员量身打造的工程管理系统，集成功能：送检计划，
+送检汇总，进度管理，漏送统计及提示，送检异常统计，城市温度采集，同养温度计算及累计，
+形象进度图，横道图，资料打印等功能。手机微信关注河狸建筑，让你随时随地了解现场及送检进度，
+是资料员得力助手，为您提供贴心服务。河狸在手，工程无忧！" name="description" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="icon" href="./images/32.ico" type="image/x-icon"/>
+
+  <link rel="stylesheet" href="./main/css/by.css" />
+  <link rel="stylesheet" href="./main/css/font.css" />
+  <link rel="stylesheet" href="./main/css/global.css" />
+  <link rel="icon" href="../../../images/heli-logo.png" type="image/x-icon"/>
+   
+  <script src="./main/js/md5.js" ></script>
+  <!-- 引入seajs -->
+  <script src="./YS-frame/seajs/2.2.0/sea.js" ></script>
+  <!-- js配置文件 -->
+  <script>  
+       window.root2 = 'api/';
+       window.root3 = 'api/';  
+      
+      //1、定义基本配置  
+seajs.config({
+  base: '/',  // 设置别名，如果在二级目录这样配置：则base:'/erjimulu/'
+  alias: {
+    //YSframe框架基础 js模块
+    'jquery': 'YS-frame/jquery/jquery/1.10.1/jquery.js',
+    'angularjs':'YS-frame/angular/1.4.6/angular.min.js', 
+    'ry':'./main/js/RongIMWidget.min.js',   
+    'YS':'YS-frame/YS.js',  
+    //这里加载项目js
+     'global':'/main/js/global.js'  
+  }
+}); 
+ 
+// 3、加载 项目js模块
+seajs.use(['angularjs','jquery','YS','global'],function(){  
+seajs.use(['ry'],function(){  
+   seajs.use(['fac','facv','main','conf','confv'],function(){
+
+                        angular.element(document).ready(function() { 
+                            angular.module('app',['myfact','myfactv','main','render']); 
+                            angular.bootstrap(document, ['app']); 
+                        });
+                    }); 
+ 
+             
+           
+        }); 
+
+  
+});
+
+    </script>
+ <style type="text/css" media="screen">
+       input:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px white inset;
+    }  
+   body {
+      background-image: url(./main/images/loginindex.jpg);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      font-family: 'Roboto', sans-serif;
+      font-size:15px;
+      overflow:hidden;
+   }
+   body:before{
+    opacity:0;
+   }
+   .login-container{
+    width:330px!important;
+    max-width:none;
+   }
+   .input input{
+    height:30px;
+    font-size:14px;
+   }
+   .loginbox-submit input:hover{
+    border-color: #29ABE2!important;
+    color:#29ABE2;
+   }
+   .container {
+     width: 100vw;
+     height: 100vh;
+   }
+
+   .image-container {
+     overflow: hidden;
+   }
+   .loginlogo{
+    height:auto;
+    padding:10px;
+   }
+   .loginlogo:hover{
+  /*  box-shadow:0px 1px 2px 2px #fff;*/
+    border-radius:10px;
+    transform: scale(1.03);
+    transition:all 0.8s;
+   }
+
+
+
+/*雪*/
+   #snow{
+       background: none;
+       font-family: Androgyne;
+       background-image: url('http://www.wearewebstars.dk/codepen/img/s1.png'), url('http://www.wearewebstars.dk/codepen/img//s2.png'), url('http://www.wearewebstars.dk/codepen/img//s3.png');
+       height: 100%;
+       left: 0;
+       position: absolute;
+       top: 0;
+       width: 100%;
+       z-index:0;
+       -webkit-animation: snow 10s linear infinite;
+       -moz-animation: snow 10s linear infinite;
+       -ms-animation: snow 10s linear infinite;
+       animation: snow 10s linear infinite;
+   }
+   @keyframes snow {
+     0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+     50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+     100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+   }
+   @-moz-keyframes snow {
+     0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+     50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+     100% {background-position: 400px 1000px, 200px 400px, 100px 300px;}
+   }
+   @-webkit-keyframes snow {
+     0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+     50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+     100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+   }
+   @-ms-keyframes snow {
+     0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+     50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+     100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+   }   
+ </style>
+</head>
+<body  ng-controller="login_ctrl" loginenter>
+
+<!-- 雪 -->
+<!-- <div id="snow">
+</div> -->
+<!-- 雪 -->
+
+<a href="http://pre.ysjianzhu.com/">
+<div class="hometitlek" style="z-index: 999999;position: absolute;left: 20px">
+  <div class="dpib">
+    <div class="fl loginlogo">
+      <img src="./main/images/logo.png" style="height: 60px"></div>
+    <div class="cl"></div>
+  </div>
+</div>
+</a>
+       
+
+
+  <div class="homeall input">
+
+    <!-- 登陆 -->
+    <div ng-if="temdata.tap==0" id="login-container" class="login-container animated fadeInDown homelogin s{{temdata.tap}}">
+      
+      <form id="logform" action="/api/ver1/Login/login" method="post" style="margin-top: 40px">
+        <div class="loginbox">
+          <div class="loginbox-social" style="height:24px;"></div>
+
+          <div class="loginbox-textbox" style="margin-right: 20px;padding: 2px 40px;">
+            <span style="line-height: 32px;">账号</span>
+            <input type="text" id="ysusername" name="ysusername" required minlength="6" class="form-control ng-pristine ng-untouched ng-valid" placeholder="用户名/手机号" style="width: 100%;margin-right: 35px;"></div>
+            
+          <div class="loginbox-textbox" style="margin-right: 20px;    padding: 6px 40px;">
+            <span style="line-height: 32px;">密码</span>
+            <input type="password"  required minlength="6"  class="form-control ng-untouched ng-valid ng-dirty ng-valid-parse" id="yspassword" placeholder="密码" pswmd5 style="width: 100%;margin-right: 35px;">
+            <input type="text" name="yspassword" class="dpn"/>
+          </div>
+
+
+          <div class="loginbox-forgot" style="margin-right: 35px;margin-bottom: 5px;">
+            <br>
+            <div class="fl">
+              <label>
+                <input class="f_12 passdinpt" id="rem" type="checkbox">
+                <span class="text f_12 " >记住密码</span>
+              </label>
+            </div>
+            <a href="?tap=2" class="fr forgetpad" style="color: #ED2553">忘记密码?</a>
+            <div class="cl"></div>
+          </div>
+          <div class="loginbox-submit" style="padding: 10px 38px;margin-right:7px;text-align: center">
+            <input loginbtn="com_login" id="loginbtn" type="submit" class="btn btn-block" value="登 录" style="width: 190px;line-height: 34px;height:34px;border: 2px solid #3d3d3d;background: none;font-size: 18px;font-weight: 600"></div>
+          <div class="loginbox-signup t_c">
+            <div class="dpib">
+              <span class="fl mr_8">还没有注册河狸账号?</span>
+              <a class="fl" style="color:#23abe3;font-size: 14px" href="?tap=1">免费注册</a>
+              <div class="cl"></div>
+            </div>
+          </div>
+
+          <!-- <div class="loginbox-or">
+            <div class="or_line"></div>
+          </div> -->
+          <div class="social-buttons" style="margin: 5px 0px 5px 40px;text-align: center;">
+            <div style="display: inline-block;">
+              <a class="loginimgxb qqloginxbt" href="https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101271490&redirect_uri=http%3A%2F%2Fpre.ysjianzhu.com%2Fapi%2Fver1%2FLogin%2Fqqcallback&state=abc&scope=snsapi_login
+"></a>
+
+              <a href="https://open.weixin.qq.com/connect/qrconnect?appid=wxa4f0646618777df8&amp;redirect_uri=http%3A%2F%2Fpre.ysjianzhu.com%2Fphp%2FYsback%2FLogin%2Fpcwecallback&amp;response_type=code&amp;scope=snsapi_login&amp;state=ysjianzhu#wechat_redirect" class="loginimgxb wxloginxbt"></a>
+              <div class="cl"></div>
+            </div>
+          </div>
+
+        </div>
+      </form>
+    </div>
+
+    <!-- 登陆  -->
+
+    <!-- 注册 -->
+
+    <div  ng-if="temdata.tap==1"  class="homelogin s{{temdata.tap}}">
+      <div class="w_p100 t_c">
+        <div class="dpib pl_p2">
+          <div class="registebox">
+            <div class="registeboxall">
+              <div class="registeboxl" >
+                <div class="registl">
+
+                  <form id='regform' action="/api/ver1/Login/register" method="post">
+                    <div class="loginbox-textbox registk" >
+                      <span >手机号</span>
+                      <input id="tel" name="tel" ng-model="regdata.tel" required type="text" class="form-control ng-pristine ng-valid "  placeholder="请输入手机号" autofocus ="autofocus"></div>
+                    <div class="loginbox-textbox registk verification" style="padding-right:0px;">
+                      <span style="display: block;">验证码</span>
+                      <!-- <div class="verification"></div>
+                    -->
+                    <input id="yzmcode" name='yzmcode'  ng-model="regdata.yzmcode" required type="text" class="form-control ng-pristine ng-valid " placeholder="请输入验证码">
+                    <!--   <div></div>
+                  -->
+                  <img  style="display: inline-block;" id="yzm" alt="" ng-click="yzm()"></div>
+                <div style="clear: both"></div>
+                <div class="loginbox-textbox registk" >
+                  <span  style="display: block;">短信验证码</span>
+                  <div class="msgp">
+                    <input type="text" minlength="4" id="msgcode" name='msgcode' required digits class="form-control smsinput"  placeholder="请输入短信验证码" style="width: 60%;float: left;margin-right: 8px;height: 18px">
+                    <input type="button" disabled id="sendcode" style="width: 36%;height: 30px;font-size: 14px;float: right;margin-right: -26px;" phonecode="regdata" value="发送验证码"  class=" sendcode smsbottom" ></div>
+                </div>
+                <div style="clear: both"></div>
+
+               <!--  <div class="loginbox-textbox registk" ng-show="!from.status">
+                  <span >推荐码</span>
+                  <span style="font-size: 12px;">(选填)</span>
+                  <input id="from" name="from" ng-model="from.code" type="text" class="form-control ng-pristine ng-valid "  placeholder="请输入推荐码" autofocus ="autofocus"></div> -->
+
+                <div class="loginbox-textbox registk" >
+                  <span >密码</span>
+                  <input type="password" pswmd5 id="regpsd"  minlength="6" name="" required class="form-control ng-pristine ng-valid "  placeholder="请输入密码" autofocus ="autofocus">
+                  <input type="text" name="regpsd" class="dpn" />
+                </div>
+                <div class="loginbox-submit registzc">
+                  <input  type="submit" id="regbtn" class="btn btn-block registzcinp" value="注 册" style="width:256px;font-size: 18px;border: 2px solid #3d3d3d;background: none;font-weight: 600"></div>
+              </form>
+
+            </div>
+          </div>
+          <div class="fl pl_30 t_l" style="width: 230px;">
+            <div class="n1fc pt_64">
+              <span>已经注册河狸账号?</span>
+            </div>
+            <div class="directlogin" >
+              <a href="login.html">
+                <span>直接登录</span>
+              </a>
+            </div>
+            <div class="n1fc pt_50" >
+              <span>使用以下账号注册</span>
+            </div>
+            <div class="social-buttons" style="width:230px;text-align: center;padding-top:20px">
+              <div style="display: inline-block;">
+                <a class="loginimgxb qqloginxbt"  href="https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101271490&redirect_uri=http%3A%2F%2Fpre.ysjianzhu.com%2Fphp%2FYsback%2FLogin%2Fqqcallback&state=abc&scope=snsapi_login
+"></a>
+                <a  href="https://open.weixin.qq.com/connect/qrconnect?appid=wx4d9056e626888ff3&amp;redirect_uri=http%3A%2F%2Fpre.ysjianzhu.com%2Findex.php%2FYsback%2FLogin%2Fwecallback&amp;response_type=code&amp;scope=snsapi_login&amp;state=ysjianzhu#wechat_redirect" class="loginimgxb wxloginxbt"></a>
+                <div class="cl"></div>
+              </div>
+            </div>
+
+          </div>
+          <div class="cl"></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 注册 -->
+
+<!-- 忘记密码 -->
+
+<div  ng-if="temdata.tap==2"  class="homelogin s{{temdata.tap}}">
+  <div class="w_p100 t_c">
+    <div class="dpib pl_p2">
+      <div class="registebox">
+        <div class="registeboxall">
+          <div class="registeboxl" >
+
+            <form id="reform" action="/api/ver1/Login/resetpsd"  method="post">
+
+              <div class="registl">
+
+                <div class="loginbox-textbox registk" >
+                  <span >手机号</span>
+                  <input type="text" id="tel" name="tel" ng-model="resetdata.tel" required minlength="11" class="form-control ng-pristine ng-valid "  placeholder="请输入手机号"></div>
+                <div class="loginbox-textbox registk" style="padding-right:0px;">
+                  <span >验证码</span>
+                  <div class="verification">
+                    <input type="text" id='yzmcode' name='yzmcode' required  ng-model="resetdata.yzmcode" class="form-control ng-pristine ng-valid " placeholder="请输入验证码">
+                    <img  id="yzm" alt="" ng-click="yzm()"></div>
+                </div>
+                <div style="clear: both"></div>
+                <div class="loginbox-textbox registk" >
+                  <span >短信验证码</span>
+                  <div class="msgp">
+                    <input type="text" id='msgcode' name='msgcode' class="form-control smsinput" required minlength='4' digits placeholder="请输入短信验证码"  style="width: 60%;float: left;margin-right: 8px;height: 18px">
+                    <input type="button" disabled id="sendcode" style="width: 36%;font-size: 14px;height: 30px;float: right;margin-right: -26px;" phonecode="resetdata" value="发送验证码"  class=" sendcode smsbottom" ></div>
+
+                </div>
+                <div style="clear: both"></div>
+                <div class="loginbox-textbox registk" >
+                  <span >新密码</span>
+                  <input type="password" pswmd5 id="repsd" name="" required minlength="6" class="form-control ng-pristine ng-valid "  placeholder="请输入新密码" autofocus ="autofocus">
+                  <input type="text" name="repsd" class="dpn" />
+                </div>
+                <div class="loginbox-submit registzc">
+                  <input id="rebtn" type="submit" class="btn btn-block registzcinp" value="重置密码" style="width: 256px;border: 2px solid #3d3d3d;background: none;font-size: 18px;font-weight: 600"></div>
+
+              </div>
+            </form>
+
+          </div>
+          <div class="fl pl_30 t_l" style="width: 230px;">
+            <div class="n1fc pt_64">
+              <span>已有河狸账号?</span>
+            </div>
+            <div class="directlogin" >
+              <a href="login.html">
+                <span>直接登录</span>
+              </a>
+            </div>
+            <div class="n1fc pt_50" >
+              <span>使用以下账号登陆</span>
+            </div>
+            <div class="social-buttons" style="width:230px;text-align: center;padding-top:20px">
+              <div style="display: inline-block;">
+                <a class="loginimgxb qqloginxbt"  href="https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101271490&redirect_uri=http%3A%2F%2Fpre.ysjianzhu.com%2Fphp%2FYsback%2FLogin%2Fqqcallback&state=abc&scope=snsapi_login
+"></a>
+                <a href="https://open.weixin.qq.com/connect/qrconnect?appid=wx4d9056e626888ff3&amp;redirect_uri=http%3A%2F%2Fpre.ysjianzhu.com%2Findex.php%2FYsback%2FLogin%2Fwecallback&amp;response_type=code&amp;scope=snsapi_login&amp;state=ysjianzhu#wechat_redirect" class="loginimgxb wxloginxbt"></a>
+                <div class="cl"></div>
+              </div>
+            </div>
+
+          </div>
+          <div class="cl"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- 忘记密码 -->
+
+<!-- 绑定 未有账号 -->
+<div  ng-if="temdata.tap==3"  class="homelogin s{{temdata.tap}}">
+  <div class="hometitlek">
+    <div class="dpib">
+      <div class="fl">
+        <img src="main/images/yslogo.png" class="logoimg"></div>
+      <span class="fl">河狸工程信息化平台</span>
+      <div class="cl"></div>
+    </div>
+  </div>
+  <div class="w_p100 t_c">
+    <div class="dpib pl_p2">
+      <div class="registebox">
+        <div class="registeboxall">
+          <div class="registeboxl" >
+            <div class="registl">
+              <div class="loginbox-textbox registk">
+                <div class="fl">
+                  <img class="bangdingimg" src="main/images/correctbind.png" alt=""></div>
+                <div class="fl">
+                  <div class="bangdingwor">
+                    <span >您已成功关联</span>
+                    <span>:</span>
+                    <span ng-bind="temdata.nickname"></span>
+                  </div>
+                  <div class="bangdingwor">
+                    <span>请输入手机号码完成绑定</span>
+                  </div>
+                </div>
+                <div class="cl"></div>
+              </div>
+
+              <form id="regbindform" action="/api/ver1/Login/qqweaddbind" method="post">
+                <div class="loginbox-textbox registk" >
+                  <span >手机号</span>
+                  <input type="text" id="tel" name="tel" ng-model="regbinddata.tel" required minlength="11" class="form-control ng-pristine ng-valid "  placeholder="请输入手机号"></div>
+                <div class="loginbox-textbox registk" style="padding-right:0px;">
+                  <span >验证码</span>
+                  <div class="verification">
+                    <input type="text" id='yzmcode' name='yzmcode' required  ng-model="regbinddata.yzmcode" class="form-control ng-pristine ng-valid " placeholder="请输入验证码">
+                    <img  id="yzm" alt="" ng-click="yzm()"></div>
+                </div>
+                <div style="clear: both"></div>
+                <div class="loginbox-textbox registk" >
+                  <span >短信验证码</span>
+                  <div class="msgp">
+                    <input type="text" id='msgcode' name='msgcode' class="form-control smsinput" required minlength="4" digits placeholder="请输入短信验证码"  style="width: 60%;float: left;margin-right: 8px;height: 18px">
+                    <input type="button" disabled id="sendcode" style="width: 36%;height: 30px;float: right;margin-right: -26px;" phonecode="regbinddata" value="发送验证码"  class=" sendcode smsbottom" ></div>
+                </div>
+                <div style="clear: both"></div>
+
+                <div class="loginbox-textbox registk" ng-show="!from.status">
+                  <span>推荐码</span>
+                  <input id="from" name="from" ng-model="from.code" type="text" class="form-control ng-pristine ng-valid "  placeholder="请输入推荐码" autofocus ="autofocus"></div>
+
+                <div class="loginbox-textbox registk" >
+                  <span >新密码</span>
+                  <input type="password" pswmd5 id="rebpsd" name="" required minlength="6" class="form-control ng-pristine ng-valid "  placeholder="请输入新密码" autofocus ="autofocus">
+                  <input type="text" name="rebpsd" value="" class="dpn" />
+                </div>
+                <div class="loginbox-submit registzc">
+                  <input id="regbindbtn" type="submit" class="btn btn-primary btn-block registzcinp" value="注册" style="width: 256px;"></div>
+
+              </form>
+
+            </div>
+          </div>
+          <div class="fl pl_30 t_l" style="width: 230px;">
+            <div class="n1fc pt_64">
+              <span>已有河狸账号?</span>
+            </div>
+            <div class="directlogin" >
+              <a href="/login.html?tap=4&nickname={{temdata.nickname}}">
+                <span>立即绑定</span>
+              </a>
+            </div>
+
+            <div class="directlogin" >
+              <a href="login.html">
+                <span>直接登录</span>
+              </a>
+            </div>
+
+          </div>
+          <div class="cl"></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 绑定 未有账号 -->
+
+<!-- 绑定 已有  老用户 -->
+<div  ng-if="temdata.tap==4"  class="homelogin s{{temdata.tap}}">
+  <div class="hometitlek">
+    <div class="dpib">
+      <div class="fl">
+        <img src="main/images/yslogo.png" class="logoimg"></div>
+      <span class="fl">河狸工程信息化平台</span>
+      <div class="cl"></div>
+    </div>
+  </div>
+
+  <div class="w_p100 t_c">
+    <div class="dpib pl_p2">
+      <div class="accountbox">
+        <div class="registeboxall">
+          <div class="registeboxl" >
+            <div class="registl">
+              <div class="loginbox-textbox registk">
+                <div class="fl">
+                  <img class="bangdingimg" src="main/images/correctbind.png" alt=""></div>
+                <div class="fl">
+                  <div class="bangdingwor">
+                    <span >您已成功关联</span>
+                    <span>:</span>
+                    <span ng-bind="temdata.nickname"></span>
+                  </div>
+                  <div class="bangdingwor">
+                    <span>请输入手机号码完成绑定</span>
+                  </div>
+                </div>
+                <div class="cl"></div>
+              </div>
+
+              <form id="oldform" action="/api/ver1/Login/qqwebind" method="post">
+
+                <div class="loginbox-textbox registk" >
+                  <span >用户名</span>
+                  <input type="text" name="tel" id="tel" required minlength="6" class="form-control ng-pristine ng-valid" placeholder="请输入用户名/手机号"></div>
+                <div class="loginbox-textbox registk" >
+                  <span >密码</span>
+                  <input type="password" pswmd5 id="rebpsd" required minlength="6" class="form-control ng-pristine ng-valid "  placeholder="请输入密码" autofocus ="autofocus">
+                  <input type="text" name="rebpsd"  class="dpn" />
+                </div>
+                <div class="loginbox-submit registzc">
+                  <input id="oldbtn" type="submit" class="btn btn-primary btn-block registzcinp" value="绑定" style="width: 256px;"></div>
+              </form>
+
+            </div>
+          </div>
+          <div class="fl pl_30 t_l" style="width: 230px;">
+            <div class="n1fc pt_64">
+              <span>无河狸账号?</span>
+            </div>
+            <div class="directlogin" >
+              <a  href="/login.html?tap=3&nickname={{temdata.nickname}}">
+                <span>立即注册</span>
+              </a>
+            </div>
+          </div>
+          <div class="cl"></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+ 
+</div>
+<!-- 绑定 已有-->
+
+<!-- <div class="homebulwb"></div> -->
+<div class="datarecord af{{temdata.tap}}">
+  <p><a href="http://www.miitbeian.gov.cn" style="color:#fff;font-size: 16px" target="_blank" >
+      粤ICP备16028963号-1
+    </a></p>
+      
+</div>
+
+
+
+<style>
+  .dateweather{
+    color:#fff;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    z-index:999;
+  }
+  .dateweather p:first-child {
+    font-size:36px;
+  }
+  .dateweather p:nth-child(2) {
+   margin-top:-20px;
+  }
+  .element {
+      height: 50px;
+      width: 50px;
+      margin: 34px 10px 10px 10px;
+      text-align:center;
+   }
+  .white {fill:#FFFFFF;}
+  .gray {fill:#E0E0E0;}
+  .yellow {fill:#FFEB3B;}
+</style>
+<section class="dateweather">
+   <div style="display: flex">
+      <div style="margin-top: -16px;text-align: right">
+        <p><span ng-bind="nowdate">27</span></p>
+        <p>
+         <span ng-bind="nowyear">2017</span>
+         <span>/</span>
+         <span ng-bind="nowmouth">08</span>
+        </p>
+        <p style="font-size: 14px;margin-top: -10px">深圳</p>
+      </div>
+    <!-- snow -->
+      <!-- <div class="element">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55.1 52.5" style="enable-background:new 0 0 55.1 52.5;" xml:space="preserve">
+          <g id="Cloud_7">
+            <g id="White_cloud_7">
+                <path id="XMLID_8_" class="white" d="M47.2,34.5H7.9c-4.3,0-7.9-3.5-7.9-7.9l0,0c0-4.3,3.5-7.9,7.9-7.9h39.4c4.3,0,7.9,3.5,7.9,7.9 v0C55.1,30.9,51.6,34.5,47.2,34.5z"/>
+                <circle id="XMLID_5_" class="white" cx="17.4" cy="17.3" r="9.3"/>
+                <circle id="XMLID_1_" class="white" cx="34.5" cy="15.6" r="15.6"/>
+            </g>
+            <circle class="white" cx="37" cy="43.5" r="3">
+              <animateTransform attributeName="transform"
+                attributeType="XML"
+                dur="1.5s"
+                keyTimes="0;0.33;0.66;1"
+                repeatCount="indefinite"
+                type="translate"
+                values="1 -2;3 2; 1 4; 2 6"
+                calcMode="linear">
+              </animateTransform>
+            </circle>
+            <circle class="white" cx="27" cy="43.5" r="3">
+              <animateTransform attributeName="transform"
+                attributeType="XML"
+                dur="1.5s"
+                keyTimes="0;0.33;0.66;1"
+                repeatCount="indefinite"
+                type="translate"
+                values="1 -2;3 2; 1 4; 2 6"
+                calcMode="linear">
+              </animateTransform>
+            </circle>
+            <circle class="white" cx="17" cy="43.5" r="3">
+              <animateTransform attributeName="transform"
+                attributeType="XML"
+                dur="1.5s"
+                keyTimes="0;0.33;0.66;1"
+                repeatCount="indefinite"
+                type="translate"
+                values="1 -2;3 2; 1 4; 2 6"
+                calcMode="linear">
+              </animateTransform>
+            </circle>
+          </g>
+        </svg> 
+      </div>
+ -->     
+
+ <!--  rain -->
+      <div class="element" ng-show="nowweather == 'rain'">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55.1 60" style="enable-background:new 0 0 55.1 49.5;" xml:space="preserve">
+          <g id="Cloud_2">
+              <g id="Rain_2">
+              <path id="rain_2_left" class="white" d="M20.7,46.4c0,1.7-1.4,3.1-3.1,3.1s-3.1-1.4-3.1-3.1c0-1.7,3.1-7.8,3.1-7.8 S20.7,44.7,20.7,46.4z"></path>
+                  <path id="rain_2_mid" class="white" d="M31.4,46.4c0,1.7-1.4,3.1-3.1,3.1c-1.7,0-3.1-1.4-3.1-3.1c0-1.7,3.1-7.8,3.1-7.8 S31.4,44.7,31.4,46.4z"></path>
+              <path id="rain_2_right" class="white" d="M41.3,46.4c0,1.7-1.4,3.1-3.1,3.1c-1.7,0-3.1-1.4-3.1-3.1c0-1.7,3.1-7.8,3.1-7.8 S41.3,44.7,41.3,46.4z"></path>
+              <animateTransform attributeName="transform"
+                attributeType="XML"
+                dur="1s"
+                keyTimes="0;1"
+                repeatCount="indefinite"
+                type="translate"
+                values="0 0;0 10"
+                calcMode="linear">
+              </animateTransform>
+              <animate attributeType="CSS"
+              attributeName="opacity"
+              attributeType="XML"
+              dur="1s"
+              keyTimes="0;1"
+              repeatCount="indefinite"
+              values="1;0"
+              calcMode="linear"/>
+              </g>
+              <g id="White_cloud_2">
+                  <path id="XMLID_14_" class="white" d="M47.2,34.5H7.9c-4.3,0-7.9-3.5-7.9-7.9l0,0c0-4.3,3.5-7.9,7.9-7.9h39.4c4.3,0,7.9,3.5,7.9,7.9 v0C55.1,30.9,51.6,34.5,47.2,34.5z"/>
+                  <circle id="XMLID_13_" class="white" cx="17.4" cy="17.3" r="9.3"/>
+                  <circle id="XMLID_10_" class="white" cx="34.5" cy="15.6" r="15.6"/>
+              </g>
+          </g>
+        </svg>
+      </div>
+
+
+  <!-- Sunny -->
+  <div class="element" ng-show="nowweather == 'cloud'">
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 44.9 44.9" style="enable-background:new 0 0 44.9 44.9;" xml:space="preserve" height="40px" width="40px">
+      <g id="Sun">
+          <circle id="XMLID_61_" class="yellow" cx="22.4" cy="22.6" r="11"/>
+        <g>
+          <path id="XMLID_60_" class="yellow" d="M22.6,8.1h-0.3c-0.3,0-0.6-0.3-0.6-0.6v-7c0-0.3,0.3-0.6,0.6-0.6l0.3,0c0.3,0,0.6,0.3,0.6,0.6 v7C23.2,7.8,22.9,8.1,22.6,8.1z"/>
+          <path id="XMLID_59_" class="yellow" d="M22.6,36.8h-0.3c-0.3,0-0.6,0.3-0.6,0.6v7c0,0.3,0.3,0.6,0.6,0.6h0.3c0.3,0,0.6-0.3,0.6-0.6v-7 C23.2,37,22.9,36.8,22.6,36.8z"/>
+          <path id="XMLID_58_" class="yellow" d="M8.1,22.3v0.3c0,0.3-0.3,0.6-0.6,0.6h-7c-0.3,0-0.6-0.3-0.6-0.6l0-0.3c0-0.3,0.3-0.6,0.6-0.6h7 C7.8,21.7,8.1,21.9,8.1,22.3z"/>
+          <path id="XMLID_57_" class="yellow" d="M36.8,22.3v0.3c0,0.3,0.3,0.6,0.6,0.6h7c0.3,0,0.6-0.3,0.6-0.6v-0.3c0-0.3-0.3-0.6-0.6-0.6h-7 C37,21.7,36.8,21.9,36.8,22.3z"/>
+          <path id="XMLID_56_" class="yellow" d="M11.4,31.6l0.2,0.3c0.2,0.2,0.2,0.6-0.1,0.8l-5.3,4.5c-0.2,0.2-0.6,0.2-0.8-0.1l-0.2-0.3 c-0.2-0.2-0.2-0.6,0.1-0.8l5.3-4.5C10.9,31.4,11.2,31.4,11.4,31.6z"/>
+          <path id="XMLID_55_" class="yellow" d="M33.2,13l0.2,0.3c0.2,0.2,0.6,0.3,0.8,0.1l5.3-4.5c0.2-0.2,0.3-0.6,0.1-0.8l-0.2-0.3 c-0.2-0.2-0.6-0.3-0.8-0.1l-5.3,4.5C33,12.4,33,12.7,33.2,13z"/>
+          <path id="XMLID_54_" class="yellow" d="M11.4,13.2l0.2-0.3c0.2-0.2,0.2-0.6-0.1-0.8L6.3,7.6C6.1,7.4,5.7,7.5,5.5,7.7L5.3,7.9 C5.1,8.2,5.1,8.5,5.4,8.7l5.3,4.5C10.9,13.5,11.2,13.5,11.4,13.2z"/>
+          <path id="XMLID_53_" class="yellow" d="M33.2,31.9l0.2-0.3c0.2-0.2,0.6-0.3,0.8-0.1l5.3,4.5c0.2,0.2,0.3,0.6,0.1,0.8l-0.2,0.3 c-0.2,0.2-0.6,0.3-0.8,0.1l-5.3-4.5C33,32.5,33,32.1,33.2,31.9z"/>
+          <animate attributeType="CSS"
+            attributeName="opacity"
+            attributeType="XML"
+            dur="0.5s"
+            keyTimes="0;0.5;1"
+            repeatCount="indefinite"
+            values="1;0.6;1"
+            calcMode="linear"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+   </div>
+
+  
+
+
+  </section>
+
+<!-- 雨 -->
+<!-- <div class="image-container">
+    <img src="" 
+         alt="" 
+         class="container" 
+         id="image">
+</div>   -->
+</div>
+<!-- 雨 -->
+
+
+
+</body>
+<!--Body Ends
+
+<!- <script type="text/javascript">console.log(QC.Login.check());</script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rainyday.js/0.1.2/rainyday.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> -->
+<script>
+window.onload = function(){
+  
+  // var image = document.getElementById('image');
+  // image.onload = function() {
+  //   var engine = new RainyDay({
+  //     image: this,
+  //     gravityAngle: Math.PI / 5
+
+  //   });
+  //   engine.trail = engine.TRAIL_SMUDGE;
+  //   engine.rain([ [3, 2, 2] ], 100);
+  //   engine.rain(
+  //     [
+  //         [1, 0, 20], 
+  //         [3, 3, 1],
+  //         [1, 2, 19]
+  //     ],                       
+  //     100);
+  //  engine.rain([ [0, 2, 200], [3, 3, 1] ], 100);
+  // };
+  // image.crossOrigin = 'anonymous';
+  // image.src = './main/images/loginindex.jpg';
+} 
+  
+     
+    
+ 
+   
+  
+</script>
+</html>

@@ -1,0 +1,144 @@
+<!-- 送检计划  -->
+<div class="widget-main biaoge" ng-controller="com_ctrl">
+    <div class="dpn" id="win" ng-include="win.url" onload="winready()"></div>
+ 
+    
+<!-- 原材滚动显示 -->
+    <div ng-if="program_plan_sinlist.datalist[0].now=='active'" id="yctip" class="row mytip">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tipcom"  >
+        <div style="padding: 8px 12px;">
+            <div ng-class="{true:'dpn',false:''}[program_plan_sinlist.datalist[0].now=='']">
+
+                <a delmore="program_plan_matterdel" from="program_plan_matterlist" class="btn btn-danger btn-xs delete"> <i class="fa fa-trash-o"></i>
+                    删除
+                </a>
+                <a comadd="program_plan_matterlist" prcodeid="{{store('prcodeid')}}" ext1="yctype" ext1v="{{yctype}}" class="btn btn-success btn-xs delete">添加</a>
+
+
+
+                <!-- <a href="" class="btn btn-info btn-xs delete" >设置</a>
+            -->
+            <a href="" type="{{yctype}}" printwin="program_plan_matergather" class="btn btn-primary btn-xs delete">汇总打印</a>
+
+            <div class="labels-container fr">
+                <span changeyctype='{{value.url}}' ng-repeat="(key, value) in yctypelist" class="label {{value.ngclass}} hand" ng-bind="value.title"></span> 
+            </div> 
+        </div>
+        </div>
+               
+        </div>
+    </div>
+
+<!-- //送检  子单位的 送检表 滚动显示 -->
+    <div ng-if="program_plan_sinlist.datalist[0].now==''" id="sjtip" class="row mytip" >
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tipcom" >
+        <div style="padding: 8px 12px;">
+             <div class="fl">
+                <a delmore="program_plan_betondel" from="program_plan_betonlist" class="btn btn-danger btn-xs delete"  ng-if="typelist[0].ngclass=='label-primary'" > <i class="fa fa-trash-o"></i>
+                    删除
+                </a>
+
+                <a comadd="program_plan_betonlist" prcodeid="{{store('prcodeid')}}" scodeid="{{store('scodeid')}}" class="btn btn-success btn-xs delete" ng-if="typelist[0].ngclass=='label-primary'" >添加</a>
+
+                <a href="" class="btn btn-success btn-xs delete" ng-if="typelist[0].ngclass!='label-primary'" comwinadd="program_plan_set" extendone="{{stype}}">送检部位</a>
+
+                <a href="" ng-if="stype!='ksornot'&&stype!='ztornot'" type="{{stype}}" printwin="program_plan_betongather" class="btn btn-primary btn-xs delete">汇总打印</a>        
+
+            </div>
+
+            <div class="labels-container fr">
+                <span changestype  ng-repeat="(key, value) in typelist" class="label {{value.ngclass}} hand" ng-bind="value.title"></span>
+            </div>
+        </div>
+               
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="bg-themeprimary h_10" style="background: #fff;"></div>
+
+        </div>
+    </div>
+    <div class="tabbable">
+        <ul class="nav nav-tabs planmytab">
+            <li changemattersin ng-repeat="(key, value) in program_plan_sinlist.datalist" class="{{value.now}}">
+                <a  ng-bind="value.sname"></a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div ng-class="{true:'dpn',false:''}[program_plan_sinlist.datalist[0].now=='']">
+
+                <a delmore="program_plan_matterdel" from="program_plan_matterlist" class="btn btn-danger btn-xs delete"> <i class="fa fa-trash-o"></i>
+                    删除
+                </a>
+                <a comadd="program_plan_matterlist" prcodeid="{{store('prcodeid')}}" ext1="yctype" ext1v="{{yctype}}" class="btn btn-success btn-xs delete">添加</a>
+                <!--     <span class="huifu" comwinadd="feed" title="意见反馈"></span> 
+                 <a  comwinadd="ycexcel" ext1="yctype" ext1v="{{yctype}}" class="btn btn-success btn-xs delete">导入</a>-->
+
+                <!-- <a href="" class="btn btn-info btn-xs delete" >设置</a>
+            -->
+            <a href=""  type="{{yctype}}" printwin="program_plan_matergather" class="btn btn-primary btn-xs delete">汇总打印</a>
+
+            <div class="labels-container fr">
+                <span changeyctype={{value.url}} ng-repeat="(key, value) in yctypelist" class="label {{value.ngclass}} hand" ng-bind="value.title"></span> 
+            </div>
+
+        </div>
+        <div id="matter" class="tab-pane" ng-class="{true:'in active',false:''}[program_plan_sinlist.datalist[0].now=='active']">
+        <div ng-include="matter_url" scope="" onload=""></div>
+        </div>
+
+        <div id="single" class="tab-pane" ng-class="{true:'in active',false:''}[program_plan_sinlist.datalist[0].now=='']">
+            <div class="fl">
+                <a delmore="program_plan_betondel" from="program_plan_betonlist" class="btn btn-danger btn-xs delete"  ng-if="typelist[0].ngclass=='label-primary'" > <i class="fa fa-trash-o"></i>
+                    删除
+                </a>
+
+                <a comadd="program_plan_betonlist" prcodeid="{{store('prcodeid')}}" scodeid="{{store('scodeid')}}" class="btn btn-success btn-xs delete" ng-if="typelist[0].ngclass=='label-primary'" >添加</a>
+                <!--  <a  xlsimport="byexcel" ng-if="stype=='byornot'" class="btn btn-success btn-xs delete">导入</a> -->
+                <a href="" class="btn btn-success btn-xs delete" ng-if="typelist[0].ngclass!='label-primary'" comwinadd="program_plan_set" extendone="{{stype}}">送检部位</a>
+
+                <a href=""  ng-if="stype!='ksornot'&&stype!='ztornot'" type="{{stype}}" printwin="program_plan_betongather" class="btn btn-primary btn-xs delete">汇总打印</a>
+
+
+              <!--   <form id="execl_form" method="post" action="" enctype="multipart/form-data" >
+                <input accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel,.xls,.xlsx" name="FILE"   type="file"  value="导入excel">
+                </form>        
+                <button markfile type="button">提交</button> -->
+
+
+
+            </div>
+
+            <div class="labels-container fr">
+                <span changestype  ng-repeat="(key, value) in typelist" class="label {{value.ngclass}} hand ps_r printset">
+                <span ng-bind="value.title"></span>
+                <!-- <div class="ps_a dpn prtip">
+                       <a href="" class="b_3 btn btn-default" ng-if="typelist[0].ngclass!='label-primary'" comwinadd="program_plan_set" extendone="{{stype}}">设置</a>
+
+                <a href="" ng-if="stype!='ksornot'&&stype!='ztornot'" type="{{stype}}" comwinadd="program_plan_betongather" class="b_3 btn btn-default">打印</a>
+                   </div>  -->  
+                </span>
+            </div>
+            <div  ng-include="plansin_body" ></div>
+        </div>
+    </div>
+</div>
+</div>

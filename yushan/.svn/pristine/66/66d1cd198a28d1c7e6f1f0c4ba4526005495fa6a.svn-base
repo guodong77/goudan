@@ -1,0 +1,112 @@
+<div ng-controller="sininfo_ctrl" class="widget-body win form-horizontal bgc_b">
+  <div class="winbody" w="750px" h="600px" style="overflow-x: hidden;overflow-y:auto;padding-top: 12px">
+		 	<div class="form-group">
+		 	 <div class="row">
+		 	  	<div class="col-sm-6" >
+				  <label for="inputEmail3" class="col-sm-3 control-label no-padding-right" style="padding-top: 0px">主标题：</label>
+				  <div class="col-sm-9" style="padding-right: 0px">
+					 <input type="text" class="form-control" placeholder="主标题">
+				   </div>
+				  </div>
+			   <div class="col-sm-6" style="padding-left: 0px">
+				  <label for="inputEmail3" class="col-sm-3 control-label no-padding-right" style="padding-top: 0px">副标题：</label>
+				  <div class="col-sm-9">
+					  <input type="text" class="form-control" placeholder="副标题">
+				  </div>
+				</div>
+		      </div>
+            </div> 
+
+
+	        <div class="form-group">
+		 	 <div class="row">
+		 	  	<div class="col-sm-6" >
+				  <label for="inputEmail3" class="col-sm-3 control-label no-padding-right" style="padding-top: 0px">开始时间：</label>
+				  <div class="col-sm-9" style="padding-right: 0px">
+					  <input type="text" class="form-control" normaldate placeholder="开始时间" >
+				  </div>
+			   </div>
+			   <div class="col-sm-6" style="padding-left: 0px">
+				  <label for="inputEmail3" class="col-sm-3 control-label no-padding-right" style="padding-top: 0px">结束时间：</label>
+				  <div class="col-sm-9">
+					  <input type="text" class="form-control" normaldate placeholder="结束时间" style="padding-right: 0px">
+				  </div>
+		   </div>
+          </div> 
+	    </div>
+
+		 	<div class="form-group">
+		 	 <div class="row">
+		 	  	<div class="col-sm-6" >
+				  <label for="inputEmail3" class="col-sm-3 control-label no-padding-right">编制单位：</label>
+				  <div class="col-sm-9" style="padding-right: 0px">
+					  <input type="text" class="form-control" placeholder="编制单位">
+				  </div>
+			   </div>
+			   <div class="col-sm-6" style="padding-left: 0px">
+				  <label for="inputEmail3" class="col-sm-3 control-label no-padding-right">编制时间：</label>
+				  <div class="col-sm-9">
+					  <input type="text" class="form-control" normaldate placeholder="编制时间" style="padding-right: 0px">
+				  </div>
+		   </div>
+          </div> 
+	    </div>
+
+	    <div class="form-group">
+			<label style="padding-left: 26px;text-align: center;white-space:nowrap" for="inputEmail3" class="col-sm-1 control-label no-padding-right">主体结构：</label>
+			<div class="col-sm-11" style="padding-left: 43px">
+			  <textarea class="form-control" rows="6" placeholder="多个部位请用换行区分" style="margin-top: 0px; margin-bottom: 0px; height: 180px;overflow: auto">
+			  	
+			  </textarea>
+			</div>
+		</div>
+
+		<div class="excision"></div>
+
+		  <div class="form-group" style="margin:20px 0px 0px;">
+			  <table class="table table-bordered clo-sm-8" >
+      
+		      <thead class="table table-bordered normaltable t_c" >
+		      <tr class="fw_b bgc_4" >
+		      <th width="30" class="t_c">
+		         <input  type="checkbox" ng-checked="checkall==1" levelcheckall>
+		      </th>
+              <th  class="t_c w_100">作业名称</th>	
+              <th  class="t_c w_40">开始日期</th>	
+              <th  class="t_c w_40">结束日期</th>	
+              <th  class="t_c w_40">工期（天）</th>		    
+		        </tr> 
+		      </thead>
+		      <tbody>
+		      <tr>
+		      <td width="30 "class='t_c'>
+                  <input type="checkbox" style="opacity: 1;position: relative;left: auto;" ng-checked='value.selected==1'> 
+              </td>
+              <td class="w_100 t_c" style="padding:0px;line-height:35px; ">
+		      	<input  class="bstinput t_c" >
+		      </td>
+		      <td class="w_40 t_c" style="padding:0px;line-height:35px;">
+		      	<input  class="bstinput t_c">
+		      </td>
+		      <td class="w_40 t_c" style="padding:0px;line-height:35px;">
+		      	<input  class="bstinput t_c">
+		      </td>
+		      <td class="w_40 t_c" style="padding:0px;line-height:35px;">
+		      	<input  class="bstinput t_c">
+		      </td>
+		      	
+		      </tr>
+		      </tbody>
+		    </table>
+	      </div>
+	 
+		<div class="form-group"> 
+		<div class="col-sm-12 ysbtn t_c">
+			 <button type="button" class="btn btn-blue" style="  margin: 10px 9px;">删除</button>
+			 <button type="button" class="btn btn-blue" style="  margin: 10px 9px;">添加行</button>
+			 <button type="button" class="btn btn-blue" style="  margin: 10px 9px;">打印预览</button>
+			 <button type="button" class="b_2 btn btn-default layui-layer-close" style="  margin: 10px 9px;">取消</button>
+		</div>
+	</div>
+	</div>
+</div>

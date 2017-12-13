@@ -1,0 +1,344 @@
+  <div ng-controller="zl_ctrl" id="printtable" class="alltablecss">
+
+    <table style="width: 640px;height: 960px;margin-left: 60px;margin-top: 35px;">
+      <tbody>
+        <tr ><!-- ng-repeat="(key, value) in Sdata" -->
+          <td>
+            <!-- 资料头部 -->  
+            <div class="zltitle" style="height: 100px;">
+              <table width="100%">
+                <tbody>
+                  <tr>
+                    <td>
+
+                      <div class="tc lh32" style="margin-top: 15px;">
+                        <span class="htitle">门窗节能工程见证取样复验报告汇总表</span>
+                      </div>
+
+                    <div  class="tc ">
+                        <span class="pt_20">(带﹡号者为标准要求必须复验项目)</span>
+                      </div> 
+
+                      <div class="bianhao pt_10">
+                        <span>GD23020402</span>
+                        <input class="lip">
+                        <input class="lip"></div>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+
+
+
+
+            <!-- 资料表格 -->  
+            <div class="zlcontent" style="height: 880px;border: 1px solid #000;">
+
+              <!-- 内容头部 -->  
+              <table class="zlhead w_p100 " width="100%" height="731">
+ 
+                <tr class="tc" >
+                  <td  height="68">编<br>号</td>
+                  <td >材料、构件、配件名称</td>
+                  <td >复验项目</td>
+                  <td   colspan="2">检测<br>报告<br>数量</td>
+                  <td  colspan="2">标准<br>规定<br>数量</td>
+                  <td >报告名称及编号</td>
+
+                </tr>
+
+
+                <tr class="ys_b" >
+                <td  width="30" height="0"></td>
+                <td  width="160"></td>
+                <td  width="215"></td>
+                <td  width="45"></td>
+                <td  width="20"></td>
+                <td  width="45"></td>
+                <td  width="20"></td>
+                <td  width="103"></td>
+                </tr>
+
+                 <tr>
+                   <td align="center" height="100">1</td>
+                   <td class="pl_10">*门窗玻璃</td>
+                   <td  class="pl_8">
+                     外窗气密性能
+                     <br>                 
+                     玻璃遮阳系数
+                     <br>                 
+                     可见光透射比
+                     <br>                 
+                     中空玻璃露点
+                     <br>外窗传热系数(夏热冬冷地区)</td>
+                   <td style="border-right: 0px;" >
+                     <input type="text" class="ip_1  " value="{{value.c[0][0]}}"  ng-model="value.c[0][0]"></td>
+                   <td style="border-left: 0px;">组</td>
+                   <td style="border-right: 0px;" >
+                     <input type="text" class="ip_1  " value="{{value.c[0][1]}}"  ng-model="value.c[0][1]"></td>
+                   <td style="border-left: 0px;" >组</td>
+                   <td width="">
+                     <div class="divc3" contenteditable="true" divc="0" key="2" ng-bind="value.c[0][2]"></div>
+                   </td>
+                 </tr>
+
+                 <tr>
+                   <td align="center"  height="63">2</td>
+                   <td class="pl_10">隔热型材</td>
+
+                   <td  class="pl5">
+                     <div class="divl3" contenteditable="true" divc="1" key="0" ng-bind="value.c[1][0]"></div>
+                   </td>
+                   <td style="border-right: 0px;" width="45">
+                     <input type="text" class="ip_1  " value="{{value.c[1][1]}}"  ng-model="value.c[1][1]"></td>
+                   <td style="border-left: 0px;" width="20">组</td>
+                   <td style="border-right: 0px;" width="45">
+                     <input type="text" class="ip_1  " value="{{value.c[1][2]}}"  ng-model="value.c[1][2]"></td>
+                   <td style="border-left: 0px;" width="20">组</td>
+                   <td width="">
+                     <div class="divc3" contenteditable="true" divc="1" key="3" ng-bind="value.c[1][3]"></div>
+                   </td>
+                 </tr>
+
+                 <tr>
+                   <td align="center" height="63">3</td>
+                   <td class="pl_10">*遮阳材料</td>
+                   <td class="pl_8" >
+                     太阳光透射比
+                     <br>太阳光反射比</td>
+                   <td style="border-right: 0px;" width="45">
+                     <input type="text" class="ip_1  " value="{{value.c[2][0]}}"  ng-model="value.c[2][0]"></td>
+                   <td style="border-left: 0px;" width="20">组</td>
+                   <td style="border-right: 0px;" width="45">
+                     <input type="text" class="ip_1  " value="{{value.c[2][1]}}"  ng-model="value.c[2][1]"></td>
+                   <td style="border-left: 0px;" width="20">组</td>
+                   <td width="">
+                     <div class="divc3" contenteditable="true" divc="2" key="2" ng-bind="value.c[2][2]"></div>
+                   </td>
+                 </tr>
+
+                 <tr>
+                   <td align="center" height="63">4</td>
+                   <td class="pl_8">
+                     <div class="divl3" contenteditable="true" divc="3" key="0" ng-bind="value.c[3][0]"></div>
+                   </td>
+                   <td class="pl5" >
+                     <div class="divl3" contenteditable="true" divc="3" key="1" ng-bind="value.c[3][1]"></div>
+                   </td>
+                   <td style="border-right: 0px;" width="45">
+                     <input type="text" class="ip_1  " value="{{value.c[3][2]}}"  ng-model="value.c[3][2]"></td>
+                   <td style="border-left: 0px;" width="20">组</td>
+                   <td style="border-right: 0px;" width="45">
+                     <input type="text" class="ip_1  " value="{{value.c[3][3]}}"  ng-model="value.c[3][3]"></td>
+                   <td style="border-left: 0px;" width="20">组</td>
+                   <td width="">
+                     <div class="divc3" contenteditable="true" divc="3" key="4" ng-bind="value.c[3][4]"></div>
+                   </td>
+                 </tr>
+
+                 <tr>
+                   <td align="center" height="63">5</td>
+                   <td class="pl_8">
+                     <div class="divl3" contenteditable="true" divc="4" key="0" ng-bind="value.c[4][0]"></div>
+                   </td>
+                   <td class="pl5" >
+                     <div class="divl3" contenteditable="true" divc="4" key="1" ng-bind="value.c[4][1]"></div>
+                   </td>
+                   <td style="border-right: 0px;" width="45">
+                     <input type="text" class="ip_1  " value="{{value.c[4][2]}}"  ng-model="value.c[4][2]"></td>
+                   <td style="border-left: 0px;" width="20">组</td>
+                   <td style="border-right: 0px;" width="45">
+                     <input type="text" class="ip_1  " value="{{value.c[4][3]}}"  ng-model="value.c[4][3]"></td>
+                   <td style="border-left: 0px;" width="20">组</td>
+                   <td width="">
+                     <div class="divc3" contenteditable="true" divc="4" key="4" ng-bind="value.c[4][4]"></div>
+                   </td>
+                 </tr>
+
+                 <tr>
+                   <td align="center" height="63">6</td>
+                   <td class="pl_8">
+                     <div class="divl3" contenteditable="true" divc="5" key="0" ng-bind="value.c[5][0]"></div>
+                   </td>
+                   <td class="pl5" >
+                     <div class="divl3" contenteditable="true" divc="5" key="1" ng-bind="value.c[5][1]"></div>
+                   </td>
+                   <td style="border-right: 0px;" width="45">
+                     <input type="text" class="ip_1  "  value="{{value.c[5][2]}}"  ng-model="value.c[5][2]"></td>
+                   <td style="border-left: 0px;" width="20">组</td>
+                   <td style="border-right: 0px;" width="45">
+                     <input type="text" class="ip_1  "  value="{{value.c[5][3]}}"  ng-model="value.c[5][3]"></td>
+                   <td style="border-left: 0px;" width="20">组</td>
+                   <td >
+                     <div class="divc3" contenteditable="true" divc="5" key="4" ng-bind="value.c[5][4]"></div>
+                   </td>
+                 </tr>
+
+                 <tr>
+                   <td align="center" height="62">7</td>
+                   <td class="pl_8">
+                     <div class="divl3" contenteditable="true" divc="6" key="0" ng-bind="value.c[6][0]"></div>
+                   </td>
+                   <td class="pl5" >
+                     <div class="divl3" contenteditable="true" divc="6" key="1" ng-bind="value.c[6][1]"></div>
+                   </td>
+                   <td style="border-right: 0px;" width="45">
+                     <input type="text" class="ip_1  " value="{{value.c[6][2]}}"  ng-model="value.c[6][2]"></td>
+                   <td style="border-left: 0px;" width="20">组</td>
+                   <td style="border-right: 0px;" width="45">
+                     <input type="text" class="ip_1  " value="{{value.c[6][3]}}"  ng-model="value.c[6][3]"></td>
+                   <td style="border-left: 0px;" width="20">组</td>
+                   <td width="">
+                     <div class="divc3" contenteditable="true" divc="6" key="4" ng-bind="value.c[6][4]"></div>
+                   </td>
+                 </tr>
+
+                 <tr>
+                   <td align="center" height="62">8</td>
+                   <td class="pl_8">
+                     <div class="divl3" contenteditable="true"  divc="7" key="0" ng-bind="value.c[7][0]"></div>
+                   </td>
+                   <td class="pl5" >
+                     <div class="divl3" contenteditable="true"  divc="7" key="1" ng-bind="value.c[7][1]"></div>
+                   </td>
+                   <td style="border-right: 0px;" width="45">
+                     <input type="text" class="ip_1  " value="{{value.c[7][2]}}"  ng-model="value.c[7][2]"></td>
+                   <td style="border-left: 0px;" width="20">组</td>
+                   <td style="border-right: 0px;" width="45">
+                     <input type="text" class="ip_1  " value="{{value.c[7][3]}}"  ng-model="value.c[7][3]"></td>
+                   <td style="border-left: 0px;" width="20">组</td>
+                   <td width="">
+                     <div class="divc3" contenteditable="true"  divc="7" key="4" ng-bind="value.c[7][4]"></div>
+                   </td>
+                 </tr>
+
+                 <tr>
+                   <td align="center" height="62">9</td>
+                   <td class="pl_8">
+                     <div class="divl3" contenteditable="true" divc="8" key="0" ng-bind="value.c[8][0]"></div>
+                   </td>
+                   <td class="pl5" >
+                     <div class="divl3" contenteditable="true" divc="8" key="1" ng-bind="value.c[8][1]"></div>
+                   </td>
+                   <td style="border-right: 0px;" width="45">
+                     <input type="text" class="ip_1 "  value="{{value.c[8][2]}}"  ng-model="value.c[8][2]"></td>
+                   <td style="border-left: 0px;" width="20">组</td>
+                   <td style="border-right: 0px;" width="45">
+                     <input type="text" class="ip_1 "  value="{{value.c[8][3]}}"  ng-model="value.c[8][3]"></td>
+                   <td style="border-left: 0px;" width="20">组</td>
+                   <td width="">
+                     <div class="divc3" contenteditable="true" divc="8" key="4" ng-bind="value.c[8][4]"></div>
+                   </td>
+                 </tr>
+
+                 <tr>
+                   <td align="center" height="60">10</td>
+                   <td class="pl_8">
+                     <div class="divl3" contenteditable="true" divc="9" key="0" ng-bind="value.c[9][0]"></div>
+                   </td>
+                   <td class="pl5" >
+                     <div class="divl3" contenteditable="true" divc="9" key="1" ng-bind="value.c[9][1]"></div>
+                   </td>
+                   <td style="border-right: 0px;" width="45">
+                     <input type="text" class="ip_1  "  value="{{value.c[9][2]}}"  ng-model="value.c[9][2]"></td>
+                   <td style="border-left: 0px;" width="20">组</td>
+                   <td style="border-right: 0px;" width="45">
+                     <input type="text" class="ip_1  "  value="{{value.c[9][3]}}"  ng-model="value.c[9][3]"></td>
+                   <td style="border-left: 0px;" width="20">组</td>
+                   <td width="">
+                     <div class="divc3" contenteditable="true" divc="9" key="4" ng-bind="value.c[9][4]"></div>
+                   </td>
+                 </tr>
+
+                
+
+              </table>
+
+              <!-- 内容中间 -->  
+              <div class="zlcont">
+                 <table width="100%" class="zlhead tc" height="150" >
+                 <tbody>
+                   <tr>
+                <td colspan="2" class="tl pl_8" height="25" style="border-bottom: 0px;"> 填表人：</td>
+                <td colspan="2" class="tl pl_8" style="border-bottom: 0px;">项目专业质量检查员：</td>
+                <td colspan="2" class="tl pl_8" style="border-bottom: 0px;"> 项目技术负责人：</td>
+              </tr>
+              <tr>
+               <td colspan="2" height="50" style=";border-top: 0px;">
+               <div class="divc3 mh_20 " contenteditable="true" divc="10" key="0" ng-bind="value.c[10][0]"></div></td>
+                <td colspan="2" style="border-top: 0px;">
+                <div class="divc3 mh_20" contenteditable="true" divc="10" key="1" ng-bind="value.c[10][1]"></div></td>
+                <td colspan="2" style="border-top: 0px;">
+                <div class="divc3 mh_20" contenteditable="true" divc="10" key="2" ng-bind="value.c[10][2]"></div></td>
+              
+              </tr>
+         
+                <tr class="ys_b">
+                <td width="140"></td>
+                 <td width="50"></td>
+                 <td width="166"></td> 
+                 <td width="50"></td>
+                 <td width="183"></td>
+                 <td width="50"></td>
+                
+              </tr>
+              <tr>
+                <td height="35" style="border-bottom: 0px;border-top: 0px;border-right: 0px;" class="pt_18">
+                  <input type="text" class="divc3" value="" style="border-bottom: 1px solid #000"></td>
+                <td colspan="1" class="tr pt_18" style="border-left: 0px;border-bottom: 0px;">
+                  <span>(签&nbsp;名)&nbsp;</span>
+                </td>
+                <td style="border-bottom: 0px;border-top: 0px;border-right: 0px;" class="pt_18">
+                  <input type="text" class="divc3 bd_1" value="" style="border-bottom: 1px solid #000"></td>
+
+                <td colspan="1" class="tr pt_18" style="border-left: 0px;border-bottom: 0px;">
+                  <span>(签&nbsp;名)&nbsp;&nbsp;</span>
+                </td>
+                <td style="border-bottom: 0px;border-top: 0px;border-right: 0px;" class="pt_18">
+                  <input type="text" class="divc3" value="" style="border-bottom: 1px solid #000"></td>
+                <td colspan="1" class="tr pt_18" style="border-left: 0px;border-bottom: 0px;">
+                  <span>(签&nbsp;名)&nbsp;&nbsp;</span>
+                </td>
+
+              </tr>
+              <tr>
+                <td colspan="2" height="31" class="tr pr_15" style="border-top: 0px;">
+                  <span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;年 &nbsp;&nbsp;&nbsp;&nbsp; 月&nbsp;&nbsp;&nbsp;&nbsp; 日
+                  </span>
+                </td>
+                <td colspan="2" class="tr pr_5" style="border-top: 0px;">
+                  <span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;年 &nbsp;&nbsp;&nbsp;&nbsp; 月&nbsp;&nbsp;&nbsp;&nbsp; 日
+                  </span>
+                </td>
+                <td colspan="2" class="tr pr_30" style="border-top: 0px;">
+                  <span >
+                    &nbsp;&nbsp;&nbsp;&nbsp;年 &nbsp;&nbsp;&nbsp;&nbsp; 月&nbsp;&nbsp;&nbsp;&nbsp; 日
+                  </span>
+                </td>
+              </tr>
+                 </tbody>
+
+                  </table>
+
+                
+                 
+         
+              </div>
+
+
+          </div>
+    
+
+      </td>
+  </tr>
+	</tbody>
+	</table>
+
+	</div>
+
+               

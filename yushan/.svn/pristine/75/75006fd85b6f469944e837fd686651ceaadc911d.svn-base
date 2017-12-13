@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>宇杉</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <include file="public@head"/>
+</head>
+<body class="body-white">
+
+<header class="m-hd">
+    <section class="am-show-md-up">
+        <div class="top-nav">
+            <a href="index.html" rel="nofollow" class="m-logo"><img src="__TMPL__/portal/images/logo.png"/></a>
+    </div>
+    </section>
+            <include file="public@nav"/>
+
+
+    <nav data-am-widget="header" class="am-header am-show-sm-only">
+        <div class="am-header-left am-header-nav">
+            <a href="/" rel="nofollow">
+                <i class="am-header-icon am-icon-home"></i> 首页
+            </a>
+        </div>
+        <h1 class="am-header-title">
+            <a href="/" rel="nofollow">宇杉</a>
+        </h1>
+        <div class="am-header-right am-header-nav">
+            <a href="#right-link" class="" data-am-offcanvas="{target: '#r-nav'}">
+                <i class="am-header-icon am-icon-bars"></i> 菜单
+            </a>
+        </div>
+    </nav>
+
+    <!-- 侧边栏内容 -->
+    <include file="public@sider"/>
+</header>
+
+
+<ul>
+    <php>
+        $top_slide_id=empty($theme_vars['top_slide'])?1:$theme_vars['top_slide'];
+    </php>
+    <div class="swiper-container indextopad" id="mySwiper">
+        <div class="swiper-wrapper">
+            <slides id="$top_slide_id">
+                <div class="swiper-slide" style="background-image:url('{:cmf_get_image_url($vo.image)}')">
+                    <!--<div class="caption-wraper">
+                        <div class="caption">{$vo.title|default=''}</div>
+                    </div>-->
+                    <a href="{$vo.url|default=''}"></a>
+                </div>
+            </slides>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</ul>
+<div class="index-main">
+    <php>
+        $widget["vars"]["last_news_category_id"] = 17;
+        $last_news_limit=3;
+    </php>
+    <portal:articles limit="$last_news_limit" order="post.published_time DESC"
+                     categoryIds="$widget.vars.last_news_category_id">
+        <li>
+            <dl class="io1" data-am-scrollspy="{animation:'slide-top', delay: 200}" style="background:url('{:cmf_get_image_url($vo.more.thumbnail)}') 40px center no-repeat">
+                <dt>{$vo.post_title}</dt>
+                <dd>{$vo.post_excerpt}</dd>
+            </dl>
+        </li>
+    </portal:articles>
+</div>
+
+
+<div class="common-box index-product">
+    <dl class="common-title">
+        <dt>我们的产品</dt>
+        <dd>我们打造更快速更专业的全球通讯云服务平台</dd>
+    </dl>
+
+    <ul class="index-pic">
+        <php>
+            $widget["vars"]["last_news_category_id"] =16;
+            $last_news_limit=6;
+        </php>
+        <portal:articles limit="$last_news_limit" order="post.published_time ASC"
+                         categoryIds="$widget.vars.last_news_category_id">
+            <li>
+                <a href="javascript:;">
+                    <figure>
+                        <i><img src="{:cmf_get_image_url($vo.more.thumbnail)}"/></i>
+                        <!--<i><img src="__TMPL__/portal/images/d4.png"/></i>-->
+                        <dl>
+                            <dt>{$vo.post_title}
+                            <dt>
+                            <dd>{$vo.post_excerpt}</dd>
+                        </dl>
+                    </figure>
+                    <img class="pic" src="__TMPL__/portal/images/p"/>
+                </a>
+            </li>
+        </portal:articles>
+    </ul>
+</div>
+
+
+<div class="index-advantage">
+    <div class="box">
+        <dl class="common-title">
+            <dt>我们的优势</dt>
+            <dd>短信、语音通讯，HXDSMS将会是您更好的选择</dd>
+        </dl>
+
+
+        <ul>
+            <php>
+                $widget["vars"]["last_news_category_id"] =18;
+                $last_news_limit=4;
+            </php>
+            <portal:articles limit="$last_news_limit" order="post.published_time ASC"
+                             categoryIds="$widget.vars.last_news_category_id">
+                <li>
+                    <dl>
+                        <dt><i></i>{$vo.post_title}</dt>
+                        <dd>{$vo.post_excerpt}</dd>
+                    </dl>
+                </li>
+            </portal:articles>
+        </ul>
+    </div>
+</div>
+
+
+<div class="common-box index-apifomr">
+    <dl class="common-title">
+        <dt>获取免费试用API</dt>
+        <dd>填写您的基本资料申请免费试用API账户</dd>
+    </dl>
+    <ul>
+        <li><input type="text" class="txt email" placeholder="企业邮箱" value=""/></li>
+        <li><input type="text" class="txt phone" placeholder="手机号码" value=""/></li>
+        <li><input type="text" class="txt company" placeholder="公司名称" value=""/></li>
+        <li>
+            <div class="select"><i></i><select name="">
+                <option>-请选择-</option>
+                <volist name="email" id='email'>
+                    <option value="{$email.email}">{$email.email}</option>
+                </volist>
+            </select></div>
+        </li>
+        <li class="butbox"><input class="but" type="submit" value="申请账户"/></li>
+    </ul>
+</div>
+
+
+<include file="public@footer"/>
+
+
+<include file="public@scripts"/>
+
+<hook name="before_body_end"/>
+</body>
+</html>

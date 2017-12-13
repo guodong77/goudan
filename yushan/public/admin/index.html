@@ -1,0 +1,299 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+    <meta charset="utf-8" />
+    <meta name='renderer' content='webkit' />
+     <meta name="baidu-site-verification" content="9dwQTYf2OD" />
+    <title>河狸建筑建筑</title>
+        <meta content="河狸建筑建筑,河狸建筑工程信息化平台" name="keywords" />
+    <meta content="河狸建筑工程信息化平台，是专门为资料员量身打造的工程管理系统，集成功能：送检计划，
+送检汇总，进度管理，漏送统计及提示，送检异常统计，城市温度采集，同养温度计算及累计，
+形象进度图，横道图，资料打印等功能。手机微信关注河狸建筑建筑，让你随时随地了解现场及送检进度，
+是资料员得力助手，为您提供贴心服务。河狸建筑在手，工程无忧！" name="description" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+ 
+ <link rel="stylesheet" href="./css/by.css" />  
+<link rel="stylesheet" href="./css/font.css" />  
+<link rel="stylesheet" href="./css/global.css" />
+<script src="./js/device.min.js"></script>
+<script>
+  var r = window.location.search.substr(1);
+  var x = r.split('&')[0]; 
+  var f = x.split('=')[1];
+  f = f?f:'';
+localStorage.setItem('from',f);
+ 
+  //判断设备
+ var isMobile = device.mobile(),
+            isTable = device.tablet();
+
+    if(isMobile || isTable){
+        window.open("/wap/producs.html?YY"+f+"SS=1","_self");
+    }
+
+    // else{
+    //      window.open("pc.html","_self");
+    // }
+
+</script>
+
+    <!-- 引入seajs -->
+    <script src="./YS-frame/seajs/2.2.0/sea.js" ></script>
+    <!-- js配置文件 -->
+    <script>  
+       window.root2 = 'php/';
+       window.root3 = 'php/';  
+      
+      //1、定义基本配置  
+seajs.config({
+  base: '/',  // 设置别名，如果在二级目录这样配置：则base:'/erjimulu/'
+  alias: {
+    //YSframe框架基础 js模块
+    'jquery': 'YS-frame/jquery/jquery/1.10.1/jquery.js',
+    'angularjs':'YS-frame/angular/1.4.6/angular.min.js',  
+    'YS':'YS-frame/YS.js',  
+    //这里加载项目js
+     'global':'/js/global.js'  
+  }
+}); 
+// 3、加载 项目js模块
+seajs.use(['angularjs','jquery','YS','global'],function(){ 
+    seajs.use(['fac','main','conf'],function(){
+      angular.element(document).ready(function() { 
+            angular.module('app',['myfact','main']); 
+            angular.bootstrap(document, ['app']); 
+        });
+    }); 
+}); 
+
+    </script> 
+ 
+
+
+</head>  
+<body style="min-width: 1024px;overflow: auto;"> 
+<div style="height: 1px;display: none;">
+    <img src="./images/ysshare.jpg" alt="">
+</div>
+ <div class="w_p100 ps_r bdgw">
+   <!-- 导航 -->
+   <div class="pbnav" style="z-index: 10;">
+    <div class="pbnavn">
+      <div class="fl pblogo"><img src="images/yslogo.png" alt="logo"></div>
+      <span class="dpib pblogospan">河狸建筑工程信息化平台</span>
+      <div class="fr">
+        <span class="dpib bpconsole gz">河狸建筑qq群
+<div class="dpn" style="width: 150px;height: 150px;border:1px solid #ccc;position: absolute;">
+<a  target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=f6990ebccf0d7511d1df3071b5bd0baf2fc4162059b77b6776b86cc74669b87c">
+                    <h4 style="height: 30px;
+    font-size: 18px;
+    background: #fff;
+    padding: 0;
+    margin: 0;
+    line-height: 37px;
+    text-align: center;">Q群:281078296</h4>
+               <img width="150" height="150" src="./images/qqgrounpsm.png" alt="">
+                  </a>
+
+</div>
+        </span>
+
+        <span class="dpib bpconsole gz">微信扫码关注公众号
+<div class="dpn" style="width: 150px;height: 150px;border:1px solid #ccc;position: absolute;">
+  <img width="150" height="150" src="./images/yscode.jpg" alt="">
+</div>
+        </span>
+    <a href="login.html" target="_self" title=""> <span class="dpib bpconsole" style="color: #fff;cursor: pointer;">登录</span></a>
+    <a href="login.html?tap=1" target="_self" title=""> <span class="dpib freelogin" style="color: #fff;cursor: pointer;">免费注册</span></a>
+      </div>
+      <div class="cl"></div>
+    </div>
+   </div>
+   <!-- 导航 END-->
+   <!-- banner -->
+   <div class="w_p100" style="background:#1f98c6;">
+     <!-- <div class="pbbanner">
+     <div><img src="images/banner2.png" alt="banner"></div>
+     </div> -->
+     <div id="focus" class="focus" style="height:440px;">
+        <div class="hd">
+          <ul></ul>
+        </div>
+        <div class="bd">
+          <ul>
+            <li>
+              <div class="fc_f banner1">
+                <div class="pd_30">
+                  <h2>四大模块起上线</h2>
+                   <p>送检跟踪、进度管理、送检汇总、横道图</p>
+                </div> 
+                <div class="banner1i">
+                  <img src="./images/tb1.png" />
+                </div> 
+                           
+              </div>
+            </li>
+            <li>
+              <div class="fc_f banner2">
+                <div class="pd_30 banner2nr">
+                  <h2>云端化的工程管理系统</h2>
+                   <p class="p1">多终端、多平台在线监控工程</p>
+                   <p class="p2">全国首款工程信息化管理系统</p>
+                </div> 
+                <div class="banner2i">
+                  <img src="./images/tb2.png" />
+                </div> 
+                           
+              </div>
+            </li>
+            <li>
+              <div class="fc_f banner3">
+                <div class="pd_30 banner3nr">
+                  <h2>免费是最昂贵的礼物</h2>
+                   <p class="p1" style="">河狸建筑为普通会员提供永久免费平台支撑</p>
+                   <p class="p2">同时支持付费定制服务</p>
+                   <p class="p3">多元化的服务方式满足各类用户需求</p>
+                   
+                </div> 
+                <div class="banner3i">
+                  <img src="./images/tb3.png" />
+                </div> 
+                           
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+   </div>
+   <!-- banner END -->
+   <!-- 内容 5大特性 -->
+   <div class="w_p100 bdgw2">
+    <div class="indexfj">
+     <div class="pubfeature">
+      <div class="pubfeaturef pd1">
+       <div class="dpib">
+        <span class="fl">安全</span>
+        <div class="feature1 fl"></div>
+        <div class="cl"></div>
+       </div>
+      </div>
+      <div class="pubfeatures">
+       <div class="dpib">
+        <span class="fl">免费</span>
+        <div class="feature2  fl"></div>
+        <div class="cl"></div>
+      </div>
+      </div>
+      <div class="pubfeaturef pd3">
+       <div class="dpib">
+        <span class="fl">智能</span>
+        <div class="feature3 fl"></div>
+        <div class="cl"></div>
+       </div>
+      </div>
+      <div class="pubfeatures pd4">
+       <div class="dpib">
+        <span class="fl">高效</span>
+        <div class="feature4 fl"></div>
+        <div class="cl"></div>
+       </div>
+      </div>
+      <div class="pubfeaturef pd5">
+       <div class="dpib"> 
+        <span class="fl">便捷</span>
+        <div class="feature5 fl"></div>
+        <div class="cl"></div>
+       <div>
+      </div>
+     </div>
+    </div>
+  </div>
+  </div>
+  </div>
+   <!-- 内容 5大特性 EDN-->
+   <!-- 宣传内容-->
+  <div class="w_p100">
+   <div class="pubchplan indexfj">
+    <h3>送检跟踪计划</h3>
+    <p>根据浇筑日期自动计算送检日期，自动累积浇筑天数、累积同养温度</p>
+    <p>全程跟踪送检、漏送统计、输出各类汇总表、计算表</p>
+    <div><img src="./images/propagate1.png"></div>
+   </div>
+  </div>
+  <div class="w_p100 bdggray">
+   <div class="pubratemange indexfj">
+    <h3>进度管理</h3>
+    <p>形象化的施工进度图、全方位展示工程进度</p>
+    <div class="pubratemangep ps_r"><img src="./images/propagate2.png">
+      <div class="pubratemangedw">
+      <div><img src="./images/propagate2.1.png"></div>
+      <div><img src="./images/propagate2.2.png"></div>
+      <div><img src="./images/propagate2.3.png"></div>
+    </div>
+    </div>
+   </div>
+  </div>
+ <div class="w_p100">
+  <div class="pubprint indexfj">
+    <h3>资料套打</h3>
+    <p>根据工程概况、送检计划部位信息全局关联，多维度资料一键批量打印</p>
+    <p>资料就是这么简单</p>
+    <div class="pubprintp"><img src="./images/propagate3.png"></div>
+  </div>
+ </div>
+ <div class="w_p100 bdggray">
+  <div class="pubwechact indexfj">
+    <div class="pubwechactp fl"><img class="w_p100" src="./images/propagate4.png"></div>
+    <div class="fl">
+      <h3>微信办公</h3>
+      <p>轻松关注河狸建筑公众号</p>
+      <p>即可随时随掌管您的工程</p>
+    </div>
+    <div class="cl"></div>
+   </div>
+  </div>
+ <div class="w_p100">
+  <div class="pubcloudsave indexfj">
+   <div class="pubcloudsavep fr"><img class="w_p100" src="./images/propagate5.png"></div>
+   <div class="fr">
+    <h3>云端安全存储</h3>
+    <p>银行级别的安全防护</p>
+    <p>云端化数据处理</p>
+    <p>满足多平台用户需求</p>
+   </div>
+   <div class="cl"></div>
+  </div>
+ </div>
+   <!-- 宣传内容 EDN-->
+   <!-- 底部 -->
+   <div class="pubfile">
+    <!-- <p>Copyright&copy;2015-2016河狸建筑工作信息科技有限公司</p> -->
+    <p>粤ICP备16028963号-1</p>
+    <!-- <p>联系电话:13500053575&nbsp;邮箱:weijinhuan@126.com</p> -->
+
+  </div>
+   <!-- 底部 EDN-->
+
+
+ </div>
+
+
+</body>
+<script type="text/javascript">
+// banner轮播
+var TouchSlide=function(a){a=a||{};var b={slideCell:a.slideCell||"#touchSlide",titCell:a.titCell||".hd li",mainCell:a.mainCell||".bd",effect:a.effect||"left",autoPlay:a.autoPlay||!1,delayTime:a.delayTime||200,interTime:a.interTime||2500,defaultIndex:a.defaultIndex||0,titOnClassName:a.titOnClassName||"on",autoPage:a.autoPage||!1,prevCell:a.prevCell||".prev",nextCell:a.nextCell||".next",pageStateCell:a.pageStateCell||".pageState",pnLoop:"undefined "==a.pnLoop?!0:a.pnLoop,startFun:a.startFun||null,endFun:a.endFun||null,switchLoad:a.switchLoad||null},c=document.getElementById(b.slideCell.replace("#",""));if(!c)return!1;var d=function(a,b){a=a.split(" ");var c=[];b=b||document;var d=[b];for(var e in a)0!=a[e].length&&c.push(a[e]);for(var e in c){if(0==d.length)return!1;var f=[];for(var g in d)if("#"==c[e][0])f.push(document.getElementById(c[e].replace("#","")));else if("."==c[e][0])for(var h=d[g].getElementsByTagName("*"),i=0;i<h.length;i++){var j=h[i].className;j&&-1!=j.search(new RegExp("\\b"+c[e].replace(".","")+"\\b"))&&f.push(h[i])}else for(var h=d[g].getElementsByTagName(c[e]),i=0;i<h.length;i++)f.push(h[i]);d=f}return 0==d.length||d[0]==b?!1:d},e=function(a,b){var c=document.createElement("div");c.innerHTML=b,c=c.children[0];var d=a.cloneNode(!0);return c.appendChild(d),a.parentNode.replaceChild(c,a),m=d,c},g=function(a,b){!a||!b||a.className&&-1!=a.className.search(new RegExp("\\b"+b+"\\b"))||(a.className+=(a.className?" ":"")+b)},h=function(a,b){!a||!b||a.className&&-1==a.className.search(new RegExp("\\b"+b+"\\b"))||(a.className=a.className.replace(new RegExp("\\s*\\b"+b+"\\b","g"),""))},i=b.effect,j=d(b.prevCell,c)[0],k=d(b.nextCell,c)[0],l=d(b.pageStateCell)[0],m=d(b.mainCell,c)[0];if(!m)return!1;var N,O,n=m.children.length,o=d(b.titCell,c),p=o?o.length:n,q=b.switchLoad,r=parseInt(b.defaultIndex),s=parseInt(b.delayTime),t=parseInt(b.interTime),u="false"==b.autoPlay||0==b.autoPlay?!1:!0,v="false"==b.autoPage||0==b.autoPage?!1:!0,w="false"==b.pnLoop||0==b.pnLoop?!1:!0,x=r,y=null,z=null,A=null,B=0,C=0,D=0,E=0,G=/hp-tablet/gi.test(navigator.appVersion),H="ontouchstart"in window&&!G,I=H?"touchstart":"mousedown",J=H?"touchmove":"",K=H?"touchend":"mouseup",M=m.parentNode.clientWidth,P=n;if(0==p&&(p=n),v){p=n,o=o[0],o.innerHTML="";var Q="";if(1==b.autoPage||"true"==b.autoPage)for(var R=0;p>R;R++)Q+="<li>"+(R+1)+"</li>";else for(var R=0;p>R;R++)Q+=b.autoPage.replace("$",R+1);o.innerHTML=Q,o=o.children}"leftLoop"==i&&(P+=2,m.appendChild(m.children[0].cloneNode(!0)),m.insertBefore(m.children[n-1].cloneNode(!0),m.children[0])),N=e(m,'<div class="tempWrap" style="overflow:hidden; position:relative;"></div>'),m.style.cssText="width:"+P*M+"px;"+"position:relative;overflow:hidden;padding:0;margin:0;";for(var R=0;P>R;R++)m.children[R].style.cssText="display:table-cell;vertical-align:top;width:"+M+"px";var S=function(){"function"==typeof b.startFun&&b.startFun(r,p)},T=function(){"function"==typeof b.endFun&&b.endFun(r,p)},U=function(a){var b=("leftLoop"==i?r+1:r)+a,c=function(a){for(var b=m.children[a].getElementsByTagName("img"),c=0;c<b.length;c++)b[c].getAttribute(q)&&(b[c].setAttribute("src",b[c].getAttribute(q)),b[c].removeAttribute(q))};if(c(b),"leftLoop"==i)switch(b){case 0:c(n);break;case 1:c(n+1);break;case n:c(0);break;case n+1:c(1)}},V=function(){M=N.clientWidth,m.style.width=P*M+"px";for(var a=0;P>a;a++)m.children[a].style.width=M+"px";var b="leftLoop"==i?r+1:r;W(-b*M,0)};window.addEventListener("resize",V,!1);var W=function(a,b,c){c=c?c.style:m.style,c.webkitTransitionDuration=c.MozTransitionDuration=c.msTransitionDuration=c.OTransitionDuration=c.transitionDuration=b+"ms",c.webkitTransform="translate("+a+"px,0)"+"translateZ(0)",c.msTransform=c.MozTransform=c.OTransform="translateX("+a+"px)"},X=function(a){switch(i){case"left":r>=p?r=a?r-1:0:0>r&&(r=a?0:p-1),null!=q&&U(0),W(-r*M,s),x=r;break;case"leftLoop":null!=q&&U(0),W(-(r+1)*M,s),-1==r?(z=setTimeout(function(){W(-p*M,0)},s),r=p-1):r==p&&(z=setTimeout(function(){W(-M,0)},s),r=0),x=r}S(),A=setTimeout(function(){T()},s);for(var c=0;p>c;c++)h(o[c],b.titOnClassName),c==r&&g(o[c],b.titOnClassName);0==w&&(h(k,"nextStop"),h(j,"prevStop"),0==r?g(j,"prevStop"):r==p-1&&g(k,"nextStop")),l&&(l.innerHTML="<span>"+(r+1)+"</span>/"+p)};if(X(),u&&(y=setInterval(function(){r++,X()},t)),o)for(var R=0;p>R;R++)!function(){var a=R;o[a].addEventListener("click",function(){clearTimeout(z),clearTimeout(A),r=a,X()})}();k&&k.addEventListener("click",function(){(1==w||r!=p-1)&&(clearTimeout(z),clearTimeout(A),r++,X())}),j&&j.addEventListener("click",function(){(1==w||0!=r)&&(clearTimeout(z),clearTimeout(A),r--,X())});var Y=function(a){clearTimeout(z),clearTimeout(A),O=void 0,D=0;var b=H?a.touches[0]:a;B=b.pageX,C=b.pageY,m.addEventListener(J,Z,!1),m.addEventListener(K,$,!1)},Z=function(a){if(!H||!(a.touches.length>1||a.scale&&1!==a.scale)){var b=H?a.touches[0]:a;if(D=b.pageX-B,E=b.pageY-C,"undefined"==typeof O&&(O=!!(O||Math.abs(D)<Math.abs(E))),!O){switch(a.preventDefault(),u&&clearInterval(y),i){case"left":(0==r&&D>0||r>=p-1&&0>D)&&(D=.4*D),W(-r*M+D,0);break;case"leftLoop":W(-(r+1)*M+D,0)}null!=q&&Math.abs(D)>M/3&&U(D>-0?-1:1)}}},$=function(a){0!=D&&(a.preventDefault(),O||(Math.abs(D)>M/10&&(D>0?r--:r++),X(!0),u&&(y=setInterval(function(){r++,X()},t))),m.removeEventListener(J,Z,!1),m.removeEventListener(K,$,!1))};m.addEventListener(I,Y,!1)};
+
+  TouchSlide({ 
+          slideCell:"#focus",
+          titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+          mainCell:".bd ul", 
+          effect:"leftLoop", 
+          autoPlay:true,//自动播放
+          autoPage:true //自动分页
+        });
+// banner轮播 END
+</script>
+
+</html>

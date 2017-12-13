@@ -1,0 +1,173 @@
+    html {
+  -ms-overflow-style:none;
+  
+  /*overflow:-moz-scrollbars-none;*/
+  }
+  html::-webkit-scrollbar{width:0px}
+  .conter{
+    width:900px;
+    
+    margin: auto;
+  }
+  .list{
+    margin-top: 60px;
+    padding-bottom: 50px;
+    border-bottom:1px solid #E5E5E5;
+  }
+  .f24{
+    font-size: 24px;
+  }
+  .f16{
+    font-size: 16px;
+  }
+  .c80{
+    color: #808080;
+  }
+  .c4d{
+    color: #4D4D4D;
+  }
+  .page{
+    margin-top:50px;
+  }
+  .page>ul{
+      margin:0 auto 159px;
+      /*width: 694px;*/
+  }
+
+  .page>ul>li{
+    padding: 9px 18px;
+    cursor: pointer;
+    float: left;
+    border: 1px solid #CCCCCC;
+    border-radius: 2px;
+    margin-right:20px;
+  }
+    .page>ul>li:hover{
+    background: #f0f0f0;
+  }
+  .page>ul>li>a{
+    font-size: 16px;
+    color: #666666;
+  }
+  .p1:hover{
+    cursor: pointer;
+    color: #32AAFD;
+  }
+   .cff{
+    color: #fff;
+  }
+  .nav>li>a{
+    color: #000;
+    transition: .3s;
+  }
+  .nav>li:hover a{
+    color: #32AAFD;
+  }
+    .nav>li>a.col:hover {
+    color: #32AAFD;
+}
+  li.login>a{
+    color: #6E6E6E;
+    border: 1px solid #979797;
+  }
+  li.login2>a{
+      display: block;
+      width: auto;
+      height: 30px;
+      transition: .5s;
+      line-height: 30px;
+      text-align: center;
+      color: #fff;
+      border-radius: 2px;
+      font-size: 14px;
+      margin-top: 15px;
+      border: 1px solid #356EF7;
+      background-color: #356EF7;
+  }
+li.login>a:hover {
+    background: #32AAFD;
+    border: 1px solid #32AAFD;
+    color: #FFFFFF;
+}
+  li.login2>a:hover{
+    background: #1655EB;
+    color: #fff;
+  }
+
+  .code>img {
+    z-index: 3;
+  }
+  .code {
+    background: url(../images/code.png) no-repeat;
+  }
+  li.login>a.oA2 {
+      color: #6E6E6E;
+      border: 1px solid #979797;
+  }
+  .wr{
+    position: fixed;
+    z-index: 999;
+    background: #fff;
+    top:0;
+    width:100%;
+    transition: .5s;
+  }
+  .col1{
+    color:#000;
+  }
+  .nav>li>a.col{
+    color:#000;
+  }
+  li.login2:hover>a{
+      color: #FFFFFF;
+  }
+  li.login>a.oA2{
+    color: #6E6E6E;
+      border: 1px solid #979797;
+  }
+  li.login>a.oA2:hover{
+      background: #32AAFD;
+      border: 1px solid #32AAFD;
+      color: #FFFFFF;
+  }
+  .code1{
+    background-image: url(../images/code.png);
+  }
+  .code1:hover{
+      background: url(../images/qrcodeactive.png) no-repeat;
+  }
+  @media only screen and (max-width: 990px){  
+    .conter {
+      padding-left: 0;
+      width:80%;
+      text-align: left;
+    }
+    .list {
+      margin-top: 30px;
+      padding-bottom: 30px;
+    }
+    .page>ul {
+        margin: 0 auto 70px;
+    }
+    .conter>.list>a>p:nth-child(1){
+      font-size: 18px;
+    }
+    .conter>.list>a>p:nth-child(2){
+      font-size: 12px;
+    }
+    .conter>.list>a>p:nth-child(3){
+      font-size: 14px;
+    }
+    .conter>.list>a>span{
+      font-size: 14px;
+    }
+    .page>ul {
+      display: block!important;
+    }
+    .banner {
+      padding-top: 50px;
+    }
+    .page>ul>li {
+      padding: 3px 9px;
+    }
+  }

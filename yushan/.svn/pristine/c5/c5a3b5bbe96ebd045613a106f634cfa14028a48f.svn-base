@@ -1,0 +1,619 @@
+  <div ng-controller="zl_ctrl" id="printtable" class="alltablecss">
+
+    <table style="width: 640px;height: 960px;margin-left: 60px;margin-top: 35px;">
+      <tbody>
+        <tr ><!--  ng-repeat="(key, value) in Sdata" -->
+          <td>
+            <!-- 资料头部 -->  
+          <div class="zltitle" style="height: 80px;">
+              <table width="100%">
+                <tbody>
+                  <tr>
+                    <td>
+
+                      <div class="tc lh32 mt_5">
+                        <span class="htitle">砂浆试块试验结果汇总表</span>
+                      </div>
+
+                      <div class="bianhao" style="margin-right: 10px;margin-top: 20px;">
+                        <span>GD2301043</span>
+                        <input class="lip">  
+                       <input class="lip"></div>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div> 
+
+            <!-- 资料表格 -->  
+            <div class="zlcontent" style="height: 880px;border: 1px solid #000;">
+
+              <!-- 内容头部 -->  
+              <table class="zlhead w_p100" width="100%" height="84">
+
+                <tr>
+                  <td width="" height="41" align="center" colspan="2">单位(子单位)工程名称</td>
+                  <td colspan="1" >
+                    <div class="divl3" contenteditable="true" divb="0"  ng-bind="value.b[0]"></div>
+                  </td>
+                </tr>
+                <!-- 宽度控制 -->
+                <tr class="ys_b">
+                  <td width="120"></td>
+                  <td width="30"></td>
+                  <td width="487"></td>
+                </tr>
+              
+                <tr>
+                  <td height="41"align="center" colspan="1" >总承包施工单位</td>
+                  <td colspan="2">
+                    <div class="divl3" contenteditable="true" divb="1"  ng-bind="value.b[1]"></div>
+                    </td>
+                 
+                </tr>
+              </table>
+
+
+<table class="zlcont w_p100" width="100%" height="797">
+       <tr align="center">
+      <td  height="55">序<br>号</td>
+      <td >使用部位</td>
+      <td >试件<br>编号</td>
+      <td >强度等级</td>
+      <td >试件制作<br>时&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;间</td>
+      <td >试件龄期<br>(d)</td>
+      <td >试压结果<br>(MPa)</td>
+      <td >达到强度<br>(%)</td>
+       </tr>
+       <!-- 宽度控制 -->
+       <tr class="ys_b">
+         <td height="0" width="27" ></td>
+         <td width="170"></td>
+         <td width="109"></td>
+         <td width="58"></td>
+         <td width="108"></td>
+         <td width="55"></td>
+         <td width="55"></td>
+         <td width="55"></td>
+       </tr>
+      <tr align="center">
+        <td height="35">1</td>
+        <td >
+          <div class="divc3" contenteditable="true" divc="0" key="0" ng-bind="value.c[0][0]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="0" key="1" ng-bind="value.c[0][1]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="0" key="2" ng-bind="value.c[0][2]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="0" key="3" ng-bind="value.c[0][3]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="0" key="4" ng-bind="value.c[0][4]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="0" key="5" ng-bind="value.c[0][5]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="0" key="6" ng-bind="value.c[0][6]"></div>
+        </td>
+      </tr>
+       <tr align="center">
+        <td height="35">2</td>
+         <td >
+          <div class="divc3" contenteditable="true" divc="1" key="0" ng-bind="value.c[1][0]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="1" key="1" ng-bind="value.c[1][1]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="1" key="2" ng-bind="value.c[1][2]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="1" key="3" ng-bind="value.c[1][3]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="1" key="4" ng-bind="value.c[1][4]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="1" key="5" ng-bind="value.c[1][5]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="1" key="6" ng-bind="value.c[1][6]"></div>
+        </td>
+      </tr>
+      <tr align="center">
+          <td height="35">3</td>
+         <td >
+          <div class="divc3" contenteditable="true" divc="2" key="0" ng-bind="value.c[2][0]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="2" key="1" ng-bind="value.c[2][1]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="2" key="2" ng-bind="value.c[2][2]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="2" key="3" ng-bind="value.c[2][3]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="2" key="4" ng-bind="value.c[2][4]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="2" key="5" ng-bind="value.c[2][5]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="2" key="6" ng-bind="value.c[2][6]"></div>
+        </td>
+      </tr>
+       <tr align="center">
+        <td height="35">4</td>
+         <td >
+          <div class="divc3" contenteditable="true" divc="3" key="0" ng-bind="value.c[3][0]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="3" key="1" ng-bind="value.c[3][1]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="3" key="2" ng-bind="value.c[3][2]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="3" key="3" ng-bind="value.c[3][3]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="3" key="4" ng-bind="value.c[3][4]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="3" key="5" ng-bind="value.c[3][5]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="3" key="6" ng-bind="value.c[3][6]"></div>
+        </td>
+      </tr>
+      <tr align="center">
+          <td height="35">5</td>
+         <td >
+          <div class="divc3" contenteditable="true" divc="4" key="0" ng-bind="value.c[4][0]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="4" key="1" ng-bind="value.c[4][1]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="4" key="2" ng-bind="value.c[4][2]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="4" key="3" ng-bind="value.c[4][3]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="4" key="4" ng-bind="value.c[4][4]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="4" key="5" ng-bind="value.c[4][5]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="4" key="6" ng-bind="value.c[4][6]"></div>
+        </td>
+      </tr>
+       <tr align="center">
+        <td height="35">6</td>
+         <td >
+          <div class="divc3" contenteditable="true" divc="5" key="0" ng-bind="value.c[5][0]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="5" key="1" ng-bind="value.c[5][1]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="5" key="2" ng-bind="value.c[5][2]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="5" key="3" ng-bind="value.c[5][3]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="5" key="4" ng-bind="value.c[5][4]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="5" key="5" ng-bind="value.c[5][5]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="5" key="6" ng-bind="value.c[5][6]"></div>
+        </td>
+      </tr>
+
+      <tr align="center">
+          <td height="35">7</td>
+         <td >
+          <div class="divc3" contenteditable="true" divc="6" key="0" ng-bind="value.c[6][0]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="6" key="1" ng-bind="value.c[6][1]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="6" key="2" ng-bind="value.c[6][2]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="6" key="3" ng-bind="value.c[6][3]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="6" key="4" ng-bind="value.c[6][4]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="6" key="5" ng-bind="value.c[6][5]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="6" key="6" ng-bind="value.c[6][6]"></div>
+        </td>
+      </tr>
+
+       <tr align="center">
+        <td height="35">8</td>
+          <td >
+          <div class="divc3" contenteditable="true" divc="7" key="0" ng-bind="value.c[7][0]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="7" key="1" ng-bind="value.c[7][1]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="7" key="2" ng-bind="value.c[7][2]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="7" key="3" ng-bind="value.c[7][3]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="7" key="4" ng-bind="value.c[7][4]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="7" key="5" ng-bind="value.c[7][5]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="7" key="6" ng-bind="value.c[7][6]"></div>
+        </td>
+      </tr>
+<tr align="center">
+    <td height="35">9</td>
+         <td >
+          <div class="divc3" contenteditable="true" divc="8" key="0" ng-bind="value.c[8][0]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="8" key="1" ng-bind="value.c[8][1]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="8" key="2" ng-bind="value.c[8][2]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="8" key="3" ng-bind="value.c[8][3]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="8" key="4" ng-bind="value.c[8][4]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="8" key="5" ng-bind="value.c[8][5]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="8" key="6" ng-bind="value.c[8][6]"></div>
+        </td>
+      </tr>
+       <tr align="center">
+        <td height="35">10</td>
+         <td >
+          <div class="divc3" contenteditable="true" divc="9" key="0" ng-bind="value.c[9][0]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="9" key="1" ng-bind="value.c[9][1]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="9" key="2" ng-bind="value.c[9][2]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="9" key="3" ng-bind="value.c[9][3]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="9" key="4" ng-bind="value.c[9][4]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="9" key="5" ng-bind="value.c[9][5]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="9" key="6" ng-bind="value.c[9][6]"></div>
+        </td>
+      </tr>
+        <tr align="center">
+        <td height="35">11</td>
+         <td >
+          <div class="divc3" contenteditable="true" divc="10" key="0" ng-bind="value.c[10][0]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="10" key="1" ng-bind="value.c[10][1]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="10" key="2" ng-bind="value.c[10][2]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="10" key="3" ng-bind="value.c[10][3]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="10" key="4" ng-bind="value.c[10][4]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="10" key="5" ng-bind="value.c[10][5]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="10" key="6" ng-bind="value.c[10][6]"></div>
+        </td>
+      </tr>
+
+       <tr align="center">
+        <td height="35">12</td>
+         <td >
+          <div class="divc3" contenteditable="true" divc="11" key="0" ng-bind="value.c[11][0]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="11" key="1" ng-bind="value.c[11][1]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="11" key="2" ng-bind="value.c[11][2]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="11" key="3" ng-bind="value.c[11][3]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="11" key="4" ng-bind="value.c[11][4]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="11" key="5" ng-bind="value.c[11][5]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="11" key="6" ng-bind="value.c[11][6]"></div>
+        </td>
+      </tr>
+
+       <tr align="center">
+          <td height="35">13</td>
+         <td >
+          <div class="divc3" contenteditable="true" divc="12" key="0" ng-bind="value.c[12][0]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="12" key="1" ng-bind="value.c[12][1]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="12" key="2" ng-bind="value.c[12][2]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="12" key="3" ng-bind="value.c[12][3]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="12" key="4" ng-bind="value.c[12][4]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="12" key="5" ng-bind="value.c[12][5]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="12" key="6" ng-bind="value.c[12][6]"></div>
+        </td>
+      </tr>
+       <tr align="center">
+        <td height="35">14</td>
+         <td >
+          <div class="divc3" contenteditable="true" divc="13" key="0" ng-bind="value.c[13][0]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="13" key="1" ng-bind="value.c[13][1]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="13" key="2" ng-bind="value.c[13][2]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="13" key="3" ng-bind="value.c[13][3]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="13" key="4" ng-bind="value.c[13][4]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="13" key="5" ng-bind="value.c[13][5]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="13" key="6" ng-bind="value.c[13][6]"></div>
+        </td>
+      </tr>
+        <tr align="center">
+          <td height="35">15</td>
+         <td >
+          <div class="divc3" contenteditable="true" divc="14" key="0" ng-bind="value.c[14][0]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="14" key="1" ng-bind="value.c[14][1]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="14" key="2" ng-bind="value.c[14][2]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="14" key="3" ng-bind="value.c[14][3]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="14" key="4" ng-bind="value.c[14][4]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="14" key="5" ng-bind="value.c[14][5]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="14" key="6" ng-bind="value.c[14][6]"></div>
+        </td>
+      </tr>
+       <tr align="center">
+        <td height="35">16</td>
+         <td >
+          <div class="divc3" contenteditable="true" divc="15" key="0" ng-bind="value.c[15][0]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="15" key="1" ng-bind="value.c[15][1]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="15" key="2" ng-bind="value.c[15][2]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="15" key="3" ng-bind="value.c[15][3]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="15" key="4" ng-bind="value.c[15][4]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="15" key="5" ng-bind="value.c[15][5]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="15" key="6" ng-bind="value.c[15][6]"></div>
+        </td>
+      </tr>
+        <tr align="center">
+          <td height="36">17</td>
+         <td >
+          <div class="divc3" contenteditable="true" divc="16" key="0" ng-bind="value.c[16][0]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="16" key="1" ng-bind="value.c[16][1]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="16" key="2" ng-bind="value.c[16][2]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="16" key="3" ng-bind="value.c[16][3]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="16" key="4" ng-bind="value.c[16][4]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="16" key="5" ng-bind="value.c[16][5]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="16" key="6" ng-bind="value.c[16][6]"></div>
+        </td>
+      </tr>
+       <tr align="center">
+        <td height="36">18</td>
+         <td >
+          <div class="divc3" contenteditable="true" divc="17" key="0" ng-bind="value.c[17][0]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="17" key="1" ng-bind="value.c[17][1]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="17" key="2" ng-bind="value.c[17][2]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="17" key="3" ng-bind="value.c[17][3]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="17" key="4" ng-bind="value.c[17][4]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="17" key="5" ng-bind="value.c[17][5]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="17" key="6" ng-bind="value.c[17][6]"></div>
+        </td>
+      </tr>
+  <tr align="center">
+    <td height="36">19</td>
+         <td >
+          <div class="divc3" contenteditable="true" divc="18" key="0" ng-bind="value.c[18][0]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="18" key="1" ng-bind="value.c[18][1]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="18" key="2" ng-bind="value.c[18][2]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="18" key="3" ng-bind="value.c[18][3]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="18" key="4" ng-bind="value.c[18][4]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="18" key="5" ng-bind="value.c[18][5]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="18" key="6" ng-bind="value.c[18][6]"></div>
+        </td>
+      </tr>
+       <tr align="center">
+        <td height="36">20</td>
+         <td >
+          <div class="divc3" contenteditable="true" divc="19" key="0" ng-bind="value.c[19][0]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="19" key="1" ng-bind="value.c[19][1]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="19" key="2" ng-bind="value.c[19][2]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="19" key="3" ng-bind="value.c[19][3]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="19" key="4" ng-bind="value.c[19][4]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="19" key="5" ng-bind="value.c[19][5]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="19" key="6" ng-bind="value.c[19][6]"></div>
+        </td>
+      </tr>
+       <tr align="center">
+        <td height="36">21</td>
+         <td >
+          <div class="divc3" contenteditable="true" divc="20" key="0" ng-bind="value.c[20][0]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="20" key="1" ng-bind="value.c[20][1]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="20" key="2" ng-bind="value.c[20][2]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="20" key="3" ng-bind="value.c[20][3]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="20" key="4" ng-bind="value.c[20][4]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="20" key="5" ng-bind="value.c[20][5]"></div>
+        </td>
+        <td>
+          <div class="divc3" contenteditable="true" divc="20" key="6" ng-bind="value.c[20][6]"></div>
+        </td>
+      </tr>
+
+              </table>
+
+         </div>
+            <!--  <div class="pl_5 pt_5 hslinput_b0">
+               <span class="">制表人：</span>
+               <input type="text" class="ip_1" value="" style="width:145px;">             
+               <span class="pl_10">校核人：</span>
+               <input type="text" class="ip_1" value="" style="width:135px;">             
+               <span class="pl_10">监理审核人：</span>
+               <input type="text" class="ip_1" value="" style="width:100px;">
+               </div> -->
+
+               <table class="noborder fz_13" style="margin-top: 8px;">
+               <tr>
+                 <td width="65" class="pl_10">制表人：</td>
+                 <td width="165"><div class="divc3 " contenteditable="true"></div></td>
+                 <td width="75" class="pl_20">校核人：</td>
+                 <td width="100"><div class="divc3" contenteditable="true"></div></td>
+                 <td width="100" style="padding-left: 15px;">监理审核人：</td>
+                 <td width="135"><div class="divc3" contenteditable="true"></div></td>
+               </tr>
+                 
+               </table>
+
+
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>

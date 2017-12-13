@@ -1,0 +1,285 @@
+<div style="background: #fff;" ng-controller="com_ctrl" class="hslsafe">
+ <div class="dpn" id="win" ng-include="win.url" onload="winready()"></div>
+	<div class="widget-body biaoge ">
+		<div class="bg-themeprimary  h_10"></div>
+		    <div class="widget-main ">
+		        <div class="tabbable">
+	                <ul class="nav nav-tabs tabs-flat" id="myTab11">
+	                    <li class="active pl_55">
+	                        <a data-toggle="tab" goto="#base">
+	                            基本信息
+	                        </a>
+	                    </li> 
+	                    <li>
+	                        <a data-toggle="tab" goto="#password">
+	                            安全设置
+	                        </a>
+	                    </li>
+	                </ul>
+		            <div class="tab-content tabs-flat" style="border-top:none">
+		              	<div id="base" class="tab-pane active">
+		              		<div class="t_c">
+								<!-- <form class="basicinfor"> -->
+								 <div class="hsluser" style="width: 700px;margin: 0 auto;">
+								<form class="basicinfor" id="picture_form"  name="form" method="post" enctype="multipart/form-data">
+								<!-- 头像控制 -->
+                               
+                               	<div class="hsl_img ps_r ">
+                               
+                               <span style="position: relative; top: -139px;">头像：</span>
+								 <div class="basicinfortxall w_160 h_160" >
+								  <div class="basicinfortxb" style="background: #fff">
+
+								  	<div class="basicinfortimg " style="position: relative;">
+								  
+								  			<img ng-if="user_info_list.photourl" class="baseimg" ng-src="{{user_info_list.photourl}}" alt="" style="width: 100%;height: 150px;vertical-align: inherit;" id="img0">
+                        <img ng-if="user_info_list.photourl==''" class="baseimg" ng-src="./main/images/user.png" alt="" style="width: 100%;height: 150px;vertical-align: inherit;" id="img0">
+
+								  		 <!-- <div> -->
+								  		 	
+								  		 <!-- </div> -->
+								  	</div>
+								  </div>
+								  </div>
+								  <div class="fr pr_180 t_l">
+                                   <p>尺寸：150*150</p>
+                                   <p>大小：1m</p>
+                                   <br>
+                                   <p class="c_g" ng-show="user_info_list.hasweopenid" sameimg="1">从微信帐号同步头像</p>
+                                   <p class="c_b" ng-show="user_info_list.hasqqopenid" sameimg="2">从QQ帐号同步头像</p>
+
+                                    <div class="uploadimage">
+                                     <button type="button" comfind="operate_pro_list" class="btn btn-blue">上传头像</button>
+                                     <input type="file" name="file" changeimg="user_info_listData.imgurl" element="#picture_form"/>
+                                    </div>
+                                   </div>
+                                   <div class="cl">
+                                   	
+                                   </div>
+								  </div>
+								 
+
+								 <input class="dpn" ng-model="imgurl" name='photourl'  type="text">
+								 
+                                <!-- 信息详情 -->
+							     <div class="basicinfordet">
+								  <div class="mt_10">
+								<!--   <div class="loginbox-textbox hsl_username" style="margin-right: 20px; padding: 6px 40px;">
+                <span style="line-height: 32px;">河狸建筑帐号：</span><input type="text" class="form-control ng-pristine ng-untouched ng-valid" id="username" ng-model="com_loginData.ysusername" placeholder="河狸建筑帐号" style="width: 100%;margin-right: 35px;">
+            </div> -->
+           <div class="loginbox-textbox hsl_username" style=" padding: 16px 0px;margin-left: -25px;">
+                <span style="line-height: 32px;">河狸建筑帐号：</span>
+               <span>{{user_info_list.username}}</span>
+
+               <div class="ps_r fr">
+               <span class="mr_60"><img extendone="{{user_info_list.tuijian}}" extendtwo="{{user_info_list.maxprogram}}"  extendthree="{{user_info_list.leiji}}"  comwinadd="user_info_win" class="hand" width="15" src="./main/images/wh.png" alt="">  当前工程上限：</span>
+                <span class="quan f_18">3</span>
+               </div>
+            </div>
+
+                           <!--  <div class="form-group nickname" style="margin-left: -25px;">
+									  <span>河狸建筑帐号：</span>
+								  	  <input class="nicknameinp" value="{{user_info_list.datalist[0].nicheng}}" name='yushanzhanghao' placeholder="河狸建筑帐号" type="text">
+								  	</div> -->
+
+
+								  	<div class="form-group nickname">
+									  <span>昵称：</span>
+								  	  <input class="nicknameinp" value="{{user_info_list.nicheng}}" name='nicheng' placeholder="昵称" type="text">
+								  	</div>
+
+								  	<div class="form-group basesex">
+									  <span>性别：</span>
+									  <div class="radio basesexinp">
+                                        <label>
+                                             <input name="sex" class="colored-blue" value="1" type="radio" ng-checked="user_info_list.sex == 1">
+                                            <span class="text">男</span>
+                                        </label>
+                                      </div>
+
+                                      <div class="radio basesexinp pl_50">
+                                        <label>
+                                            <input name="sex" class="colored-blue" value="2" type="radio" ng-checked="user_info_list.sex == 2">
+                                       
+                                            <span class="text">女</span>
+                                        </label>
+                                      </div>
+
+                                     <!--  <div class="radio basesexinp">
+                                        <label>
+                                            <input name="sex" class="colored-blue" value="0" type="radio">
+                                            <span class="text" >保密</span>
+                                        </label>
+                                      </div>  -->
+								  	</div>
+
+							  	<div class="form-group post">
+									  <span>职位：</span>
+								  	 <!--  <select class="postinp">
+										  <option >资料员</option> 
+										  <option >施工员</option> 
+									  </select> -->
+									  <input type="text" name="yixiang" value="{{user_info_list.yixiang}}" placeholder="请输入职位" class="postinp">
+								  	</div> 
+								  	
+								  	<!-- <div class="form-group basiccity">
+									  <span>城市：</span>
+								  	  <select class="basiccityinp" name="pid" changepro="user_info_listData" key="pid"> 
+										  <option >选择省份</option> 
+										  <option ng-selected=" value.pid == user_info_list.pid"  value="{{value.pid}}"  ng-repeat="(key, value) in com_province">{{value.province}}</option> 
+									  </select>
+									  <select class="basiccityinp" name="ctid" changecity="user_info_listData" key="cityid">
+										  <option >选择城市</option> 
+										  <option ng-selected="value.ctid == user_info_list.ctid" value="{{value.ctid}}"  ng-repeat="(key, value) in com_city">{{value.city}}</option> 
+									  </select>
+									 
+								  	</div> -->
+
+								  	
+									<div class="basicinforope">
+									  <input class="determine" type="submit" value="保 存"  class="form-control" element="#picture_form" saveperson="ver1/Index/user_info_save">
+									</div>
+								  </div>
+
+								</div>
+								
+
+
+							  </form>
+							  </div> 
+							</div>
+		              	</div>
+                         <!-- 安全设置 -->
+	                    <form id="password" name="pswForm" class="tab-pane t_c" ng-init="data = {oldpasswd:'',phcode:'',newpasswd:'',newpasswdtwo:''}">
+
+                        <div class="safe_set">
+                        <div class="tel_num ">
+                        	<div class="dpib fl w_450">
+                        	<div class="t_l">
+                        		<img src="./main/images/userinfo1.png" alt="tel" class="fl mt_5">
+                        		<div class="fl mt_10 ml_10">
+                        			<b>手机</b> &nbsp<SUB ng-if="user_info_list.tel!='xxxx'">{{user_info_list.tel}}</SUB>
+                              <SUB ng-if="user_info_list.tel=='xxxx'">未绑定手机号</SUB>
+                        		</div>
+                        		<div class="fl mt_10 ml_10">
+                        			<p>可用手机号加密码登录河狸建筑工程信息化平台，可通过手机找回密码</p>
+                        		</div>
+                        		<div class="cl"></div>
+                        	</div>
+                        		
+                        	</div>
+                                 <!--  按钮 -->
+                        	<div class=" w_100 fr mt_5">
+                        	<button  type="button" class="b_2 btn btn-default" 
+                        	comwinadd="user_info_tel"><span ng-if="user_info_list.tel=='xxxx'">去绑定</span><span ng-if="user_info_list.tel!='xxxx'">更换</span></button> 
+                        	</div>
+                        	<div class="cl"></div>
+                        </div>
+                        <div class="hsl_info_line">
+                        	
+                        </div>
+                        <div class="safe_password">
+                        	<div class="dpib fl w_450">
+                        	<div class="t_l">
+                        		<img src="./main/images/userinfo2.png" alt="tel" class="fl">
+                        		<div class="fl mt_10 ml_10">
+                        			<b>密码</b> &nbsp<SUB>已设置</SUB>
+                        		</div>
+                        		<div class="fl mt_10 ml_10">
+                        			<p>可用手机号加密码登录河狸建筑工程信息化平台，可通过手机找回密码</p>
+                        		</div>
+                        		<div class="cl"></div>
+                        	</div>
+                        		
+                        	</div>
+                                 <!--  按钮 -->
+                        	<div class=" w_100 fr mt_5">
+                        	<button  type="button" class="b_2 btn btn-default" 
+                        	comwinadd="user_info_password">修改</button>
+                        	</div>
+                        	<div class="cl"></div>
+                        </div>
+                        <div class="hsl_info_line"></div>
+                        	
+                        </div>
+                        <div class="take_over">
+                            <div class="dpib fl w_550">
+                            <div class="t_l">
+                                <img src="./main/images/userinfo3.png" alt="tel" class="fl">
+                                <div class="fl mt_10 ml_10">
+                                    <b>第三方账号</b>
+                                </div>
+                                <div class="fl mt_10 ml_10">
+                                    <p>绑定第三方账号，可以直接登录，还可以将内容同步到以下平台，与更多好友分享</p>
+                                </div>
+                                <div class="cl"></div>
+                            </div>
+                            </div>
+                            <div class="cl"></div>
+                            <div class="t_c">
+                              <div class="dpib">
+                              
+                                <div class="overwechat mr_180 fl">
+                                    
+                                    <div><img ng-src="./main/images/overwechat{{user_info_list.hasweopenid}}.png" alt=""></div>
+                                    <div ng-show="user_info_list.hasweopenid">
+                                    <span class="overedwetspan" ng-bind="user_info_list.pcwenickname"></span>
+                                    <bottom class="overedwechatb" user-Unbind=3 tip="hasweopenid" type="bottom">解除绑定</bottom>                              
+                                    </div>
+
+                                    <div ng-show="!user_info_list.hasweopenid">
+                                    <span  class="overedwetspan">账号未绑定</span>
+                                    <bottom class="overedwechatb" type="bottom"><a style="color:#fff" href="https://open.weixin.qq.com/connect/qrconnect?appid=wxa4f0646618777df8&amp;redirect_uri=http%3A%2F%2Fwww.ysjianzhu.com%2Fphp%2FYsback%2FLogin%2Fpcwecallback&amp;response_type=code&amp;scope=snsapi_login&amp;state=bindwx#wechat_redirect">立即绑定</a></bottom>                              
+                                    </div>
+                                   <!-- <div><img src="images/overwechat2.png" alt=""></div> -->
+                                   <!-- <span>账号未绑定</span> -->
+                                   <!-- <bottom class="overwechatb" type="bottom">立即绑定</bottom> -->
+                                </div>
+ 
+                                <div class="overwechat fl">
+                                   <!-- <div><img src="images/overqq2.png" alt=""></div>
+                                   <span>账号未绑定</span>
+                                   <bottom class="overqqb" type="bottom">立即绑定</bottom> -->
+                                   
+                                   <div><img ng-src="./main/images/overqq{{user_info_list.hasqqopenid}}.png" alt=""></div>
+                                   <div ng-show="user_info_list.hasqqopenid">
+                                   <span class="overedqqspan" ng-bind="user_info_list.qqnickname"></span>
+                                   <bottom class="overedqqb" user-Unbind=2 tip="hasqqopenid" type="bottom">解除绑定</bottom>                                     
+                                   </div>
+
+                                   <div ng-show="!user_info_list.hasqqopenid">
+                                   <span class="overedqqspan">账号未绑定</span>
+                                   <bottom class="overedqqb" type="bottom"><a style="color:#fff" href="https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101271490&redirect_uri=http%3A%2F%2Fwww.ysjianzhu.com%2Fphp%2FYsback%2FLogin%2Fqqcallback&state=bindqq&scope=snsapi_login">立即绑定</a></bottom>                                     
+                                   </div>
+                                </div>
+                                <div class="cl"></div>
+
+                              </div>
+                            <div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  </div>
+  
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+	                    
+
+
+
+

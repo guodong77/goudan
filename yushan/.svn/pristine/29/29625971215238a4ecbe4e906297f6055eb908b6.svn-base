@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>河狸建筑</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+    <link rel="stylesheet" href="../../../css/public.css" />
+	<link rel="stylesheet" href="../../../css/index.css" />
+	<link rel="stylesheet" href="../../../css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="../../../css/update.css" />
+    <link rel="stylesheet" href="../../../css/details.css" /> 
+    <link rel="stylesheet" href="/assets/js/2.2/skin/layer.css">
+    <link rel="icon" href="../../../images/32.ico" type="image/x-icon"/>
+    <style type="text/css">
+		.my{
+		    width: 960px; 
+		    margin: auto;
+		    font-size: 22px;
+		    color: #383838;
+		    line-height: 40px;
+		}
+    	 @media screen and (max-width:990px){
+    	 	.content {
+			    width: 100%;
+			    height: auto!important;
+			}
+			.title {
+			    font-size: 26px!important;
+			}
+			.my{
+			    width: 90%;
+			    font-size: 14px;
+			    color: #383838;
+			    line-height: 36px;
+			}
+    	 }
+    </style>
+</head>
+<body>
+	<div class="wr">
+			<div class="head">
+				<a  href="/index.php" style="margin-left: 10px;">
+					<img src="../../../images/homePage.png" width='17' style="float: left;margin-top: 2px;margin-right: 5px;">首页</a>
+				<div><img src="../../../images/head-logo1.png" style="width: 120px;padding-top: 6px;"></div>
+				<a  href="javascript:;" style="margin-right: 10px;" id="menu">
+					<img src="../../../images/navigation.png" width='17' style="float: left;margin-top: 3px;margin-right: 5px;">菜单</a>
+			</div>
+			<div id="ri">
+				<p><a href="/index.php">首页</a></p>
+				<p><a href="/index.php/portal/index/update.html">产品动态</a></p>
+				<p><a href="/index.php/portal/index/page.html" >行业新闻</a></p>
+				<p><a href="/index.php/portal/index/about.html"   style="color: #32AAFD">关于我们</a></p>
+				<p class="login denglu1"><a href="/login.html" >登录</a></p>
+				<p class="login2 denglu1"><a href="/login.html?tap=1">注册</a></p>
+				<p class="denglu2"><a href="/main.html#/program/pro">我的工程管理</a></p>
+				<p class="denglu2 logout"><a href="javascript:;">退出</a></p>
+				<b style="height:100%;display: block;background: rgba(0,0,0,.3);" id='b1'></b>
+			</div>
+			<div class="header chearfixed">
+				<span class="cff f20 fl f-w">
+					<img src="../../../images/head-logo1.png" style="width:176px;width: 130px;padding-top: 10px;"></span>
+				<ul class="nav">
+					<li><a href="/index.php" >首页</a></li>
+					<li><a href="/index.php/portal/index/update.html" >产品动态</a></li>
+					<li><a href="/index.php/portal/index/page.html">行业新闻</a></li>
+					<li><a href="/index.php/portal/index/about.html"  style="color: #32AAFD">关于我们</a></li>
+					<li class="login denglu1"><a href="/login.html" >登录</a></li>
+					<li class="login2 denglu1"><a href="/login.html?tap=1">注册</a></li>
+					<li class="denglu2"><a href="/main.html#/program/pro">我的工程管理</a></li>
+					<li class="denglu2 logout"><a href="javascript:;">退出</a></li>
+					<li style="height: 60px;margin-left: 34px;">
+						<a href="javascript:;" class="code">
+							<div>
+								<img src="../../../images/qrcode.jpg"  style="width:156px">
+								<p style="font-size: 14px;">扫描二维码，关注我们</p>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+	</div>
+	<div class="banner">
+		<img src="../../../images/img.png">
+	</div>
+	<div class="content wrap" style="width: 100%;height: 440px;">
+        <p class="title" style="font-size: 50px;color: #333;font-weight: normal;border: 0;">{$aboutus.post_title}</p>
+         <p class="pre"></p>
+        <p class="my">
+        	河狸建筑(helii.cn)隶属于深圳市宇杉信息科技有限公司,是专门为资料员量身打造的工程管理系统,通过帮助资料员轻松管理建筑工程中的施工、建设、监理、设计、勘察、检测等内容，方便资料员管理您的工程。河狸建筑在网页和移动端都打造了体验出众的应用，使资料员随时随地了解现场及送检进度，是资料员得力助手，为您提供贴心服务。河狸在手，工程无忧！目前，已有众多用户通过河狸建筑进行建筑工程的管理，并得到用户的广泛青睐。
+        </p>
+        <p>
+    <br/>
+</p>
+<!--         <p class="pre" style="    width: 960px;
+    margin: auto;
+    font-size: 22px;
+    color: #383838;
+    line-height: 40px;">
+            {$aboutus.post_content}
+        </p> -->
+    </div>
+	<div class="f-wrap" id="guanyu">
+		<div class="footer chearfixed">
+			<img src="../../../images/heli.png" class="logo">
+			<div class="left fl">
+				<ul>
+					<li class="contact">联系我们</li>
+					<li>邮箱：{$site_admin_email|default=''}</li>
+					<li>联系方式：{$site_admin_phone|default=''}</li>
+					<li>公司地址：{$site_admin_address|default=''}</li>
+				</ul>
+			</div>
+			<div class="fr right">
+				<img src="../../../images/qrcode.jpg"  style="width:135px">
+				<span class="follow">扫描二维码，关注我们</span>
+			</div>
+		</div>
+	</div>
+	<div class="bottom">
+		<a href="http://www.miitbeian.gov.cn" style="color: #CCCCCC" target="_blank" >
+			Copyright © 2015-2018 深圳市宇杉科技有限公司 版权所有 {$site_icp|default=''}
+		</a>
+	</div>
+</body>
+<script src="/assets/js/jquery.js" type="text/javascript"></script>
+<script src="/assets/js/2.2/layer.js" type="text/javascript"></script>
+<script>
+	var x = document.getElementsByClassName("denglu1");
+	var y = document.getElementsByClassName("denglu2");
+	var i,j;
+	if({$reply}==1){
+		for (i = 0; i < x.length; i++) {
+		    x[i].style.display = 'none';
+		}
+		for (j = 0; j < y.length; j++) {
+		    y[j].style.display = 'block';
+		}
+	}else{
+		for (i = 0; i < x.length; i++) {
+		    x[i].style.display = 'block';
+		}
+		for (j = 0; j < y.length; j++) {
+		    y[j].style.display = 'none';
+		}
+	}
+	var z = document.getElementsByClassName("logout");
+	var k;
+	for (k = 0; k < z.length; k++) {
+	    z[k].onclick=function(){
+		    var xhr = new XMLHttpRequest();        //创建一个ajax对象
+		    xhr.onreadystatechange = function(event){    //对ajax对象进行监听
+		        if(xhr.readyState == 4){    //4表示解析完毕
+		            if(xhr.status == 200){    //200为正常返回
+		            	var re = JSON.parse(xhr.response); 
+		                if(re.code==1){  
+					        layer.msg(re.msg);
+					        setTimeout(function(){
+					            window.location.href = '/index.php';
+					        },1000);
+					    }else{
+					        layer.msg(re.msg);
+					    } 
+		            }
+		        }
+		    };
+		    xhr.open('GET','/api/ver1/Login/loginout',true);
+		    xhr.send();
+	    };
+	}
+</script>
+<script type="text/javascript">
+		var oAa = document.getElementById('menu');
+		var oRi = document.getElementById('ri');
+		var pp = document.querySelectorAll('#ri>p');
+		var oB = document.getElementById('b1');
+		oAa.off = true;
+		window.onresize = function(){
+			if(document.documentElement.clientWidth>950&&oAa.off==false){
+			oRi.style.opacity = 0;
+			oRi.style.height= '0';
+			for (var i = 0; i < pp.length; i++) {
+				pp[i].style.height= '0px';
+				pp[i].style.opacity = 0;
+			}
+			oAa.off = true;
+			}
+		}
+		oB.onclick=function(){
+		oRi.style.opacity = 0;
+		oRi.style.height= '0';
+		for (var i = 0; i < pp.length; i++) {
+			pp[i].style.height= '0px';
+			pp[i].style.opacity = 0;
+		}
+		oAa.off = true;
+		}
+		oAa.onclick=function(){
+			if(oAa.off){
+				for (var i = 0; i < pp.length; i++) {
+					pp[i].style.opacity = 1;
+					pp[i].style.height= '50px';
+				}
+				oRi.style.height= '100%';
+				// pp.style.height='50px';
+				oRi.style.opacity = 1;
+				oAa.off = !oAa.off;
+			}else{
+				oRi.style.opacity = 0;
+				oRi.style.height= '0';
+				for (var i = 0; i < pp.length; i++) {
+					pp[i].style.height= '0px';
+					pp[i].style.opacity = 0;
+				}
+				oAa.off = !oAa.off;
+			}
+			
+		}
+</script>
+</html>

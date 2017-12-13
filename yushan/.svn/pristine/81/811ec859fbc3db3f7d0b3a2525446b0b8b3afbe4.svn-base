@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>恒信达</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+	<include file="public@head"/>
+</head>
+<body>
+
+<header class="m-hd paging-hd">
+	<section class="am-show-md-up">
+		<div class="top-nav">
+			<a href="index.html" rel="nofollow" class="m-logo"><img src="__TMPL__/portal/images/logo2.png"/></a>
+	        <include file="public@nav"/>
+	                                                                                        
+	
+    <nav data-am-widget="header" class="am-header am-show-sm-only">
+      <div class="am-header-left am-header-nav">
+        <a href="/" rel="nofollow">
+          <i class="am-header-icon am-icon-home"></i> 首页
+        </a>
+      </div>
+      <h1 class="am-header-title">
+        <a href="/" rel="nofollow">恒信达</a>
+      </h1>
+      <div class="am-header-right am-header-nav">
+        <a href="#right-link" class="" data-am-offcanvas="{target: '#r-nav'}">
+          <i class="am-header-icon am-icon-bars"></i> 菜单
+        </a>
+      </div>
+    </nav>
+
+	<include file="public@sider"/>
+</header>    
+
+
+
+<div class="common-ad">
+<div class="box">
+   <dl>
+      <dt>我们的产品</dt>
+	  <dd>我们打造更快速更专业的全球通讯云服务平台</dd>
+   </dl>
+</div>
+<img src="__TMPL__/portal/images/banner-s1.jpg"/>
+</div>
+
+
+
+
+
+	
+<div class="common-box product-box">
+	<dl class="common-title"> 
+	   <dt>全球短信</dt>
+	   <dd>直连运营商，支持全球200多个国家和地区（含中国大陆）运营商</dd>
+	</dl>
+	
+	<div class="product-list">
+	   <dl class="io1">
+	      <dt>全球覆盖</dt>
+		  <dd>支持全球223个国际及地区（含中国大陆）运营商，每个国家全网覆盖。提供详细的运营商网络名单。</dd>
+	   </dl>
+	   <dl class="io2">
+	      <dt>直连运营商</dt>
+		  <dd>我们尽可能直接与当地的运营商对接，建立快速反馈的沟通渠道，更专业更快速更细致的服务用户。</dd>
+	   </dl>
+	   <dl class="io3">
+	      <dt>高转化率</dt>
+		  <dd>快速的到达速度，多通道智能分流，杜绝拥堵，毫秒级反应。</dd>
+	   </dl>
+	   <dl class="io4">
+	      <dt>99.97%平台稳定</dt>
+		  <dd>平台全方面智能监控，自动警报，智能优化切换，让您高枕无忧。</dd>
+	   </dl>
+	   <dl class="io5">
+	      <dt>更专业的服务顾问</dt>
+		  <dd>我们深度了解国际通讯市场，根据您的需求，预先告知您当地国家的要求，更好的规避当地法律法规风险。</dd>
+	   </dl>
+	</div>
+	
+	<dl class="common-title"> 
+	   <dt>全球语音验证码服务</dt>
+	   <dd>语音服务需要联系客户或是您的账户经理为你定制开通</dd>
+	</dl>
+	
+	<div class="product-list">
+	   <dl class="io6">
+	      <dt>全球覆盖</dt>
+		  <dd>支持全球223个国家及地区，更好的补充短信验证。</dd>
+	   </dl>
+	   <dl class="io7">
+	      <dt>高品质语音线路</dt>
+		  <dd>快速送达，高品质语音播报，通话流畅、语音清晰。</dd>
+	   </dl>
+	   <dl class="io8">
+	      <dt>自定义播报次数及语速</dt>
+		  <dd>可自定义报语音次数及控制语音播报速度，让用户不再错过内容。</dd>
+	   </dl>
+	   <dl class="io9">
+	      <dt>个性化配置</dt>
+		  <dd>根据您的具体需求设置语音验证的当地号码作为Call sender，更好的体验及更好的解决方案。</dd>
+	   </dl>
+	</div>
+	
+	<dl class="common-title"> 
+	   <dt>号码格式验证API</dt>
+	   <dd>通过号码格式验证API快速验证用户手机号码格式正确性，提高验证成功率，节约费用</dd>
+	</dl>
+	
+	<div class="product-list">
+	   <dl class="io10">
+	      <dt>全球号码段</dt>
+		  <dd>验证全球号码格式正确与否，更好的提高发送成功率。</dd>
+	   </dl>
+	   <dl class="io11">
+	      <dt>更好的用户体验</dt>
+		  <dd>提前验证用户的号码格式，用户注册更加高效，提高激活率。</dd>
+	   </dl>
+	   <dl class="io12">
+	      <dt>减少费用损失</dt>
+		  <dd>通过验证号码格式，减少发送错误号码，为企业减少费用支出。</dd>
+	   </dl>
+	   <dl class="io13">
+	      <dt>免费政策</dt>
+		  <dd>我们为使用我们短信以及语音的服务提供免费号码格式验证API服务。让您海外拓展更加专业。</dd>
+	   </dl>
+	</div>
+	
+	<dl class="common-title"> 
+	   <dt>WEB自助发送</dt>
+	   <dd>提供WEB工具，可以在线自助发送，批量导入和管理会员号码，实时了解发送情况</dd>
+	</dl>
+	
+	<div class="product-list">
+	   <dl class="io14">
+	      <dt>批量导入</dt>
+		  <dd>批量导入发送号码，没有技术仍然让您发送自如。</dd>
+	   </dl>
+	   <dl class="io15">
+	      <dt>单个号码发送</dt>
+		  <dd>可针对单个号码进行测试发送。测试通道质量。</dd>
+	   </dl>
+	   <dl class="io16">
+	      <dt>自助发送</dt>
+		  <dd>减少代发的偷量现象，更好的提供成功率。</dd>
+	   </dl>
+	   <dl class="io17">
+	      <dt>数据报告</dt>
+		  <dd>对发送号码实时记录，了解发送情况。</dd>
+	   </dl>
+	</div>
+	
+	<dl class="common-title"> 
+	   <dt>可视化服务平台</dt>
+	   <dd>提供可视化服务平台，在线充值、统计分析，更好的用户体验，更透明化的平台服务</dd>
+	</dl>
+	
+	<div class="product-list">
+	   <dl class="io14">
+	      <dt>详细的计费视图</dt>
+		  <dd>按日、按月统计每个国家计费情况，让您对您花的每一分钱可查溯，计费更透明</dd>
+	   </dl>
+	   <dl class="io15">
+	      <dt>发送数据实时统计</dt>
+		  <dd>详细的记录发送短信的每个国家每个网络的情况。让您对您的发送情况了如指掌。</dd>
+	   </dl>
+	   <dl class="io16">
+	      <dt>发送国家分析</dt>
+		  <dd>图形化发送的前十国家数据，更加准确的抓住您的重中之重。</dd>
+	   </dl>
+	</div>
+	
+	
+</div>
+
+
+
+<include file="public@footer"/>
+
+<include file="public@scripts"/>
+
+<hook name="before_body_end"/>
+
+</body>
+</html>

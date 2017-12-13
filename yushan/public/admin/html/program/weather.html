@@ -1,0 +1,56 @@
+<div class="h_p100 of_h pb_74 ps_r biaoge " ng-controller="com_ctrl">
+
+<table class="table table-striped table-bordered table-hover">
+                    <thead class="bordered-palegreen">
+                        <tr align="center">   
+                  <!--                       <td width="3%" scope="col" style="padding: 6px;">
+                    <label>
+                        <input type="checkbox" comcheckall="program_weather_list" class="colored-blue">
+                        <span class="text"></span>
+                    </label>
+                </td>   -->                     
+			<td height="24" width="3%">序号</td>
+              <td width="8%">城市</td>
+              <td width="8%">日期</td>
+              <td width="8%">最高气温</td>
+              <td width="8%">最低气温</td>
+              <td width="8%">平均</td>	
+              <td width="8%">更新日期</td>		         
+                        </tr>
+
+                    </thead>
+               <tbody>
+              <tr align="center" ng-if="value.isdel!=1" ng-repeat="(key, value) in program_weather_list.datalist"> 
+          <!--     <td  align="center">
+                  <div class="checkbox">
+                      <label>
+                          <input type="checkbox" class="colored-blue" comcheck="check" ng-checked="value.check==1">
+                          <span class="text"></span>
+                      </label>
+                  </div>
+
+              </td>  -->             
+              <td height="29" width="3%">{{key+1}}</td>
+              <td width="8%">{{value.city}}</td>
+              <td width="8%" ng-bind="value.wdate">
+                             
+              </td>
+              <td width="8%"  ng-bind="value.htem">
+                
+              </td>
+              <td width="8%" ng-bind="value.ltem">
+                 
+              </td>
+              <td width="8%"  ng-bind="value.vtem">
+                 
+              </td>  
+              <td width="8%" >
+               <span ng-bind="value.lastupdate"></span>
+              </td>                          
+         	 </tr>
+			</tbody>
+ </table>
+
+                <div id='page' class="t_c mt_10"></div> 
+</div>
+

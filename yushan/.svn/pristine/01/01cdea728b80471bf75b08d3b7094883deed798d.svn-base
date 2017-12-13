@@ -1,0 +1,164 @@
+  html {
+  -ms-overflow-style:none;
+  
+  /*overflow:-moz-scrollbars-none;*/
+  }
+  html::-webkit-scrollbar{width:0px}
+.wr{
+    position: fixed;
+    z-index: 999;
+    top:0;
+    background: #fff;
+    width:100%;
+    transition: .5s;
+  }
+  .logo {
+    float: left;
+    width: 130px;
+    margin-left: 60px;
+    margin-top: 27px;
+  }
+  .n2017{
+    position: relative;
+  }
+  .ul-wrap1{
+    margin-bottom: 20px;
+  }
+  .origin{
+      position: relative;
+      top: 14px;
+      left: -20px;
+    width:7px;
+    height:7px;
+    border-radius: 50%;
+    background: #D8D8D8;
+  }
+  .text1{
+    font-weight: bold;
+    font-size: 20px;
+    color: #333333;
+  }
+  .text2{
+    font-size: 16px;
+    margin:4px 0 6px 0;
+    color: #666666;
+  }
+  .text3{
+    font-size: 14px;
+    color: #999999;
+  }
+  .line{
+    position: absolute;
+    width:1px;
+    height:290px;
+    background:#D8D8D8;
+    top:10px;
+    left: 186.5px;
+      z-index: -1;
+  }
+  .list{
+    display: inline-block;
+    margin-left: 37px;
+    margin-top: -5px;
+  }
+   .cff{
+    color: #fff;
+  }
+  .nav>li>a{
+    color: #000;
+    transition: .3s;
+  }
+  .nav>li:hover a{
+    color: #32AAFD;
+  }
+    .nav>li>a.col:hover {
+    color: #32AAFD;
+}
+  li.login>a{
+    color: #6E6E6E;
+    border: 1px solid #979797;
+  }
+  li.login2>a {
+    display: block;
+    width: auto;
+    height: 30px;
+    transition: .5s;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    border-radius: 2px;
+    font-size: 14px;
+    margin-top: 15px;
+    border: 1px solid #356EF7;
+    background-color: #356EF7;
+}
+li.login>a:hover {
+    background: #32AAFD;
+    border: 1px solid #32AAFD;
+    color: #FFFFFF;
+}
+  li.login2>a:hover{
+    background: #1655EB;
+    color: #fff;
+  }
+
+  .code>img {
+    z-index: 3;
+  }
+  .code {
+    background: url(../images/code.png) no-repeat;
+  }
+  li.login>a.oA2 {
+      color: #6E6E6E;
+      border: 1px solid #979797;
+  }
+  .col1{
+    color:#000;
+  }
+  .nav>li>a.col{
+    color:#000;
+  }
+  li.login>a.oA2{
+    color: #6E6E6E;
+      border: 1px solid #979797;
+  }
+  li.login>a.oA2:hover{
+      background: #32AAFD;
+      border: 1px solid #32AAFD;
+      color: #FFFFFF;
+  }
+  .code1{
+    background-image: url(../images/code.png);
+  }
+  .code1:hover{
+      background: url(../images/qrcodeactive.png) no-repeat;
+  }
+  @media only screen and (max-width: 990px){  
+      body {
+       min-width: 100%; 
+      }
+      .conter {
+          width: 420px;
+          padding-left: 0px;
+          text-align: left;
+      }
+      .line {
+          left: 57.5px;
+      }
+      .n2017>span{
+        font-size: 16px;
+      }
+      .logo {
+          float: none;
+          margin-left: 0px;
+      }
+      .banner {
+          padding-top: 50px;
+      }
+      .text1{
+        font-size: 15px;
+      }
+      .text2{
+        font-size:12px;
+      }
+  }

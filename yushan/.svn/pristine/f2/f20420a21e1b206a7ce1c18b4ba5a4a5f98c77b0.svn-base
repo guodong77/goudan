@@ -1,0 +1,10 @@
+<div class="widget-body win form-horizontal bgc_b winbody" w="460px"><!-- style="padding-top: 20px;overflow: hidden" -->
+  <div class="br_4 feek" >
+    <p ><textarea  rows="5" class=" form-control" ng-model="com_feedData.content" placeholder="欢迎使用河狸建筑工程信息化平台，把你遇到的问题，或是想要的功能告诉我吧（200字以内）"></textarea></p>
+    <div>
+    	<input type="text"  ng-model="com_feedData.qq"  class="feek_input form-control" name="" value="" placeholder="留下您的联系方式方便我们沟通（选填）">
+    	<button id="savefeed" class="feek_tbn" savefeed>确 定</button>
+    </div>
+  </div>
+		
+</div>

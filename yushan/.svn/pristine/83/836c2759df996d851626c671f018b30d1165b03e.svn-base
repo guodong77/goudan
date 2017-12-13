@@ -1,0 +1,47 @@
+<include file="public@header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:url('index')}">短信平台列表</a></li>
+			<li class="active"><a href="{:url('add')}">添加短信平台</a></li>
+		</ul>
+		<form method="post" class="form-horizontal js-ajax-form margin-top-20" action="{:url('addmsg')}">
+			<div class="form-group">
+				<label for="input-name" class="col-sm-2 control-label"><span class="form-required">*</span>平台名称</label>
+				<div class="col-md-6 col-sm-10">
+					<input type="text" class="form-control" id="input-name" name="name">
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<label for="input-url" class="col-sm-2 control-label"><span class="form-required">*</span>api地址</label>
+				<div class="col-md-6 col-sm-10">
+					<input type="text" class="form-control" id="input-url" name="url">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="input-key" class="col-sm-2 control-label"><span class="form-required">*</span>api_key</label>
+				<div class="col-md-6 col-sm-10">
+					<input type="text" class="form-control" id="input-key" name="key">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="input-secret" class="col-sm-2 control-label"><span class="form-required">*</span>api_secret</label>
+				<div class="col-md-6 col-sm-10">
+					<input type="text" class="form-control" id="input-secret" name="secret">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-primary js-ajax-submit">{:lang('ADD')}</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

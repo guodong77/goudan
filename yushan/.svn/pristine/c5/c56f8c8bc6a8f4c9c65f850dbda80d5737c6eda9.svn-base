@@ -1,0 +1,99 @@
+ <div  style="text-align: center;height:85%;width:100%;position: absolute;top: 30px;" ng-controller="hdtworklist_ctrl">
+
+<div class="plr_20 ">
+
+  <div class="container-fluid bb__y1">
+  <div class="row">
+                <div class="col-xs-4 lh_40">
+              <!--      <a href="index.html#/ggc/ihhdt" title="" class="ah_4">画横道图&gt;</a> 预览 -->
+                </div>
+                 <div class="col-xs-4">
+                </div>
+                <div class="col-xs-4 ">
+                
+                </div>
+            </div>
+<a style="position: fixed;top: -7px;right: 50px;" class="fr mr_15 hand  opt" data-toggle="tooltipstu" >
+                  <button type="button" id="btnPrint" class="btn btn-blue" style="margin: 10px 9px;height: 21px; line-height: 20px;">打印</button>
+                </a>
+
+
+  </div></div>
+
+
+     <div class="h_p100" id="printContent" style=" padding-top: 30px;text-align:center;"> 
+     <svg id="svg"  width="{{svgw}}" height="{{svgh}}" style="background: #eeeeee;" version="1.1" xmlns="http://www.w3.org/2000/svg" style='font-size:12px;'>
+
+     <!-- 1、画两个方框,总框、图框 -->
+     <g>
+     <!--  <rect x="1" y="1" width="{{svgw-2}}" height="{{svgh-2}}" stroke="#ccc" stroke-width="1" fill="none"></rect> -->
+    <!-- <rect x="100" y="100" width="{{tablew}}" height="{{tableh}}" stroke="#000" stroke-width="1" fill="none"></rect>
+      --></g>
+     <!-- 2、标题分组 分组 -->
+     <g>
+     <text x="{{svgw/2}}" y="40" text-anchor="middle" style="font-size:30px;"><tspan>{{title}}</tspan></text>
+     <text x="100" y="90" text-anchor="start"  style="font-size:20px;"><tspan>{{danwei}}</tspan></text>
+     <text x="{{svgw/2}}" y="90" text-anchor="middle"  style="font-size:20px;"><tspan>{{ftitle}}</tspan></text>
+     <text x="{{tablew+100}}" y="96"  text-anchor="end"  text-anchor="left"  style="font-size:14px;"><tspan>{{crtime}}</tspan></text>
+      </g>
+      
+      <!-- 3、6条竖线一组 -->
+       <g>
+          <path fill="none" d="M 100.5 100 l 0 {{tableh}}" stroke="#000" stroke-width="1" opacity="1"></path>
+          <path fill="none" d="M 134.5 100 l 0 {{tableh}}" stroke="#000" stroke-width="1" opacity="1"></path>
+          <path fill="none" d="M {{134+titlew}}.5 100 l 0 {{tableh}}" stroke="#000" stroke-width="1" opacity="1"></path>
+          <path fill="none" d="M {{244+titlew}}.5 100 l 0 {{tableh}}" stroke="#000" stroke-width="1" opacity="1"></path>
+          <path fill="none" d="M {{354+titlew}}.5 100 l 0 {{tableh}}" stroke="#000" stroke-width="1" opacity="1"></path>
+          <path fill="none" d="M {{388+titlew}}.5 100 l 0 {{tableh}}" stroke="#000" stroke-width="1" opacity="1"></path>
+          
+       </g>
+       
+       <!-- 4、2条横线一组 -->
+       <g>
+         <path fill="none" d="M 100 100.5 l {{tablew}} 0" stroke="#000" stroke-width="1" opacity="1"></path>
+         <path fill="none" d="M 100 150.5 l {{tablew}} 0" stroke="#000" stroke-width="1" opacity="1"></path>
+         <path fill="none" d="M {{100+biaotouwidth}} 125.5 l {{tbodyw}} 0" stroke="#000" stroke-width="1" opacity="1"></path> 
+         <text x="117" y="131" text-anchor="middle"  style="font-size:14px; font-weight:bold;"><tspan>{{bianhao}}</tspan></text>
+         <text x="{{134+titlew/2}}" y="131" text-anchor="middle" style="font-size:14px; font-weight:bold;"><tspan>{{renwu}}</tspan></text>
+         <text x="{{134+titlew+55}}" y="131" text-anchor="middle" style="font-size:14px; font-weight:bold;"><tspan>{{kaishi}}</tspan></text>
+         <text x="{{134+titlew+110+55}}" y="131" text-anchor="middle" style="font-size:14px; font-weight:bold;"><tspan>{{jieshu}}</tspan></text>
+         <text x="{{134+titlew+110+110+17}}" y="131" text-anchor="middle" style="font-size:14px; font-weight:bold;"><tspan>{{gongqi}}</tspan></text> <!--  -->
+         
+       </g>
+
+
+       <!-- 5、垂直方向重复组 -->
+       <g> 
+ <g  ng-repeat="(key,value) in mddata" transform="translate({{120*key}}, 0)">
+  <path fill="none" d="M {{100+biaotouwidth+20}}.5 125 l 0 {{tableh-25}}" stroke="#000" stroke-width="1" opacity="1"></path>
+  <path fill="none" d="M {{100+biaotouwidth+40}}.5 125 l 0 {{tableh-25}}" stroke="#000" stroke-width="1" opacity="1"></path>
+  <path fill="none" d="M {{100+biaotouwidth+60}}.5 125 l 0 {{tableh-25}}" stroke="#000" stroke-width="1" opacity="1"></path>
+  <path fill="none" d="M {{100+biaotouwidth+80}}.5 125 l 0 {{tableh-25}}" stroke="#000" stroke-width="1" opacity="1"></path>
+  <path fill="none" d="M {{100+biaotouwidth+100}}.5 125 l 0 {{tableh-25}}" stroke="#000" stroke-width="1" opacity="1"></path>
+  <path fill="none" d="M {{100+biaotouwidth+120}}.5 100 l 0 {{tableh}}" stroke="#000" stroke-width="1" opacity="1"></path>
+  <text x="{{134+titlew+110+110+34+60}}" y="120" text-anchor="middle"  style="font-size:16px;"><tspan>{{value.title}}</tspan></text>
+  <text ng-repeat="(k,v) in value.chl" x="{{134+titlew+110+110+34+20*k+10}}" y="144" text-anchor="middle" style="font-size:14px;"><tspan>{{v}}</tspan></text>
+  <!-- <text x="{{134+titlew+110+110+34+20+10}}" y="144" text-anchor="middle" class="f_14"><tspan>5</tspan></text>
+  <text x="{{134+titlew+110+110+34+20+20+10}}" y="144" text-anchor="middle" class="f_14"><tspan>5</tspan></text>
+   -->
+         
+</g>
+       </g>
+
+        <!-- 5、水平方向重复组 -->
+       <g>
+         <g ng-repeat="(key,value) in data" transform="translate(0, {{key*25}})">
+           <path fill="none" d="M 100 175.5 l {{tablew}} 0" stroke="#000" stroke-width="1" opacity="1"></path> 
+           <text x="117" y="170" text-anchor="middle"  style="font-size:14px;"><tspan>{{key+1}}</tspan></text>
+         <text x="{{140}}" y="170" text-anchor="start" style="font-size:14px;"><tspan>{{value.title}}</tspan></text>
+         <text x="{{134+titlew+55}}" y="170" text-anchor="middle" style="font-size:14px;"><tspan>{{strtime(value.riqi)}}</tspan></text>
+         <text x="{{134+titlew+110+55}}" y="170" text-anchor="middle" style="font-size:14px;"><tspan>{{strtime(value.time)}}</tspan></text>
+         <text x="{{134+titlew+110+110+17}}" y="170" text-anchor="middle" style="font-size:14px;"><tspan>{{jianfa(value.riqi,value.time)}}</tspan></text> 
+
+         <rect x="{{bglen(btime,value.riqi,biaotouwidth)}}.5" y="160.5" width="{{cerlen(value.riqi,value.time)}}" height="6" fill="#434348" rx="0" ry="0" stroke="#FFFFFF" stroke-width="1"></rect>
+         </g>
+          
+       </g>
+     </svg>
+ </div>
+  </div>

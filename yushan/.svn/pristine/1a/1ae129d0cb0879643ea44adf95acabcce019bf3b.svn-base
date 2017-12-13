@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="">
+  <meta name="discription" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>用户登录</title> 
+<link rel="stylesheet" type="text/css" href="./css/weui.min.css"> 
+<link rel="stylesheet" type="text/css" href="./css/global.min.css">
+
+</head>
+<body > 
+
+<div id="vM" class="h_p100 loginbj">
+  <div class="t_c pt_5vh"><img class="w_38vw" src="images/heli.png">
+   </div>
+     <div class="pt_1_8em">   
+        <div class="weui-cells">
+          <div class="weui-cell overdetail ps_r"  >
+            <!-- <div class="weui-cell__hd c18_wb" >
+              <label class="weui-label" style="width:120px">请输入用户名/手机号用户名/手机号</label>
+            </div> -->
+            
+            <div class="weui-cell__bd">
+           
+               <input v-model="username" id="username" @blur="lef" type="text" class="weui-input f_22" placeholder=""/>  <span :class="['spx'+usta]" @click="hit('#username')" style="">用户名/手机号</span>
+            </div>
+          </div>
+          <div class="weui-cell overdetail"  >
+           <!--  <div class="weui-cell__hd c18_wb" >
+              <label class="weui-label" style="width:120px">密码</label>
+            </div> -->
+            <div class="weui-cell__bd">
+               <input v-model="password" id="password"  @blur="lef" type="password"  class="weui-input" placeholder=""/> 
+                 <span :class="['spx'+psta]" @click="hit('#password')" style="">请输入密码</span>
+            </div>
+          </div>
+        <!-- <div class="t_c pd_30"><a href="reg.html" title="">去注册</a> | <a href="reset.html" title="">忘记密码？请输入密码</a></div> -->
+
+        </div>
+        <div class="page__bd page__bd_spacing mt_20">
+          <a href="javascript:;" class="weui-btn weui-btn_primary bgc_1"  @click="login()">登录</a>
+        </div>
+
+        <div class="loginb "> 
+          <a class="dpib" style="padding-right: 25px;" href="reset.html">忘记密码?</a>
+          <a class="dpib" href="reg.html">注册新用户</a>
+        </div>
+      </div>
+        <!-- <div class="weui-tabbar savebtn"> 
+          <a href="javascript:;" class="weui-tabbar__item" @click="login()">
+              <p>登陆</p>
+          </a>
+      </div> -->
+      </div> 
+
+
+ 
+
+
+
+
+</body> 
+ <script src="./js/zepto.min.js"></script> 
+ <script src="./js/vue.js"></script>
+ <script src="../YS-frame/mlayer/2.0/mlayer.js"></script>
+<script src="./js/md5.js"></script>
+<!-- 主入口配置js文件   -->
+<script>
+
+
+
+
+ 
+    var post = function(da,url,fun){      
+       var re;    
+       $.ajax({        
+        url:url,
+        async:false,
+        type:'POST',
+        data:da,
+        dataType:'json',
+        success:function(re){
+          if(typeof(fun)==="function"){          
+               fun(re);             
+          }},
+        error:function(re){ if(typeof(fun)==="function"){fun(re);}}
+       }); 
+    }
+ 
+
+ 
+       
+        //获取工程列表查询页
+      function postbind(username,password){ 
+          sendurl = '/api/wechat/Login/logwithbind';
+
+        var send = {
+            "username":username,
+            "password":MD5(password)
+            }
+
+// alert(send.password);
+           post(send,sendurl,function(re){
+             
+          if (re.code>0) {   
+          var timestamp = Date.parse(new Date());  
+                          window.location.href = "./index.php?time="+timestamp;   
+                                }else{  
+                     layer.open({content: re.msg,skin: 'msg',time: 2});
+                      }       
+        });
+       }
+
+            var vM = new Vue({            
+              el: "#vM",
+              data:{               
+                username:'',                
+                password:'',
+                usta:0,
+                psta:0,
+              },
+              computed: {   
+                comSetwin: function () {     
+                  return this.Setwin==0?"dpn":"dpb fullwin";
+                }
+              },
+              methods:{ 
+                  login:function(){ 
+                    if (this.username == "") {layer.open({content:'请输入用户名!',skin: 'msg',time: 2});return}
+                    if (this.password == "") {layer.open({content:'请输入密码!',skin: 'msg',time: 2});return}
+                    if (this.password.length < 6 ) {layer.open({content:'密码不少于6位!',skin: 'msg',time: 2});return}
+                    postbind(this.username,this.password);                                                  
+                  },
+                  hit:function(id){
+                    $(id).focus();
+                  },
+                  lef:function(){ 
+                      this.usta = this.username?1:0;
+                      this.psta = this.password?1:0; 
+                  }
+                }             
+            }) 
+
+    
+</script>
+</html> 

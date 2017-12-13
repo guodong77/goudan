@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>恒信达</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <include file="public@head"/>
+</head>
+<body>
+
+<header class="m-hd paging-hd">
+    <section class="am-show-md-up">
+        <div class="top-nav">
+            <a href="index.html" rel="nofollow" class="m-logo"><img src="__TMPL__/portal/images/logo2.png"/></a>
+            <include file="public@nav"/>
+	                                                                                        
+	
+    <nav data-am-widget="header" class="am-header am-show-sm-only">
+      <div class="am-header-left am-header-nav">
+        <a href="/" rel="nofollow">
+          <i class="am-header-icon am-icon-home"></i> 首页
+        </a>
+      </div>
+      <h1 class="am-header-title">
+        <a href="/" rel="nofollow">恒信达</a>
+      </h1>
+      <div class="am-header-right am-header-nav">
+        <a href="#right-link" class="" data-am-offcanvas="{target: '#r-nav'}">
+          <i class="am-header-icon am-icon-bars"></i> 菜单
+        </a>
+      </div>
+    </nav>
+
+    <include file="public@sider"/>
+</header>    
+
+
+
+<div class="common-ad">
+<div class="box">
+   <dl>
+      <dt>API文档</dt>
+	  <dd>简单、安全的API文档，让您更加轻松接入</dd>
+   </dl>
+</div>
+<img src="__TMPL__/portal/images/banner-s2.jpg"/>
+</div>
+
+
+
+
+
+	
+<div class="main-box">
+   <div class="breadcrumb"><a href="index.html">首页</a>   /   <a href="api.html">API文档</a>   /   <a href="#">国际短信API</a></div>
+   <div class="d-box">
+     <div class="d-left">
+	    <dl class="title"><dt>API文档</dt><dd>API document</dd></dl>
+		<ul class="s-nav">
+		  <li class="hover"><a href="#">国际短信API</a></li>
+		  <li><a href="#">全球语音验证API</a></li>
+		  <li><a href="#">全球号码格式验证API</a></li>
+		  <li><a href="#">发送记录查询API</a></li>
+		  <li><a href="#">账号余额查询API</a></li>
+		  <li><a href="#">状态报告接收</a></li>
+		  <li><a href="#">代码示例</a></li>
+		</ul>
+	 </div>
+
+
+	 <div class="d-right contact-box">
+   
+        <dl class="info">
+		   <dt>国际短信API</dt>
+		   <dd class="f14">PaaSoo国际云通讯平台的REST API可以通过HTTPS及HTTP方式请求。为了保证数据的隐私安全，我们强烈建议您使用HTTPS方式请求。</dd>
+		</dl>
+        <dl class="info">
+		   <dt>调用方式</dt>
+		   <dd class="f14">
+HTTP GET 请求<br/>
+请求地址：https://api.paasoo.cn/json<br/>
+请求示例：https://api.paasoo.cn/json?key=xxxx&secret=xxxxx&from=xxxxx&to=81xxxxxxxx,81xxxxxxxx &text=Hello+world
+		   </dd>
+		</dl>
+        <dl class="info">
+		   <dt>请求参数说明</dt>
+		   <dd class="f14">
+<table class="am-table am-table-bordered table-1">
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>类型</th>
+      <th>是否必填</th>
+      <th>描述</th>
+      <th>示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>key</td>
+      <td>string</td>
+      <td>是</td>
+      <td>API账号，用户唯一标识，可在客户端后台获取，妥善保管。</td>
+      <td>Abcdefgh</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>string</td>
+      <td>是</td>
+      <td>API账号，用户唯一标识，可在客户端后台获取，妥善保管。</td>
+      <td>Abcdefgh</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>string</td>
+      <td>是</td>
+      <td>API账号，用户唯一标识，可在客户端后台获取，妥善保管。</td>
+      <td>Abcdefgh</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>string</td>
+      <td>是</td>
+      <td>API账号，用户唯一标识，可在客户端后台获取，妥善保管。</td>
+      <td>Abcdefgh</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>string</td>
+      <td>是</td>
+      <td>API账号，用户唯一标识，可在客户端后台获取，妥善保管。</td>
+      <td>Abcdefgh</td>
+    </tr>
+
+  </tbody>
+</table>
+
+		   </dd>
+		</dl>
+	 
+	 
+<dl class="info">
+		   <dt>请求参数说明</dt>
+		   <dd class="f14">
+响应示例<br/>
+成功：{"status":"0","messageid":"015bd4-d6dfa7-58w"}<br/>
+失败：{"status_code":"Missing params.","status":"2"}
+		   </dd>
+		   <dd class="f14">
+<table class="am-table am-table-bordered table-2">
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>messageid</td>
+      <td>消息ID，每条短信记录的唯一标识。</td>
+      <td>fd23423-32432-423</td>
+    </tr>
+    <tr>
+      <td>messageid</td>
+      <td>消息ID，每条短信记录的唯一标识。</td>
+      <td>fd23423-32432-423<br/>
+	  fd23423-32432-423<br/>
+	  fd23423-32432-423<br/>
+	  fd23423-32432-423<br/>
+	  fd23423-32432-423
+	  
+	  </td>
+    </tr>
+    <tr>
+      <td>messageid</td>
+      <td>消息ID，每条短信记录的唯一标识。</td>
+      <td>fd23423-32432-423</td>
+    </tr>
+
+  </tbody>
+</table>
+
+		   </dd>
+		</dl>
+	 
+	 
+	 
+	 
+	 </div>
+	 
+   </div>
+</div>
+
+
+
+<include file="public@footer"/>
+
+
+
+
+<include file="public@scripts"/>
+
+
+</body>
+</html>

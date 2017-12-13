@@ -1,0 +1,354 @@
+  <style>
+  .textareawid{
+    width: 22px;
+    overflow: hidden;
+    vertical-align: middle;
+  }
+
+  .pl7{
+        padding-left: 7px;
+  }
+  </style>  
+
+ 
+  <div id="printtable" class="alltablecss">
+
+ 
+    <table style="width: 640px;height: 960px;margin-left: 60px;margin-top: 35px;color: #000;">
+      <tbody>
+        <tr ng-repeat="(key, value) in Sdata">
+          <td>
+            <!-- 资料头部 -->  
+            <div class="zltitle" style="height: 70px;">
+              <table width="100%">
+                <tbody>
+                  <tr>
+                    <td>
+
+                      <div class="tc lh32">
+                        <span class="htitle">施工现场质量管理检查记录</span>
+                      </div>
+
+                      <div  class="tc " style="height:15px;" >
+                        <span class="ftitle"></span>
+                      </div>
+
+                      <div class="bianhao">
+                        <span style="font-weight: bold;">GD-C1-318</span> 
+                        <input class="lip">
+                        <input class="lip">
+                        <input class="lip">
+
+                        </div>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- 资料表格 -->  
+            <div class="zlcontent" style="height:910px;">
+
+              <!-- 内容头部 -->  
+              <table class="zlhead w_p100" width="100%" height="145">
+
+                <tr align="center">
+                  <td  height="38" colspan="3" align="center"> 单位(子单位)工程名称</td>
+                  <td  colspan="5">
+                    <div class="divc3" contenteditable="true" divb="0" ng-bind="value.b[0]"></div>
+                  </td>
+             
+
+                </tr>
+              <tr align="center">
+                  <td  height="38"  colspan="3" align="center">施工许可文件名称/<br>编号/备注</td>
+                  <td  colspan="5" >
+                    <div class="divc3" contenteditable="true" divb="1" ng-bind="value.b[1]"></div>
+                  </td>
+                </tr>
+              <tr align="center">
+                  <td  height="38"  colspan="3" align="center">工程质量监督登记文<br>件名称/编号/备注</td>
+                  <td  colspan="5">
+                    <div class="divc3" contenteditable="true" divb="2" ng-bind="value.b[2]"></div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td colspan="2"  height="38" align="center">监理单位</td>
+                  <td colspan="2"  ><div class="divc3" contenteditable="true" divb="3" ng-bind="value.b[3]"></div></td>
+                  <td colspan="" align="center" >总监理工程师</td>
+                  <td colspan=""  ><div class="divc3" contenteditable="true" divb="4" ng-bind="value.b[4]"></div></td>
+                  <td colspan=""  align="center">专业监理工程师</td>
+                  <td colspan=""  ><div class="divc3" contenteditable="true" divb="5" ng-bind="value.b[5]"></div></td>
+
+                </tr>
+
+
+                <tr>
+                  <td colspan="2"  height="38" align="center">施工单位</td>
+                  <td colspan="2"  ><div class="divc3" contenteditable="true" divb="6" ng-bind="value.b[6]"></div></td>
+                  <td colspan=""  align="center">项目负责人</td>
+                  <td colspan=""  ><div class="divc3" contenteditable="true"  divb="7" ng-bind="value.b[7]"></div></td>
+                  <td colspan="" align="center" >项目技术负责人</td>
+                  <td colspan=""  ><div class="divc3" contenteditable="true"  divb="8" ng-bind="value.b[8]"></div></td>
+
+                </tr>
+
+
+<tr class="noborder">
+  <td style="width: 45px;"></td>
+  <td style="width:50px;"></td>
+  <td style="width:70px;"></td>
+  <td style="width:142px;"></td>
+  <td style="width:85px;"></td>
+  <td style="width: 77px;"></td>
+  <td style="width:100px;"></td>
+  <td style="width: 70px;"></td>
+
+</tr>
+
+
+              </table>
+              <!-- 内容中间 height="471" -->  
+           
+
+                <table class="zlcont w_p100" >
+                  <tbody>
+
+
+<tr>
+  <td height="35" align="center" >序号</td>
+  <td  align="center"  colspan="3" >检 查 项 目 ( 内 容 )</td>
+  <td  align="center"  colspan="4">检查情况记录(摘要)</td>
+</tr>
+
+<tr>
+  <td height="35" align="center" >1</td>
+  <td  align="left"  colspan="3" class="pl5">项目部质量管理体系中各项相关制度的建立和落实</td>
+  <td  align="center"  colspan="4">
+    <div class="divc3" contenteditable="true" divd="0" ng-bind="value.d[0]"></div>
+  </td>
+</tr>
+
+<tr>
+  <td height="35" align="center" >2</td>
+  <td  align="left"  colspan="3" class="pl5">项目部管理架构设置及其人员配备的落实</td>
+  <td  align="center"  colspan="4">
+    <div class="divc3" contenteditable="true" divd="1" ng-bind="value.d[1]"></div>
+  </td>
+</tr>
+<tr>
+  <td height="35" align="center" >3</td>
+  <td  align="left"  colspan="3" class="pl5">现场各类人员质量责任制度的建立和落实</td>
+  <td  align="center"  colspan="4">
+    <div class="divc3" contenteditable="true" divd="2" ng-bind="value.d[2]"></div>
+  </td>
+</tr>
+
+<tr>
+  <td height="35" align="center" >4</td>
+  <td  align="left"  colspan="3" class="pl5">各类专业技术管理人员的资格证书和各主要专业工种操作岗位证书</td>
+  <td  align="center"  colspan="4">
+    <div class="divc3" contenteditable="true" divd="3" ng-bind="value.d[3]"></div>
+  </td>
+</tr>
+
+<tr>
+  <td height="35" align="center" >5</td>
+  <td  align="left"  colspan="3" class="pl5">总包对分包单位管理的各项相关制度的建立及落实</td>
+  <td  align="center"  colspan="4">
+    <div class="divc3" contenteditable="true" divd="4" ng-bind="value.d[4]"></div>
+  </td>
+</tr>
+
+<tr>
+  <td height="35" align="center" >6</td>
+  <td  align="left"  colspan="3" class="pl5">施工图设计文件交底会审的进程及结果</td>
+  <td  align="center"  colspan="4">
+    <div class="divc3" contenteditable="true" divd="5" ng-bind="value.d[5]"></div>
+  </td>
+</tr>
+
+<tr>
+  <td height="35" align="center" >7</td>
+  <td  align="left"  colspan="3" class="pl5">地质勘察工作进程及结果（文件资料是否完备）</td>
+  <td  align="center"  colspan="4">
+    <div class="divc3" contenteditable="true" divd="6" ng-bind="value.d[6]"></div>
+  </td>
+</tr>
+
+<tr>
+  <td height="35" align="center" >8</td>
+  <td  align="left"  colspan="3" class="pl5">施工技术标准和质量验收技术标准的选用及备齐</td>
+  <td  align="center"  colspan="4">
+    <div class="divc3" contenteditable="true" divd="7" ng-bind="value.d[7]"></div>
+  </td>
+</tr>
+
+<tr>
+  <td height="35" align="center" >9</td>
+  <td  align="left"  colspan="3" class="pl5">施工组织设计方案、施工（含自检、调试)方案编制及审批</td>
+  <td  align="center"  colspan="4">
+    <div class="divc3" contenteditable="true" divd="8" ng-bind="value.d[8]"></div>
+  </td>
+</tr>
+
+<tr>
+  <td height="35" align="center" >10</td>
+  <td  align="left"  colspan="3" class="pl5">物资（产品）采购及现场检查验收相关的理制度的建立和落实</td>
+  <td  align="center"  colspan="4">
+    <div class="divc3" contenteditable="true" divd="9" ng-bind="value.d[9]"></div>
+  </td>
+</tr>
+
+<tr>
+  <td height="35" align="center" >11</td>
+  <td  align="left"  colspan="3" class="pl5">施工设施和机械设备（机具）的配备及其管理制度建立和落实</td>
+  <td  align="center"  colspan="4">
+    <div class="divc3" contenteditable="true" divd="10" ng-bind="value.d[10]"></div>
+  </td>
+</tr>
+
+<tr>
+  <td height="35" align="center" >12</td>
+  <td  align="left"  colspan="3" class="pl5">自检计量仪器及其附属设备（器具）的配备和相关管理制度的建立和落实</td>
+  <td  align="center"  colspan="4">
+    <div class="divc3" contenteditable="true" divd="11" ng-bind="value.d[11]"></div>
+  </td>
+</tr>
+
+<tr>
+  <td height="35" align="center" >13</td>
+  <td  align="left"  colspan="3" class="pl5">现场材料、构（配）件、设备抽样送检的管理制度和落实</td>
+  <td  align="center"  colspan="4">
+    <div class="divc3" contenteditable="true" divd="12" ng-bind="value.d[12]"></div>
+  </td>
+</tr>
+
+<tr>
+  <td height="35" align="center" >14</td>
+  <td  align="left"  colspan="3" class="pl5">工程实体质量第三方检测的管理制度和落实</td>
+  <td  align="center"  colspan="4">
+    <div class="divc3" contenteditable="true" divd="13" ng-bind="value.d[13]"></div>
+  </td>
+</tr>
+
+<tr>
+  <td height="35" align="center" >15</td>
+  <td  align="left"  colspan="3" class="pl5">工程质量控制与检查制度、各层次质量验收制度的建立和落实</td>
+  <td  align="center"  colspan="4">
+    <div class="divc3" contenteditable="true" divd="14" ng-bind="value.d[14]"></div>
+  </td>
+</tr>
+
+
+<tr class="noborder">
+  <td style="width: 45px;"></td>
+  <td style="width:50px;"></td>
+  <td style="width:70px;"></td>
+  <td style="width:142px;"></td>
+  <td style="width:85px;"></td>
+  <td style="width: 77px;"></td>
+  <td style="width:100px;"></td>
+  <td style="width: 70px;"></td>
+
+</tr>
+
+
+
+                    </tbody>
+                  </table>
+
+                  <!-- 内容底部 -->  
+               
+      <table class="zlcont w_p100" height="">
+        <tbody>
+          <tr class="noborder">
+            <td style="width: 45px;"></td>
+            <td style="width:50px;"></td>
+            <td style="width:70px;"></td>
+            <td style="width:142px;"></td>
+            <td style="width: 95px;"></td>
+            <td style="width:100px;"></td>
+            <td style="width:105px;"></td>
+            <td style="width: 72px;"></td>
+
+          </tr>
+
+        <tr>
+          <td align="center" colspan="2" height="25" style="border-bottom: 0;border-right: 0;">自检结果:</td>
+          <td colspan="2" style="border: 0;"></td>
+          <td colspan="1" align="center" style="border-bottom: 0;border-right: 0;">检查结论:</td>
+          <td colspan="3" style="border-bottom: 0;border-left: 0;"></td>
+
+        </tr>
+
+        <tr>
+          <td colspan="4" height="50" style="border-bottom: 0;border-top: 0;">
+            <div class="divc3  ng-binding" contenteditable="true" style="min-height: 48px;" divd="15" ng-bind="value.d[15]"></div>
+          </td>
+          <td colspan="4" height="50" style="border-bottom: 0;border-top: 0;">
+            <div class="divc3  ng-binding" contenteditable="true" style="min-height: 48px;" divd="16" ng-bind="value.d[16]"></div>
+          </td>
+
+        </tr>
+
+        <tr>
+          <td colspan="3" height="40" align="center" style="border-top: 0;border-bottom: 0;border-right: 0;">施工单位项目负责人签名:</td>
+          <td colspan="1" style="border: 0;"><div class="divc3  ng-binding" contenteditable="true" style="min-height: 38px;"></div></td>
+          <td colspan="2"  align="center"style="border-top: 0;border-bottom: 0;border-right: 0;">总监理工程师<br>（建设单位项目负责人）签名:</td>
+          <td colspan="2" style="border: 0;border-right: 1px solid;"><div class="divc3  ng-binding" contenteditable="true" style="min-height: 38px;"></div></td>
+        </tr>
+
+
+          <tr>
+            <td colspan="4" style="border-top: 0;">
+              <div style="background: #EE82EE;margin-right: 0px;margin-left: auto;width: 200px;height: 30px;line-height: 30px;text-align: right;padding-right: 22px;">
+                <span >年</span>
+                <span class="pl_15">月</span>
+                <span class="pl_15">日</span>
+              </div>
+            </td>
+            <td colspan="4"  style="border-top: 0;">
+              <div style="background: #EE82EE;margin-right: 0px;margin-left: auto;width: 200px;height: 30px;line-height: 30px;text-align: right;padding-right: 22px;">
+                <span >年</span>
+                <span class="pl_15">月</span>
+                <span class="pl_15">日</span>
+              </div>
+            </td>
+
+
+          </tr>
+
+          <tr>
+            
+          </tr class="noborder">
+          <td>
+                      <div style="background: #e0e0e0;">
+<img src="images/GD318.png" alt="" style="padding: 10px 0 5px 45px;">
+</div>
+          </td>
+
+
+        </tr>
+
+
+
+
+
+        </tbody>
+      </table>
+
+
+
+
+              </div>
+
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>

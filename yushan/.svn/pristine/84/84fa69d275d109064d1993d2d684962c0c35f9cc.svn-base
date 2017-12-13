@@ -1,0 +1,63 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a>短信平台列表</a></li>
+       <!--  <li><a href="{:url('add')}">添加短信平台</a></li> -->
+    </ul>
+    <form class="well form-inline margin-top-20" method="post" action="{:url('index')}">
+        短信平台名称：
+        <input class="form-control" type="text" name="name" style="width: 200px;" value="{:input('request.name')}"
+               placeholder="请输入平台名称">
+        <input type="submit" class="btn btn-primary" value="搜索"/>
+        <a class="btn btn-danger" href="{:url('index')}">清空</a>
+    </form>
+    <form method="post" class="js-ajax-form">
+        <table class="table table-hover table-bordered">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>平台名称</th>
+                <th>价格</th>
+                <th>api地址</th>
+                <th>api_key/用户名</th>
+                <th>api_secret/密码</th>
+                <th>状态</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <php>
+                $statuses=array("0"=>"关闭","1"=>"开启");
+            </php>
+            <foreach name="list" item="vo">
+                <tr>
+                    <td>{$vo.id}</td>
+                    <td>{$vo.name}</td>
+                    <td><a href="/user/admin_msginfo/index?platform={$vo.name}">价格明细</a></td>
+                    <td>{$vo.url}</td>
+                    <td>{$vo.key}</td>
+                    <td>{$vo.secret}</td>
+                    <td>{$statuses[$vo['status']]}</td>
+                    <td>
+                        <neq name="vo.status" value="1">
+                            <a href="{:url('statusSwitch',array('id'=>$vo['id'],'status'=>$vo['status']))}"
+                               class="js-ajax-dialog-btn"
+                               data-msg="open">启用</a>
+                        <else/>
+                            <a href="{:url('statusSwitch',array('id'=>$vo['id'],'status'=>$vo['status']))}" class="js-ajax-dialog-btn"
+                               data-msg="close">关闭</a>
+                        </neq>
+
+                    </td>
+                </tr>
+            </foreach>
+            </tbody>
+        </table>
+        <div class="pagination">{$page}</div>
+    </form>
+</div>
+<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<div  class="widget-body win form-horizontal bgc_b">
+  <div class="winbody" w="538px" h="auto" style="overflow: hidden;padding-top: 12px">
+	<div class="form-group">
+		<label for="inputEmail3" class="col-sm-2 control-label no-padding-right" style="padding-left: 12px;">主标题<span style="color: red;">*</span>：</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" ng-model="winData.htitle" placeholder="请输入主标题名称"></div>
+	</div>
+
+	<div class="form-group">
+		<label for="inputEmail3" class="col-sm-2 control-label no-padding-right" style="padding-left: 12px;">副标题：</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control"  ng-model="winData.ftitle"  placeholder="请输入副标题名称">
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		<label for="inputEmail3" class="col-sm-2 control-label no-padding-right" style="padding-left: 12px;">编制单位：</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" ng-model="winData.comtitle" placeholder="请输入编制单位名称">
+		</div>
+	</div>
+
+	 	    <div class="form-group">
+			  <label for="inputEmail3" class="col-sm-2 control-label no-padding-right" style="padding-left: 12px;padding-top: 0px">开始日期：</label>
+			  <div class="col-sm-10" style="padding-left: 14px">
+				  <input type="text" class="form-control" ng-model="winData.btime" layerdateone="winData"  key="btime"  placeholder="开始日期" >
+			  </div>
+		    </div>
+
+		 	<div class="form-group">
+				  <label for="inputEmail3" class="col-sm-2 control-label no-padding-right" style="padding-left: 12px;padding-top: 0px">结束日期：</label>
+				  <div class="col-sm-10" style="padding-left: 14px">
+					  <input type="text" class="form-control" ng-model="winData.etime" layerdateone="winData" key="etime"  placeholder="结束日期" >
+				  </div>
+			</div>
+		 	<div class="form-group">
+				  <label for="inputEmail3" class="col-sm-2 control-label no-padding-right" style="padding-left: 12px;padding-top: 0px">编制日期：</label>
+				  <div class="col-sm-10" style="padding-left: 14px">
+					  <input type="text" class="form-control" ng-model="winData.hadd_time" normaldate placeholder="编制日期" layerdateone="winData" key="creat_time">
+				  </div>
+			</div>
+			<div class="form-group">
+			<label style="text-align: right;white-space:nowrap" for="inputEmail3" class="col-sm-2 control-label no-padding-right">左下角注释：</label>
+			<div class="col-sm-10">
+			  <textarea class="form-control" rows="6" placeholder="多个部位请用换行区分" ng-model="winData.beizhu" style="margin-top: 0px; margin-bottom: 0px; height: 120px;overflow: auto">
+			  	
+			  </textarea>
+			</div>
+		</div>
+	 
+		<div class="form-group" style="margin-bottom: 0px"> 
+		<div class="col-sm-12 ysbtn t_c">
+			 <button type="button" class="b_2two btn btn-blue" gattadd>保存</button>
+			 <button type="button" class="b_2 btn btn-default layui-layer-close">取消</button>
+		</div>
+	</div>
+	</div>
+</div>

@@ -1,0 +1,630 @@
+  <style>
+.comment_list .menu_title {
+    position: absolute;top: 55px;left: 20px; border-left: 1px solid #ccc;
+}
+/*.comment_list .verified_list {
+    margin-top: 64px;
+}
+*/
+.comment_list_all {
+    padding: 0 20px 30px 20px; border: 1px solid #ccc;background: #fff;
+}
+
+.comment_list_all table {
+    background-color: #fff;
+}
+
+.comment_list_all input {
+   color: #000;
+}
+
+.comment_list_all .search_box {
+    overflow: hidden; padding: 10px 0;
+}
+
+.comment_list_all .search_box .result_opt {
+    float: right;
+}
+
+.comment_list_all .search_box .result_opt a {
+    padding: 8px 18px;border-radius: 6px;
+    color: #fff; background: #bfc7cd; margin-right: 10px;
+}
+
+.comment_list_all .search_box .result_opt a {
+    float: right;
+}
+
+.comment_list_all .search_box .result_opt a.opt_active {
+    background: #52b2fc;
+}
+
+.table_box {
+    width: 100%;border-spacing: 0; padding: 0; margin: 0;
+}
+
+.view_list {
+    border: 1px solid #ccc;
+}
+
+thead tr {
+    background-color: transparent !important;
+}
+
+.comment_list .view_list thead td {
+    text-align: center;background: #fcfcfc;
+}
+
+.table_box thead td {
+    font-weight: bold;
+}
+
+.table_box tbody td, .table_box thead td {
+    border-bottom: 1px solid #e5e6ea; height: 28px;line-height: 28px;
+    padding: 5px 0;text-align: center;
+}
+
+.comment_list {
+    /* position: relative; */
+    font-size: 13px;
+}
+
+.comment_list .comment_option {
+    margin: 0 auto;text-align: center;
+}
+
+.comment_list .comment_option span {
+    padding-left: 3px;
+}
+
+.comment_option span {
+    color: #52b2fc;
+}
+
+.hand {
+    cursor: pointer;
+}
+
+span {
+    display: inline-block;
+}
+
+.ml_10 {
+    margin-left: 10px;
+}
+
+
+.site_info {
+    padding: 13px 0;
+}
+
+.site_info label {
+    padding-right: 24px;font-size: 14px;display: inline-block;text-align: right;
+}
+
+
+.addnavv {
+    outline: none; width: 350px;height:30px; padding-left: 10px;
+}
+
+
+.site_info label {
+    padding-right: 24px;font-size: 14px; display: inline-block; text-align: right;
+}
+.site_info .set_input {
+    width: 350px; height: 28px;
+    line-height: 28px;padding-left: 10px;
+}
+
+.inpexp {
+    color: #777777; font-size: 10px;
+    position: absolute;padding-left: 20px;margin-top: 7px;
+}
+
+.comment_list .review_info {
+    display: inline-block;vertical-align: top;
+}
+
+.comment_list .review_info li {
+    margin-bottom: 10px; float: left;
+}
+
+
+.radio.radio-inline {
+    margin-top: 0;
+}
+
+.radio {
+    padding-left: 20px;
+}
+.checkbox-inline, .radio-inline, .checkbox-inline+.checkbox-inline, .radio-inline+.radio-inline {
+    margin: 0 15px 0 0;
+}
+
+.radio input[type="radio"] {
+    opacity: 0; z-index: 1;
+}
+
+.checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] {
+    position: absolute;margin-top: 4px\9;
+    margin-left: -20px !important;margin-top: 9px !important;
+}
+
+
+.radio label {
+    display: inline-block;vertical-align: middle;
+    position: relative; padding-left: 5px;
+}
+
+
+.site_info label {
+    padding-right: 24px;font-size: 14px;
+    display: inline-block;text-align: right;
+}
+
+label {
+    max-width: 100%;font-weight: 400;
+}
+
+.radio-info input[type="radio"]:checked + label::before {
+    border-color: #5bc0de;
+}
+
+.radio label::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    left: 0;
+    margin-left: -20px;
+    border: 1px solid #cccccc;
+    border-radius: 50%;
+    background-color: #fff;
+    -webkit-transition: border 0.15s ease-in-out;
+    -o-transition: border 0.15s ease-in-out;
+    transition: border 0.15s ease-in-out;
+}
+
+.radio-info input[type="radio"]:checked + label::after {
+    background-color: #5bc0de;
+}
+
+.radio input[type="radio"]:checked + label::after {
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    -o-transform: scale(1, 1);
+    transform: scale(1, 1);
+}
+
+.radio label::after {
+    display: inline-block;
+    position: absolute;
+    content: " ";
+    width: 11px;
+    height: 11px;
+    left: 3px;
+    top: 3px;
+    margin-left: -20px;
+    border-radius: 50%;
+    background-color: #555555;
+    -webkit-transform: scale(0, 0);
+    -ms-transform: scale(0, 0);
+    -o-transform: scale(0, 0);
+    transform: scale(0, 0);
+    -webkit-transition: -webkit-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+    -moz-transition: -moz-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+    -o-transition: -o-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+    transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+}
+
+
+
+.save_btn {
+    background: #52b2fc; border: none;padding: 7px 20px;
+    border-radius: 3px; color: #fff!important;
+    cursor: pointer; font-size: 14px;
+}
+
+.comment_list .save_set {
+    margin:10px;
+}
+
+.checkbox {
+    padding-left: 20px;
+}
+
+.checkbox input[type="checkbox"], .checkbox input[type="radio"] {
+    opacity: 0;
+    z-index: 1;
+}
+
+
+
+.checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] {
+    position: absolute;
+    margin-top: 4px\9;
+    margin-left: -20px !important;
+    margin-top: 9px !important;
+}
+
+.checkbox label {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    padding-left: 5px;
+}
+
+
+.checkbox.checkbox-circle label::before {
+    border-radius: 50%;
+}
+
+
+.checkbox label::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    left: 0;
+    margin-left: -20px;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    background-color: #fff;
+    -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+
+.checkbox label::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    left: -12px !important;
+    top: 6px !important;
+    margin-left: -8px !important;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    background-color: #fff;
+    -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+
+.checkbox-info input[type="checkbox"]:checked + label::before, .checkbox-info input[type="radio"]:checked + label::before {
+    background-color: #5bc0de;
+    border-color: #5bc0de;
+}
+
+.checkbox-info input[type="checkbox"]:checked + label::after, .checkbox-info input[type="radio"]:checked + label::after {
+    color: #fff;
+}
+
+
+.checkbox input[type="checkbox"]:checked + label::after, .checkbox input[type="radio"]:checked + label::after {
+    font-family: "FontAwesome";
+    content: "\f00c";
+}
+
+
+
+  </style>
+
+
+<div class="comment_list urlbodyh" ng-controller="comctrl" >
+ <input type="hidden" id="codeid" value="{$code.systemmenucodeid}">
+<!--     <h1 class="fw_b">后台菜单</h1>
+    <ul class="menu_title" id="myTab">
+        <li class="active" id="btnvlst" >菜单列表</li> 
+    </ul> -->
+
+    <div class="comment_list_all  verified_list">
+           <!--  -->
+      <div ng-if="tapshow==0"  class="search_box" >
+            <div class="result_opt">
+             <a  yseditadd="com_editadd2" tapshow="1" class="pass_opt opt_active">添加专业</a> 
+            </div>
+        </div>
+
+
+        <!-- 专业列表  -->
+
+                    <table  class="table_box view_list" ng-if="tapshow==0">
+                        <thead>
+                        <tr>
+                            <td style="width:100px;">排序</td>
+                         <!--    <td style="width:60px;text-align: left;">ID</td> -->
+                            <td >资料专业名称</td> 
+                       
+                            <td style="width:150px;">省份</td>  
+                            <td style="width: 15%">操作</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-if="value.isdel!=1"  ng-repeat="(key, value) in com_list2.data"> 
+                            <!-- <td class="t_c"><input ysupdateone="com_editadd5.params.listorder" num="1" style="width:50px;text-align:center;height: 26px;margin: 0 4px;" type="text" name="" value="{{value.listorder}}" placeholder=""> </td>
+                             -->
+                             <td ng-bind="key+1">
+                               
+                             </td>
+                         <!--    <td style="text-align: left;" ng-bind="value.id"> </td>  
+                             -->
+                            <td ng-bind="value.name" tap="2" tapshowrunzl="com_list" :codeid="{{value.codeid}}" style="cursor: pointer;color: #52b2fc;"> 
+                  <!--     <input ysupdateone="com_update.params.name" style="width:100%;text-align:center;height: 26px;margin: 0 4px;" type="text" name="" value="{{value.name}}" placeholder=""> -->
+                            </td> 
+                             <td  style="text-align: center;" ng-bind="value.province"> </td>
+                            
+                            <td>
+
+             <div class="comment_option">
+             <span  tap="2" tapshowrunzl="com_list" :codeid="{{value.codeid}}" class="hand">查看模版</span> 
+             <span class="ml_10 hand" tap="0" comdelones="com_del" theid="codeid">删除</span></div>
+
+                            </td>
+                        </tr>
+                    
+                        </tbody>
+                        
+                    </table>
+          <!-- 专业列表 --> 
+
+
+
+
+        <!-- 新增专业 -->
+        <div ng-if="tapshow==1" style="margin-top: 30px;">
+                 
+            <div class="site_name site_info">
+                <label class="col-md-2 control-label"><span style="color:red">*</span>专业名称：</label>
+                <input type="text" ng-model="com_editadd2.params.name" class="set_input" placeholder="专业名称" style="width: 800px;">
+               <!--  <span style="color:#777777" class="inpexp">(只能由英文字母、数字和下划线组成，并且仅能字母开头，不以下划线结尾)</span> -->
+            </div>
+       
+             <div class="site_name site_info">
+                <label class="col-md-2 control-label"><span style="color:red">*</span>选择省份：</label>
+                <select id="pid" ysselect="com_editadd2.params.pid" key="pid" class="" >
+                           <option value="0">选择省份</option>
+                           <option ng-selected="com_editadd2.params.pid==val.pid" value="{{val.pid}}" ng-repeat="(key, val) in com_province">{{val.province}}</option>
+                         </select>
+            </div>
+
+
+            <div class="site_name site_info">
+                <label class="col-md-2 control-label">显示/隐藏：</label>
+                <ul class="review_info">
+                    <li>
+                        <div class="radio radio-info radio-inline">
+                            <input type="radio" ng-model="com_editadd2.params.visible" id="extract" value="1" name="abc" ng-checked="">
+                            <label for="extract"> 显示 </label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="radio radio-inline">
+                            <input type="radio" ng-model="com_editadd2.params.visible" id="extract1" value="0" name="abc" checked="">
+                            <label for="extract1"> 隐藏 </label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div style="margin-left: 177px;">
+                <input comtime="com_editadd2" style="margin-top: 30px;" type="submit" value="提交" class="save_btn save_set"/>
+                <input tapshow="0" type="button" value="返回" class="save_btn save_set"/>
+            </div>
+        </div>
+        <!--  新增专业 -->
+
+
+                    
+         <!-- 菜单列表  -->
+         <div ng-if="tapshow==2"  >            
+         <div style="text-align: right;">
+                        
+               <input tapshow="0" type="button" value="返回" class="save_btn save_set"/>                       
+             </div>
+                    <table  class="table_box view_list"  >
+                        <thead>
+                        <tr>
+                            <td style="width:100px;">排序</td>
+                            <td style="width:60px;text-align: left;">ID</td>
+                            <td style="text-align: left;">名称</td> 
+                            <!-- <td style="width:26%;">菜单编辑</td>  -->
+                            <td style="width:150px;">编码</td> 
+                            <td style="width:150px;">图标</td> 
+                            <td width="115">显示隐藏</td>
+                            <td style="width: 15%">操作</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr  ng-if="value.isdel!=1" ng-repeat="(key, value) in com_list.data"> 
+                            <td class="t_c"><input ysupdateone="com_editadd5.params.listorder" num="1" style="width:50px;text-align:center;height: 26px;margin: 0 4px;" type="text" name="" value="{{value.listorder}}" placeholder=""> </td>
+                            <td style="text-align: left;" ng-bind="value.id"> </td>  
+                            <td  style="text-align: left;" ><span ng-bind-html="value.cstlip|htmlfil"></span><span ng-bind-html="value.name|htmlfil"></span></td>
+<!--                             <td>
+                                 <input ysupdateone="com_update.params.name" style="width:100px;text-align:center;height: 26px;margin: 0 4px;" type="text" name="" value="{{value.name}}" placeholder="">
+                            </td> -->
+                             <td  style="text-align: left;" > 
+                             <input ysupdateone="com_editadd5.params.code" num="1" style="width:150px;text-align:center;height: 26px;margin: 0 4px;" type="text" name="" value="{{value.code}}" placeholder="">  </td>
+                             <td  style="text-align: left;" > <input ysupdateone="com_editadd5.params.icon" num="1" style="width:100px;text-align:center;height: 26px;margin: 0 4px;margin-left: 28px" type="text" name="" value="{{value.icon}}" placeholder=""> </td>
+
+
+
+                             <td>
+                  
+
+                             <div class="checkbox checkbox-info checkbox-circle">
+                               <input ng-checked="{{value.visible==1}}" id="checkbox{{key}}" type="checkbox" ysupdateshow="com_editadd5.params.visible"  >                                                     
+                               <label for="checkbox{{key}}" ng-bind="value.visible==1?'显示':'隐藏'"></label>
+                             </div>
+
+                             </td>
+
+                             <td>
+
+                               <div class="comment_option">
+                                 <span  ysaddpid="com_editadd3" ng-if="value.type=='dir'"  tapshow="3" class=" hand">新增子菜单</span>
+                                 <span  yseditadd="com_editadd4" tapshow="4" ng-if="value.type=='dir'" class="ml_10 hand">编辑</span>
+                                 <span class="ml_10 hand" comdelones="com_del2">删除</span>
+                               </div>
+
+                             </td>
+                        </tr>
+                    
+                        </tbody>
+                        
+                    </table>
+            </div>
+          <!-- 菜单列表 -->      
+            
+                
+
+        <!-- 新增菜单 -->
+        <div ng-if="tapshow==3" style="margin-top:40px;">
+                   <div class="site_name site_info">
+                        <label class="col-md-2 control-label"><span style="color:red">*</span>上级菜单：</label>
+                        <select ysselect="com_editadd3.params.id" class="addnavv">
+ <option value="0">请选择父级</option>
+                       
+<option ng-if="value.isdel!=1" value="{{value.id}}" :a={{com_editadd3.params.id}} :b={{value.id}}  ng-selected="{{com_editadd3.params.id==value.id}}" ng-repeat="(key, value) in com_list.data" ng-bind-html="value.namelip|htmlfil"></option>
+                           
+                        </select>
+                    </div>
+            <div class="site_name site_info">
+                <label class="col-md-2 control-label"><span style="color:red">*</span>菜单名称：</label>
+                <input type="text" ng-model="com_editadd3.params.name" class="set_input" placeholder="菜单名称">
+                <span style="color:#777777" class="inpexp">(只能由英文字母、数字和下划线组成，并且仅能字母开头，不以下划线结尾)</span>
+            </div>
+<!--             <div class="site_name site_info">
+                <label class="col-md-2 control-label"><span style="color:red">*</span>链接地址：</label>
+                <input type="text" ng-model="com_editadd3.params.menu_url" name="" class="set_input" placeholder="链接地址">
+                <span class="inpexp" style="color:#777777">(顶级栏目直接填写链接地址即可，例如:#/Index/index 即为System模块下Index控制器下的index方法)</span>
+            </div> -->
+             <div class="site_name site_info">
+                <label class="col-md-2 control-label">图标：</label>
+                <input ng-model="com_editadd3.params.icon" type="text" name="" class="set_input" placeholder="方法名">
+                <span style="color:#777777" class="inpexp"></span>
+            </div>
+
+            <div class="site_name site_info">
+                <label class="col-md-2 control-label"><span style="color:red">*</span>类型：</label>
+                <ul class="review_info">
+                    <li>
+                        <div class="radio radio-info radio-inline">
+                            <input type="radio" ng-model="com_editadd3.params.type" id="extracts" value="dir" name="abcd" ng-checked="">
+                            <label for="extracts"> 文件夹 </label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="radio radio-inline">
+                            <input type="radio" ng-model="com_editadd3.params.type" id="extract1s" value="file" name="abcd" checked="">
+                            <label for="extract1s">表格</label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="site_name site_info">
+                <label class="col-md-2 control-label">显示/隐藏：</label>
+                <ul class="review_info">
+                    <li>
+                        <div class="radio radio-info radio-inline">
+                            <input type="radio" ng-model="com_editadd3.params.visible" id="extract" value="1" name="abc" ng-checked="">
+                            <label for="extract"> 显示 </label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="radio radio-inline">
+                            <input type="radio" ng-model="com_editadd3.params.visible" id="extract1" value="2" name="abc" checked="">
+                            <label for="extract1"> 隐藏 </label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div style="margin-left: 177px;">
+                <input comtime="com_editadd3" style="margin-top: 30px;" type="submit" value="提交" class="save_btn save_set"/>
+                <input tapshow="2" type="button" value="返回" class="save_btn save_set"/>
+            </div>
+        </div>
+        <!--  新增菜单 -->
+
+
+        <!-- 编辑菜单 -->
+                <div ng-if="tapshow==4" style="margin-top:40px;">
+                   <div class="site_name site_info">
+                        <label class="col-md-2 control-label"><span style="color:red">*</span>上级菜单：</label>
+                        <select ysselect="com_editadd4.params.id" class="addnavv">
+ <option value="0">请选择父级</option>
+                       
+<option ng-if="value.isdel!=1" value="{{value.id}}" :a={{com_editadd4.params.pid}} :b={{value.id}}  ng-selected="{{com_editadd4.params.pid==value.id}}" ng-repeat="(key, value) in com_list.data" ng-bind-html="value.namelip|htmlfil"></option>
+                           
+                        </select>
+                    </div>
+            <div class="site_name site_info">
+                <label class="col-md-2 control-label"><span style="color:red">*</span>菜单名称：</label>
+                <input type="text" ng-model="com_editadd4.params.name" class="set_input" placeholder="菜单名称">
+                <span style="color:#777777" class="inpexp">(只能由英文字母、数字和下划线组成，并且仅能字母开头，不以下划线结尾)</span>
+            </div>
+<!--             <div class="site_name site_info">
+                <label class="col-md-2 control-label"><span style="color:red">*</span>链接地址：</label>
+                <input type="text" ng-model="com_editadd4.params.menu_url" name="" class="set_input" placeholder="链接地址">
+                <span class="inpexp" style="color:#777777">(顶级栏目直接填写链接地址即可，例如:#/Index/index 即为System模块下Index控制器下的index方法)</span>
+            </div> -->
+             <div class="site_name site_info">
+                <label class="col-md-2 control-label">图标：</label>
+                <input ng-model="com_editadd4.params.icon" type="text" name="" class="set_input" placeholder="方法名">
+                <span style="color:#777777" class="inpexp"></span>
+            </div>
+
+<!--             <div class="site_name site_info">
+                <label class="col-md-2 control-label"><span style="color:red">*</span>类型：</label>
+                <ul class="review_info">
+                    <li>
+                        <div class="radio radio-info radio-inline">
+                            <input type="radio"  ng-model="com_editadd4.params.type" id="extracts" value="dir" name="abcd" ng-checked="">
+                            <label for="extracts"> 文件夹 </label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="radio radio-inline">
+                            <input type="radio" ng-model="com_editadd4.params.type" id="extract1s" value="file" name="abcd" checked="">
+                            <label for="extract1s">表格</label>
+                        </div>
+                    </li>
+                </ul>
+            </div> -->
+
+            <div class="site_name site_info">
+                <label class="col-md-2 control-label">显示/隐藏：</label>
+                <ul class="review_info">
+                    <li>
+                        <div class="radio radio-info radio-inline">
+                            <input type="radio" ng-model="com_editadd4.params.visible" id="extract" value="1" name="abc" ng-checked="">
+                            <label for="extract"> 显示 </label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="radio radio-inline">
+                            <input type="radio" ng-model="com_editadd4.params.visible" id="extract1" value="2" name="abc" checked="">
+                            <label for="extract1"> 隐藏 </label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div style="margin-left: 177px;">
+                <input comtime="com_editadd4" style="margin-top: 30px;" type="submit" value="提交" class="save_btn save_set"/>
+                <input tapshow="2" type="button" value="返回" class="save_btn save_set"/>
+            </div>
+        </div>
+
+        <!-- 编辑菜单 -->
+
+
+            </div>
+        
+    </div>
+ 
+ 

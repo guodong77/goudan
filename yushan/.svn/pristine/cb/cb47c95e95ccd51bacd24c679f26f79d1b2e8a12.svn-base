@@ -1,0 +1,38 @@
+<!-- 侧边栏内容 -->
+<div id="r-nav" class="am-offcanvas">
+    <div class="am-offcanvas-bar am-offcanvas-bar-flip">
+        <nav class="am-offcanvas-content">
+            <a href="/" rel="nofollow"><span class="logo"><img src="__TMPL__/portal/images/logo2.png"/></span></a>
+            <navigation nav-id="1" root="" id="main-navigation" class="nav navbar-nav navbar-nav-custom" max-level="0">
+                <navigationMenu root="li" class="menu-item menu-item-level-{$level}">
+                    <div>
+                        <a href="{$menu.href|default=''}" target="{$menu.target|default=''}">
+                            {$menu.name|default=''}
+                        </a>
+                    </div>
+                </navigationMenu>
+            </navigation>
+            <switch name="username">
+                <case value=""><li><div><a href="../user/login.html">用户登录</a></div></li></case>
+                <default />
+                <div>
+                    <li id="re-drop" class="am-dropdown" data-am-dropdown style="width:100%;">
+                        <a class="am-btn am-dropdown-toggle" data-am-dropdown-toggle>个人中心<span class="am-icon-caret-down"></span></a>
+                        <ul class="am-dropdown-content" style="margin-left:50px;">
+                            <li><div><a class="re-btn" href="../portal/setting.html">{$username}</a></div></li>
+                            <li><div><a class="re-btn" href="../portal/appcenter.html">App center</a></div></li>
+                        </ul>
+                    </li>
+                </div>
+            </switch>
+<!--            <div>
+                <a href=""></a>
+            </div>
+            <div class="am-active"><a href="../portal/index.html" rel="nofollow">首页</a></div>
+            <div><a href="../portal/product.html" rel="nofollow">产品</a></div>
+            <div><a href="../portal/api.html" rel="nofollow">API文档</a></div>
+            <div><a href="../user/logon.html" rel="nofollow">用户登asdf录</a></div>-->
+        </nav>
+    </div>
+
+</div>

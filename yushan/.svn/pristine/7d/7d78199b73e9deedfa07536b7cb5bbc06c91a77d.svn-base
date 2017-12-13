@@ -1,0 +1,25 @@
+<?php
+/**
+ * 配置文件
+ */
+
+return [
+     // 数据库类型
+    'type'     => 'mysql',
+    // 服务器地址
+    'hostname' => '120.78.132.38',
+    // 数据库名
+    'database' => 'test_helicmf',
+    // 用户名
+    'username' => 'root',
+    // 密码
+    'password' => '88e9c41ab532270f',
+    // 端口
+    'hostport' => '3306',
+    // 数据库编码默认采用utf8
+    'charset'  => 'utf8',
+    // 数据库表前缀
+    'prefix'   => 'ystest_',
+    "authcode" => 'gysbh1F4xXMET5Bq2e',
+    //#COOKIE_PREFIX#
+];

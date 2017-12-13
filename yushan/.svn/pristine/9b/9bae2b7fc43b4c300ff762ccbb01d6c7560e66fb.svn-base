@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>恒信达</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="style/account.css"/>
+</head>
+<body>
+
+<header class="m-hd">
+    <section class="am-show-md-up">
+    <div class="top-nav">
+
+
+        <nav>
+          <ul class="am-nav am-nav-pills ">
+		    <li class="home"><a href="index.html"></a></li>
+            <li class="am-active"><a href="#">Messaging</a></li>
+            <li><a href="#">Utilities & tools</a></li>
+            <li><a href="#">Reseller</a></li>
+            <li><a href="#">General</a></li>
+          </ul>                                    
+        </nav>  
+
+        <div class="snav"><a class="cc" href="#">Balance: $10.00</a><a href="#">Username</a></div>		
+    </div>                                    
+    </section>
+	                                                                                        
+	
+    <nav data-am-widget="header" class="am-header am-show-sm-only">
+      <div class="am-header-left am-header-nav">
+        <a href="/" rel="nofollow">
+          <i class="am-header-icon am-icon-home"></i> 首页
+        </a>
+      </div>
+      <h1 class="am-header-title">
+        <a href="/" rel="nofollow">恒信达</a>
+      </h1>
+      <div class="am-header-right am-header-nav">
+        <a href="#right-link" class="" data-am-offcanvas="{target: '#r-nav'}">
+          <i class="am-header-icon am-icon-bars"></i> 菜单
+        </a>
+      </div>
+    </nav>
+
+    <!-- 侧边栏内容 -->
+    <div id="r-nav" class="am-offcanvas">
+      <div class="am-offcanvas-bar am-offcanvas-bar-flip">
+        <nav class="am-offcanvas-content">
+            <a href="/" rel="nofollow"><span class="logo"><img src="images/logo2.png"/></span></a>
+            <div class="am-active"><a href="#" rel="nofollow">Messaging</a></div>
+            <div><a href="#" rel="nofollow">Utilities & tools</a></div>
+            <div><a href="#" rel="nofollow">Reseller</a></div>
+            <div><a href="#" rel="nofollow">General</a></div>                                                                                                                           
+            <div><a href="#" rel="nofollow">Username</a></div>                                                                                                                           
+        </nav>
+      </div>                              
+ 
+    </div>                                                                                        
+</header>    
+
+
+
+<div class="common-ad">
+<div class="box">
+  <h2>Account settings</h2>
+  <div class="logo"></div>
+</div>
+</div>
+
+
+<div class="common-topnav">
+  <ul class="box">
+   <li><a href="#">My account</a></li>
+   <li><a href="#">Billing addresses</a></li>
+   <li><a href="#">Registered numeric senders</a></li>
+   <li><a href="#">User details</a></li>
+   <li><a href="#">Password change</a></li>
+   <li><a href="notifications.html">Notifications</a></li>
+   <li><a href="#">Documents</a></li>
+   <li><a href="#">Report URL's</a></li>
+ </ul>
+</div>
+
+
+<div class="common-box">
+   <div class="htitle"><span>Type of account: Personal</span> <a class="common-but" href="#">Cancel</a><a class="common-but" href="#">Save</a></div>
+   <div class="main-box">
+     <div class="d-left">
+		<ul class="s-nav">
+		  <li class="hover"><a href="#">Account Information</a></li>
+		  <li><a href="#">Contact information</a></li>
+		</ul>
+	 </div>
+	 
+	 <div class="d-right">
+	     <div class="main-form">
+		    <dl><dt>Account ID</dt><dd class="tit">265544</dd></dl>
+		    <dl><dt>AAccount name</dt><dd class="tit">265544</dd></dl>
+		    <dl><dt>Date created</dt><dd class="tit">265544</dd></dl>
+		    <dl><dt>Date created</dt><dd><input class="txt" type="text" value="DH007" /></dd></dl>
+		    <div class="but-box">
+		      <a class="common-but" href="#">Cancel</a> <input class="common-but" type="submit" value="Save" />
+		    </div>
+		 </div> 
+	 
+	 
+	 </div>
+	 </div>
+</div>
+
+
+
+
+
+<footer class="footer">
+
+  <div class="txtall"><div class="tbox">
+    <div class="fleft">优秀的短信服务商</i></div>
+    <div class="fright"> Copyright  2007-2017 HXDSMS, All Rights Reserved.</div>
+  </div></div>
+
+  </footer>
+
+
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="assets/js/amazeui.min.js"></script>
+
+
+</body>
+</html>

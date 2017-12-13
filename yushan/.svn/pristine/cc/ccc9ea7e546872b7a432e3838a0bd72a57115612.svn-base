@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="">
+  <meta name="discription" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>河狸意见反馈</title> 
+<link rel="stylesheet" type="text/css" href="./css/weui.min.css"> 
+<link rel="stylesheet" type="text/css" href="./css/global.min.css">
+<link rel="icon" href="/images/heli-logo.png" type="image/x-icon" />
+</head>
+<body > 
+
+<div id="vM" class="">
+        <div class="weui-cells__title">请写下您的宝贵意见</div> 
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <textarea v-model="content" class="weui-textarea" placeholder="内容" rows="3"></textarea>
+                    <div class="weui-textarea-counter"></div>
+                </div>
+            </div>
+        </div>
+
+
+ <div class="weui-cells__title">请留下您的联系方式（选填）</div> 
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <input v-model="qq" class="weui-input" type="text" placeholder="请输入您的联系方式">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="weui-tabbar savebtn"> 
+          <a href="javascript:;" class="weui-tabbar__item" @click="login()">
+              <p>提交</p>
+          </a>
+      </div>
+      </div> 
+
+
+ 
+
+
+
+
+</body> 
+ <script src="./js/zepto.min.js"></script> 
+ <script src="./js/vue.js"></script>
+ <script src="../YS-frame/mlayer/2.0/mlayer.js"></script>
+
+<!-- 主入口配置js文件   -->
+<script>
+ 
+    var post = function(da,url,fun){      
+       var re;    
+       $.ajax({        
+        url:url,
+        async:false,
+        type:'POST',
+        data:da,
+        dataType:'json',
+        success:function(re){
+          if(typeof(fun)==="function"){          
+               fun(re);             
+          }},
+        error:function(re){ if(typeof(fun)==="function"){fun(re);}}
+       }); 
+    }
+ 
+
+ 
+       
+        //获取工程列表查询页
+      function postbind(content,qq){ 
+          sendurl = '/php/index.php/Ysback/Open/adfeed';
+
+        var send = {
+            "content":content,
+            "qq":qq
+            }
+
+           post(send,sendurl,function(re){
+             
+          if (re.code>0) {  
+                layer.open({content:'谢谢参与!',skin: 'msg',time: 2});
+                  setTimeout(function(argument) {
+                    window.location.href = "./index.php";   
+                  },2000)
+                     }else{  
+                     layer.open({content: re.msg,skin: 'msg',time: 2});
+                      }       
+        });
+       }
+
+            var vM = new Vue({            
+              el: "#vM",
+              data:{               
+                content:'',                
+                qq:''
+              },
+              computed: {   
+                comSetwin: function () {     
+                  return this.Setwin==0?"dpn":"dpb fullwin";
+                }
+              },
+              methods:{ 
+                  login:function(){ 
+                    if (this.content == "") {layer.open({content:'请填写建议意见!',skin: 'msg',time: 2});return} 
+                    
+                    postbind(this.content,this.qq);                                                  
+                  }
+                }             
+            }) 
+
+    
+</script>
+</html> 

@@ -1,0 +1,21 @@
+/*Huang JS Document QQ:52710360 */
+
+(function(){
+  $('.customer-logo').find('.customer-box').each(function(){
+    $(this).hover(function(){
+        $(this).find('.am-active').show();
+        $(this).find('.normal-logo').hide();
+    },function(){
+        $(this).find('.am-active').hide();
+        $(this).find('.normal-logo').show();
+    })
+  });
+
+
+    //这里是我的优势那里的文章前面编号的自增
+    var Oi = $('.index-advantage i');
+    for(var i = 0;i < Oi.length;i++){
+        var index = i +1;
+        Oi[i].innerText = '0' + index;
+    }
+})()

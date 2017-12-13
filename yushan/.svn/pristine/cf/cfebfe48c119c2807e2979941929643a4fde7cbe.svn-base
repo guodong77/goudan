@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>恒信达</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="assets/dist/amazeui.swiper.min.css"/>
+
+  <link rel="stylesheet" href="style/all.css"/>
+</head>
+<body>
+
+<header class="m-hd">
+    <section class="am-show-md-up">
+    <div class="top-nav">
+
+	  	  <a href="index.html" rel="nofollow" class="m-logo"><img src="images/logo.png"/></a>
+                                        
+
+
+        <nav>
+          <ul class="am-nav am-nav-pills ">
+            <li class="am-active"><a href="index.html">首页</a></li>
+            <li><a href="product.html">产品</a></li>
+            <li><a href="api.html">API文档</a></li>
+            <li><a href="logon.html">用户登录</a></li>
+          </ul>
+        </nav>                                                                                                        
+    </div>                                    
+    </section>
+	                                                                                        
+	
+    <nav data-am-widget="header" class="am-header am-show-sm-only">
+      <div class="am-header-left am-header-nav">
+        <a href="/" rel="nofollow">
+          <i class="am-header-icon am-icon-home"></i> 首页
+        </a>
+      </div>
+      <h1 class="am-header-title">
+        <a href="/" rel="nofollow">恒信达</a>
+      </h1>
+      <div class="am-header-right am-header-nav">
+        <a href="#right-link" class="" data-am-offcanvas="{target: '#r-nav'}">
+          <i class="am-header-icon am-icon-bars"></i> 菜单
+        </a>
+      </div>
+    </nav>
+
+    <!-- 侧边栏内容 -->
+    <div id="r-nav" class="am-offcanvas">
+      <div class="am-offcanvas-bar am-offcanvas-bar-flip">
+        <nav class="am-offcanvas-content">
+            <a href="/" rel="nofollow"><span class="logo"><img src="images/logo2.png"/></span></a>
+            <div class="am-active"><a href="index.html" rel="nofollow">首页</a></div>
+            <div><a href="product.html" rel="nofollow">产品</a></div>
+            <div><a href="api.html" rel="nofollow">API文档</a></div>
+            <div><a href="logon.html" rel="nofollow">用户登录</a></div>                                                                                       
+        </nav>
+      </div>                              
+ 
+    </div>                                                                                        
+</header>      
+
+
+
+    <!--<div class="swiper-container indextopad" id="mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background-image:url(images/banner.jpg)"><a href="#"></a></div>
+            <div class="swiper-slide" style="background-image:url(images/banner.jpg)"><a href="#"></a></div>
+            <div class="swiper-slide" style="background-image:url(images/banner.jpg)"><a href="#"></a></div>
+        </div>
+        <div class="swiper-pagination"></div>
+	</div>-->
+	
+	
+<div class="index-main">
+<li>
+    <dl class="io1" data-am-scrollspy="{animation:'slide-top', delay: 200}">
+	   <dt>极致</dt>
+	   <dd>提供全面、专业、安全的国际云通讯API服务。</dd>
+	</dl>
+</li>
+<li>
+    <dl class="io2" data-am-scrollspy="{animation:'slide-top', delay: 300}">
+	   <dt>简单</dt>
+	   <dd>简单、轻松的接入，完善开放的管理UI，让您对数据一目了然。</dd>
+	</dl>
+</li>
+<li>
+    <dl class="io3" data-am-scrollspy="{animation:'slide-top', delay: 400}">
+	   <dt>稳定</dt>
+	   <dd>99.97%的平台稳定性，平台及时智能监控，稳如磐石，让您高枕无忧。</dd>
+	</dl>
+</li>
+</div>
+	
+
+	
+<div class="common-box index-product">
+	<dl class="common-title"> 
+	   <dt>我们的产品</dt>
+	   <dd>我们打造更快速更专业的全球通讯云服务平台</dd>
+	</dl>
+	
+	<ul>
+	   <li>
+	     <a href="#">
+	     <figure>
+		    <i><img src="images/d4.png"/></i>
+		    <dl><dt>全球短信<dt><dd>支持全球200多个国家和地区（含中国大陆）运营商，5秒响应，实时反馈。</dd></dl>
+		 </figure>
+	     <img class="pic" src="images/p1.jpg"/>
+		 </a>
+	   </li>
+	   <li>
+	     <a href="#">
+	     <figure>
+		    <i><img src="images/d5.png"/></i>
+		    <dl><dt>全球语音<dt><dd>全球语音验证码支持200多个国家及地区，作为短信的良好补充，更安全、便捷地满足用户验证、激活需求。</dd></dl>
+		 </figure>
+	     <img class="pic" src="images/p2.jpg"/>
+		 </a>
+	   </li>
+	   
+	   <li>
+	     <a href="#">
+	     <figure>
+		    <i><img src="images/d6.png"/></i>
+		    <dl><dt>号码格式验证API<dt><dd>通过号码格式验证API快速验证用户手机号码格式正确性，提高验证成功率，节约费用。</dd></dl>
+		 </figure>
+	     <img class="pic" src="images/p3.jpg"/>
+		 </a>
+	   </li>
+	   
+	   <li>
+	     <a href="#">
+	     <figure>
+		    <i><img src="images/d7.png"/></i>
+		    <dl><dt>WEB自助发送<dt><dd>提供WEB工具，可以在线自助发送，批量导入和管理会员号码，实时了解发送情况。</dd></dl>
+		 </figure>
+	     <img class="pic" src="images/p4.jpg"/>
+		 </a>
+	   </li>
+	   
+	   <li>
+	     <a href="#">
+	     <figure>
+		    <i><img src="images/d8.png"/></i>
+		    <dl><dt>可视化服务平台<dt><dd>提供可视化服务平台，在线充值、统计分析，更好的用户体验，更透明化的平台服务。</dd></dl>
+		 </figure>
+	     <img class="pic" src="images/p5.jpg"/>
+		 </a>
+	   </li>
+	   
+	   <li>
+	     <a href="#">
+	     <figure>
+		    <i><img src="images/d9.png"/></i>
+		    <dl><dt>了解更多<dt><dd>查看更多产品内容</dd></dl>
+		 </figure>
+	     <img class="pic" src="images/p6.jpg"/>
+		 </a>
+	   </li>
+	   
+	
+	</ul>
+</div>	
+	
+	
+
+<div class="index-advantage">
+<div class="box">
+	<dl class="common-title"> 
+	   <dt>我们的优势</dt>
+	   <dd>短信、语音通讯，PaaSoo将会是您更好的选择</dd>
+	</dl>
+
+
+   <ul>
+      <li><dl>
+	     <dt><i>01</i>按需配置服务</dt>
+	     <dd>标准化，平台智能算法严选高品质运营商通道个性化，可量身定制，对接最适合您业务需求的运营商通道</dd>
+	  </dl></li>
+	  
+      <li class="li2"><dl>
+	     <dt>完善的API服务<i>02</i></dt>
+	     <dd>标准化，平台智能算法严选高品质运营商通道个性化，可量身定制，对接最适合您业务需求的运营商通道</dd>
+	  </dl></li>
+	  
+      <li class="li3"><dl>
+	     <dt><i>03</i>按需配置服务</dt>
+	     <dd>HTTP/SMPP等多种标准方式简单接入，让您轻松测试信息处理全程安全加密，确保信息服务安全</dd>
+	  </dl></li>
+	  
+      <li class="li2 li4"><dl>
+	     <dt>快速技术支持<i>04</i></dt>
+	     <dd>提供7*24小时业务咨询及技术支持一对一个性化技术服务</dd>
+	  </dl></li>
+	  
+  </ul>
+</div>
+</div>
+
+
+<div class="common-box index-apifomr">
+	<dl class="common-title"> 
+	   <dt>获取免费试用API</dt>
+	   <dd>填写您的基本资料申请免费试用API账户</dd>
+	</dl>
+	<ul>
+	   <li><input type="text" class="txt" placeholder="公司名称"/></li>
+	   <li><input type="text" class="txt" placeholder="企业邮箱"/></li>
+	   <li><input type="text" class="txt" placeholder="手机号码"/></li>
+	   <li>
+	    <div class="select"><i></i><select name=""><option>-请选择-</option></select></div>
+	   </li>
+	   <li class="butbox"><input class="but" type="submit" value="申请账户" /></li>
+	</ul>
+	
+</div>
+
+
+
+
+
+
+
+
+<footer class="footer">
+  <div class="box">
+	                                                                                                          
+     <div class="link">
+	    <dl>
+		   <dt>产品</dt>
+		   <dd>
+		      <a href="#">国际短信</a>
+		      <a href="#">全球语音短信</a>
+		      <a href="#">号码格式验证</a>
+		   </dd>
+		</dl>
+	    <dl>
+		   <dt>开发者服务</dt>
+		   <dd>
+		      <a href="#">API技术文档</a>
+		      <a href="#">开发者协议</a>
+		      <a href="#">常见问题</a>
+		   </dd>
+		</dl>
+	    <dl>
+		   <dt>关于我们</dt>
+		   <dd>
+		      <a href="more.html">联系我们</a>
+		      <a href="more.html">销售邮箱: hxdsms.com</a>
+		      <a href="more.html">客服QQ: 300000000</a>
+		   </dd>
+		</dl>
+		
+		
+	  </div>
+	  <div class="c-2wh"><img src="images/2wh.jpg"/><span>扫描二维码关注</span></div>
+	 
+  </div>	  
+  <div class="clear"></div>
+ 
+  <div class="txtall"><div class="tbox">
+    <div class="fleft">全国电信网码号证书：号[2016]00025-A01 <i>ICP备案：京ICP备14058235号</i></div>    
+    <div class="fright"> Copyright © 2007-2017 MEILIAN Corporation, All Rights Reserved.</div>
+  </div></div>
+  
+  </footer>
+
+
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/store.common.js"></script>
+<script language="javascript" src="assets/dist/amazeui.swiper.min.js"></script>
+<script language="javascript"> 
+$(function() {
+
+ var mySwiper = new Swiper('#mySwiper',{
+pagination : '.swiper-pagination',
+paginationClickable :true,
+nextButton: '.swiper-button-next',
+prevButton: '.swiper-button-prev',
+slidesPerView: 'auto',
+autoplay: 4000
+  }) 
+
+
+	
+	
+ 
+
+})
+</script>
+</body>
+</html>

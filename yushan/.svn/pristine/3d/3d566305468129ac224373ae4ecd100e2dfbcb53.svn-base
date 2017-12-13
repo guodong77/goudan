@@ -1,0 +1,29 @@
+<div ng-controller="sininfo_ctrl" class="widget-body win form-horizontal bgc_b">
+  <div class="winbody summary" w="508px" h="460px" style="padding-top: 0px">
+  <div style="max-height: 298px;">
+	<div class="summaryint">
+		<span>201505试件</span>
+		<input class="form-control" placeholder="请输入试件1出厂编号（自编号）" type="text">
+	</div>
+
+	<div class="summaryint">
+	    <span>201505试件</span>
+		<input class="form-control" placeholder="请输入试件2出厂编号（自编号）" type="text">
+	</div>
+	<div class="summaryint">
+	    <span>201505试件</span>
+		<input class="form-control" placeholder="请输入试件3出厂编号（自编号）" type="text">
+	</div>
+	<div class="summaryint">
+	    <span>201505试件</span>
+		<input class="form-control" placeholder="请输入试件3出厂编号（自编号）" type="text">
+	</div>
+  </div>
+
+	
+	</div>
+	<div class=" ysbtn t_c" style="margin-top: 20px">
+		 <button type="button" class="btn btn-blue">保存</button>
+		 <button type="button" class="b_2 btn btn-default layui-layer-close">取消</button>
+	</div>
+</div>

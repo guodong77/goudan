@@ -1,0 +1,3 @@
+<div ng-controller="temlist_ctrl">
+	温度累计列表
+</div>

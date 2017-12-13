@@ -1,0 +1,43 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a>接收邮箱设置</a></li>
+        <li><a href="{:url('add')}">添加邮箱</a></li>
+    </ul>
+    <form class="well form-inline margin-top-20" method="post" action="{:url('index')}">
+        联系人名称：
+        <input class="form-control" type="text" name="name" style="width: 200px;" value="{:input('request.name')}"
+               placeholder="请输入平台名称">
+        <input type="submit" class="btn btn-primary" value="搜索"/>
+        <a class="btn btn-danger" href="{:url('index')}">清空</a>
+    </form>
+    <form method="post" class="js-ajax-form">
+        <table class="table table-hover table-bordered">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>联系人</th>
+                <th>邮箱</th>
+                <th>操作</th>
+               
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="list" item="vo">
+                <tr>
+                    <td>{$vo.id}</td>
+                    <td>{$vo.name}</td>
+                    <td>{$vo.email}</td>
+                    <td><a href="/user/admin_manager/del?id={$vo.id}">删除</a></td>
+                </tr>
+            </foreach>
+            </tbody>
+        </table>
+        <div class="pagination">{$page}</div>
+    </form>
+</div>
+<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

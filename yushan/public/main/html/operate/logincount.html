@@ -1,0 +1,75 @@
+
+<!-- 用户登录统计  -->
+<div class="widget-main biaoge" ng-controller="com_ctrl">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="bg-themeprimary h_10"></div>
+
+        </div>
+    </div>
+    <div class="tabbable">
+        <ul class="nav nav-tabs planmytab">
+            <li class="active">
+                <a >用户登录统计</a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="matter" class="tab-pane in active">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead class="bordered-palegreen">
+                        <tr>
+<!--                             <th width="50" style="padding: 6px;">
+                                <label yscheckall="matterdata" yskey="ycselected">
+                                    <input type="checkbox" class="colored-blue">
+                                    <span class="text"></span>
+                                </label>
+                            </th> -->
+                            <th>序号</th>
+                            <th>ID</th>
+                            <th>用户名</th>                           
+                            <th>真实姓名</th>
+                           <th> 登录时间</th>
+                            <th>登录IP</th>  
+                            <th>登录设备(PC/APP)</th>  
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr align="center" ng-class="{true:'yssel',false:''}[value.ycselected==1]" ng-repeat="(key, value) in operate_logincount_list.datalist">
+<!--                             <td align="center">
+                                <div class="checkbox">
+                                    <label yscheck="ycselected">
+                                        <input type="checkbox" class="colored-blue" ng-checked="value.ycselected==1">
+                                        <span class="text"></span>
+                                    </label>
+                                </div>
+                            </td> -->
+                            <td ng-bind="$index+1"></td>
+                            <td ng-bind="value.uid"></td>
+                            <td ng-bind="value.username"></td>                           
+                            <td ng-bind="value.realname"></td> 
+                            <td ng-bind="value.logintime|date:'yyyy年MM月dd日  hh:mm:ss'"></td>                           
+                            <td ng-bind="value.loginip"></td> 
+
+                            <td>
+                            	 <span ng-if="value.logtype==0||value.logtype==1" class="ng-scope">PC</span>
+                            	  <span ng-if="value.logtype==2" class="ng-scope">PC-微信</span>
+                                  <span ng-if="value.logtype==3" class="ng-scope">PC-QQ</span>
+                                  <span ng-if="value.logtype==4" class="ng-scope">微信公众号</span>
+                                  <span ng-if="value.logtype==5" class="ng-scope">移动安卓</span>
+                                  <span ng-if="value.logtype==6" class="ng-scope">移动IOS</span>
+                                  <span ng-if="value.logtype==7" class="ng-scope">移动wap端</span>
+                                  
+                            </td>
+                           
+                           
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div id='page' class="t_c mt_10"></div>
+            </div>
+        </div>
+    </div>
+</div>

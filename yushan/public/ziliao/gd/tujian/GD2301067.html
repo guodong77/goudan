@@ -1,0 +1,149 @@
+  <div ng-controller="zl_ctrl" id="printtable" class="alltablecss">
+
+    <table style="width: 640px;height: 960px;margin-left: 60px;margin-top: 35px;">
+      <tbody>
+        <tr ng-repeat="(key, value) in Sdata">
+          <td>
+            <!-- 资料头部 -->  
+            <div class="zltitle" style="height: 80px;">
+              <table width="100%">
+                <tbody>
+                  <tr>
+                    <td>
+
+                      <div class="tc lh32">
+                        <span class="htitle">混凝土拆模申请</span>
+                      </div>
+
+                      <div  class="tc " style="height: 25px;">
+                        <span class="ftitle">&nbsp;</span>
+                      </div>
+
+                      <div class="bianhao" style="margin-right: 30px;">
+                        <span>GD2301067</span> <input class="lip">
+                        <input class="lip"></div>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- 资料表格 -->  
+            <div class="zlcontent" style="height: 880px;border: 1px solid #000;">
+
+              <!-- 内容头部 -->  
+              <table class="zlhead w_p100" width="100%" height="212">
+
+                <tbody>
+                <tr align="center">
+                <td  height="35" > 单位(子单位)工程名称 </td>
+                <td colspan="3"><div class="divl3" contenteditable="true" divb="0"  ng-bind="value.b[0]"></div></td>
+                </tr>
+                <tr align="center">
+                <td  height="35" >总承包施工单位 </td>
+                <td colspan="3"><div class="divl3" contenteditable="true" divb="1"  ng-bind="value.b[1]"></div></td>
+                </tr>
+
+                  <tr align="center">
+                <td  height="35" >拆&nbsp;模&nbsp;部&nbsp;位</td>
+                <td colspan="3"><div class="divl3" contenteditable="true" divb="2"  ng-bind="value.b[2]"></div></td>
+                </tr>
+                  <!-- 宽度控制 -->
+                <tr class="ys_b">
+                  <td height="0" width="150"></td>
+                  <td width="188"></td>
+                  <td width="110"></td>
+                  <td width="188"></td>
+                </tr>
+
+                <tr align="center">
+                  <td height="35" >浇&nbsp;筑&nbsp;时&nbsp;间</td>
+                   <td ><div class="divc3" contenteditable="true" divb="3"  ng-bind="value.b[3]"></div></td>
+                  <td  >申请拆模时间</td>
+                  <td ><div class="divc3" contenteditable="true" divb="4"  ng-bind="value.b[4]"></div></td>
+                </tr>
+                 <tr align="center">
+                  <td height="35" > 混凝土设计强度等级</td> 
+                  <td ><div class="divc3" contenteditable="true" divb="5"  ng-bind="value.b[5]"></div></td>
+                  <td >混凝土实测强度</td>
+                  <td><div class="divc3" contenteditable="true" divb="6"  ng-bind="value.b[6]"></div></td>
+                </tr>
+
+                <tr align="center">
+                  <td height="35" >混&nbsp;凝&nbsp;土&nbsp;龄&nbsp;期</td> 
+                  <td ><div class="divc3" contenteditable="true" divb="7"  ng-bind="value.b[7]"></div></td>
+                  <td >试验报告编号</td>
+                  <td><div class="divc3" contenteditable="true" divb="8"  ng-bind="value.b[8]"></div></td>
+                </tr>
+
+
+
+           
+          </tbody>
+
+              </table>
+              <!-- 内容中间 -->  
+        
+
+                <table class="zlcont w_p100 " height="638" >
+                  <tbody class="unline_GD2301067">
+                  <tr class="tc">
+                    <td rowspan="3" >拆模要求</td> 
+                    <td colspan="3" height="448" style="border-bottom: 0px;">
+                    <div class="divl3" contenteditable="true" divb="9"  ng-bind="value.b[9]" style="min-height:300px;max-width:540px;"></div>
+                    </td>
+                  </tr>
+                    <tr>
+                      <td class="tr" height="35"  style="border-top: 0px;border-right: 0px;border-bottom: 0px;" colspan="2">项目技术负责人：</td>
+                       <td  style="border-top: 0px;border-left: 0px;border-bottom: 0px;"><div class="divl3" contenteditable="true"></div></td>
+
+                    </tr>
+                     <tr>
+                      <td class="tr" height="35" colspan="2" style="border-top: 0px;border-right: 0px;">项目负责人：</td>
+                       <td  style="border-top: 0px;border-left: 0px;"><div class="divl3" contenteditable="true"></div></td>
+
+                    </tr>
+                      <!-- 宽度控制 -->
+                      <tr class="ys_b">
+                        <td width="95" height="0"></td>
+                        <td width="237"></td>
+                        <td  width="160"></td>
+                        <td width="145"></td>
+                      </tr>
+
+
+                    <tr>
+                      <td rowspan="3" class="tc">监理意见</td>
+                      <td colspan="3" height="79" style="border-bottom: 0px;">
+                      <div class="divl3 mh_50" contenteditable="true" divb="10"  ng-bind="value.b[10]"></div></td>
+
+                    </tr>
+                    <tr>
+                      <td class="tr" height="35" style="border-top: 0px;border-right: 0px;border-bottom: 0px;">专业监理工程师：</td>
+                       <td style="border:0px;"><div class="divl3" contenteditable="true"></div></td>
+                       <td class="tc" style="border-left: 0px;border-bottom: 0px;border-top: 0px;"><span>年</span><span class="pl_20">月</span><span class="pl_20">日</span></td>
+
+                    </tr>
+                     <tr>
+                      <td class="tr" height="35" style="border-top: 0px;border-right: 0px;">总监理工程师：</td>
+                       <td  style="border-top: 0px;border-right: 0px;border-left: 0px;"><div class="divl3" contenteditable="true"></div></td>
+                       <td class="tc" style="border-left: 0px;border-top: 0px;"><span>年</span><span class="pl_20">月</span><span class="pl_20">日</span></td>
+
+                    </tr>
+
+
+                  </tbody>
+                </table>
+
+                  <!-- 内容底部 -->  
+
+             
+              </div>
+
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>

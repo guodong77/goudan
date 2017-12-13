@@ -1,0 +1,163 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="/user/admin_index/index">本站用户</a></li>
+        <li><a href="/user/admin_index/add">添加用户</a></li>
+        <li class="active"><a>用户价格表</a></li>
+    </ul>
+    <form id="top-submit" class="well form-inline margin-top-20" method="post" action="{:url('price')}">
+        国家名称：
+        <input class="form-control" type="text" name="countryName" style="width: 200px;" value="{:input('request.countryName')}"
+               placeholder="请输入国家名称">
+        <input type="hidden" name="id" value="{$id}">
+        <input type="submit" class="btn btn-primary" value="搜索"/>
+        <a class="btn btn-danger" href="/user/admin_index/price?sort=countryName&id={$id}">按国家名排序</a>
+        <a class="btn btn-danger" href="/user/admin_index/price?sort=price&id={$id}">按价格排序</a>
+        <a class="btn btn-danger" href="/user/admin_index/price?sort=networkName&id={$id}">按运营商排序</a>
+        <select class="sel" name="" id="" style="width:110px;height:34px;line-height:34px;">
+            <option value="">设置全部价格</option>
+            <option value="*">*</option>
+            <option value="+">+</option>
+        </select>
+        <input class="select-input form-control" type="text" disabled class="form-control" placeholder="输入修改价格参数" style="width:110px;height:34px;padding-left:10px;">
+        <a class="btn btn-danger revamp" href="javascript:;">确定修改</a>
+        <a class="btn btn-danger" href="/user/admin_index/download?sort=countryName&id={$id}">下载表格</a>
+    </form>
+        <form method="post" class="js-ajax-form">
+        <table class="table table-hover table-bordered">
+            <thead>
+            <tr>
+                <th><input class="head-check" type="checkbox">全选</th>
+                <th>序号</th>
+                <th>国家名称</th>
+                <th>运营商</th>
+                <th>运营商代号</th>
+                <th>接口平台名称</th>
+                <th>网络号</th>
+                <th>前置</th>
+                <th style="width:100px;">成本价</th>
+                <th style="width:100px;">售价</th>
+                <th>状态</th>
+                <th colspan="2" style="text-align:center;">操作</th>                
+            </tr>
+            </thead>
+            <tbody>
+            <php>
+                $num=1+($curPage-1)*$listnum;
+                $user_statuses=array("0"=>"关闭中","1"=>"启用中");
+            </php>
+            <foreach name="list" item="vo">
+                <tr>
+                    <td><input class="body-check" type="checkbox" value="{$vo.id}"></td>
+                    <td><span id="bianhao">{$num}</span></td>
+                    <td>{$vo.countryName}</td>
+                    <td style="width:100px;">{$vo.networkName}</td>
+                    <td>{$vo.networkAliases}</td>
+                    <td>{$vo.platform}</td>
+                    <td>{$vo.network}</td>
+                    <td>{$vo.prefix}</td>
+                    <td style="width:100px;">{$vo.price}</td>
+                    <td style="width:100px;">{$vo.sellprice}</td>
+                    <td>{$user_statuses[$vo['status']]}</td>
+                    <td>
+                        <neq name="vo.status" value="1">
+                            <a href="/user/admin_index/commonEdit?status=1&bianhao={$vo.id}&uid={$id}"
+                               class="js-ajax-dialog-btn"
+                               data-msg="open">启用</a>
+                        <else/>
+                            <a href="/user/admin_index/commonEdit?status=0&bianhao={$vo.id}&uid={$id}" class="js-ajax-dialog-btn"
+                               data-msg="close">关闭</a>
+                        </neq>
+                </tr>
+                <php>$num++;</php>
+            </foreach>
+            </tbody>
+        </table>
+        <div class="pagination">{$page}</div>
+    </form>
+</div>
+<script>
+    $(function(){
+        //校验参数
+        var myRegExp = {
+            isnotEmpty: function(obj,msg){
+                if(obj.value){
+                    return true;
+                }else{
+                    layer.msg(msg);
+                    return false;
+                }
+            }
+        }
+
+        //禁止按钮的控制
+        var select = $('.sel')[0],
+             selectInput = $('.select-input')[0];
+        select.onclick = function(){
+            if(!select.options[0].selected){
+                selectInput.attributes.removeNamedItem('disabled');
+            }else{
+                var dis=document.createAttribute('disabled');
+                selectInput.attributes.setNamedItem(dis);
+            }
+        }
+
+
+
+        //点击全选
+       var headCheck = $('.head-check')[0],
+           bodyCheck = $('.body-check');
+       headCheck.onclick =function () {
+           for(var i = 0;i < bodyCheck.length;i++){
+               if(headCheck.checked){
+                   bodyCheck[i].checked = true;
+               }else{
+                   bodyCheck[i].checked = false;
+               }
+
+           }
+       }
+
+       //循环全部bodyCheck
+        function forCheck(){
+           var checklist = [];
+          for(var i = 0;i < bodyCheck.length;i++){
+              if(bodyCheck[i].checked){
+                  checklist.push(bodyCheck[i].value * 1);
+              }
+          }
+            return checklist;
+        }
+
+       //请求接口
+        var revamp = $('.revamp')[0],
+             topSubmit = $('#top-submit');
+        revamp.onclick = function(){
+            var allright = myRegExp.isnotEmpty(select,'操作符不能为空') && myRegExp.isnotEmpty(selectInput,'操作参数不能为空');
+            if(allright){
+                $.ajax({
+                    type: "post",
+                    async: true,
+                    data: {
+                        "id":forCheck().toString(),
+                        "operator":select.value,
+                        "num": selectInput.value
+                    },
+                    url: 'http://xinyada.weiyuliang.com/user/index/update_price',
+                    success: function(data) {
+                        setTimeout(function(){
+                            topSubmit.submit();//这里的表单提交方式一定要
+                        },1500);
+                        layer.msg(forCheck().length + "数据更新成功");
+                    }
+                });
+            }
+        }
+    })
+</script>
+<script src="__STATIC__/js/admin.js"></script>
+<script src="__STATIC__/js/layer/layer.js"></script>
+</body>
+</html>

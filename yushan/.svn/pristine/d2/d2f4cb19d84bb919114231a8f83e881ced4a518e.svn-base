@@ -1,0 +1,201 @@
+  <style>
+  .textareawid{
+    width: 22px;
+    overflow: hidden;
+    vertical-align: middle;
+  }
+
+  .pl7{
+        padding-left: 7px;
+  }
+
+  td .divl3,td .divc3{
+    line-height:13px !important;
+  }
+  </style> 
+
+
+
+
+  <div id="printtable" class="alltablecss">
+
+    <table style="width: 640px;height: 960px;margin-left: 60px;margin-top: 35px;color: #000;">
+      <tbody>
+        <tr  ng-repeat="(key, value) in Sdata">
+          <td>
+            <!-- 资料头部 -->  
+            <div class="zltitle" style="height: 70px;">
+              <table width="100%">
+                <tbody>
+                  <tr>
+                    <td>
+
+                      <div class="tc lh32">
+                        <span class="htitle">施工层基线复核记录</span>
+                      </div>
+
+                      <div  class="tc " style="height:15px;" >
+                        <span class="ftitle"></span>
+                      </div>
+
+                      <div class="bianhao">
+                        <span style="font-weight: bold;">GD-C4-629</span> 
+                        <input class="lip">
+                        <input class="lip">
+                        <input class="lip">
+
+                        </div>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- 资料表格 style="height:910px;"-->  
+            <div class="zlcontent" >
+
+              <!-- 内容头部 -->  
+              <table class="zlhead w_p100" width="100%" height="145">
+
+                          <tr class="noborder">
+              <td style="width:160px;"></td>
+              <td style="width:220px;"></td>
+              <td style="width:125px;"></td>
+              <td style=""></td>
+            </tr>
+
+                <tr align="center">
+                  <td  height="38" colspan="1" align="center"> 单位(子单位)工程名称</td>
+                  <td  colspan="3">
+                    <div class="divl3" contenteditable="true"  divb="0" ng-bind="value.b[0]"></div>
+                  </td>
+                </tr>
+
+
+                <tr align="center">
+                  <td  height="38" colspan="1" align="center">施工单位</td>
+                  <td  colspan="3">
+                    <div class="divl3" contenteditable="true"  divb="1" ng-bind="value.b[1]"></div>
+                  </td>
+                </tr>
+
+
+                <tr align="center">
+                  <td  height="38" colspan="1" align="center">工程部位</td>
+                  <td  colspan="1">
+                    <div class="divc3" contenteditable="true"  divb="2" ng-bind="value.b[2]"></div>
+                  </td>
+
+                  <td  height="38" colspan="1" align="center">测量仪器名称及编号</td>
+                  <td  colspan="1">
+                    <div class="divc3" contenteditable="true"  divb="3" ng-bind="value.b[3]"></div>
+                  </td>
+
+
+                </tr>
+
+
+                <tr align="center">
+                  <td  height="38" colspan="1" align="center">引上轴线控制点</td>
+                  <td  colspan="3">
+                    <div class="divl3" contenteditable="true"  divb="4" ng-bind="value.b[4]"></div>
+                  </td>
+                </tr>
+
+
+                <tr align="center">
+                  <td  height="38" colspan="1" align="center">引测水准控制点</td>
+                  <td  colspan="3">
+                    <div class="divl3" contenteditable="true"  divb="5" ng-bind="value.b[5]"></div>
+                  </td>
+                </tr>
+
+              </table>
+              <!-- 内容中间 height="471" -->  
+           
+
+                <table class="zlcont w_p100" >
+                  <tbody>
+
+
+ <tr>
+   <td width="40" height="365" align="center">复<br>测<br>示<br>意<br>图</td>
+<td>
+<!--   <textarea name="" style="width: 100%;height: 360px;vertical-align: middle;padding: 2px;overflow-x:auto;overflow-y:auto;  "></textarea> -->
+ <div class="divl3" contenteditable="true" style="width: 100%;height: 360px;vertical-align: middle;" divd="0" ng-bind="value.d[0]"></div>
+
+
+</td>
+ </tr>
+
+  <tr>
+   <td height="220" align="center">复<br>测<br>结<br>果</td>
+<td>
+<!--    <textarea name=""style="width: 100%;height: 218px;vertical-align: middle;padding: 2px;overflow-x:auto;overflow-y:auto; "></textarea> -->
+ <div class="divl3" contenteditable="true" style="width: 100%;height: 218px;vertical-align: middle;" divd="1" ng-bind="value.d[1]"></div>
+</td>
+ </tr>
+
+
+
+
+
+                    </tbody>
+                  </table>
+
+                  <!-- 内容底部 -->  
+               
+      <table class="zlcont w_p100" height="">
+        <tbody>
+
+          <tr>
+            <td colspan="2" height="46" align="center">监理（建设）单位</td>
+            <td colspan="3" align="center">施工单位</td>
+          </tr>
+
+
+          <tr>
+            <td rowspan="2" style="border-right: 0;padding-left: 3px;"> 专业监理工程师<br>（建设单位项目技术负责人）：</td>
+            <td rowspan="2" style="border-left:0;"><div class="divc3" contenteditable="true"></div></td>
+            <td align="center" height="35ss">专业工长</td>
+            <td align="center">专业质检员</td>
+            <td align="center">测量人</td>
+          </tr>
+
+          <tr>
+            <td height="35"><div class="divc3" contenteditable="true"></div></td>
+           <td><div class="divc3" contenteditable="true"></div></td>
+           <td><div class="divc3" contenteditable="true"></div></td>
+
+          </tr>
+
+
+                    <tr class="noborder">
+            <td style="width: 190px;"></td>
+            <td style="width:126px;"></td>
+            <td style="width:98px;"></td>
+            <td style="width:98px;"></td>
+            <td style="width:127px;"></td>
+
+          </tr>
+
+          <tr class="noborder">
+            <td colspan="5">
+
+              <div style="background: #e0e0e0;">
+                <img src="images/GD629.png" alt="" style="padding: 10px 0 5px 45px;">
+            </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+              </div>
+
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>

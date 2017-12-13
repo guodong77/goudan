@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>河狸建筑</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+    <link rel="stylesheet" href="../../../css/details.css" /> 
+</head>
+	<body>
+    <!--微信-->
+    <div class="header1">
+        <div>河狸</div>
+        <div class="text">打开APP</div>
+    </div>
+    <div class="con1">
+        <p class="title title1">{$details.post_title}</p>
+        <p class="pre pre1">
+            {$details.post_content}
+        </p>
+    </div>
+    <!-- pc端 -->
+    <div id="header" style="background: #0094fd">
+        <div class="h-conter">
+            <a class="cff f20 fl f-w" style="margin-left: 30px;" href="/index.php">
+                <img src="../../.././main/images/logo.png" style="height:42px">
+            </a>
+        </div>
+    </div>
+    <div class="content wrap">
+        <p class="title">{$details.post_title}</p>
+        <p class="pre">
+            {$details.post_content}
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+
+<div>
+    <!--  外墙 -->
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th width="36"  style="padding: 6px;">
+                    <label >
+                        <input type="checkbox" class="colored-blue"  checkallbykey="program_plan_betonlist" key="wqcheck">
+                        <span class="text"></span>
+                    </label>
+                </th>
+              <!--   <th width="50" >序号</th> -->
+               <!--  <th width="95" >分部</th> -->
+                <th  style="min-width: 150px;"  >工程部位</th>
+                <th  width="80" >强度</th>
+
+                <th  width="100" >制作日期</th>
+                <th width="100" >送检日期</th>
+                <th  width="60" >龄期</th>
+                <th width="50"  >组数</th>
+                <th width="70" >是否已送</th>
+                <th  width="170" >结果</th>
+                <th width="170" >样品编号</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-class="{true:'yssel',false:''}[value.wqcheck==1]"  ng-repeat="(key, value) in program_plan_betonlist.datalist|orderBy:'myorder'|planfil:'wq'">
+                <!--  -->
+                <td  align="center">
+                    <div class="checkbox">
+                        <label >
+                            <input type="checkbox" class="colored-blue" ng-checked="value.wqcheck==1"  comcheck="wqcheck" name="{{stype}}" value="{{value.codeid}}">
+                            <span class="text"></span>
+                        </label>
+                    </div>
+
+                </td>
+                <!-- <td>
+                    <input type="text" value="{{value.myorder}}" class="form-control" comedit="myorder"></td> -->
+               <!--  <td>
+                    <select id="e1" style="width:100%;"  comedit="fid">
+                        <option value="{{val.t}}" ng-repeat="(k, val) in ftypelist" ng-selected="value.fid==val.t">{{val.title}}</option>
+                    </select>
+
+                </td> -->
+
+                <td >
+                    <textarea name="" style="text-align: left;padding: 4px 8px;width: 100%;height: 35px;font-size: 12px" ng-model="value.wqname" comedit="wqname"> 
+                    </textarea>
+                </td>
+                <td>
+                    <!-- <input type="text" value="{{value.wqqiangdu}}" comedit="wqqiangdu" class="form-control"> -->
+ <select id="e2" style="width:100%;"  comedit="wqqiangdu">
+    <option value="{{val.t}}" ng-repeat="(k, val) in sjtypelist" ng-selected="value.wqqiangdu==val.t">{{val.title}}</option></select>
+                    </td>
+
+                <td>
+                    <input type="text" value="{{value.wqriqi}}"  class="form-control {{value.wqtip}}" sjlaydate="wq"></td>
+                <td>
+                    <input type="text" value="{{value.wqtime}}"  class="form-control {{value.wqtip}}" laydateedit="wqtime"></td>
+                <td>
+                    <input type="text" readonly value="{{lq(value.wqriqi,value.wqtime)}}"  class="form-control {{value.wqtip}}"></td>
+                <td>
+                    <input type="text" value="{{value.wqzushu}}"  class="form-control" comedit="wqzushu"></td>
+                <td align="center">
+                    <label class="chkys">
+                        <input class="checkbox-slider slider-icon colored-blue" type="checkbox" ng-checked="value.wqys==1" checkedit="wqys">
+                        <span class="text"></span>
+                    </label>
+
+                </td>
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.bybuwei}}-检测结果" key="wqjg" len='{{value.wqzushu}}'>
+                 <div ng-repeat="(k, v) in value.wqjgarr" ng-bind="v.val"></div> 
+                </td> 
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.bybuwei}}-样品编号" key="wqbh" len='{{value.wqzushu}}'>
+                 <div ng-repeat="(k, v) in value.wqbharr" ng-bind="v.val"></div> 
+                </td>
+
+            </tr>
+
+        </tbody>
+    </table>
+    <div id='page2' class="t_c mt_10"></div>
+</div>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="">
+	<meta name="discription" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>河狸建筑</title> 
+<link rel="stylesheet" type="text/css" href="./css/weui.min.css"> 
+<link rel="stylesheet" type="text/css" href="./css/global.min.css">
+<script src="../js/device.min.js"></script>
+<script>
+  var f = '';
+  var fromx=location.href.split('?')[1];
+  if(fromx){
+    var z = fromx.split('SS')[0]; 
+     f = z.split('YY')[1];
+  }
+    //判断设备
+ var isMobile = device.mobile(),
+            isTable = device.tablet();
+
+    if(isMobile || isTable){
+    	if(f!=''){
+    		localStorage.setItem('from',f);
+    	}
+        // window.open("/wap/producs.html?YY"+f+"SS=1","_self");
+    }else{
+         window.open("http://www.ysjianzhu.com/index.html?froms="+f,"_self");
+    }
+</script>
+<style type="text/css">
+  /*宣传页*/
+.publogo{height:30vh;
+       background:#389bcc;
+       justify-content:center;
+       display: -webkit-flex; 
+       display: flex;
+       align-items:center;
+       -webkit-align-items:center;
+       justify-content:center;
+       -webkit-justify-content:center;}
+.publogo img{width:14vw;}
+.publogo span{font-size: 24px;color: #fff;}
+.pubfeature{display: -webkit-flex;
+            display: flex;}
+.pubfeaturef{flex-grow:1;
+            -webkit-flex-grow:1;
+            text-align: center;
+            padding:10px 0px;
+            background:#efefef;}   
+.pubfeatures{flex-grow:1;
+             -webkit-flex-grow:1;
+             text-align: center;
+             padding:10px 0px;
+             background:#f6f7f7;}  
+.pubchplan{text-align:center;
+           margin:0px auto;
+           color:#727171;
+           font-size:18px;
+           line-height:25px;}
+.pubchplan h3{font-size: 22px;
+              padding:30px 0px 15px 0px;}  
+.pubchplanp{padding-top:40px;}   
+.w_p100{width:100%;}
+.pubratemange{text-align:center;
+              margin:0px auto;
+              color:#727171;
+              font-size:18px;
+              line-height:25px;
+              padding:0px 0px 30px 0px;
+              background:#efefef;}
+.pubratemangedw{position: absolute;
+                right: 9%;
+                bottom: 41%;
+                width: 25%;}
+.pubratemangedw img{width:100%;}
+.pubratemange h3{font-size: 22px;
+                 padding:30px 0px 15px 0px;}
+.pubratemangep{padding:20px 5px 0px; 
+               position: relative;}
+/*.proright1{position: absolute;
+          bottom: 13vh;
+          right: 24vw;
+          width: 14vw;}
+.pubratemangep span{padding:0px 8px;
+                    border-radius:16px;
+                    background:#2aa2d4;
+                    color:#fff;
+                    font-size: 0.1rem;}
+
+.proright2{position: absolute;
+          top: 8vh;
+          right: 26vw;
+          width: 12vw;}
+.proleft{position: absolute;
+        left: 17vw;
+        top: 13vh;
+        width: 7vw;}
+
+.prolefts{position: absolute;
+          bottom: 17vh;
+          left: 1vw;} 
+.proright1s{position: absolute;
+            top: 14vh;
+            right: 4vw;}
+.proright2s{position: absolute;
+            top: 4vh;
+            right: 9vw;}*/
+.pubprint{text-align:center;
+          margin:0px auto;
+          color:#727171;
+          font-size:18px;
+          line-height:25px;}
+.pubprint h3{font-size: 22px;
+             padding:30px 0px 15px 0px;}
+.pubprintp{padding-top:40px;}
+.pubwechact{text-align:center;
+            margin:0px auto;
+            color:#727171;
+            font-size:18px;
+            line-height:25px;
+            background:#efefef;}
+.pubwechact h3{font-size: 22px;
+               padding:30px 0px 15px 0px;}
+.pubwechactp{padding: 20px 7vw 0px 0px;line-height:0px;}
+.pubcloudsave{text-align:center;
+              margin:0px auto;
+              color:#727171;
+              font-size:18px;
+              line-height:25px;}
+.pubcloudsave h3{font-size: 22px;
+                 padding:30px 0px 15px 0px;}
+.pubcloudsavep{padding: 30px 0px 20px;}
+.pubfile{text-align:center;
+         background: #efefef;
+         color:#898989;
+         font-size: 12px;
+         padding: 10px 0px 50px;}
+.publogin{font-size:18px;
+          color:#fff;
+          background:#f5ab31;
+          padding:8px;
+          text-align:center;
+          position:fixed;
+          bottom:0px;left:0px;right:0px;}
+
+/*宣传页END*/
+/*工程上限*/
+.prolimitk{height:45vh;
+          background:#27ade2;
+          padding:0px 15px;
+          color:#fff;}
+.prolimit{height:34vh;
+         justify-content:center;
+         display: -webkit-flex; 
+         display: flex;
+         align-items:center;
+         justify-content:center;
+         text-align:center;
+         color:#fff;}
+.pronumber{width: 9rem;
+          height: 9rem;
+          border: 2px #fff solid;
+          border-radius: 9rem;}
+.pronumber h3{font-size: 4rem;
+              line-height: 66px;
+              font-weight: normal;
+              padding-top: 1.2rem;}
+.pronumber p{font-size:1.1rem;}
+.proshare{width: 6rem;
+          height: 6rem;
+          background: #81ceec;
+          border-radius:6rem;
+          margin-left: 15px;
+          text-align:center;
+          font-size:1rem;
+          }
+.proshare img{width: 40%;
+              padding-top: 1rem;
+              padding-left: 0.3rem;}
+.proline.weui-cells{margin-top:0.8rem;margin-bottom:0.8rem;}
+.prolineh{line-height:38px;
+          height:38px;
+          font-weight:normal;
+          }
+.prolineh p{color:#565656;}
+.prolineh span{color:#e9c473;}
+.proexplain{background:#fff;padding:10px 15px;color:#565656;}
+/*工程上限END*/
+</style>
+</head>
+<body> 
+<!-- 宣传页 -->
+<div class="w_p100" >
+  <div class="publogo">
+    <div class="mr_5"><img src="../images/yslogo.png"></div>
+    <div><span>河狸建筑</span></div>
+  </div>
+  <div class="pubfeature">
+    <div class="pubfeaturef"><span>安全</span></div>
+    <div class="pubfeatures"><span>免费</span></div>
+    <div class="pubfeaturef"><span>智能</span></div>
+    <div class="pubfeatures"><span>高效</span></div>
+    <div class="pubfeaturef"><span>便捷</span></div>
+  </div>
+  <div class="pubchplan">
+    <h3>送检跟踪计划</h3>
+    <p>根据浇筑日期自动计算送检日期</p>
+    <p>自动累积浇筑天数、累积同养温度</p>
+    <p>全程跟踪送检、漏送统计</p>
+    <p>输出各类汇总表、计算表</p>
+    <div class="pubchplanp"><img class="w_p100" src="./images/propagate1.png"></div>
+  </div>
+  <div class="pubratemange ps_r">
+    <h3>进度管理</h3>
+    <p>形象化的施工进度图</p>
+    <p>全方位展示工程进度</p>
+    <div class="pubratemangep"><img class="w_p100" src="./images/propagate2.png">
+      <!-- <img class="proright1" src="./images/proright1.png" alt="">
+      <span class="proright1s">现场施工进度</span>
+      <img class="proright2" src="./images/proright2.png" alt="">
+      <span class="proright2s">资料完成进度</span>
+      <img class="proleft" src="./images/proleft.png" alt="">
+      <span class="prolefts">材料送检进度</span> -->
+      <div class="pubratemangedw">
+        <div><img src="./images/propagate2.1.png"></div>
+        <div><img src="./images/propagate2.2.png"></div>
+        <div><img src="./images/propagate2.3.png"></div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="pubprint">
+    <h3>资料套打</h3>
+    <p>根据工程概况、送检计划部位信息全局关联</p>
+    <p>多维度资料一键批量打印</p>
+    <p>资料就是这么简单</p>
+    <div class="pubprintp"><img class="w_p100" src="./images/propagate3.png"></div>
+  </div>
+  <div class="pubwechact">
+    <h3>微信办公</h3>
+    <p>轻松关注河狸公众号</p>
+    <p>即可随时随掌管您的工程</p>
+    <div class="pubwechactp"><img class="w_p100" src="./images/propagate4.png"></div>
+  </div>
+  <div class="pubcloudsave">
+    <h3>云端安全存储</h3>
+    <p>银行级别的安全防护</p>
+    <p>云端化数据处理</p>
+    <p>满足多平台用户需求</p>
+    <div class="pubcloudsavep"><img class="w_p100" src="./images/propagate5.png"></div>
+  </div>
+  <div class="pubfile">
+    <!-- <p>Copyright&copy;2015-2016河狸工作信息科技有限公司</p> -->
+    <p>粤ICP备16028963号-1</p>
+    <!-- <p>联系电话:13500053575&nbsp;邮箱:weijinhuan@126.com</p> -->
+
+  </div>
+  <a class="publogin" href="./reg.html">立即注册</a>
+</div> 
+<!-- 宣传页END --> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+
+
+
+
+</body> 
+ <script src="./js/zepto.min.js"></script> 
+ <script>
+  
+
+// $(function() {
+
+ 
+// 	var fx = localStorage.getItem('from');
+
+//    $('.publogin').attr('href','./reg.html?from='+fx);
+// });
+
+</script>
+</html> 

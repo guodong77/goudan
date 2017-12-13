@@ -1,0 +1,29 @@
+ <div ng-controller="setty_ctrl" class="widget-body win winscroll form-horizontal bgc_b">
+ 	<div class="row">
+ 		<div class="col-sm-12 h_530">
+ 			<div class="scroll-pane b_2 plr_10">
+ 				 <!--   -->
+ 					 
+ 						
+ 					
+ 					<div class="checkbox" ng-repeat="(key, value) in dataset">
+ 						<label>
+ 							<input type="checkbox" class="colored-blue" checked="checked"> 
+ 							<span class="text">首层墙柱</span>
+ 						</label>
+ 					</div>
+ 					 
+ 				
+ 			</div>
+ 		</div>
+ 	</div>
+
+ 	<div class="row">
+ 		<div class="col-sm-12 ysbtnsmall t_c">
+ 			<button type="button" class="b_2 btn btn-default">全选</button>
+ 			<button type="button" class="b_2 btn btn-default">反选</button>
+ 			<button type="button" class="b_2 btn btn-default">清空</button>
+ 			<button type="button" class="b_2 btn btn-default">确定</button>
+ 		</div>
+ 	</div>
+ </div>

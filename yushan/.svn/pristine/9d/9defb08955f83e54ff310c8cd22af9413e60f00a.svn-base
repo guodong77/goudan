@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>恒信达</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <include file="public@head"/>
+</head>
+<body  class="user-login">
+
+
+    <form class="js-ajax-form" action="{:url('user/login/doLogin')}" method="post">
+       <div class="form">
+          <div class="title"><span>恒信达信息有限公司</span></div>
+          <ul>
+            <li class="in"><i class="io1"></i><input name="username" type="text" placeholder="账号"></li>
+            <li class="in"><i class="io2"></i><input name="password" type="password" placeholder="密码"></li>
+            <li class="fun">
+               <div class="paging-checkbox"><input id="ii1" name="se" type="checkbox"><label for="ii1">记住我</label></div>
+            </li>
+            <li class="but">
+              <input name="" type="submit" value="立即登录"></a>
+            </li>
+            <li class="fun taright">如需建立新账户请发邮件至：Sales@hxdsms.com</li>
+          </ul>
+
+
+          
+       </div>
+    </form>
+
+
+    <include file="public@scripts"/>
+
+    <hook name="before_body_end"/>
+
+</body>
+</html>

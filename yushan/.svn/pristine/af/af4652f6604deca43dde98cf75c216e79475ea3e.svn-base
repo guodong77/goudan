@@ -1,0 +1,517 @@
+<div ng-controller="com_ctrl">
+<style type="text/css" media="screen">
+  .selimg{
+    background: #2C3E50;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 4px 14px;
+    display:block;
+    margin:0 auto;
+  }
+</style>
+<div class="content chearfixed wrap" style="padding-left: 0">
+    <a href="#/program/pro"> <b class="fl"></b>
+        <span class="fl" style="line-height: 15px;
+    margin-left: 5px;">工程列表</span>
+    </a>
+    <div class="title" >
+        <span class="title1" ng-bind="proinfo.prname"></span>
+        <span class="title2">
+            开始日期：
+            <span ng-bind="proinfo.kaigong"></span>
+             结束日期：
+            <span ng-bind="proinfo.jungong"></span>
+        </span>
+    </div>
+<div class="winbody pro_base" style="max-width: 1200px;margin: 0 auto">
+	<div class="widget-body biaoge">
+        <div class="widget-main ">
+            <div class="tabbable">
+                <ul class="nav nav-tabs tabs-flat" id="myTab11">
+                    <li class="active">
+                        <a data-toggle="tab" goto="#jiben">
+                            基本信息
+                        </a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" goto="#shigong">
+                            施工单位
+                        </a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" goto="#jianshe">
+                            建设单位
+                        </a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" goto="#jianli">
+                            监理单位
+                        </a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" goto="#sheji">
+                            设计单位
+                        </a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" goto="#kancha">
+                            勘察单位
+                        </a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" goto="#qita">
+                            其他单位
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content tabs-flat table-ys0" ng-repeat="(key, value) in program_base_info" style="text-align: center">
+                    <div id="jiben" class="tab-pane in active">
+                        <table class="table table-bordered table-hover table-striped"> 
+                        <tr class="bgi_5  fw_b">
+                         <td colspan="6" height="30" class="gctt">
+                        
+                         工程基本信息</td> 
+                        </tr>
+                       <tr class="bgc_2">
+                           <td width="12%"  height="29"  >工程名称</td>
+                           <td width="30%" style="border-bottom: 1px solid #ddd;" colspan="5">
+                               <input class="ipone_c" name="prname"  value="{{value.prname}}" pornameedit="prname"></td>
+                       </tr>
+                       <tr class="bgc_2">
+                           <td width="12%"  height="29">工程图片</td>
+                           <td width="30%">
+                               <form id="prouploader" method="post" accept-charset="utf-8" style="position: relative;">
+                                    <img ng-src="{{value.proimg}}" alt="" style="width:37px;height: 29px; position: absolute;left: 100px;">
+                                    <input type="file" name="file" value="" placeholder="" style="height:35px;line-height: 35px;width: 78px;margin: 0 auto;position: absolute;left: 146px;opacity: 0" probaseupload="{{value.codeid}}" formid="#prouploader" class="pro-upload" imgtype="proimg">
+                                    <button type="button" class="selimg">选择图片</button>
+                               </form>
+                           </td>
+                          <td width="12%">工程地址</td>
+                           <td width="12%">
+                               <input class="ipone_c" name="gcdizhi" value="{{value.gcdizhi}}" comedit="gcdizhi"></td>
+                           <td width="12%">结构类型</td>
+                           <td width="15%">
+                               <select class="sel_1 w_p100" comedit="jiegou">
+                                   <option value="0">请选择</option>
+                                   <option value="1" ng-selected="value.jiegou == 1">框架</option>
+                                   <option value="2" ng-selected="value.jiegou == 2">框剪</option>
+                               </select>
+
+                           </td>
+                           <!-- <td width="12%">工程图片预览</td>
+                           <td width="12%" style="text-align: center;">
+                              <img ng-src="{{value.proimg}}" alt="" style="height: 29px;">
+                           </td>
+                           <td width="12%"></td>
+                           <td width="15%"></td>    -->                       
+                       </tr>
+                      <tr class="bgc_3"> 
+                   <td  height="29">建筑面积</td>
+                        <td><input class="ipone_c" name="mianji" value="{{value.mianji}}"  comedit="mianji"></td>
+                        <td>预算造价</td>
+                        <td><input class="ipone_c" value="{{value.zaojia}}" name="zaojia" comedit="zaojia"></td>
+                        <td>建筑高度</td>
+                        <td><input class="ipone_c" value="{{value.gaodu}}" name="gaodu" comedit="gaodu"></td> 
+                    </tr> 
+                     <tr class="bgc_2"> 
+                   <td  height="29">开工日期</td>
+                        <td><input class="ipone_c"  value="{{value.kaigong}}" laydateedit="kaigong"></td>
+                        <td>竣工日期</td>
+                        <td><input class="ipone_c"  value="{{value.jungong}}" laydateedit="jungong"></td>
+                        <td>工期</td>
+                        <td><input class="ipone_c" value="{{value.gongqi}}" name="gongqi" comedit="gongqi"></td> 
+                    </tr>
+                     <tr class="bgc_3"> 
+                   <td  height="29">地上层数</td>
+                        <td><input class="ipone_c" value="{{value.cengshu}}" name="cengshu" comedit="cengshu"></td>
+                        <td>地下层数</td>
+                        <td><input class="ipone_c" value="{{value.dxcengshu}}" name="dxcengshu" comedit="dxcengshu"></td>
+                        <td>审图合格证编号</td>
+                        <td><input class="ipone_c" value="{{value.stbianhao}}" name="stbianhao" comedit="stbianhao"></td> 
+                    </tr>
+                     <tr class="bgc_2"> 
+                   <td  height="29">所在城市</td>
+                   <td>
+                     <div class="row">
+                       <div class="col-sm-5" style="padding-right: 0;">
+                         <select id="pid" changepro="value" key="pid" class="w_p100" >
+                           <option value="0">选择省份</option>
+                           <option ng-selected="value.pid==val.pid" value="{{val.pid}}" ng-repeat="(key, val) in com_province">{{val.province}}</option>
+                         </select>
+                       </div>
+                       <div class="col-sm-5" style="padding-left: 0;padding-right: 0;">
+                         <select id="cityid" class="w_p100" procity key="cityid">
+                           <option value="0">选择城市</option>
+                           <option ng-selected="value.cityid==val.ctid" value="{{val.ctid}}" ng-repeat="(key, val) in com_city">{{val.city}}</option>
+                         </select>
+                       </div>
+                       <div class="col-sm-2 t_l" style="padding-left: 0;padding-right: 0;line-height: 30px;">
+                           <span saveprocity ng-if="litsave==1" class="litsave">保存</span>
+                       </div>
+                     </div>
+                   </td>
+                        <td>施工许可证号</td>
+                        <td><input class="ipone_c" value="{{value.sgbianhao}}" name="sgbianhao" comedit="sgbianhao"></td>
+                        <td>发证机关</td>
+                        <td><input class="ipone_c" value="{{value.fzjiguan}}" name="fzjiguan" comedit="fzjiguan"></td>
+                    </tr>
+                     <tr class="bgc_3"> 
+                   <td  height="29">工程规划许可证号</td>
+                        <td><input class="ipone_c" value="{{value.gcguihua}}" name="gcguihua" comedit="gcguihua"></td>
+                        <td>见证员</td>
+                        <td><input class="ipone_c" value="{{value.jzyuan}}" name="jzyuan" comedit="jzyuan"></td>
+                        <td>质监编号</td>
+                        <td><input class="ipone_c" value="{{value.zhijian}}" name="zhijian" comedit="zhijian"></td> 
+                    </tr>
+                     <tr class="bgc_2"> 
+                   <td  height="29">用地规划许可证号</td>
+                        <td><input class="ipone_c" value="{{value.ydguihua}}" name="ydguihua" comedit="ydguihua"></td>
+                        <td class="fc__y2">*见证卡号</td>
+                        <td><input class="ipone_c" value="{{value.jzka}}" name="jzka" comedit="jzka"></td>
+                        <td>安监编号</td>
+                        <td><input class="ipone_c" value="{{value.anjian}}" name="anjian" comedit="anjian"></td> 
+                    </tr>
+                     <tr class="bgi_5  fw_b">
+                         <td colspan="6" height="30"  class="gctt">工程技术信息</td> 
+                        </tr>
+                       <tr class="bgc_3"> 
+                   <td  height="29">墙体材料</td>
+                        <td><input class="ipone_c" value="{{value.qiangti}}" name="qiangti" comedit="qiangti"></td>
+                        <td>墙体材料强度等级</td>
+                        <td><input class="ipone_c" value="{{value.qiangtidj}}" name="qiangtidj" comedit="qiangtidj"></td>
+                        <td>屋面隔热材料</td>
+                        <td><input class="ipone_c" value="{{value.gere}}" name="gere" comedit="gere"></td> 
+                    </tr>
+                      <tr class="bgc_2"> 
+                   <td  height="29">砌筑砂浆类型</td>
+                        <td><input class="ipone_c" value="{{value.qzleixing}}" name="qzleixing" comedit="qzleixing"></td>
+                        <td>砌筑砂浆配合比</td>
+                        <td><input class="ipone_c" value="{{value.peihebi}}" name="peihebi" comedit="peihebi"></td>
+                        <td>屋面防水材料</td>
+                        <td><input class="ipone_c" value="{{value.fangshui}}" name="fangshui" comedit="fangshui"></td> 
+                    </tr> 
+                     <tr class="bgc_2"> 
+                   <td  height="29">水泥品种及等级(养护记录用)</td>
+                        <td><input class="ipone_c" value="{{value.shuini}}" name="shuini" comedit="shuini"></td>
+                        <td>外加剂名称(养护记录用)</td>
+                        <td><input class="ipone_c" value="{{value.waijiaji}}" name="waijiaji" comedit="waijiaji"></td>
+                        <td>掺和料名称(养护记录用)</td>
+                        <td><input class="ipone_c" value="{{value.canheliao}}" name="canheliao" comedit="canheliao"></td> 
+                    </tr>
+                    </table>  
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div id="shigong" class="tab-pane">
+                        <table class="table table-bordered" > 
+                        <tr class="bgi_5  fw_b">
+                         <td colspan="6" height="30"  class="gctt">施工单位信息</td> 
+                        </tr>
+                       
+                      <tr class="bgc_2"> 
+                   <td  height="29">施工单位</td>
+                        <td><input class="ipone_c" value="{{value.sgname}}" name="sgname" comedit="sgname"></td>
+                        <td>施工单位资质证号</td>
+                        <td><input class="ipone_c" value="{{value.sgzizhi}}" name="sgzizhi" comedit="sgzizhi"></td>
+                        <td>施工资质等级</td>
+                        <td><input class="ipone_c" value="{{value.sgdengji}}" name="sgdengji" comedit="sgdengji"></td> 
+                    </tr> 
+                    <tr class="bgc_3"> 
+                   <td  height="29">注册号</td>
+                        <td><input class="ipone_c" value="{{value.sgzhucehao}}" name="sgzhucehao" comedit="sgzhucehao"></td>
+                        <td>安全生产许可证号</td>
+                        <td><input class="ipone_c" value="{{value.sgxukehao}}" name="sgxukehao" comedit="sgxukehao"> </td>
+                        <td>施工单位电话</td>
+                        <td><input class="ipone_c" value="{{value.sgdianhua}}" name="sgdianhua" comedit="sgdianhua"></td> 
+                    </tr>
+                     <tr class="bgc_2"> 
+                   <td  height="29">企业技术负责人</td>
+                        <td><input class="ipone_c" value="{{value.qyjishu}}" name="qyjishu" comedit="qyjishu"> </td>
+                        <td>证书编号</td>
+                        <td><input class="ipone_c" value="{{value.qyjishubh}}" name="qyjishubh" comedit="qyjishubh"></td>
+                        <td>电话号码</td>
+                        <td><input class="ipone_c" value="{{value.qyjishudh}}" name="qyjishudh" comedit="qyjishudh"></td> 
+                    </tr>
+                    <tr class="bgc_3"> 
+                   <td  height="29">项目技术负责人</td>
+                        <td><input class="ipone_c" value="{{value.xmjishu}}" name="xmjishu" comedit="xmjishu"> </td>
+                        <td>证书编号</td>
+                        <td><input class="ipone_c" value="{{value.xmjishubh}}" name="xmjishubh" comedit="xmjishubh"></td>
+                        <td>手机号码</td>
+                        <td><input class="ipone_c" value="{{value.xmjishudh}}" name="xmjishudh" comedit="xmjishudh"></td> 
+                    </tr>
+                       <tr class="bgc_3"> 
+                   <td  height="29">项目经理</td>
+                        <td><input class="ipone_c" value="{{value.jingli}}" name="jingli" comedit="jingli"> </td>
+                        <td>证书号</td>
+                        <td><input class="ipone_c" value="{{value.jinglibh}}" name="jinglibh" comedit="jinglibh"></td>
+                        <td>手机号码</td>
+                        <td><input class="ipone_c" value="{{value.jinglidh}}" name="jinglidh" comedit="jinglidh"></td> 
+                    </tr>
+                      <tr class="bgc_2"> 
+                   <td  height="29">施工员</td>
+                        <td><input class="ipone_c" value="{{value.shigongyuan}}" name="shigongyuan" comedit="shigongyuan"> </td>
+                        <td>证书编号</td>
+                        <td comedit=""><input class="ipone_c" value="{{value.shigongyuanzh}}" name="shigongyuanzh" comedit="shigongyuanzh"></td>
+                        <td>手机号码</td>
+                        <td><input class="ipone_c" value="{{value.shigongyuandh}}" name="shigongyuandh" comedit="shigongyuandh"></td> 
+                    </tr> 
+                    <tr class="bgc_3"> 
+                   <td  height="29">质量员</td>
+                        <td><input class="ipone_c" value="{{value.zhiliangyuan}}" name="zhiliangyuan" comedit="zhiliangyuan"> </td>
+                        <td>证书编号</td>
+                        <td><input class="ipone_c" value="{{value.zhiliangyuanzh}}" name="zhiliangyuanzh" comedit="zhiliangyuanzh"></td>
+                        <td>手机号码</td>
+                        <td><input class="ipone_c" value="{{value.zhiliangyuandh}}" name="zhiliangyuandh" comedit="zhiliangyuandh"></td> 
+                    </tr>
+                      <tr class="bgc_2"> 
+                   <td  height="29">安全员</td>
+                        <td><input class="ipone_c" value="{{value.anquanyuan}}" name="anquanyuan" comedit="anquanyuan"> </td>
+                        <td>证书编号</td>
+                        <td><input class="ipone_c" value="{{value.anquanyuanzh}}" name="anquanyuanzh" comedit="anquanyuanzh"></td>
+                        <td>手机号码</td>
+                        <td><input class="ipone_c" value="{{value.anquanyuandh}}" name="anquanyuandh" comedit="anquanyuandh"></td> 
+                    </tr> 
+                    <tr class="bgc_3"> 
+                   <td  height="29">施工单位负责人</td>
+                        <td><input class="ipone_c" value="{{value.sgfuzeren}}" name="sgfuzeren" comedit="sgfuzeren"></td>
+                        <td>手机号码</td>
+                        <td><input class="ipone_c" value="{{value.sgfuzerendh}}" name="sgfuzerendh" comedit="sgfuzerendh"></td>
+                        <td></td>
+                        <td></td> 
+                    </tr>
+                     <tr class="bgc_2"> 
+                   <td  height="29">钢筋工班组长</td>
+                        <td><input class="ipone_c" value="{{value.gangjingong}}" name="gangjingong" comedit="gangjingong"> </td>
+                        <td>抹灰班组长</td>
+                        <td><input class="ipone_c" value="{{value.mohuigong}}" name="mohuigong" comedit="mohuigong"></td>
+                        <td>电工班组长</td>
+                        <td><input class="ipone_c" value="{{value.diangong}}" name="diangong" comedit="diangong"> </td> 
+                    </tr>
+                           <tr class="bgc_3"> 
+                   <td  height="29">木工班组长</td>
+                        <td><input class="ipone_c" value="{{value.mugong}}" name="mugong" comedit="mugong"> </td>
+                        <td>砌筑班组长</td>
+                        <td><input class="ipone_c" value="{{value.qizhu}}" name="qizhu" comedit="qizhu"> </td>
+                        <td>焊工班组长</td>
+                        <td><input class="ipone_c" value="{{value.hangong}}" name="hangong" comedit="hangong"></td> 
+                    </tr>
+                               <tr class="bgc_2"> 
+                   <td  height="29">混凝土班组长</td>
+                        <td><input class="ipone_c" value="{{value.tonggong}}" name="tonggong" comedit="tonggong"> </td>
+                        <td>架子工班组长</td>
+                        <td><input class="ipone_c" value="{{value.jiazigong}}" name="jiazigong" comedit="jiazigong"> </td>
+                        <td>水电班组长</td>
+                        <td><input class="ipone_c" value="{{value.shuidian}}" name="shuidian" comedit="shuidian"> </td> 
+                    </tr>
+                  
+                    </table> 
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+                    <div id="jianli" class="tab-pane">
+                        <table class="table table-bordered" > 
+                        <tr class="bgi_5  fw_b">
+                         <td colspan="6" height="30"  class="gctt">监理单位</td> 
+                        </tr>
+                            <tr class="bgc_2"> 
+                   <td  height="29">监理单位</td>
+                        <td><input class="ipone_c" value="{{value.jlname}}" name="jlname" comedit="jlname"> </td>
+                        <td>监理单位资质证号</td>
+                        <td><input class="ipone_c" value="{{value.jlzizhi}}" name="jlzizhi" comedit="jlzizhi"> </td>
+                        <td>监理资质等级</td>
+                        <td><input class="ipone_c" value="{{value.jldengji}}" name="jldengji" comedit="jldengji"> </td> 
+                    </tr> 
+                    <tr class="bgc_3"> 
+                   <td  height="29">注册证号</td>
+                        <td><input class="ipone_c" value="{{value.jlzhucehao}}" name="jlzhucehao" comedit="jlzhucehao"> </td>
+                        <td>监理单位电话</td>
+                        <td><input class="ipone_c" value="{{value.jldianhua}}" name="jldianhua" comedit="jldianhua"></td>
+                        <td> </td>
+                        <td></td> 
+                    </tr>
+                    <tr class="bgc_3"> 
+                   <td  height="29">项目总监理工程师</td>
+                        <td><input class="ipone_c" value="{{value.zongjian}}" name="zongjian" comedit="zongjian"> </td>
+                        <td>证书号</td>
+                        <td><input class="ipone_c" value="{{value.zjzhenghao}}" name="zjzhenghao" comedit="zjzhenghao"> </td>
+                        <td>手机号码</td>
+                        <td><input class="ipone_c" value="{{value.zjdianhua}}" name="zjdianhua" comedit="zjdianhua"> </td> 
+                    </tr>
+                      <tr class="bgc_2"> 
+
+                   <td  height="29">专业监理工程师</td>
+                        <td><input class="ipone_c" value="{{value.zhuanjian}}" name="zhuanjian" comedit="zhuanjian"> </td>
+                        <td>证书号</td>
+                        <td><input class="ipone_c" value="{{value.zhuanjianzh}}" name="zhuanjianzh" comedit="zhuanjianzh"></td>
+                        <td>手机号码</td>
+                        <td><input class="ipone_c" value="{{value.zhuanjiandh}}" name="zhuanjiandh" comedit="zhuanjiandh"></td> 
+                    </tr> 
+                           <tr class="bgc_3"> 
+                   <td  height="29">监理员</td>
+                        <td><input class="ipone_c" value="{{value.jianliyuan}}" name="jianliyuan" comedit="jianliyuan"> </td>
+                        <td>手机号码</td>
+                        <td><input class="ipone_c" value="{{value.jianliyuandh}}" name="jianliyuandh" comedit="jianliyuandh"></td>
+                        <td></td>
+                        <td></td> 
+                    </tr> 
+                    <tr class="bgc_2"> 
+                   <td  height="29">监理单位负责人</td>
+                        <td><input class="ipone_c" value="{{value.jlfuzeren}}" name="jlfuzeren" comedit="jlfuzeren"></td>
+                        <td>手机号码</td>
+                        <td><input class="ipone_c" value="{{value.jlfuzerendh}}" name="jlfuzerendh" comedit="jlfuzerendh"></td>
+                        <td></td>
+                        <td></td> 
+                      </tr></table>
+                    </div>
+
+
+
+
+
+
+
+
+                    <div id="jianshe" class="tab-pane">
+                        <table class="table table-bordered" > 
+                        <tr class="bgi_5  fw_b">
+                         <td colspan="6" height="30"  class="gctt">建设单位</td> 
+                        </tr>
+                    <tr class="bgc_3"> 
+                   <td  height="29">建设单位</td>
+                        <td><input class="ipone_c" value="{{value.jsname}}" name="jsname" comedit="jsname"> </td>
+                        <td>建设单位电话</td>
+                        <td><input class="ipone_c" value="{{value.jsdianhua}}" name="jsdianhua" comedit="jsdianhua"></td>
+                        <!-- <td></td>
+                        <td></td> --> 
+                    </tr>
+                    <tr class="bgc_2"> 
+                   <td  height="29">建设单位负责人</td>
+                        <td><input class="ipone_c" value="{{value.jsfuze}}" name="jsfuze" comedit="jsfuze"> </td>
+                        <td>手机号码</td>
+                        <td><input class="ipone_c" value="{{value.jsphone}}" name="jsphone" comedit="jsphone"> </td>
+                        <!-- <td></td>
+                        <td></td> --> 
+                      </tr></table>
+                    </div>
+
+
+
+
+                    <div id="sheji" class="tab-pane">
+                       <table class="table table-bordered" > 
+                        <tr class="bgi_5  fw_b">
+                         <td colspan="6" height="30"  class="gctt">设计单位</td> 
+                        </tr>
+                    <tr class="bgc_2"> 
+                   <td  height="29">设计单位</td>
+                        <td><input class="ipone_c" value="{{value.sjname}}" name="sjname" comedit="sjname"> </td>
+                        <td>设计单位资质证号</td>
+                        <td><input class="ipone_c" value="{{value.sjzizhi}}" name="sjzizhi" comedit="sjzizhi"></td>
+                        <td>设计单位资质等级</td>
+                        <td><input class="ipone_c" value="{{value.sjdengji}}" name="sjdengji" comedit="sjdengji"></td> 
+                    </tr>
+                    <tr class="bgc_3"> 
+                   <td  height="29">注册证号</td>
+                        <td><input class="ipone_c" value="{{value.sjzhucehao}}" name="sjzhucehao" comedit="sjzhucehao"></td>
+                        <td>设计单位电话</td>
+                        <td><input class="ipone_c" value="{{value.sjdianhua}}" name="sjdianhua" comedit="sjdianhua"></td>
+                        <td></td>
+                        <td></td> 
+                    </tr> 
+                    <tr class="bgc_3"> 
+                   <td  height="29">设计单位负责人</td>
+                        <td><input class="ipone_c" value="{{value.sjfuze}}" name="sjfuze" comedit="sjfuze"> </td>
+                        <td>手机号码</td>
+                        <td><input class="ipone_c" value="{{value.sjphone}}" name="sjphone" comedit="sjphone"> </td>
+                        <td></td>
+                        <td></td> 
+                      </tr></table>
+                    </div>
+
+
+
+
+
+                    <div id="kancha" class="tab-pane">
+                        <table class="table table-bordered" > 
+                        <tr class="bgi_5  fw_b">
+                         <td colspan="6" height="30"  class="gctt">勘察单位</td> 
+                        </tr>
+                      <tr class="bgc_2"> 
+                   <td  height="29">勘察单位</td>
+                        <td><input class="ipone_c" value="{{value.kcname}}" name="kcname" comedit="kcname"> </td>
+                        <td>勘察单位资质证号</td>
+                        <td><input class="ipone_c" value="{{value.kczizhi}}" name="kczizhi" comedit="kczizhi"></td>
+                        <td>勘察单位资质等级</td>
+                        <td><input class="ipone_c" value="{{value.kcdengji}}" name="kcdengji" comedit="kcdengji"></td> 
+                    </tr> 
+                    <tr class="bgc_2"> 
+                   <td  height="29">勘察单位负责人</td>
+                        <td><input class="ipone_c" value="{{value.kcfuze}}" name="kcfuze" comedit="kcfuze"> </td>
+                        <td>手机号码</td>
+                        <td><input class="ipone_c" value="{{value.kcphone}}" name="kcphone" comedit="kcphone"> </td>
+                        <td></td>
+                        <td></td> 
+                      </tr></table>
+                    </div>
+
+
+
+
+                    <div id="qita" class="tab-pane">
+                        <table class="table table-bordered" > 
+                        <tr class="bgi_5  fw_b">
+                         <td colspan="6" height="30"  class="gctt">其他单位</td> 
+                        </tr>
+                    <tr class="bgc_3"> 
+                   <td  height="29">商品混凝土单位</td>
+                        <td><input class="ipone_c" value="{{value.hntname}}" name="hntname" comedit="hntname"> </td>
+                        <td>单位资质证号</td>
+                        <td><input class="ipone_c" value="{{value.hntzizhi}}" name="hntzizhi" comedit="hntzizhi"></td>
+                        <td>单位电话</td>
+                        <td><input class="ipone_c" value="{{value.hntphone}}" name="hntphone" comedit="hntphone"> </td> 
+                    </tr>
+                      <tr class="bgc_2"> 
+                   <td  height="29">分包单位</td>
+                        <td><input class="ipone_c" value="{{value.fbname}}" name="fbname" comedit="fbname"></td>
+                        <td>分包单位资质证号</td>
+                        <td><input class="ipone_c" value="{{value.fenbaozizhi}}" name="fenbao" comedit="fenbaozizhi"></td>
+                        <td> </td>
+                        <td> </td> 
+                    </tr>  
+            
+                    </table> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+	</div>
+
+
+</div>

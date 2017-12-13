@@ -1,0 +1,100 @@
+<div ng-controller="comctrl">
+<!-- <div class="prname">
+  <span ng-bind="store('prname')"></span>
+</div> -->
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+<div  style="width: 100%;background: #fff;border-radius: 5px;">
+<div  class="artleft">
+<div class="widget-body" style="width: 400px;overflow-x: auto;padding:10px;background-color: #fff;"> 
+
+<div class="content_wrap">
+  <div class="zTreeDemoBackground left">
+    <ul id="treeDemo" class="ztree"></ul>
+  </div>
+
+<div id="rMenu">
+  <ul>
+    <li id="m_add" onclick="addTreeNode();">增加节点</li>
+    <li id="m_del" onclick="removeTreeNode();">删除节点</li>
+    <li id="m_check" onclick="checkTreeNode(true);">Check节点</li>
+    <li id="m_unCheck" onclick="checkTreeNode(false);">unCheck节点</li>
+    <li id="m_reset" onclick="resetTree();">恢复zTree</li>
+  </ul>
+</div>
+</div>
+
+
+
+
+</div>
+
+
+
+</div>
+
+<div id="arttable" class="artright" ng-controller="zlhz_ctrl">
+<div class="h_48">
+<div class="bb_3 h_48">
+<div class="fl pl_12 lh_48 f_16">
+  <span ng-bind="zllistdata.name"></span>
+</div>
+  
+
+<span class="fr mt_6 mr_20">
+   <a  ng-if="has==0" class="btn btn-blue btn-xs stru" saveasuser style="width: 110px;" >保存为用户数据</a>
+   <a href="" ng-if="has>0" class="btn btn-warning btn-xs stru" saveassystem style="width: 110px;" >重置为系统数据</a>
+      <a href="" printtable class="btn btn-primary btn-xs stru">批量打印</a>
+      <a href="" print class="btn btn-primary btn-xs stru">打印预览</a>
+
+
+</span>
+ <!--   <a class="btn btn-blue btn-xs delete"  >添加</a>  -->
+
+  
+</div>
+ </div>
+
+<div ng-include="body.zlurl" scope="zl_ctrl" onload="">
+  
+</div>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+</div>
+</div>
+
+</div>

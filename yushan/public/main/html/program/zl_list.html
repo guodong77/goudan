@@ -1,0 +1,28 @@
+<div style="width:98%;margin:10px auto;">
+     <table class="table table-striped table-bordered table-hover">
+                    <thead class="bordered-palegreen">
+                        <tr align="center">                          
+      <td height="24" width="60">序号</td>
+              <td>名称</td>
+              <td width="100">操作</td>      
+                        </tr>
+
+                    </thead>
+               <tbody>
+              <tr align="center" ng-repeat="(key, value) in zllistdata.list"> 
+              <td height="29" >{{key+1}}</td>
+              <td align="left">{{value.name}} {{value.code}}</td>
+              <td>
+              <div class="checkbox">
+        <label>
+          <input type="checkbox" changec a="{{value.c}}" ng-checked="value.c==1">  
+          <span class="text ng-binding"></span>
+        </label>
+      </div>
+
+              </td>
+             
+           </tr>
+      </tbody>
+ </table>
+  </div>

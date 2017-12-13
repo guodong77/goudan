@@ -1,0 +1,6 @@
+<taglib name="app\portal\taglib\Portal"/>
+<link rel="stylesheet" href="__TMPL__/portal/assets/css/amazeui.min.css"/>
+<link rel="stylesheet" href="__TMPL__/portal/assets/dist/amazeui.swiper.min.css"/>
+
+<link rel="stylesheet" href="__TMPL__/portal/style/all.css"/>
+<link rel="stylesheet" href="__TMPL__/portal/style/reload.css"/>

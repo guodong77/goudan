@@ -1,0 +1,202 @@
+  <div ng-controller="zl_ctrl" id="printtable" class="alltablecss">
+
+    <table style="width: 640px;height: 960px;margin-left: 60px;margin-top: 35px;">
+      <tbody>
+         <tr  ><!-- ng-repeat="(key, value) in Sdata" -->
+          <td>
+            <!-- 资料头部 -->  
+      <div class="zltitle" style="height: 80px;">
+              <table width="100%">
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="tc lh32">
+                        <span class="htitle">砂浆抗压强度计算表</span>
+                      </div>
+                     <div  class="tc  ">
+                        <span class="pt_20 ">&nbsp;</span>
+                      </div> 
+                      <div class="bianhao" style="margin-right:25px;margin-top: 5px;">
+                        <span>GD2301045</span> <input class="lip">  
+                         <input class="lip"></div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+
+            <!-- 资料表格 -->  
+            <div class="zlcontent" style="height: 880px;border: 1px solid #000;">
+
+              <!-- 内容头部 -->  
+           <table class="zlhead w_p100 tc" width="100%" height="86">
+ 
+               <tr>
+                  <td align="center" height="42">单位(子单位)工程名称</td>
+                  <td  colspan="5"><div class="divl3" contenteditable="true" divb="0" ng-bind="value.b[0]"></div></td>
+
+                </tr>
+                <!-- 宽度控制 -->
+                 <tr class="ys_b">
+                  <td height="0" width="150"></td>
+                  <td width="110"></td>
+                  <td width="80"></td>
+                  <td width="110"></td>
+                  <td width="80"></td>
+                  <td width="107"></td>
+                </tr>
+
+                <tr>
+                  <td align="center"  height="42">结构层数及部位</td>
+                  <td ><div class="divc3" contenteditable="true" divb="1" ng-bind="value.b[1]"></div></td>
+                  <td >养护条件<br>及温度</td>
+                  <td ><div class="divc3" contenteditable="true" divb="2" ng-bind="value.b[2]"></div></td>
+                  <td >砂浆设计<br>强度等级</td>
+                  <td ><div class="divc3" contenteditable="true" divb="3" ng-bind="value.b[3]"></div></td>
+                </tr>
+
+               </table>
+      <table class="zlhead w_p100 tc mt_f1" width="100%" height="631">
+
+                 <tr>
+                  <td height="35">同一验收批内各组试块的平均值(MPa)</td>                  
+                 </tr>
+
+                 <tr>
+                  <td height="35"><div class="divc3" contenteditable="true" divb="4" ng-bind="value.b[4]"></div></td>                  
+                 </tr>
+
+                 <tr>
+                  <td height="35"><div class="divc3" contenteditable="true" divb="5" ng-bind="value.b[5]"></div></td>                  
+                 </tr>
+
+                 <tr>
+                  <td height="35"><div class="divc3" contenteditable="true" divb="6" ng-bind="value.b[6]"></div></td>                  
+                 </tr>
+
+                 <tr>
+                  <td height="35"><div class="divc3" contenteditable="true" divb="7" ng-bind="value.b[7]"></div></td>                  
+                 </tr>
+
+                 <tr>
+                  <td height="35"><div class="divc3" contenteditable="true" divb="8" ng-bind="value.b[8]"></div></td>                  
+                 </tr>
+
+                 <tr>
+                  <td height="35"><div class="divc3" contenteditable="true" divb="9" ng-bind="value.b[9]"></div></td>                  
+                 </tr>
+
+                 <tr>
+                  <td height="35"><div class="divc3" contenteditable="true" divb="10" ng-bind="value.b[10]"></div></td>                  
+                 </tr>
+
+                 <tr>
+                  <td height="35"><div class="divc3" contenteditable="true" divb="11" ng-bind="value.b[11]"></div></td>                  
+                 </tr>
+
+                 <tr>
+                  <td height="35"><div class="divc3" contenteditable="true" divb="12" ng-bind="value.b[12]"></div></td>                  
+                 </tr>
+
+                 <tr>
+                  <td height="35"><div class="divc3" contenteditable="true" divb="13" ng-bind="value.b[13]"></div></td>                  
+                 </tr>
+
+                 <tr>
+                  <td height="35"><div class="divc3" contenteditable="true" divb="14" ng-bind="value.b[14]"></div></td>                  
+                 </tr>
+
+                 <tr>
+                  <td height="35"><div class="divc3" contenteditable="true" divb="15" ng-bind="value.b[15]"></div></td>                  
+                 </tr>
+
+                 <tr>
+                  <td height="35"><div class="divc3" contenteditable="true" divb="16" ng-bind="value.b[16]"></div></td>                  
+                 </tr>
+
+                 <tr>
+                  <td height="35"><div class="divc3" contenteditable="true" divb="17" ng-bind="value.b[17]"></div></td>                  
+                 </tr>
+
+                 <tr>
+                  <td height="35"><div class="divc3" contenteditable="true" divb="18" ng-bind="value.b[18]"></div></td>                  
+                 </tr>
+                 <tr>
+                  <td height="35"><div class="divc3" contenteditable="true"  divb="19" ng-bind="value.b[19]"></div></td>                  
+                 </tr>
+                 <tr>
+                  <td height="35">
+                    <table class="noborder">
+                      <tr align="center">
+                        <td height="20" style="position: relative;"> <div style="width: 12px;border-top: 1px solid #000;position: absolute;top:3px;left: 22px;"></div>R<sub>n</sub>=
+                        </td>
+                        <td ><input type="text" class="ip_1" value="{{value.b[20]}}"   ng-model="value.b[20]" ></td>
+                        <td >R<sub>min</sub>=</td>
+                        <td ><input type="text" class="ip_1" value="{{value.b[21]}}"   ng-model="value.b[21]"  ></td>
+                         <td >R<sub>标</sub>=</td>
+                        <td ><input type="text" class="ip_1" value="{{value.b[22]}}"   ng-model="value.b[22]"  ></td>
+                         <td >0.75R<sub>标</sub>=</td>
+                        <td ><input type="text" class="ip_1" value="{{value.b[23]}}"   ng-model="value.b[23]"  ></td>
+                      </tr>
+
+                      <tr class="ys_b">
+                        <td height="0" width="75"></td>
+                        <td width="70"></td>
+                        <td width="50"></td>
+                        <td width="100"></td>
+                        <td width="45"></td>
+                        <td width="110"></td>
+                        <td width="60"></td>
+                        <td width="126"></td>
+                      </tr>
+
+                    </table>
+                  </td>                  
+                 </tr>
+
+              </table>
+
+           
+
+              <!-- 内容中间 -->  
+              <div class="zlcont">
+              	 
+                  
+          <table width="100%" class="zlhead mt_f1 noborder" height="165">
+              <tr>
+                <td colspan="2" height="30" class="pl_15" style=" border-left: 1px solid;border-right: 1px solid;">验收评定结论:</td>
+              </tr>
+              <tr>
+                <td colspan="2" height="73" style=" border-left: 1px solid;border-right: 1px solid;"><div class="divc3 mh_50" contenteditable="true" divb="24" ng-bind="value.b[24]" ></div></td>
+              </tr>
+              <tr>
+                <td height="61" align="center" width="300" style=" border-left: 1px solid;border-bottom: 1px solid;">
+                  <span>年</span>  <span class="pl_20">月</span>  <span  class="pl_20">日</span>
+                </td>
+                 <td class="pl_68" width="337" style=" border-right: 1px solid;border-bottom: 1px solid;">
+                  <span>评定人:</span>
+                </td>
+              </tr>
+   
+               
+                  </table>
+
+                  <!-- 内容底部 -->  
+
+                 
+         
+              </div>
+
+
+          </div>
+    
+
+      </td>
+  </tr>
+	</tbody>
+	</table>
+
+	</div>
+
+               

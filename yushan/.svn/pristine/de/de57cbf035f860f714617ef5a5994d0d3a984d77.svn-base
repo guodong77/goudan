@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html  ng-controller="main_ctrl" scroll>
+<head>
+    <meta charset="utf-8" />
+    <meta name='renderer' content='webkit' />
+    <title></title>
+    <meta content="河狸建筑,河狸建筑工程信息化平台" name="keywords" />
+    <meta content="河狸建筑工程信息化平台，是专门为资料员量身打造的工程管理系统，集成功能：送检计划，
+送检汇总，进度管理，漏送统计及提示，送检异常统计，城市温度采集，同养温度计算及累计，
+形象进度图，横道图，资料打印等功能。手机微信关注河狸建筑，让你随时随地了解现场及送检进度，
+是资料员得力助手，为您提供贴心服务。河狸建筑在手，工程无忧！" name="description" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./main/css/bootstrap.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="./main/css/font.css" />
+    <link rel="stylesheet" href="./main/css/by.css" />
+
+    <!-- <link rel="stylesheet" href="./main/css/animate.min.css" />
+    -->
+    <link rel="stylesheet" href="./YS-frame/laydate/1.1/skins/molv/laydate.css" />
+
+    <link rel="stylesheet" href="./main/css/global.min.css" />
+
+    <!-- 引入seajs -->
+    <script src="./YS-frame/seajs/2.2.0/sea.js" ></script>
+    <!-- js配置文件 -->
+    <script> 
+       window.root3 =  window.root2 = 'api/';
+          
+ seajs.config({
+  base: '/',  // 设置别名，如果在二级目录这样配置：则base:'/erjimulu/'
+  alias: {
+    //YSframe框架基础 js模块
+    'jquery': 'YS-frame/jquery/jquery/1.10.1/jquery.js',
+    'angularjs':'YS-frame/angular/1.4.6/angular.min.js',
+    'ry':'./admin/js/RongIMWidget.min.js',  
+    'YS':'YS-frame/YS.js',  
+    //这里加载项目js
+     'global':'/admin/js/global.js'  
+  }
+}); 
+// 3、加载 项目js模块
+seajs.use(['angularjs','jquery','YS','global'],function(){  
+seajs.use(['ry'],function(){  
+   seajs.use(['fac','facv','main','conf','confv'],function(){
+
+                        angular.element(document).ready(function() { 
+                            angular.module('app',['myfact','myfactv','main','render']); 
+                            angular.bootstrap(document, ['app']); 
+                        });
+                    }); 
+ 
+             
+           
+        }); 
+
+    
+});
+
+        </script>
+
+    <!--[if lt IE 9]>
+    <style>
+.mui-global-browser-update {
+    background: #fff28d;
+    width: 100%;
+    text-align: center;
+}
+.mui-global-browser-update .mui-global-update-inner {
+    width: 990px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 auto;
+    font-size: 14px;
+    font-family: "microsoft yahei";
+    overflow: hidden;
+    color: #dd2727;
+     
+    display: block;
+}
+.mui-global-tmall-app-icon {
+    float: right;
+    background: url('./main/images/logo.png') no-repeat;
+    width: 150px;
+    height: 40px;
+}
+.mui-global-update-inner span {
+    display: block;
+    line-height: 40px;
+    height: 100%;
+    padding-left: 80px;
+}
+.mui-global-update-inner span a {
+    font-weight: 700;
+    color: #dd2727;
+}
+.ifie8{
+    display:block!important;
+}
+ </style>
+    <![endif]-->
+
+    <style type="text/css"  id="printcss">
+/*公共方法*/
+.zlcontent{font-size:10px;}
+.zlcontent input{border: 0px;background:none;}
+.zlcontent textarea{resize:none;border: 0px;background:none;}
+/*主标题*/
+.htitle{font-size: 24px;font-family: "黑体";font-weight: bold;}
+/*副标题*/
+.ftitle {font-size: 20px;font-family: '黑体';font-weight: bold;}
+
+.zlcontent td {border: solid #000 1px;}
+.noborder td{border:0;}
+
+.zlcontent td {
+    border: solid #000 1px;  
+}
+
+
+
+
+
+
+
+/*input[type=checkbox], input[type=radio] {
+
+    opacity:1;
+ position: relative;
+    left: 0px;
+    z-index: 12;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}*/
+.noborder td{
+   border:0;
+}
+
+.underline {text-decoration:underline;}
+.bline input{border-bottom:1px solid;}
+.blineGB1051 td{border:0px;}
+.bd_1{border-bottom:1px solid #000;}
+.bdl_0{border-left: 0px;}
+.bdr_0{border-right:0px;}
+.bdt_0{border-top:0px;}
+.bdb_0{border-bottom:0px;}
+.zlcontent table {
+    border-collapse: collapse;
+    border: none;}
+.fl{float:left;}
+.fr{float:right;}
+
+.fz_13{font-size: 13px;}
+
+.zlcont{
+  margin-top:-1px;}
+
+
+.ma_0{margin: 0 auto;}
+.tc{text-align:center;}
+.tr{text-align:right;}
+.tl{text-align:left;}
+.va_m{vertical-align:middle;}
+
+
+.p_2_3{padding: 2px 3px;}
+.pl12{padding-left:12px;}
+.pl2{padding-left:2px;}
+.pl3{padding-left:3px;}
+.pl4{padding-left:4px;}
+.pl5{padding-left:5px;}
+.pl_10{padding-left:10px;}
+.pl_15{padding-left:15px;}
+
+.pl_20 {padding-left: 20px;}
+.pl_25{padding-left: 25px;}
+.pl_30 {padding-left: 30px;}
+.pl_50 {padding-left: 50px;}
+.pl_55 {padding-left: 55px;}
+.pl_80 {padding-left: 80px;}
+.pl_100{padding-left: 100px;}
+.pl_400{padding-left: 400px;}
+
+.pr_10{padding-left: 10px;}
+
+.pl_100 {padding-left: 100px;}
+
+.pr_5{padding-right:5px;}
+.pr_10{padding-right:10px;}
+.pr_20{padding-right:20px;}
+.pr_30{padding-right:30px;}
+
+.pr_40{padding-right:40px;}
+.pr_45{padding-right:45px;}
+.pr_70{padding-right:70px;}
+.pr_90{padding-right:90px;}
+.pr_100{padding-right:100px;}
+
+.plr2{padding-left:3px;padding-right: 2px;}
+.plr3{padding-left:3px;padding-right: 3px;}
+.plr4{padding-left:3px;padding-right: 4px;}
+.plr5{padding-left:3px;padding-right: 5px;} 
+
+.pd2{padding:2px;}
+.pd3{padding:3px;}
+.pd4{padding:4px;}
+.pd5{padding:5px;}
+.pd12{padding:12px;}
+.pd_20{padding: 0px 20px;}
+
+.pt_5{padding-top:5px;}
+
+.pt_5{padding-top:5px;}
+.pt_7{padding-top:7px;}
+
+.pt_10{padding-top:10px;}
+.pt_15{padding-top:15px;}
+.pt_20{padding-top:20px;}
+.pt_25{padding-top:25px;}
+.pt_30{padding-top: 30px;}
+.pt_40{padding-top: 40px;}
+
+.pt_60{padding-top: 60px;}
+.pt_70{padding-top: 70px;}
+.pt_100{padding-top: 100px;}
+.pb_5{padding-bottom: 5px;}
+.pb_10{padding-bottom: 10px;}
+.pb_20{padding-bottom: 20px;}
+.pb_25{padding-bottom: 25px;}
+.pb_30{padding-bottom: 30px;}
+.mh_20{min-height: 20px;}
+.mh_50{min-height: 50px;}
+.mh_100{min-height:100px;}
+.lh28{height:28px; line-height: 28px;}
+.lh32{height:32px; line-height: 32px;}
+.lh_30{height:30px; line-height: 30px;}
+.lh_40 {height: 40px;}
+.h_40{line-height: 40px;}
+.h_10{height:10px;}    
+.h_20{height:20px;} 
+.h_30{height:30px;} 
+.h_35{height:35px;}   
+.h_40{height:40px;}
+.h_80{height:80px;}
+.h_90{height:90px;}
+.h_100{height:100px;}
+.mt_8{margin-top: 8px;}
+.mt_f25{margin-top:-25px;}
+.mt_-55{margin-top:-55px;}
+.mt_f1{margin-top:-1px;}
+
+.mr_30 {margin-right: 30px;}
+.mr_75 {margin-right: 75px;}
+.mr_80 {margin-right: 80px;}
+.mr_100 {margin-right:100px;}
+.w_50{width:50px;}
+.w_60{width:60px;}
+.w_80{width:80px;}
+.w_p100{width:100%;}
+.w_p25{width:25%;}
+.w_130{width:130px;}
+
+
+.mb_f25{margin-bottom:-25px;}
+.mb_10{margin-bottom: 10px;}
+.mb_18{margin-bottom: 18px;}
+.mb_20{margin-bottom: 20px;}
+.mb_25{margin-bottom: 25px;}
+
+.divc3{padding: 2px 3px; text-align: center;width: 100%;}
+.divl3{ padding: 2px 3px;text-align: left;width: 100%;} 
+
+.divc5{padding: 2px 5px;text-align: center;width: 100%;}
+.divl5{ padding: 2px 5px;text-align: left;width: 100%;}
+
+.lip{width: 18px;height: 18px;border: 1px solid #000;text-align: center;}
+
+.pt_25{padding-top:25px;}
+
+
+.bianhao{text-align: right;font-size: 14px; margin-right: 40px;font-weight:bold;}
+.line1039 td{
+  border:0px;
+}
+.line0102 td,.line220212 td{
+  border-bottom: 0px;
+  border-top:0px;
+}
+
+
+.blineGB1040 td,.line2301001 td{
+  border:0px;
+}
+.hsl_15 input{
+  height:15px;
+}
+.hsl_b0 td {
+  border:0px;
+}
+
+.ip_1 {
+    background: #fff;
+    text-align: center;
+    font-size: 10px;
+    border: 0;
+    width: 100%;
+    height: 100%;}
+.ip_x {
+    background: #fff;
+    text-align: center;
+    font-size: 10px;
+    border: 0;
+    width: 40%;
+    height: 90%;
+}
+.ip_1p {
+    background: #fff;
+    text-align: center;
+    font-size: 10px;
+    border: 0;
+    width: 100%;
+    height: 90%;
+}
+.ip_chang2 {
+    background: #fff;
+    text-align: center;
+    font-size: 10px;
+    border-bottom: 1px solid #000;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    width: 350px;
+    height: 100%;}
+
+
+.Ediv_fen {
+    text-align: center;
+    width: 25px;
+    height: 90%;
+    display: inline-block;
+}
+.td_pd10 td{padding:10px;}
+.td_pd5 td{padding:5px;}
+.td_pd8 td{padding:8px;}
+/*微调*/
+/*首页*/
+.navbar .navbar-brand small img{height:32px;width:auto;}
+.navbar .navbar-brand small span{color:#fff;font-weight:700;font-size:18px;line-height:40px;}
+.avatars{width: 38px;
+        height: 38px;
+        overflow: hidden;
+        border-radius: 38px;
+        margin-top: 3px;}
+.avatars img{width:38px;}
+
+    .text1{
+        margin-right: 166px;
+    }
+    .content{
+        width:1100px;
+       
+        margin: 30px auto;
+        border-radius: 4px;
+        background: #fff;
+        border: 1px solid #CCCCCC;
+    }
+    .chearfixed:after{
+        content:"";
+        display:block;
+        clear:both;
+    }
+    a{
+    text-decoration:none;
+    }
+    ul li{
+        list-style:none;
+    }
+    .btn{
+         background: #FFFFFF;
+        /*border: 1px solid #29ABE2;*/
+        border-radius: 4px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #fff;
+        margin-top: 15px;
+        padding: 5px 20px;
+        float: right;
+        margin-bottom: 21px;
+        margin-right:10px;
+    }
+ 
+    .ul>li{
+        float: left;
+        width:300px;
+        height:148px;
+        background-image: url(./main/images/img.png);
+        position: relative;
+        margin-bottom: 50px;
+    }
+    .ul>li>a{
+        display: block;
+        width:100%;
+        height: 100%;
+        padding: 10px 0 0 10px;
+        font-size: 18px;
+        color: #FFFFFF;
+    }
+    img.dete{
+        position: absolute;
+        top:-16px;
+        right:-16px;
+        opacity: 0;
+        transition: .7s;
+    }
+    .ul>li>a:hover img.dete{
+        display: block;
+    }
+    .ul>li>a:hover{
+        background: url(./main/images/Mask.png) no-repeat        
+    }
+
+    .btn1{
+        margin:0 auto;
+        display: block;
+        width:481px;
+        height:60px;
+        background: #29ABE2;
+        border: 1px solid #29ABE2;
+        border-radius: 4px;
+        font-size: 26px;
+        color: #FFFFFF;
+        transition: 0.5s
+    }
+   .btn1:hover{
+        background: #29B6F2;
+    }
+    .ul2{
+        min-width: 1200px;
+        margin:0 auto;
+        line-height: 40px;
+    }
+    .ul2 li{
+        display: inline-block;
+        padding: 0 55px 0 55px;
+    }
+    .title{
+        width:575px;
+        height:51px;
+        margin:auto;
+        
+    }
+    .ul3>li{
+        float: left;
+        margin-top: 36px;
+        width:290px;
+        height:215px;
+        border-radius: 4px;
+
+    }
+    .ul3>li>div{
+        width:260px;
+        height:215px;
+        border: 1px solid #E5E5E5;
+        border-radius: 4px;
+        transition: .5s;
+    }
+    .ul3>li>div>a{
+        padding: 12px;
+        display: block;
+    }
+    .ul3>li>div>div>button{
+        background: #FFFFFF;
+        border: 1px solid #E5E5E5;
+        padding: 0 15px 0 15px ;
+        font-size: 18px;
+        color: #666666;
+        line-height: 37px;
+        box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.10);
+        border-radius: 4px;
+        transition: .5s
+    }
+    .ul3>li>div>div>button:hover{
+        background: #f6f6f6;
+    }
+    .ul3>li>div> .span1{
+        color: #fff;
+        border-radius: 4px 4px 0 0;
+        display:block;
+        font-size: 20px;
+        height:35px;
+        line-height:35px;
+        padding-left:19px;
+        position: relative;
+        background: #29ABE2;
+        width:260px;
+    }
+    .ul3>li>div:hover{
+        box-shadow:3px 3px 15px #ccc;
+    }
+    .ul3>li>div:hover img.dete{
+        opacity: 1;
+    }
+    .add-btn{
+        background: #FFFFFF;
+        font-size: 20px;
+        color: #29ABE2;
+        border: 1px solid #CCCCCC;
+        width:260px;
+        height:50px;
+        border-radius: 4px;  
+        transition: .3s;
+    }
+    .add-btn:hover{
+        background: #29B6F2;
+        color: #fff;  
+        border:0;
+    }
+    .title1{
+      font-size: 26px;
+      color: #333333;  
+    }
+    .title2{
+      font-size: 16px;
+      color: #2A2A2A;
+      line-height: 37px;
+      margin-left: 10px;
+    }
+    .li-margin{
+        margin: 0px 48px 0 48px;
+    }
+    #header{
+        position: fixed;
+        top:0;
+        width:100%;
+        min-width: 1500px;
+        height:40px;
+        background: #29ABE2;
+        line-height: 40px;
+        color: #fff;
+        font-size: 18px;
+        z-index: 10;
+    }
+    #nav{
+        position: fixed;
+        top: 40px;
+        width:100%;
+        min-width: 1500px;
+        height:40px;
+        background: #FFFFFF;
+        box-shadow: 0 1px 0 0 #E5E5E5;
+        text-align: center;
+        z-index: 10;
+    }
+    #nav ul li>a{
+        color: #666;
+    }
+    #nav ul li>a:hover{
+        color: #29ABE2;
+    }
+    .urlbodyh{
+        height: calc(100vh - 108px);
+        overflow:hidden;
+        overflow-y: scroll;
+    }
+
+</style>
+
+</head>
+<body style="min-width: 1200px;overflow: hidden;">
+    <div id="loader" style="display: none;"></div>
+    <div class="ifie8">
+        <div class=mui-global-browser-update id=J_BrowserUpdate data-spm="a2226mw">
+            <span class=mui-global-update-inner>
+                <a title='河狸建筑建筑' class=mui-global-tmall-app-icon href="//www.tmall.com/wow/portal/act/app-download"></a>
+                <span id=J_updateNotice>
+                    为了享受更棒的用户体验，建议您使用
+                    <a target="_blank" title=360浏览器 href="http://se.360.cn/">360</a>
+                    、
+                    <a target="_blank" title=360浏览器 href="http://browser.qq.com/">QQ浏览器</a>
+                    浏览，或者使用
+                    <a target="_blank" title=点击升级浏览器 href="http://www.microsoft.com/zh-cn/windows/windows-10-upgrade" target=_blank>新版本IE浏览器</a>
+                </span>
+            </span>
+        </div>
+    </div>
+
+    <div class="spinner ysspinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+
+    <!-- <div id="header">
+    <div style="width: 1500px;margin:auto;">
+        <span class="text1">河狸建筑</span>
+        <span class="text">工程</span>
+        <img src="./main/images/Oval.png"  class="fr" ></div>
+</div>
+<div id='nav'>
+    <ul class="ul2" style="width:1200px;">
+        <li>
+            <a href="">子单位</a>
+        </li>
+        <li>
+            <a href="">温度</a>
+        </li>
+        <li>
+            <a href="">横道图</a>
+        </li>
+        <li>
+            <a href="">七天送检</a>
+        </li>
+        <li>
+            <a href="">土建资料</a>
+        </li>
+        <li>
+            <a href=""></a>
+        </li>
+    </ul>
+</div>
+<div class="content chearfixed" style="width:96%;min-width:1500px;margin-top:100px;padding-bottom: 161px;padding-top:8px;padding-left: 40px;padding-right: 40px; " >
+    <div class="title">
+        <span class="title1">旭日领裕工程项目</span>
+        <span class="title2">开始日期：2017-09-23  结束日期：2018-01-01</span>
+    </div>
+    <ul class="ul3 chearfixed" >
+        <li>
+            <div>
+                <span class="span1">
+                    1栋
+                    <img src="./main/images/detele.png" alt="" class="dete"></span>
+                <a>
+                    <img src="./main/images/img.png" width='236' height='91'></a>
+                <div class="pd12">
+                    <button>进度管理</button>
+                    <button class="fr">送检计划</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div>
+                <span class="span1">
+                    1栋
+                    <img src="./main/images/detele.png" alt="" class="dete"></span>
+                <a>
+                    <img src="./main/images/img.png" width='236' height='91'></a>
+                <div class="pd12">
+                    <button>进度管理</button>
+                    <button class="fr">送检计划</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div>
+                <span class="span1">
+                    1栋
+                    <img src="./main/images/detele.png" alt="" class="dete"></span>
+                <a>
+                    <img src="./main/images/img.png" width='236' height='91'></a>
+                <div class="pd12">
+                    <button>进度管理</button>
+                    <button class="fr">送检计划</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div>
+                <span class="span1">
+                    1栋
+                    <img src="./main/images/detele.png" alt="" class="dete"></span>
+                <a>
+                    <img src="./main/images/img.png" width='236' height='91'></a>
+                <div class="pd12">
+                    <button>进度管理</button>
+                    <button class="fr">送检计划</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div>
+                <span class="span1">
+                    1栋
+                    <img src="./main/images/detele.png" alt="" class="dete"></span>
+                <a>
+                    <img src="./main/images/img.png" width='236' height='91'></a>
+                <div class="pd12">
+                    <button>进度管理</button>
+                    <button class="fr">送检计划</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div>
+                <span class="span1">
+                    1栋
+                    <img src="./main/images/detele.png" alt="" class="dete"></span>
+                <a>
+                    <img src="./main/images/img.png" width='236' height='91'></a>
+                <div class="pd12">
+                    <button>进度管理</button>
+                    <button class="fr">送检计划</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div>
+                <span class="span1">
+                    1栋
+                    <img src="./main/images/detele.png" alt="" class="dete"></span>
+                <a>
+                    <img src="./main/images/img.png" width='236' height='91'></a>
+                <div class="pd12">
+                    <button>进度管理</button>
+                    <button class="fr">送检计划</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div>
+                <span class="span1">
+                    1栋
+                    <img src="./main/images/detele.png" alt="" class="dete"></span>
+                <a>
+                    <img src="./main/images/img.png" width='236' height='91'></a>
+                <div class="pd12">
+                    <button>进度管理</button>
+                    <button class="fr">送检计划</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div>
+                <span class="span1">
+                    1栋
+                    <img src="./main/images/detele.png" alt="" class="dete"></span>
+                <a>
+                    <img src="./main/images/img.png" width='236' height='91'></a>
+                <div class="pd12">
+                    <button>进度管理</button>
+                    <button class="fr">送检计划</button>
+                </div>
+            </div>
+        </li>
+        <li style="border:0">
+            <button class="add-btn">添加子单位</button>
+        </li>
+    </ul>
+
+</div>
+<div class="content chearfixed" style="height:718px;">
+    <div>
+        <img src="./main/images/none.png" style="display: block;margin:112px auto 74px ;">
+        <button class="btn1">
+            <img src="./main/images/ic_add.png" style="margin-top:-4px">
+            <span>创建工程</span>
+        </button>
+    </div>
+</div>
+<div class="content chearfixed" style="padding: 0 50px;height:718px;" >
+    <div class="chearfixed">
+        <button class="btn fr">新建项目</button>
+    </div>
+    <ul class="ul chearfixed">
+        <li>
+            <a href="javascript:;">
+                <span>旭日领裕工程项目</span>
+                <img src="./main/images/detele.png" class="dete"></a>
+        </li>
+        <li class="li-margin">
+            <a href="javascript:;">
+                <span>旭日领裕工程项目</span>
+                <img src="./main/images/detele.png" class="dete"></a>
+        </li>
+        <li>
+            <a href="javascript:;">
+                <span>旭日领裕工程项目</span>
+                <img src="./main/images/detele.png" class="dete"></a>
+        </li>
+        <li>
+            <a href="javascript:;" >
+                <span>旭日领裕工程项目</span>
+                <img src="./main/images/detele.png" class="dete"></a>
+        </li>
+        <li class="li-margin">
+            <a href="javascript:;">
+                <span>旭日领裕工程项目</span>
+                <img src="./main/images/detele.png" class="dete"></a>
+        </li>
+        <li>
+            <a href="javascript:;">
+                <span>旭日领裕工程项目</span>
+                <img src="./main/images/detele.png" class="dete"></a>
+        </li>
+    </ul>
+</div>
+-->
+<div class="dpn" id="win" ng-include="win.url" onload="winready()"></div>
+
+<div class="navbar navbar-fixed-top">
+
+    <div class="navbar-inner">
+        <div class="navbar-container">
+            <div class="navbar-header pull-left">
+                <a href="http://pre.ysjianzhu.com" class="navbar-brand">
+                    <div>
+                        <img src="./main/images/logo.png" alt="" style="height: 46px">
+                        
+                    </div>
+                </a>
+            </div>
+
+            
+               
+               
+            </div>
+
+        </div>
+        <div id="content" class="fullwidth dpn">
+            <span class="expand"></span>
+        </div>
+    </div>
+
+    <div class="main-container container-fluid">
+
+        <div class="page-container">
+
+            <div class="page-sidebar menu-compact sidebar-fixed" id="sidebar">
+
+                <ul class="nav sidebar-menu mt_5" style="margin-top: -75px">
+                    <li class="{{value.ngclass}}" ng-repeat="(key, value) in ysmenu_list">
+                        <a href="#{{value.url}}" class="menu-dropdown"> <i class="menu-icon {{value.icon}}"></i>
+                            <span class="menu-text" ng-bind='value.title'></span>
+                        </a>
+                        <ul class="submenu" >
+                            <li ng-if="val.show==''" ng-repeat="(k, val) in value.chl">
+                                <a href="#{{value.tap}}/{{val.tap}}">
+                                    <span class="menu-text" ng-bind="val.title"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="page-content">
+                <div class="page-breadcrumbs breadcrumbs-fixed">
+                    <ul class="breadcrumb f_18">
+                        <li>
+                            <!-- <i class="fa fa-home"></i>
+                        href="#/{{maper.oneurl}}"-->
+                        <a class="hand" href="#/{{maper.topurl}}" ng-bind="maper.one" style="font-size: 16px"></a>
+                    </li>
+                    <li class="active" style="font-size: 14px">
+                        <span ng-bind="maper.two"></span>
+                        <span ng-if="maper.oneurl!='user'" class="ellipsisstyle">
+                        </span>
+                    </li>
+
+                </ul>
+            </div>
+            <div  class="page-body" style="overflow: hidden;">
+                <div  id="animation_box" class="animated fadeInLeft" ng-include="body.url"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!--  原材钢筋-->
+    <table class="table table-striped table-bordered table-hover">
+        <thead class="bordered-palegreen">
+            <tr>
+                <th width="36"  style="padding: 6px;">
+                    <label>
+                        <input type="checkbox" comcheckall="program_plan_matterlist" class="colored-blue">
+                        <span class="text"></span>
+                    </label>
+                </th>
+                <th width="50" >排序</th>
+                <th width="100" >类型</th>
+                <th width="135" >分部</th>
+                <th width="165" >材料名称</th>
+                <th  width="100" >使用部位</th>
+                <th  width="120" >型号</th>
+                <th  width="120" >规格</th>
+                <th  width="120" >数量</th>
+                <th width="165" >厂家</th>
+                <th width="65"  >组数</th>
+                <th  width="130" >进场日期</th>
+                <th width="130"  >送检日期</th>
+                <th width="85" >是否已送</th>
+                <th width="100"  >出厂编号</th>
+                <th width="150"  >结果</th>
+                <th width="100"  >样品编号</th>
+                <th  width="60" >备注</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-if="value.isdel!=1" ng-class="{true:'yssel',false:''}[value.check==1]" ng-repeat="(key, value) in program_plan_matterlist.datalist|orderBy:'morder'|filter:{yctype:5}">
+               <td align="center">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" comcheck="check" class="colored-blue" ng-checked="value.check==1" name="{{yctype}}" value="{{value.codeid}}">
+                            <span class="text"></span>
+                        </label>
+                    </div>
+                </td>
+                <td  align="center">{{key+1}}</td>
+                <td>
+                    <select style="width:100%;" comedit="yctype">
+                        <option value="{{val.t}}" ng-repeat="(k, val) in yctypelist" ng-selected="value.yctype==val.t">{{val.title}}</option>
+                    </select>
+                </td>
+                <td>
+                      <select id="e1" style="width:100%;"  comedit="fid">
+                     <option value="{{val.t}}" ng-repeat="(k, val) in ftypelist" ng-selected="value.fid==val.t">{{val.title}}</option> 
+                    </select>
+                </td>
+                <td>
+                   
+                    <textarea class="form-control" comedit="mname" style="text-align:left;" ng-bind="value.mname">
+                    </textarea>
+                </td>
+                <td>
+                <input type="text" value="{{value.buwei}}"  comedit="buwei" class="form-control">
+                </td>
+                <td>
+                    <input type="text" value="{{value.xinghao}}"  comedit="xinghao" class="form-control">
+                </td>
+                <td>
+                    <input type="text" value="{{value.guige}}"  comedit="guige" class="form-control">
+                </td>
+                <td>
+                    <input type="text" value="{{value.number}}"  comedit="number" class="form-control">
+                </td>
+                <td>
+                    <input type="text" value="{{value.changjia}}"  comedit="changjia" class="form-control">
+                </td>
+                <td>
+                    <input type="text" value="{{value.yczushu}}"  comedit="yczushu" class="form-control">
+                </td>
+                   <td>
+                    <input type="text" value="{{value.intime}}" readonly yclaydate="intime" class="form-control {{value.yctip}}">
+                </td>
+                <td>
+                    <input type="text" ng-model="value.stime" readonly yclaydate="stime" class="form-control {{value.yctip}}">
+                </td>
+                <td align="center">
+                    <label class="chkys">
+                        <input class="checkbox-slider slider-icon colored-blue" type="checkbox" checkedit="ycys"  emchk="byys" ng-checked="value.ycys==1">
+                        <span class="text"></span>
+                    </label>
+                </td>
+<!--                 <td>
+                    <input type="text" value="{{value.ccph}}"  comedit="ccph" class="form-control">
+                </td> -->
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.mname}}-出厂编号" key="ccph" len='{{value.yczushu}}'>
+                 <div ng-repeat="(k, v) in value.ccpharr" ng-bind="v.val"></div> 
+                </td>                  
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.mname}}-检测结果" key="jieguo" len='{{value.yczushu}}'>
+                 <div ng-repeat="(k, v) in value.jieguoarr" ng-bind="v.val"></div> 
+                </td>
+                 <td  class="def" comsetwin="program_plan_comset" extname="{{value.mname}}-样品编号" key="ypbh" len='{{value.yczushu}}'>
+                <div ng-repeat="(k, v) in value.ypbharr" ng-bind="v.val"></div> 
+                </td>
+                <td>
+                    <textarea class="form-control" comedit="beizhu" style="text-align:left;" ng-bind="value.beizhu">
+                    </textarea>
+                </td>
+            </tr>
+        </tbody>
+    </table>

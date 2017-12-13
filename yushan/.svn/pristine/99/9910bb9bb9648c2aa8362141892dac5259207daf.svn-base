@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>恒信达</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="stylesheet" href="__TMPL__/portal/assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="__TMPL__/portal/style/account.css"/>
+</head>
+<body>
+
+<header class="m-hd">
+    <section class="am-show-md-up">
+        <div class="top-nav">
+
+
+            <nav>
+                <ul class="am-nav am-nav-pills ">
+                    <li class="home"><a href="index.html"></a></li>
+                    <li class="am-active"><a href="#">Messaging</a></li>
+                    <li><a href="#">Utilities & tools</a></li>
+                    <li><a href="#">Reseller</a></li>
+                    <li><a href="#">General</a></li>
+                </ul>
+            </nav>
+
+            <div class="snav"><a class="cc" href="#">Balance: ${$user['balance']}</a><a href="#">{$user['user_login']}</a></div>
+        </div>
+    </section>
+
+
+    <nav data-am-widget="header" class="am-header am-show-sm-only">
+        <div class="am-header-left am-header-nav">
+            <a href="/" rel="nofollow">
+                <i class="am-header-icon am-icon-home"></i> 首页
+            </a>
+        </div>
+        <h1 class="am-header-title">
+            <a href="/" rel="nofollow">恒信达</a>
+        </h1>
+        <div class="am-header-right am-header-nav">
+            <a href="#right-link" class="" data-am-offcanvas="{target: '#r-nav'}">
+                <i class="am-header-icon am-icon-bars"></i> 菜单
+            </a>
+        </div>
+    </nav>
+
+    <!-- 侧边栏内容 -->
+    <div id="r-nav" class="am-offcanvas">
+        <div class="am-offcanvas-bar am-offcanvas-bar-flip">
+            <nav class="am-offcanvas-content">
+                <a href="/" rel="nofollow"><span class="logo"><img src="images/logo2.png"/></span></a>
+                <div class="am-active"><a href="#" rel="nofollow">Messaging</a></div>
+                <div><a href="#" rel="nofollow">Utilities & tools</a></div>
+                <div><a href="#" rel="nofollow">Reseller</a></div>
+                <div><a href="#" rel="nofollow">General</a></div>
+                <div><a href="#" rel="nofollow">Username</a></div>
+            </nav>
+        </div>
+
+    </div>
+</header>
+
+
+<div class="common-ad">
+    <div class="box">
+        <h2>Quick SMS</h2>
+        <div class="logo"></div>
+    </div>
+</div>
+
+<div class="common-box">
+    <div class="htitle"><span>Type of account: Personal</span> <a class="common-but" href="#">Cancel</a><a
+            class="common-but" href="#">Save</a></div>
+    <div class="main-box">
+        <div class="d-left">
+            <ul class="s-nav">
+                <li class="hover"><a href="#">Account Information</a></li>
+                <li><a href="#">Contact information</a></li>
+            </ul>
+        </div>
+        <div class="d-right">
+            <div class="main-form">
+                <div class="am-tabs" data-am-tabs="{noSwipe: 1}" id="doc-tab-demo-1">
+                    <ul class="am-tabs-nav am-nav am-nav-tabs">
+                        <li class="am-active"><a href="javascript: void(0)">Quick SMS</a></li>
+                        <li><a href="javascript: void(0)">SMS log 48h </a></li>
+                    </ul>
+                    <div style="overflow: visible" class="am-tabs-bd">
+                        <div class="am-tab-panel am-active">
+                            <form action="" class="am-form" data-am-validator>
+                                <dl>
+                                    <dt>Recipients</dt>
+                                    <dd>
+                                        <php>
+                                            if($apiname=='yitongdao1'||$apiname=='yitongdao2'){
+                                                echo '<textarea class="to"  placeholder="默认格式手机号 例：13288797865"  rows="5" id="doc-ta-1" style="max-width:300px;"></textarea>';
+                                            }else{
+                                                echo '<textarea class="to"  placeholder="默认格式国家号+手机号 例：8613288797865"  rows="5" id="doc-ta-1" style="max-width:300px;"></textarea>';
+                                            }
+                                        </php>
+                                    </dd> 
+                                </dl>
+                                <dl>
+                                    <dt>Sender</dt>
+                                    <dd>
+                                        <div class="control-group">
+                                <span class="gwt-RadioButton">
+                                    <input type="radio" name="senderType" value="on" id="gwt-uid-22" tabindex="0"
+                                           checked="">
+                                    <label for="gwt-uid-22">Alphanumeric</label>
+                                </span><span>
+                                <input type="text" class="gwt-TextBox span2 highlightField sender" maxlength="11"
+                                       style="max-width:300px;" value="{$user['defaultSender']}">
+                            </span>
+                                        </div>
+                                        <div class="control-group">
+                                    <span class="gwt-RadioButton" style="display:block;">
+                                        <input type="radio" name="senderType" value="on" id="gwt-uid-23" tabindex="0">
+                                        <label for="gwt-uid-23">Numeric</label>
+                                    </span>
+                                            <select class="span2" id="senderNumericListBox" disabled=""
+                                                    style="max-width:197px;display:inline-block;"></select>
+                                            <input type="text" class="gwt-TextBox" maxlength="3" aria-hidden="true"
+                                                   style="display:none; width: 50px;">
+                                            <a class="am-btn am-btn-default" href="javascript:;"
+                                               style="display:inline-block;">Add New</a>
+                                        </div>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>Message</dt>
+                                    <dd>
+                                        <div class="control-group">
+                                            <textarea rows="5" class="gwt-TextArea messageText span6 text"
+                                                      style="max-width:300px;"></textarea>
+                                        </div>
+                                    </dd>
+                                </dl>
+                            </form>
+
+                            <div class="but-box">
+                                <input class="common-but commit" type="submit" value="Send"/>
+                            </div>
+                        </div>
+                        <div class="am-tab-panel">
+                            <div class="am-alert am-alert-warning con-ra" data-am-alert>To provide the best possible
+                                data,
+                                please allow up to 5 mins for data extraction/presentation.
+                            </div>
+                            <form class="am-form-inline" role="form">
+                                <div class="am-form-group">
+                                    <span>Traffic</span>
+                                    <label>
+                                        <input style="width:75px;" type="text">
+                                    </label>
+                                </div>
+                                <div class="am-checkbox" style="height:30px;margin-left:5px;">
+                                    <label>
+                                        <input type="checkbox">
+                                    </label>
+                                    <span>Pending</span>
+                                </div>
+                                <div class="am-checkbox" style="height:30px;">
+                                    <label>
+                                        <input type="checkbox">
+                                    </label>
+                                    <span>Delivered</span>
+                                </div>
+                                <div class="am-checkbox" style="height:30px;">
+                                    <label>
+                                        <input type="checkbox">
+                                    </label>
+                                    <span>Failed</span>
+                                </div>
+                                <div class="am-checkbox" style="height:30px;">
+                                    <label>
+                                        <input type="checkbox">
+                                    </label>
+                                    <span>Submitted</span>
+                                </div>
+                                <div class="am-form-group" style="margin-left:10px;">
+                                    <span>External message id</span>
+                                    <label>
+                                        <input style="width:75px;" type="text">
+                                    </label>
+                                </div>
+                                <button type="button" class="am-btn am-btn-warning con-ra sms-refresh">Refresh</button>
+                            </form>
+                            <form class="am-form-inline" role="form">
+                                <div class="am-form-group">
+                                    <span>Export to:</span>
+                                    <button type="button" class="am-btn am-btn-default">Excel</button>
+                                    <button type="button" class="am-btn am-btn-default">CSV</button>
+                                </div>
+                                <div class="am-checkbox" style="height:30px;margin-left:5px;">
+                                    <label>
+                                        <input type="checkbox">
+                                    </label>
+                                    <span>Submitted</span>
+                                </div>
+                            </form>
+                            <table style="margin-top:10px;"
+                                   class="am-table am-table-bordered am-table-striped am-table-compact con-ra">
+                                <thead class="sms-head">
+                                <tr>
+                                    <th style="vertical-align: middle;text-align: center">id</th>
+                                    <th style="vertical-align: middle;text-align: center">content</th>
+                                    <th style="vertical-align: middle;text-align: center">message id</th>
+                                    <th style="vertical-align: middle;text-align: center">price </th>
+                                    <th style="vertical-align: middle;text-align: center">to</th>
+                                    <th style="vertical-align: middle;text-align: center">create time</th>
+                                    <th style="vertical-align: middle;text-align: center">send time</th>
+                                </tr>
+                                </thead>
+                                <tbody  class="sms-body">
+
+                                </tbody>
+                            </table>
+                            <div class="am-alert con-ra">
+                                No data to show
+                            </div>
+                            <button type="button" class="am-btn am-btn-default con-ra">⌂</button>
+                            <button type="button" class="am-btn am-btn-default con-ra">▶</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer class="footer">
+
+    <div class="txtall">
+        <div class="tbox">
+            <div class="fleft"><i>优秀的短信服务商</i></div>
+            <div class="fright"> Copyright  2007-2017 HXDSMS, All Rights Reserved.</div>
+        </div>
+    </div>
+
+</footer>
+
+
+<include file="public@scripts"/>
+
+<hook name="before_body_end"/>
+
+
+</body>
+</html>

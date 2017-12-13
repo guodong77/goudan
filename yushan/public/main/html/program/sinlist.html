@@ -1,0 +1,38 @@
+
+<div  ng-controller="com_ctrl" >
+<div class="dpn" id="win" ng-include="win.url" onload="winready()"></div>
+<div class="content chearfixed wrap">
+    <a href="#/program/pro"> <b class="fl"></b>
+        <span class="fl" style="line-height: 15px;
+    margin-left: 5px;">工程列表</span>
+    </a>
+    <div class="title" >
+        <span class="title1" ng-bind="proinfo.prname"></span>
+        <span class="title2">
+            开始日期：
+            <span ng-bind="proinfo.kaigong"></span>
+             结束日期：
+            <span ng-bind="proinfo.jungong"></span>
+        </span>
+    </div>
+    <ul class="ul3 chearfixed" style="padding-bottom: 60px">
+        <li ng-if="value.isdel!=1" ng-repeat="(key, value) in program_sinlist_sinlist.datalist">
+            <div class="posit">
+                <span class="span1" title="" ng-bind="value.sname"></span>
+                <a href="" class="dete" comdelone="program_sinlist_sindel" sendid="{{value.codeid}}" ></a>
+                <a sinwinedit='program_pro_sinedit'>
+                    <img ng-src="{{value.sinimg||'/main/images/defsinimg.png'}}" width='236' height='91'></a>
+                <div class="pd12">
+                    <a href="#program/work" setprosin  scodeid="{{value.codeid}}"><button>进度管理</button></a>
+                    <a href="#program/plan" setprosin  scodeid="{{value.codeid}}"><button class="fr">送检计划</button></a>
+                </div>
+            </div>
+        </li>
+        <li style="border:0">
+            <button class="add-btn" comwinadd='program_pro_sinadd' extendone="{{prcodeid}}" extendtwo="{{key}}">添加子单位</button>
+        </li>
+    </ul>
+</div>
+   
+    
+</div>

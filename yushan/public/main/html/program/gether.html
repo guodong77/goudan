@@ -1,0 +1,1519 @@
+<!--  送检汇总 -->
+<div class="widget-main biaoge" ng-controller="com_ctrl" style="margin: 90px 15px 0 15px;overflow-y: scroll;height: calc(100vh - 96px);overflow-x: hidden;">
+  <div class="dpn" id="win" ng-include="win.url" onload="winready()"></div>
+  <div class="bg-themeprimary  h_10 w_p100"></div>
+  <div class="tabbable bdgw">
+    <ul class="nav nav-tabs tabs-flat" id="myTab11">
+        <li class="active">
+            <a data-toggle="tab" goto="#seveninsp">
+                七天送检
+            </a>
+        </li> 
+        <li>
+            <a data-toggle="tab" combtn="program_gether_jilu" goto="#insperec">
+                送检快照
+            </a>
+        </li>
+    </ul>
+  
+  <div class="tab-content tabs-flat" style="border-top:none;padding-top: 0px">
+  <!-- 七天送检 -->
+  <div id="seveninsp" class="tab-pane active">
+    <div class="mygether hslgether">
+        <div class="searchtab mt_10" style="line-height: 45px;">
+
+            <label class="fl ml_15">
+                <span class="text">送检日期:</span>
+            </label>
+
+            <label class="fl ml_15 pt_7">
+                <input type="text" layerdateone="program_gether_selData" value="{{program_gether_selData.btime}}" key="btime" placeholder="起始日期" class="form-control w_120 fw_b"></label>
+            <span  class="fl ml_15">至</span>
+            <label class="fl ml_15 pt_7">
+                <input type="text" layerdateone="program_gether_selData" value="{{program_gether_selData.etime}}" key="etime" placeholder="结束日期" class="form-control w_120 fw_b"></label>
+            <button type="button"  comfind="program_gether_sel" class="btn btn-success fl ml_28 mt_7 mr_45">查询</button>
+            <!-- <label class="fl ml_15">
+            <input type="checkbox" lsshow ng-checked="lsshow" class="colored-danger">
+            <span class="text">显示漏送</span>
+
+        </label>
+        -->
+        <span class="ml_50">显示漏送 :</span>
+
+        <label class="chkys ml_15">
+
+            <input class="checkbox-slider slider-icon colored-blue" type="checkbox"  lsshow  checked="checked" ng-checked="lsshow">
+            <!-- ng-checked="value.byys==1" -->
+
+            <span class="text" style="min-height: 0px;"></span>
+        </label>
+        
+        
+        <button type="button" class="btn btn-blue  btn_gether mt_2" getherexport >导出xls</button>
+        <a id="down_button" type="button" class="btn btn-success btn_gether mt_2" style="display: none;line-height: 28px">下载png</a>
+        <button  type="button" class="btn btn-blue btn_gether mt_2 html2png" html2png="{{program_gether_selData.btime}}至{{program_gether_selData.etime}}送检记录" >生成图片</button>
+        <button  type="button" class="btn btn-blue btn_gether mt_2" data-toggle="tooltip" title="保存后，可以在送检快照中查看" savejilu>存入快照</button>
+       
+
+    </div>
+</div>
+<!-- 送检滚动 -->
+<div class="mygether hslgether gethscroll"  id="yctip" style="display: none;">
+    <div class="searchtab mt_10" style="line-height: 45px;border-bottom:1px solid #70BAFD;">
+
+        <label class="fl ml_15">
+            <span class="text">送检日期:</span>
+        </label>
+
+        <label class="fl ml_15 pt_7">
+            <input type="text" layerdateone="program_gether_selData" value="{{program_gether_selData.btime}}" key="btime" placeholder="起始日期" class="form-control w_120 fw_b"></label>
+        <span  class="fl ml_15">至</span>
+        <label class="fl ml_15 pt_7">
+            <input type="text" layerdateone="program_gether_selData" value="{{program_gether_selData.etime}}" key="etime" placeholder="结束日期" class="form-control w_120 fw_b"></label>
+        <button type="button" comfind="program_gether_sel" class="btn btn-success fl ml_28 mt_7 mr_45">查询</button>
+        <!-- <label class="fl ml_15">
+        <input type="checkbox" lsshow ng-checked="lsshow" class="colored-danger">
+        <span class="text">显示漏送</span>
+
+    </label>
+    -->
+    <span class="ml_50">显示漏送 :</span>
+
+    <label class="chkys ml_15">
+
+        <input class="checkbox-slider slider-icon colored-blue" type="checkbox" lsshow   ng-checked="lsshow">
+
+        <span class="text" style="min-height: 0px;"></span>
+    </label>
+    <button type="button" class="btn btn-blue btn_gether mt_2" getherexport>导出</button>
+    <a id="down_button" type="button" class="btn btn-success btn_gether mt_2" style="display: none;line-height: 28px">下载png</a>
+        <button  type="button" class="btn btn-blue btn_gether mt_2 html2png" html2png >生成图片</button>
+
+</div>
+</div>
+<!-- 送检滚动END -->
+
+<div id="tocanvas" class="row" style="padding-right: 15px; padding-left: 15px;">
+<div class="col-sm-12" style="background: #fff;">
+    <!-- 原材送检 -->
+    <div class="zu mt_16">
+        <div class="hztitle">
+            <span>
+                原材
+                <span class="mfc f_14">
+                    （
+                    <span ng-if="lsshow==0" class="dfc" ng-bind="program_gether_sel.yc.hzlist.length"></span>
+                    <span ng-if="lsshow==1" class="dfc" ng-bind="program_gether_sel.yc.hzlist.length+program_gether_sel.yc.lslist.length"></span>
+                    条记录）
+                </span>
+            </span>
+        </div>
+        <div ng-if="program_gether_sel.yc.hzlist.length+program_gether_sel.yc.lslist.length>
+            0">
+            <table class="table  table-hover t_c pvtTable"> 
+                <thead>
+                    <tr class="titlename dpn"><th>原材</th></tr>
+                    <tr>
+                        <th width="50">序号</th>
+                        <th width="100" >类型</th>
+                        <th width="95" >分部</th>
+                        <th width="165" >材料名称</th>
+                        <th  width="100" >使用部位</th>
+                        <th  width="120" >型号</th>
+                        <th  width="120" >规格</th>
+                        <th  width="120" >品种</th>
+                        <th  width="120" >强度</th>
+                        <th  width="120" >数量</th>
+                        <th width="165" >厂家/供货单位</th>
+                        <th  width="130" >进场日期</th>
+                        <th width="130"  >送检日期</th>
+                        <th width="65"  >组数</th>
+                        <th width="85" >是否已送</th>
+                        <!-- <th width="85" >复检项目</th>
+                    <th width="85" >报告名称</th>
+                    -->
+                    <th width="95"  >出厂编号</th>
+                    <th width="95"  >结果</th>
+                    <th width="95"  >样品编号</th>
+                    <th  width="100" >备注</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="hzstyle" ng-repeat="(key, value) in program_gether_sel.yc.hzlist">
+                    <td  align="center">{{$index+1}}</td>
+                    <td>
+                        <span ng-repeat="(k, val) in yctypelist" ng-if="value.yctype == val.t" ng-bind="val.title"></span>
+                    </td>
+                    <td>
+                  <span ng-if="value.fid==val.t" ng-repeat="(k, val) in ftypelist" ng-bind="val.title"></span>
+
+                    </td>
+
+                    <td ng-bind="value.mname"></td>
+                    <td ng-bind="value.buwei"></td>
+                    <td ng-bind="value.xinghao"></td>
+                    <td ng-bind="value.guige"></td>
+                    <td ng-bind="value.pinzhong"></td>
+                    <td ng-bind="value.qiangdu"></td>
+                    <td ng-bind="value.number"></td>
+                    <td ng-bind="value.changjia"></td>
+
+                    <td ng-bind="value.intime">
+                    <!--     <input type="text" value="{{value.intime}}" readonly  class="form-control {{value.yctip}}"> -->
+                        </td>
+                    <td  ng-bind="value.stime">
+                     <!--    <input type="text" value="{{value.stime}}" readonly  class="form-control {{value.yctip}}"> -->
+                        </td>
+                    <td >
+                        <input type="text" value="{{value.yczushu}}" class="form-control" comedit="yczushu"></td>
+                    <td align="center">
+                        <label class="chkys">
+                            <input class="checkbox-slider slider-icon colored-blue" type="checkbox" checkedit="ycys" ng-checked="value.ycys==1">
+                            <span class="text"></span>
+                            <span class="dpn titlename">否</span>
+                        </label>
+
+                    </td>
+                   <!--  <td ng-bind="value.ccph"></td> -->
+                    <td  class="def" comsetwin="program_plan_comset" extname="{{value.mname}}-出厂编号" key="ccph" len='{{value.yczushu}}'>
+                        <div ng-repeat="(k, v) in value.ccpharr" ng-bind="v.val"></div>
+                    </td>                   
+                    <td  class="def" comsetwin="program_plan_comset" extname="{{value.mname}}-检测结果" key="jieguo" len='{{value.yczushu}}'>
+                        <div ng-repeat="(k, v) in value.jieguoarr" ng-bind="v.val"></div>
+                    </td>
+                    <td  class="def" comsetwin="program_plan_comset" extname="{{value.mname}}-样品编号" key="ypbh" len='{{value.yczushu}}'>
+                        <div ng-repeat="(k, v) in value.ypbharr" ng-bind="v.val"></div>
+                    </td>
+                    <td>
+                        <textarea class="form-control" comedit="beizhu" style="text-align:left;" ng-bind="value.beizhu"></textarea>
+                    </td>
+
+                </tr>
+                <tr ng-if="lsshow"  class="lsstyle" ng-repeat="(key, value) in program_gether_sel.yc.lslist">
+                    <td  align="center">{{$index+1}}</td>
+                    <td>
+                        <span ng-repeat="(k, val) in yctypelist" ng-if="value.yctype == val.t" ng-bind="val.title"></span>
+                    </td>
+                    <td>
+               <span ng-if="value.fid==val.t" ng-repeat="(k, val) in ftypelist" ng-bind="val.title"></span>
+
+                    </td>
+
+                    <td ng-bind="value.mname"></td>
+                    <td ng-bind="value.buwei"></td>
+                    <td ng-bind="value.xinghao"></td>
+                    <td ng-bind="value.guige"></td>
+                    <td ng-bind="value.pinzhong"></td>
+                    <td ng-bind="value.qiangdu"></td>
+                    <td ng-bind="value.number"></td>
+                    <td ng-bind="value.changjia"></td>
+                    <td ng-bind="value.intime">
+                    <!--<input type="text" value="{{value.intime}}" readonly  class="form-control {{value.yctip}}"> -->
+                        </td>
+                    <td ng-bind="value.stime">
+                    <!--<input type="text" value="{{value.stime}}" readonly  class="form-control {{value.yctip}}"> -->
+                        </td>
+                    <td>
+                        <input type="text" value="{{value.yczushu}}" class="form-control" comedit="yczushu"></td>
+                    <td align="center">
+                        <label class="chkys">
+                            <input class="checkbox-slider slider-icon colored-blue" type="checkbox" checkedit="ycys" ng-checked="value.ycys==1">
+                            <span class="text"></span>
+                            <span class="dpn titlename">否</span>
+                        </label>
+
+                    </td>
+                    <!--     <td ng-bind="value.fujian"></td>
+                <td ng-bind="value.baogao"></td>
+                -->
+                <!-- <input type="text" value="" class="form-control" comedit="tem">
+                -->
+                <!-- <td ng-bind="value.ccph"></td> -->
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.mname}}-出厂编号" key="ccph" len='{{value.yczushu}}'>
+                    <div ng-repeat="(k, v) in value.ccpharr" ng-bind="v.val"></div>
+                </td>                   
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.mname}}-检测结果" key="jieguo" len='{{value.yczushu}}'>
+                    <div ng-repeat="(k, v) in value.jieguoarr" ng-bind="v.val"></div>
+                </td>
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.mname}}-样品编号" key="ypbh" len='{{value.yczushu}}'>
+                    <div ng-repeat="(k, v) in value.ypbharr" ng-bind="v.val"></div>
+                </td>
+                <td>
+                    <textarea class="form-control" comedit="beizhu" style="text-align:left;" ng-bind="value.beizhu"></textarea>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+</div>
+
+<!-- 标准养护 -->
+<div class="zu">
+<div class="hztitle">
+    <span>
+        标准养护
+        <span class="mfc f_14">
+            （
+            <span ng-if="lsshow==0" class="dfc" ng-bind="program_gether_sel.by.hzlist.length"></span>
+            <span ng-if="lsshow==1" class="dfc" ng-bind="program_gether_sel.by.hzlist.length+program_gether_sel.by.lslist.length"></span>
+            条记录）
+        </span>
+    </span>
+</div>
+<div class="biaoge" ng-if="program_gether_sel.by.hzlist.length+program_gether_sel.by.lslist.length>
+    0">
+    <table class="table pvtTable table-hover t_c">
+        <thead>
+            <tr class="titlename dpn"><th>标准养护</th></tr>
+            <tr>
+            <th width="65" >序号</th>
+            <th width="135" >分部</th>
+            <th width="135" >子单位</th>
+            <th   >工程部位</th>
+            <th  width="85" >强度等级</th>
+            <th  width="65" >用量</th>
+            <th  width="100" >浇筑日期</th>
+            <th width="100" >标养送检日期</th>
+            <th  width="65" >龄期</th>
+            <th width="65"  >组数</th>
+            <th width="85" >是否已送</th>
+            <th  width="100" >结果</th>
+            <th  >芯片编号</th>
+            <th  >样品编号</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr  class="hzstyle" ng-repeat="(key, value) in program_gether_sel.by.hzlist">
+                <td>
+                    <span ng-bind="key+1"></span>
+                </td>
+                <td>
+                    <span ng-if="value.fid==val.t" ng-repeat="(k, val) in ftypelist" ng-bind="val.title"></span>
+
+                </td>
+                <td >
+                    <span ng-bind="value.sname"></span>
+                </td>
+                <td >
+                    <span ng-bind="value.bybuwei"></span>
+                </td>
+                <td>
+                    <span ng-repeat="(k, val) in qdypelist" ng-if="value.byqiangdu==val.t">C{{val.t}}</span>
+                </td>
+                <td>
+                    <span ng-bind="value.byyl"></span>
+                </td>
+                <td ng-bind="value.byriqi">
+                    <!--<input type="text" laydateedit="byriqi" value="{{value.byriqi}}"  class="form-control"> -->
+                    </td>
+                <td ng-bind="value.bytime">
+                    <!--<input type="text"  laydateedit="bytime" value="{{value.bytime}}"  class="form-control"> -->
+                    </td>
+                <td>
+                    <span ng-bind="lq(value.byriqi,value.bytime)"></span>
+                </td>
+                <td>
+                    <input type="text" value="{{value.byzushu}}" class="form-control" comedit="byzushu">
+                </td>
+                <td align="center">
+                    <label class="chkys">
+                        <input class="checkbox-slider slider-icon colored-blue" type="checkbox" checkedit="byys"  emchk="byys" ng-checked="value.byys==1">
+                        <span class="text"></span>
+                        <span class="dpn titlename">否</span>
+                    </label>
+                </td>
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.bybuwei}}-检测结果" key="byjg" len='{{value.byzushu}}'>
+                    <div ng-repeat="(k, v) in value.byjgarr" ng-bind="v.val"></div>
+                </td>
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.bybuwei}}-芯片编号" key="xinpian" len='{{value.byzushu}}'>
+                    <div ng-repeat="(k, v) in value.xinpianarr" ng-bind="v.val"></div>
+                </td>
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.bybuwei}}-样品编号" key="bybh" len='{{value.byzushu}}'>
+                    <div ng-repeat="(k, v) in value.bybharr" ng-bind="v.val"></div>
+                </td>
+            </tr>
+            <tr  ng-if="lsshow==1" class="lsstyle" ng-repeat="(key, value) in program_gether_sel.by.lslist">
+                <td>
+                    <span ng-bind="key+1"></span>
+                </td>
+                <td>
+                    <span ng-if="value.fid==val.t" ng-repeat="(k, val) in ftypelist" ng-bind="val.title"></span>
+                </td>
+                <td >
+                    <span ng-bind="value.sname"></span>
+                </td>
+                <td >
+                    <span ng-bind="value.bybuwei"></span>
+                </td>
+                <td>
+                    <span ng-repeat="(k, val) in qdypelist" ng-if="value.byqiangdu==val.t">C{{val.t}}</span>
+                </td>
+                <td>
+                    <span ng-bind="value.byyl"></span>
+                </td>
+                <td ng-bind="value.byriqi">
+                    <!--<input type="text" laydateedit="byriqi" value="{{value.byriqi}}"  class="form-control"> -->
+                    </td>
+                <td ng-bind="value.bytime">
+                    <!--<input type="text"  laydateedit="bytime" value="{{value.bytime}}"  class="form-control"> -->
+                    </td>
+                <td>
+                    <span ng-bind="lq(value.byriqi,value.bytime)"></span>
+                </td>
+                <td>
+                    <input type="text" value="{{value.byzushu}}" class="form-control" comedit="byzushu">
+                </td>
+                <td align="center">
+                    <label class="chkys">
+                        <input class="checkbox-slider slider-icon colored-blue" type="checkbox" checkedit="byys"  emchk="byys" ng-checked="value.byys==1">
+                        <span class="text"></span>
+                        <span class="dpn titlename">否</span>
+                    </label>
+                </td>
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.bybuwei}}-检测结果" key="byjg" len='{{value.byzushu}}'>
+                    <div ng-repeat="(k, v) in value.byjgarr" ng-bind="v.val"></div>
+                </td>
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.bybuwei}}-芯片编号" key="xinpian" len='{{value.byzushu}}'>
+                    <div ng-repeat="(k, v) in value.xinpianarr" ng-bind="v.val"></div>
+                </td>
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.bybuwei}}-样品编号" key="bybh" len='{{value.byzushu}}'>
+                    <div ng-repeat="(k, v) in value.bybharr" ng-bind="v.val"></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+</div>
+
+<!-- 同条件养护 -->
+<div class="zu">
+<div class="hztitle">
+    <span>
+        同条件养护
+        <span class="mfc f_14">
+            （
+            <span ng-if="lsshow==0" class="dfc" ng-bind="program_gether_sel.ty.hzlist.length"></span>
+            <span ng-if="lsshow==1" class="dfc" ng-bind="program_gether_sel.ty.lslist.length+program_gether_sel.ty.hzlist.length"></span>
+            条记录）
+        </span>
+    </span>
+</div>
+<div ng-if="program_gether_sel.ty.hzlist.length+program_gether_sel.ty.lslist.length>
+    0">
+    <table class="table pvtTable table-hover t_c">
+        <thead>
+        <tr class="titlename dpn"><th>同条件养护</th></tr>
+            <tr>
+                <th width="65" >序号</th>
+                <th width="135" >分部</th>
+                <th width="135" >子单位</th>
+                <th >工程部位</th>
+                <th  width="85" >强度等级</th>
+                <th  width="100" >累计温度</th>
+                <th  width="100" >浇筑日期</th>
+                <th width="100" >同养送检日期</th>
+                <th  width="65" >龄期</th>
+                <th width="65"  >组数</th>
+                <th width="85" >是否已送</th>
+                <th  width="100" >结果</th>
+                <th  >样品编号</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr  class="hzstyle" ng-repeat="(key, value) in program_gether_sel.ty.hzlist">
+                <td>
+                    <span ng-bind="value.myorder"></span>
+                </td>
+                <td>
+                    <span ng-if="value.fid==val.t" ng-repeat="(k, val) in ftypelist" ng-bind="val.title"></span>
+
+                </td>
+                <td >
+                    <span ng-bind="value.sname"></span>
+                </td>
+                <td >
+                    <span ng-bind="value.tyname"></span>
+                </td>
+                <td>
+                    <span ng-repeat="(k, val) in qdypelist" ng-if="value.byqiangdu==val.t">C{{val.t}}</span>
+                </td>
+
+                <td align="center">
+                <div style="width: 50px;" ng-if="value.tyys==0" class="br_2 hand dangqian{{tystl(value.wstem,value.tyys)['stl']}}" title="{{tystl(value.wstem)['str']}}"  extname="{{value.tyname}}" wenduwin="program_plan_wealist"><span ng-bind="value.wstem"></span>℃</div> 
+
+                <div style="width: 50px;" ng-if="value.tyys==1" class="br_2 hand dangqian{{tystl(value.ystem,value.tyys)['stl']}}" title="{{tystl(value.ystem)['str']}}"  extname="{{value.tyname}}" wenduwin="program_plan_wealist"><span ng-bind="value.ystem"></span>℃</div> 
+                </td>
+                <td ng-bind="value.byriqi">
+<!--                     <input type="text" laydateedit="byriqi"  value="{{value.byriqi}}"  class="form-control"> -->
+                    <!-- laydateone --> </td>
+                <td ng-bind="value.tytime">
+<!--                     <input type="text" laydateedit="tytime" value="{{value.tytime}}"  class="form-control"> -->
+                    <!-- laydateone --> </td>
+                <td>
+                    <span ng-bind="{{lq(value.byriqi,value.tytime)}}"></span>
+                </td>
+                <td>
+                    <input type="text" comedit="tyzushu" value="{{value.tyzushu}}"  class="form-control"></td>
+                <td align="center">
+                    <label class="chkys">
+                        <input class="checkbox-slider slider-icon colored-blue" type="checkbox" checkedit="tyys" ng-checked="value.tyys==1">
+                        <span class="text"></span>
+                        <span class="dpn titlename">否</span>
+                    </label>
+
+                </td>
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.bybuwei}}-检测结果" key="tyjg" len='{{value.tyzushu}}'>
+                    <div ng-repeat="(k, v) in value.tyjgarr" ng-bind="v.val"></div>
+                </td>
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.bybuwei}}-样品编号" key="tybh" len='{{value.tyzushu}}'>
+                    <div ng-repeat="(k, v) in value.tybharr" ng-bind="v.val"></div>
+                </td>
+            </tr>
+            <tr ng-if="lsshow==1" class="lsstyle" ng-repeat="(key, value) in program_gether_sel.ty.lslist">
+                <td>
+                    <input type="text" value="{{value.myorder}}" class="form-control" comedit="myorder"></td>
+                <td>
+                    <span ng-if="value.fid==val.t" ng-repeat="(k, val) in ftypelist" ng-bind="val.title"></span>
+
+                </td>
+                <td >
+                    <span ng-bind="value.sname"></span>
+                </td>
+                <td >
+                  <span ng-bind="value.tyname"></span>
+
+                    </td>
+                <td>
+                    <span ng-repeat="(k, val) in qdypelist" ng-if="value.byqiangdu==val.t">C{{val.t}}</span>
+
+                </td>
+
+                 <td align="center">
+                <div style="width: 50px;" ng-if="value.tyys==0" class="br_2 hand dangqian{{tystl(value.wstem,value.tyys)['stl']}}" title="{{tystl(value.wstem)['str']}}"  extname="{{value.tyname}}" wenduwin="program_plan_wealist"><span ng-bind="value.wstem"></span>℃</div> 
+
+                <div style="width: 50px;" ng-if="value.tyys==1" class="br_2 hand dangqian{{tystl(value.ystem,value.tyys)['stl']}}" title="{{tystl(value.ystem)['str']}}"  extname="{{value.tyname}}" wenduwin="program_plan_wealist"><span ng-bind="value.ystem"></span>℃</div> 
+                </td>
+                <td ng-bind="value.byriqi">  </td>
+                <td ng-bind="value.tytime">  </td>
+                <td>
+                    <span ng-bind="{{lq(value.byriqi,value.tytime)}}"></span>
+                </td>
+                <td>
+                    <input type="text" comedit="tyzushu" value="{{value.tyzushu}}"  class="form-control"></td>
+                <td align="center">
+                    <label class="chkys">
+                        <input class="checkbox-slider slider-icon colored-blue" type="checkbox" checkedit="tyys" ng-checked="value.tyys==1">
+                        <span class="text"></span>
+                        <span class="dpn titlename">否</span>
+                    </label>
+
+                </td>
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.bybuwei}}-检测结果" key="tyjg" len='{{value.tyzushu}}'>
+                    <div ng-repeat="(k, v) in value.tyjgarr" ng-bind="v.val"></div>
+                </td>
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.bybuwei}}-样品编号" key="tybh" len='{{value.tyzushu}}'>
+                    <div ng-repeat="(k, v) in value.tybharr" ng-bind="v.val"></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+</div>
+
+<!-- 抗渗 -->
+<div class="zu">
+<div class="hztitle">
+    <span>
+        抗渗
+        <span class="mfc f_14">
+            （
+            <span ng-if="lsshow==0" class="dfc" ng-bind="program_gether_sel.ks.hzlist.length"></span>
+            <span ng-if="lsshow==1" class="dfc" ng-bind="program_gether_sel.ks.lslist.length+program_gether_sel.ks.hzlist.length"></span>
+            条记录）
+        </span>
+    </span>
+</div>
+<div ng-if="program_gether_sel.ks.hzlist.length+program_gether_sel.ks.lslist.length>
+    0">
+    <table class="table pvtTable table-hover t_c">
+        <thead>
+            <tr class="titlename dpn"><th>抗渗</th></tr>
+            <tr>
+                <th width="65" >序号</th>
+                <th width="135" >分部</th>
+                <th width="135" >子单位</th>
+                <th   >工程部位</th>
+                <th  width="85" >强度等级</th>
+                <th  width="100" >抗渗等级</th>
+                <th  width="100" >浇筑日期</th>
+                <th width="100" >抗渗送检日期</th>
+                <th  width="65" >龄期</th>
+                <th width="65"  >组数</th>
+                <th width="85" >是否已送</th>
+                <th  width="100" >结果</th>
+                <th  >样品编号</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr   class="hzstyle" ng-repeat="(key, value) in program_gether_sel.ks.hzlist">
+
+                <td  align="center">{{$index+1}}</td>
+                <td>
+                    <span ng-if="value.fid==val.t" ng-repeat="(k, val) in ftypelist" ng-bind="val.title"></span>
+
+                </td>
+                <td >
+                    <span ng-bind="value.sname"></span>
+                </td>
+                <td ng-bind="value.ksname">
+                   </td>
+                <td>
+                    <span ng-repeat="(k, val) in qdypelist" ng-if="value.byqiangdu==val.t">C{{val.t}}</span>
+
+                </td>
+
+                <td  ng-bind="value.ksdengji">
+                     
+                    </td>
+                <td ng-bind="value.byriqi">
+                    <!-- <input type="text" laydateedit="byriqi" value="{{value.byriqi}}"  class="form-control"> -->
+                    </td>
+                <td ng-bind="value.kstime">
+                   <!--  <input type="text" laydateedit="kstime" value="{{value.kstime}}"  class="form-control"> -->
+                    </td>
+                <td>
+                    <span ng-bind="{{lq(value.byriqi,value.kstime)}}"></span>
+                </td>
+                <td>
+                    <input type="text" comedit="kszushu" value="{{value.kszushu}}"  class="form-control"></td>
+                <td align="center">
+                    <label class="chkys">
+                        <input class="checkbox-slider slider-icon colored-blue" type="checkbox" ng-checked="value.ksys==1" checkedit="ksys">
+                        <span class="text"></span>
+                        <span class="dpn titlename">否</span>
+                    </label>
+
+                </td>
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.bybuwei}}-检测结果" key="ksjg" len='{{value.kszushu}}'>
+                    <div ng-repeat="(k, v) in value.ksjgarr" ng-bind="v.val"></div>
+                </td>
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.bybuwei}}-样品编号" key="ksbh" len='{{value.kszushu}}'>
+                    <div ng-repeat="(k, v) in value.ksbharr" ng-bind="v.val"></div>
+                </td>
+            </tr>
+            <tr ng-if="lsshow" class="lsstyle" ng-repeat="(key, value) in program_gether_sel.ks.lslist">
+                <td>{{$index+1}}</td>
+                <td>
+                    <span ng-if="value.fid==val.t" ng-repeat="(k, val) in ftypelist" ng-bind="val.title"></span>
+
+                </td>
+                <td >
+                    <span ng-bind="value.sname"></span>
+                </td>
+                <td ng-bind="value.ksname">
+                    </td>
+                <td>
+                    <span ng-repeat="(k, val) in qdypelist" ng-if="value.byqiangdu==val.t">C{{val.t}}</span>
+
+                </td>
+
+                <td ng-bind="value.ksdengji">
+                     </td>
+                <td ng-bind="value.byriqi">
+                    <!-- <input type="text" laydateedit="byriqi" value="{{value.byriqi}}"  class="form-control"> -->
+                    </td>
+                <td ng-bind="value.kstime">
+                    <!-- <input type="text" laydateedit="kstime" value="{{value.kstime}}"  class="form-control"> -->
+                    </td>
+                <td>
+                    <span ng-bind="{{lq(value.byriqi,value.kstime)}}"></span>
+                </td>
+                <td>
+                    <input type="text" comedit="kszushu" value="{{value.kszushu}}"  class="form-control"></td>
+                <td align="center">
+                    <label class="chkys">
+                        <input class="checkbox-slider slider-icon colored-blue" type="checkbox" ng-checked="value.ksys==1" checkedit="ksys">
+                        <span class="text"></span>
+                        <span class="dpn titlename">否</span>
+                    </label>
+
+                </td>
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.bybuwei}}-检测结果" key="ksjg" len='{{value.kszushu}}'>
+                    <div ng-repeat="(k, v) in value.ksjgarr" ng-bind="v.val"></div>
+                </td>
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.bybuwei}}-样品编号" key="ksbh" len='{{value.kszushu}}'>
+                    <div ng-repeat="(k, v) in value.ksbharr" ng-bind="v.val"></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+</div>
+
+<!-- 柱头 -->
+<div class="zu">
+<div class="hztitle">
+    <span>
+        柱头
+        <span class="mfc f_14">
+            （
+            <span ng-if="lsshow==0" class="dfc" ng-bind="program_gether_sel.zt.hzlist.length"></span>
+            <span ng-if="lsshow==1" class="dfc" ng-bind="program_gether_sel.zt.lslist.length+program_gether_sel.zt.hzlist.length"></span>
+            条记录）
+        </span>
+    </span>
+</div>
+<div ng-if="program_gether_sel.zt.hzlist.length+program_gether_sel.zt.lslist.length>
+    0">
+    <table class="table pvtTable table-hover t_c">
+        <thead>
+            <tr class="titlename dpn"><th>柱头</th></tr>
+            <tr>
+                <th width="65" >序号</th>
+                <th width="135" >分部</th>
+                <th width="135" >子单位</th>
+                <th   >工程部位</th>
+                <th  width="85" >强度等级</th>
+                <th  width="100" >浇筑日期</th>
+                <th width="100" >送检日期</th>
+                <th  width="65" >龄期</th>
+                <th width="65"  >组数</th>
+                <th width="85" >是否已送</th>
+                <th  >检测编号</th>
+                <th  width="100" >结果</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr  class="hzstyle" ng-repeat="(key, value) in program_gether_sel.zt.hzlist">
+                <td  align="center">{{$index+1}}</td>
+                <td>
+                    <span ng-if="value.fid==val.t" ng-repeat="(k, val) in ftypelist" ng-bind="val.title"></span>
+
+                </td>
+                <td >
+                    <span ng-bind="value.sname"></span>
+                </td>
+                <td ng-bind="value.ztname"></td>
+                <td>
+                    <span ng-repeat="(k, val) in qdypelist" ng-if="value.byqiangdu==val.t">C{{val.t}}</span>
+
+                </td>
+
+                <td ng-bind="value.byriqi"> 
+                    </td>
+                <td ng-bind="value.zttime"> 
+                    </td>
+                <td>
+                    <span ng-bind="{{lq(value.byriqi,value.zttime)}}"></span>
+                </td>
+                <td>
+                    <input type="text" comedit="ztzushu" value="{{value.ztzushu}}"  class="form-control"></td>
+                <td align="center">
+                    <label class="chkys">
+                        <input class="checkbox-slider slider-icon colored-blue" type="checkbox" ng-checked="value.ztys==1" checkedit="ztys">
+                        <span class="text"></span>
+                        <span class="dpn titlename">否</span>
+                    </label>
+
+                </td>
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.ztname}}-检测结果" key="ztjg" len='{{value.ztzushu}}'>
+                    <div ng-repeat="(k, v) in value.ztjgarr" ng-bind="v.val"></div>
+                </td>
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.ztname}}-样品编号" key="ztbh" len='{{value.ztzushu}}'>
+                    <div ng-repeat="(k, v) in value.ztbharr" ng-bind="v.val"></div>
+                </td>
+            </tr>
+
+            <tr ng-if="lsshow" class="lsstyle" ng-repeat="(key, value) in program_gether_sel.zt.lslist">
+                <td  align="center">{{$index+1}}</td>
+                <td>
+                    <span ng-if="value.fid==val.t" ng-repeat="(k, val) in ftypelist" ng-bind="val.title"></span>
+
+                </td>
+                <td >
+                    <span ng-bind="value.sname"></span>
+                </td>
+                <td >
+                    <span ng-bind="value.ztname"></span>
+                </td>
+                <td>
+                    <span ng-repeat="(k, val) in qdypelist" ng-if="value.byqiangdu==val.t">C{{val.t}}</span>
+
+                </td>
+
+                <td ng-bind="value.byriqi">
+                    <!-- <input type="text" value="{{value.byriqi}}"  class="form-control" laydateedit="byriqi"> -->
+                    </td>
+                <td ng-bind="value.zttime">
+                   <!--  <input type="text" value="{{value.zttime}}"  class="form-control" laydateedit="zttime"> -->
+                    </td>
+                <td>
+                    <span ng-bind="{{lq(value.byriqi,value.zttime)}}"></span>
+                </td>
+                <td>
+                    <input type="text" comedit="ztzushu" value="{{value.ztzushu}}"  class="form-control"></td>
+                <td align="center">
+                    <label class="chkys">
+                        <input class="checkbox-slider slider-icon colored-blue" type="checkbox" ng-checked="value.ztys==1" checkedit="ztys">
+                        <span class="text"></span>
+                        <span class="dpn titlename">否</span>
+                    </label>
+
+                </td>
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.ztname}}-检测结果" key="ztjg" len='{{value.ztzushu}}'>
+                    <div ng-repeat="(k, v) in value.ztjgarr" ng-bind="v.val"></div>
+                </td>
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.ztname}}-样品编号" key="ztbh" len='{{value.ztzushu}}'>
+                    <div ng-repeat="(k, v) in value.ztbharr" ng-bind="v.val"></div>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+</div>
+
+<!-- 拆模 -->
+<div class="zu">
+<div class="hztitle">
+    <span>
+        拆模
+        <span class="mfc f_14">
+            （
+            <span ng-if="lsshow==0" class="dfc" ng-bind="program_gether_sel.cm.hzlist.length"></span>
+            <span ng-if="lsshow==1" class="dfc" ng-bind="program_gether_sel.cm.lslist.length+program_gether_sel.cm.hzlist.length"></span>
+            条记录）
+        </span>
+    </span>
+</div>
+<div ng-if="program_gether_sel.cm.hzlist.length+program_gether_sel.cm.lslist.length>
+    0">
+    <table class="table pvtTable table-hover t_c">
+        <thead>
+            <tr class="titlename dpn"><th>拆模</th></tr>
+            <tr>
+                <th width="65" >序号</th>
+                <th width="135" >分部</th>
+                <th width="135" >子单位</th>
+                <th   >工程部位</th>
+                <th  width="85" >强度等级</th>
+                <th  width="100" >浇筑日期</th>
+                <th width="100" >拆模送检日期</th>
+                <th  width="65" >龄期</th>
+                <th width="65"  >组数</th>
+                <th width="85" >是否已送</th>
+                <th  >检测编号</th>
+                <th  width="100" >结果</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr  class="hzstyle" ng-repeat="(key, value) in program_gether_sel.cm.hzlist">
+
+                <td>{{$index+1}}</td>
+                <td>
+                    <span ng-if="value.fid==val.t" ng-repeat="(k, val) in ftypelist" ng-bind="val.title"></span>
+
+                </td>
+                <td >
+                    <span ng-bind="value.sname"></span>
+                </td>
+                <td ng-bind="value.cmname">
+                     </td>
+                <td>
+                    <span ng-repeat="(k, val) in qdypelist" ng-if="value.byqiangdu==val.t">C{{val.t}}</span>
+
+                </td>
+
+                <td ng-bind="value.byriqi">
+                   <!--  <input type="text" value="{{value.byriqi}}"  class="form-control" laydateedit="byriqi"> -->
+                    </td>
+                <td ng-bind="value.cmtime">
+                    <!-- <input type="text" value="{{value.cmtime}}"  class="form-control" laydateedit="cmtime"> -->
+                    </td>
+                <td>
+                  <span ng-bind="{{lq(value.byriqi,value.cmtime)}}"></span>
+                  </td>
+                <td>
+                    <input type="text" value="{{value.cmzushu}}"  class="form-control" comedit="cmzushu"></td>
+                <td align="center">
+                    <label class="chkys">
+                        <input class="checkbox-slider slider-icon colored-blue" type="checkbox" ng-checked="value.cmys==1" checkedit="cmys">
+                        <span class="text"></span>
+                        <span class="dpn titlename">否</span>
+                    </label>
+
+                </td>
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.cmname}}-检测结果" key="cmjg" len='{{value.cmzushu}}'>
+                    <div ng-repeat="(k, v) in value.cmjgarr" ng-bind="v.val"></div>
+                </td>
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.cmname}}-样品编号" key="cmbh" len='{{value.cmzushu}}'>
+                    <div ng-repeat="(k, v) in value.cmbharr" ng-bind="v.val"></div>
+                </td>
+            </tr>
+            <tr ng-if="lsshow" class="lsstyle" ng-repeat="(key, value) in program_gether_sel.cm.lslist">
+                <td>{{$index+1}}</td>
+                <td>
+                    <span ng-if="value.fid==val.t" ng-repeat="(k, val) in ftypelist" ng-bind="val.title"></span>
+
+                </td>
+                <td >
+                    <span ng-bind="value.sname"></span>
+                </td>
+                <td ng-bind="value.cmname">
+                    </td>
+                <td>
+                    <span ng-repeat="(k, val) in qdypelist" ng-if="value.byqiangdu==val.t">C{{val.t}}</span>
+
+                </td>
+
+                <td ng-bind="value.byriqi">
+                    <!-- <input type="text" value="{{value.byriqi}}"  class="form-control" laydateedit="byriqi"> --></td>
+                <td ng-bind="value.cmtime">
+                    <!-- <input type="text" value="{{value.cmtime}}"  class="form-control" laydateedit="cmtime"> --></td>
+                <td>
+                   <span ng-bind="{{lq(value.byriqi,value.cmtime)}}"></span></td>
+                <td>
+                    <input type="text" value="{{value.cmzushu}}"  class="form-control" comedit="cmzushu"></td>
+                <td align="center">
+                    <label class="chkys">
+                        <input class="checkbox-slider slider-icon colored-blue" type="checkbox" ng-checked="value.cmys==1" checkedit="cmys">
+                        <span class="text"></span>
+                        <span class="dpn titlename">否</span>
+                    </label>
+
+                </td>
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.cmname}}-检测结果" key="cmjg" len='{{value.cmzushu}}'>
+                    <div ng-repeat="(k, v) in value.cmjgarr" ng-bind="v.val"></div>
+                </td>
+                <td  class="def" comsetwin="program_plan_comset" extname="{{value.cmname}}-样品编号" key="cmbh" len='{{value.cmzushu}}'>
+                    <div ng-repeat="(k, v) in value.cmbharr" ng-bind="v.val"></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+</div>
+
+<!-- 焊接 -->
+<div class="zu">
+<div class="hztitle">
+    <span>
+        焊接
+        <span class="mfc f_14">
+            （
+            <span ng-if="lsshow==0" class="dfc" ng-bind="program_gether_sel.dz.hzlist.length"></span>
+            <span ng-if="lsshow==1" class="dfc" ng-bind="program_gether_sel.dz.lslist.length+program_gether_sel.dz.hzlist.length"></span>
+            条记录）
+        </span>
+    </span>
+</div>
+<div ng-if="program_gether_sel.dz.hzlist.length+program_gether_sel.dz.lslist.length>
+    0">
+    <table class="table pvtTable table-hover t_c">
+        <thead>
+            <tr class="titlename dpn"><th>焊接</th></tr>
+            <tr>
+                 <th width="65">序号</th>
+                <th width="135" >分部</th>
+                <th width="135" >子单位</th>
+                <th   >焊接部位</th>
+                <th  width="250" >钢筋牌号/规格直径/组数/厂家</th>
+                <th  width="110" >部位砼浇筑日期</th>
+                <th width="100" >送检日期</th>
+                <th width="85" >组数</th>
+                <th width="85" >是否已送</th>
+
+                <th  width="100" >结果</th>
+                <th  >样品编号</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr  class="hzstyle" ng-repeat="(key, value) in program_gether_sel.dz.hzlist">
+                <!-- <td  align="center">
+                    <div class="checkbox">
+                        <label yscheck="dzselected">
+                            <input type="checkbox" class="colored-blue" ng-checked="value.dzcheck==1"  comcheck="dzcheck">
+                            <span class="text"></span>
+                            <span class="dpn titlename">否</span>
+                        </label>
+                    </div> 
+                </td> -->
+              <td>{{$index+1}}</td>
+            <td>
+                <span ng-if="value.fid==val.t" ng-repeat="(k, val) in ftypelist" ng-bind="val.title"></span> 
+            </td>
+            <td >
+                <span ng-bind="value.sname"></span>
+            </td>
+            <td ng-bind="value.dzname">
+               <!--  <input type="text" class="form-control" value="{{value.dzname}}" comedit="dzname" style="text-align: left;"> --></td>
+
+            <td ng-bind="value.dzguige">
+                <!-- <input type="text" class="form-control" value="{{value.dzguige}}" comedit="dzguige" style="text-align: left;"> --></td>
+            <td ng-bind="value.byriqi">
+                <!-- <input type="text" value="{{value.byriqi}}"  class="form-control" laydateedit="byriqi"> --></td>
+            <td ng-bind="value.dztime">
+                <!-- <input type="text" value="{{value.dztime}}"  class="form-control" laydateedit="dztime"> --></td>
+                <td >
+                <input type="text" class="form-control" value="{{value.dzzushu}}" comedit="dzzushu"></td>
+            <td align="center">
+                <label class="chkys">
+                    <input class="checkbox-slider slider-icon colored-blue" type="checkbox" ng-checked="value.byys==1" checkedit="byys">
+                    <span class="text"></span>
+                    <span class="dpn titlename">否</span>
+                </label>
+
+            </td>
+            <td  class="def" comsetwin="program_plan_comset" extname="{{value.dzname}}-检测结果" key="dzjg" len='{{value.dzzushu}}'>
+                <div ng-repeat="(k, v) in value.dzjgarr" ng-bind="v.val"></div>
+            </td>
+            <td  class="def" comsetwin="program_plan_comset" extname="{{value.dzname}}-样品编号" key="dzbh" len='{{value.dzzushu}}'>
+                <div ng-repeat="(k, v) in value.dzbharr" ng-bind="v.val"></div>
+            </td>
+        </tr>
+        <tr ng-if="lsshow" class="lsstyle" ng-repeat="(key, value) in program_gether_sel.dz.lslist">
+           <td>{{$index+1}}</td>
+            
+            <td>
+                <span ng-if="value.fid==val.t" ng-repeat="(k, val) in ftypelist" ng-bind="val.title"></span>
+
+            </td>
+            <td >
+                <span ng-bind="value.sname"></span>
+            </td>
+            <td ng-bind="value.dzname">
+               <!--  <input type="text" class="form-control" value="{{value.dzname}}" comedit="dzname" style="text-align: left;"> --></td>
+
+            <td ng-bind="value.dzguige">
+                <input type="text" class="form-control" value="{{value.dzguige}}" comedit="dzguige"></td>
+            <td ng-bind="value.byriqi">
+                <!-- <input type="text" value="{{value.byriqi}}"  class="form-control" laydateedit="byriqi"> --></td>
+            <td ng-bind="value.dztime">
+                <!-- <input type="text" value="{{value.bytime}}"  class="form-control" laydateedit="bytime"> --></td>
+                 <td >
+                <input type="text" class="form-control" value="{{value.dzzushu}}" comedit="dzzushu" style="text-align: left;"></td>
+            <td align="center">
+                <label class="chkys">
+                    <input class="checkbox-slider slider-icon colored-blue" type="checkbox" ng-checked="value.byys==1" checkedit="byys">
+                    <span class="text"></span>
+                    <span class="dpn titlename">否</span>
+                </label>
+
+            </td>
+            <td  class="def" comsetwin="program_plan_comset" extname="{{value.dzname}}-检测结果" key="dzjg" len='{{value.dzzushu}}'>
+                <div ng-repeat="(k, v) in value.dzjgarr" ng-bind="v.val"></div>
+            </td>
+            <td  class="def" comsetwin="program_plan_comset" extname="{{value.dzname}}-样品编号" key="dzbh" len='{{value.dzzushu}}'>
+                <div ng-repeat="(k, v) in value.dzbharr" ng-bind="v.val"></div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+</div>
+
+<!-- 砌筑 -->
+<div class="zu">
+<div class="hztitle">
+<span>
+    砌筑
+    <span class="mfc f_14">
+        （
+        <span ng-if="lsshow==0" class="dfc" ng-bind="program_gether_sel.qz.hzlist.length"></span>
+        <span ng-if="lsshow==1" class="dfc" ng-bind="program_gether_sel.qz.lslist.length+program_gether_sel.qz.hzlist.length"></span>
+        条记录）
+    </span>
+</span>
+</div>
+<div ng-if="program_gether_sel.qz.hzlist.length+program_gether_sel.qz.lslist.length>
+0">
+<table class="table pvtTable table-hover t_c">
+    <thead>
+        <tr class="titlename dpn"><th>砌筑</th></tr>
+        <tr>
+            <th width="65" >序号</th>
+            <th width="135" >分部</th>
+            <th width="135" >子单位</th>
+            <th   >工程部位</th>
+            <th  width="85" >强度/配比</th>
+
+            <th  width="100" >砌筑日期</th>
+            <th width="100" >送检日期</th>
+            <th  width="65" >龄期</th>
+            <th width="65"  >组数</th>
+            <th width="85" >是否已送</th>
+            <th  width="100" >结果</th>
+            <th  >检测编号</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr  class="hzstyle" ng-repeat="(key, value) in program_gether_sel.qz.hzlist">
+            <td  align="center">{{$index+1}}</td>
+            <td>
+                <span ng-if="value.fid==val.t" ng-repeat="(k, val) in ftypelist" ng-bind="val.title"></span>
+
+            </td>
+            <td >
+                <span ng-bind="value.sname"></span>
+            </td>
+       <td ng-bind="value.qzname"> </td>
+            <td ng-bind="'M'+value.qzqiangdu"> </td>
+            <td ng-bind="value.qzriqi">
+                <!-- <input type="text" value="{{value.qzriqi}}"  class="form-control" laydateedit="qzriqi"> --></td>
+            <td ng-bind="value.qztime">
+                <!-- <input type="text" value="{{value.qztime}}"  class="form-control" laydateedit="qztime"> --></td>
+            <td>
+                <span ng-bind="{{lq(value.qzriqi,value.qztime)}}"></span>
+                </td>
+            <td>
+                <input type="text" value="{{value.qzzushu}}"  class="form-control" comedit="qzzushu"></td>
+            <td align="center">
+                <label class="chkys">
+                    <input class="checkbox-slider slider-icon colored-blue" type="checkbox" ng-checked="value.qzys==1" checkedit="qzys">
+                    <span class="text"></span>
+                    <span class="dpn titlename">否</span>
+                </label>
+
+            </td>
+
+            <td  class="def" comsetwin="program_plan_comset" extname="{{value.qzname}}-检测结果" key="qzjg" len='{{value.qzzushu}}'>
+                <div ng-repeat="(k, v) in value.qzjgarr" ng-bind="v.val"></div>
+            </td>
+            <td  class="def" comsetwin="program_plan_comset" extname="{{value.qzname}}-样品编号" key="qzbh" len='{{value.qzzushu}}'>
+                <div ng-repeat="(k, v) in value.qzbharr" ng-bind="v.val"></div>
+            </td>
+        </tr>
+        <tr ng-if="lsshow" class="lsstyle" ng-repeat="(key, value) in program_gether_sel.qz.lslist">
+
+            <td  align="center">{{$index+1}}</td>
+            <td>
+                <span ng-if="value.fid==val.t" ng-repeat="(k, val) in ftypelist" ng-bind="val.title"></span>
+
+            </td>
+            <td >
+                <span ng-bind="value.sname"></span>
+            </td>
+            <td ng-bind="value.qzname">
+               </td>
+            <td ng-bind="'M'+value.qzqiangdu">
+                </td>
+
+            <td ng-bind="value.qzriqi"> </td>
+            <td ng-bind="value.qztime"> </td>
+            <td>
+               <span ng-bind="{{lq(value.qzriqi,value.qztime)}}"></span>
+
+               </td>
+            <td>
+                <input type="text" value="{{value.qzzushu}}"  class="form-control" comedit="qzzushu"></td>
+            <td align="center">
+                <label class="chkys">
+                    <input class="checkbox-slider slider-icon colored-blue" type="checkbox" ng-checked="value.qzys==1" checkedit="qzys">
+                    <span class="text"></span>
+                    <span class="dpn titlename">否</span>
+                </label>
+
+            </td>
+
+            <td  class="def" comsetwin="program_plan_comset" extname="{{value.qzname}}-检测结果" key="qzjg" len='{{value.qzzushu}}'>
+                <div ng-repeat="(k, v) in value.qzjgarr" ng-bind="v.val"></div>
+            </td>
+            <td  class="def" comsetwin="program_plan_comset" extname="{{value.qzname}}-样品编号" key="qzbh" len='{{value.qzzushu}}'>
+                <div ng-repeat="(k, v) in value.qzbharr" ng-bind="v.val"></div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+</div>
+
+<!-- 内抹灰 -->
+<div class="zu">
+<div class="hztitle">
+<span>
+    内抹灰
+    <span class="mfc f_14">
+        （
+        <span ng-if="lsshow==0" class="dfc" ng-bind="program_gether_sel.nq.hzlist.length"></span>
+        <span ng-if="lsshow==1" class="dfc" ng-bind="program_gether_sel.nq.lslist.length+program_gether_sel.nq.hzlist.length"></span>
+        条记录）
+    </span>
+</span>
+</div>
+<div ng-if="program_gether_sel.nq.hzlist.length+program_gether_sel.nq.lslist.length>
+0">
+<table class="table pvtTable table-hover t_c">
+    <thead>
+        <tr class="titlename dpn"><th>内抹灰</th></tr>
+        <tr>
+            <th width="65" >序号</th>
+            <th width="135" >分部</th>
+            <th width="135" >子单位</th>
+            <th   >工程部位</th>
+            <th  width="85" >强度/配比</th>
+
+            <th width="100" >制作日期</th>
+            <th width="100" >送检日期</th>
+            <th  width="65" >龄期</th>
+            <th width="65"  >组数</th>
+            <th width="85" >是否已送</th>
+
+            <th  width="100" >结果</th>
+            <th  >检测编号</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr  class="hzstyle" ng-repeat="(key, value) in program_gether_sel.nq.hzlist">
+
+            <td  align="center">{{$index+1}}</td>
+            <td>
+                <span ng-if="value.fid==val.t" ng-repeat="(k, val) in ftypelist" ng-bind="val.title"></span>
+
+            </td>
+            <td >
+                <span ng-bind="value.sname"></span>
+            </td>
+            <td ng-bind="value.nqname"> </td>
+            <td  ng-bind="'M'+value.nqqiangdu">  </td>
+            <td ng-bind="value.nqriqi"> </td>
+            <td ng-bind="value.nqtime"> </td>
+            <td>
+                <span ng-bind="{{lq(value.nqriqi,value.nqtime)}}"></span>
+
+                </td>
+            <td>
+                <input type="text" value="{{value.nqzushu}}" comedit="nqzushu" class="form-control"></td>
+            <td align="center">
+                <label class="chkys">
+                    <input class="checkbox-slider slider-icon colored-blue" type="checkbox" ng-checked="value.nqys==1" checkedit="nqys">
+                    <span class="text"></span>
+                    <span class="dpn titlename">否</span>
+                </label>
+
+            </td>
+            <td  class="def" comsetwin="program_plan_comset" extname="{{value.nqname}}-检测结果" key="nqjg" len='{{value.nqzushu}}'>
+                <div ng-repeat="(k, v) in value.nqjgarr" ng-bind="v.val"></div>
+            </td>
+            <td  class="def" comsetwin="program_plan_comset" extname="{{value.nqname}}-样品编号" key="nqbh" len='{{value.nqzushu}}'>
+                <div ng-repeat="(k, v) in value.nqbharr" ng-bind="v.val"></div>
+            </td>
+        </tr>
+        <tr ng-if="lsshow" class="lsstyle" ng-repeat="(key, value) in program_gether_sel.nq.lslist">
+            <td  align="center">{{$index+1}}</td>
+            <td>
+                <span ng-if="value.fid==val.t" ng-repeat="(k, val) in ftypelist" ng-bind="val.title"></span>
+
+            </td>
+            <td >
+                <span ng-bind="value.sname"></span>
+            </td>
+            <td  ng-bind="value.nqname"> </td>
+            <td  ng-bind="'M'+value.nqqiangdu"> </td>
+            <td ng-bind="value.nqriqi"> </td>
+            <td ng-bind="value.nqtime">
+                <!-- <input type="text" value="{{value.nqtime}}"  class="form-control" laydateedit="nqtime"> --></td>
+            <td>
+                <span ng-bind="{{lq(value.nqriqi,value.nqtime)}}"></span></td>
+            <td>
+                <input type="text" value="{{value.nqzushu}}" comedit="nqzushu" class="form-control"></td>
+            <td align="center">
+                <label class="chkys">
+                    <input class="checkbox-slider slider-icon colored-blue" type="checkbox" ng-checked="value.nqys==1" checkedit="nqys">
+                    <span class="text"></span>
+                    <span class="dpn titlename">否</span>
+                </label>
+
+            </td>
+            <td  class="def" comsetwin="program_plan_comset" extname="{{value.nqname}}-检测结果" key="nqjg" len='{{value.nqzushu}}'>
+                <div ng-repeat="(k, v) in value.nqjgarr" ng-bind="v.val"></div>
+            </td>
+            <td  class="def" comsetwin="program_plan_comset" extname="{{value.nqname}}-样品编号" key="nqbh" len='{{value.nqzushu}}'>
+                <div ng-repeat="(k, v) in value.nqbharr" ng-bind="v.val"></div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+</div>
+
+<!-- 外抹灰 -->
+<div class="zu">
+<div class="hztitle">
+<span>
+    外抹灰
+    <span class="mfc f_14">
+        （
+        <span ng-if="lsshow==0" class="dfc" ng-bind="program_gether_sel.wq.hzlist.length"></span>
+        <span ng-if="lsshow==1" class="dfc" ng-bind="program_gether_sel.wq.lslist.length+program_gether_sel.wq.hzlist.length"></span>
+        条记录）
+    </span>
+</span>
+</div>
+<div ng-if="program_gether_sel.wq.hzlist.length+program_gether_sel.wq.lslist.length>
+0">
+<table class="table pvtTable table-hover t_c">
+    <thead>
+        <tr class="titlename dpn"><th>外抹灰</th></tr>
+        <tr>
+            <th width="65" >序号</th>
+            <th width="135" >分部</th>
+            <th width="135" >子单位</th>
+            <th   >工程部位</th>
+            <th  width="85" >强度/配比</th>
+
+            <th  width="100" >制作日期</th>
+            <th width="100" >送检日期</th>
+            <th  width="65" >龄期</th>
+            <th width="65"  >组数</th>
+            <th width="85" >是否已送</th>
+            <th  width="100" >结果</th>
+            <th  >检测编号</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr  class="hzstyle" ng-repeat="(key, value) in program_gether_sel.wq.hzlist">
+            <td  align="center">{{$index+1}}</td>
+            <td>
+                <span ng-if="value.fid==val.t" ng-repeat="(k, val) in ftypelist" ng-bind="val.title"></span>
+
+            </td>
+            <td >
+                <span ng-bind="value.sname"></span>
+            </td>
+            <td ng-bind="value.wqname"> </td>
+            <td  ng-bind="'M'+value.wqqiangdu">  </td>
+            <td ng-bind="value.wqriqi"> </td>
+            <td ng-bind="value.wqtime"> </td>
+            <td>
+                 <span ng-bind="{{lq(value.wqriqi,value.wqtime)}}"></span>
+                 </td>
+            <td>
+                <input type="text" value="{{value.wqzushu}}"  class="form-control" comedit="wqzushu"></td>
+            <td align="center">
+                <label class="chkys">
+                    <input class="checkbox-slider slider-icon colored-blue" type="checkbox" ng-checked="value.wqys==1" checkedit="wqys">
+                    <span class="text"></span>
+                    <span class="dpn titlename">否</span>
+                </label>
+
+            </td>
+            <td  class="def" comsetwin="program_plan_comset" extname="{{value.wqname}}-检测结果" key="wqjg" len='{{value.wqzushu}}'>
+                <div ng-repeat="(k, v) in value.wqjgarr" ng-bind="v.val"></div>
+            </td>
+            <td  class="def" comsetwin="program_plan_comset" extname="{{value.wqname}}-样品编号" key="wqbh" len='{{value.wqzushu}}'>
+                <div ng-repeat="(k, v) in value.wqbharr" ng-bind="v.val"></div>
+            </td>
+        </tr>
+        <tr ng-if="lsshow" class="lsstyle" ng-repeat="(key, value) in program_gether_sel.wq.lslist">
+            <td  align="center">{{$index+1}}</td>
+            <td>
+                <span ng-if="value.fid==val.t" ng-repeat="(k, val) in ftypelist" ng-bind="val.title"></span>
+            </td>
+            <td >
+                <span ng-bind="value.sname"></span>
+            </td>
+            <td ng-bind="value.wqname"> </td>
+            <td  ng-bind="'M'+value.wqqiangdu">  </td>
+            <td ng-bind="value.wqriqi"> </td>
+            <td ng-bind="value.wqtime"> </td>
+            <td>
+                <span ng-bind="{{lq(value.wqriqi,value.wqtime)}}"></span>
+                </td>
+            <td>
+                <input type="text" value="{{value.wqzushu}}"  class="form-control" comedit="wqzushu"></td>
+            <td align="center">
+                <label class="chkys">
+                    <input class="checkbox-slider slider-icon colored-blue" type="checkbox" ng-checked="value.wqys==1" checkedit="wqys">
+                    <span class="text"></span>
+                    <span class="dpn titlename">否</span>
+                </label>
+
+            </td>
+            <td  class="def" comsetwin="program_plan_comset" extname="{{value.wqname}}-检测结果" key="wqjg" len='{{value.wqzushu}}'>
+                <div ng-repeat="(k, v) in value.wqjgarr" ng-bind="v.val"></div>
+            </td>
+            <td  class="def" comsetwin="program_plan_comset" extname="{{value.wqname}}-样品编号" key="wqbh" len='{{value.wqzushu}}'>
+                <div ng-repeat="(k, v) in value.wqbharr" ng-bind="v.val"></div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+</div>
+
+<!-- 找平 -->
+<div class="zu">
+<div class="hztitle">
+<span>
+    找平
+    <span class="mfc f_14">
+        （
+        <span ng-if="lsshow==0" class="dfc" ng-bind="program_gether_sel.zp.hzlist.length"></span>
+        <span ng-if="lsshow==1" class="dfc" ng-bind="program_gether_sel.zp.lslist.length+program_gether_sel.zp.hzlist.length"></span>
+        条记录）
+    </span>
+</span>
+</div>
+<div ng-if="program_gether_sel.zp.hzlist.length+program_gether_sel.zp.lslist.length>
+0">
+<table class="table pvtTable table-hover t_c">
+    <thead>
+        <tr class="titlename dpn"><th>找平</th></tr>
+        <tr>
+            <th width="65" >序号</th>
+            <th width="135" >分部</th>
+            <th width="135" >子单位</th>
+            <th   >工程部位</th>
+            <th  width="85" >强度/配比</th>
+            <th  width="100" >制作日期</th>
+            <th width="100" >送检日期</th>
+            <th  width="65" >龄期</th>
+            <th width="65"  >组数</th>
+            <th width="85" >是否已送</th>
+
+            <th  width="100" >结果</th>
+            <th  >检测编号</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr  class="hzstyle" ng-repeat="(key, value) in program_gether_sel.zp.hzlist">
+            <td  align="center">{{$index+1}}</td>
+            <td>
+                <span ng-if="value.fid==val.t" ng-repeat="(k, val) in ftypelist" ng-bind="val.title"></span>
+
+            </td>
+            <td >
+                <span ng-bind="value.sname"></span>
+            </td>
+            <td ng-bind="value.zpname"> </td>
+            <td  ng-bind="'M'+value.zpqiangdu">  </td>
+            <td  ng-bind="value.zpriqi"> </td>
+            <td ng-bind="value.zptime"> </td>
+            <td>
+               <span ng-bind="{{lq(value.zpriqi,value.zptime)}}"></span>
+               </td>
+            <td>
+                <input type="text" value="{{value.zpzushu}}"  class="form-control" comedit="zpzushu"></td>
+            <td align="center">
+                <label class="chkys">
+                    <input class="checkbox-slider slider-icon colored-blue" type="checkbox" ng-checked="value.zpys==1" checkedit="zpys">
+                    <span class="text"></span>
+                    <span class="dpn titlename">否</span>
+                </label>
+
+            </td>
+            <td  class="def" comsetwin="program_plan_comset" extname="{{value.zpname}}-检测结果" key="zpjg" len='{{value.zpzushu}}'>
+                <div ng-repeat="(k, v) in value.zpjgarr" ng-bind="v.val"></div>
+            </td>
+            <td  class="def" comsetwin="program_plan_comset" extname="{{value.zpname}}-样品编号" key="zpbh" len='{{value.zpzushu}}'>
+                <div ng-repeat="(k, v) in value.zpbharr" ng-bind="v.val"></div>
+            </td>
+        </tr>
+        <tr ng-if="lsshow" class="lsstyle" ng-repeat="(key, value) in program_gether_sel.zp.lslist">
+            <td  align="center">{{$index+1}}</td>
+            <td>
+                <span ng-if="value.fid==val.t" ng-repeat="(k, val) in ftypelist" ng-bind="val.title"></span>
+
+            </td>
+            <td >
+                <span ng-bind="value.sname"></span>
+            </td>
+           <td ng-bind="value.zpname"> </td>
+            <td  ng-bind="'M'+value.zpqiangdu">  </td>
+            <td ng-bind="value.zpriqi">
+               <!--  <input type="text" value="{{value.zpriqi}}"  class="form-control" laydateedit="zpriqi"> --></td>
+            <td ng-bind="value.zptime">
+                <!-- <input type="text" value="{{value.zptime}}"  class="form-control" laydateedit="zptime"> --></td>
+            <td>
+                <span ng-bind="{{lq(value.zpriqi,value.zptime)}}"></span></td>
+            <td>
+                <input type="text" value="{{value.zpzushu}}"  class="form-control" comedit="zpzushu"></td>
+            <td align="center">
+                <label class="chkys">
+                    <input class="checkbox-slider slider-icon colored-blue" type="checkbox" ng-checked="value.zpys==1" checkedit="zpys">
+                    <span class="text"></span>
+                    <span class="dpn titlename">否</span>
+                </label>
+
+            </td>
+            <td  class="def" comsetwin="program_plan_comset" extname="{{value.zpname}}-检测结果" key="zpjg" len='{{value.zpzushu}}'>
+                <div ng-repeat="(k, v) in value.zpjgarr" ng-bind="v.val"></div>
+            </td>
+            <td  class="def" comsetwin="program_plan_comset" extname="{{value.zpname}}-样品编号" key="zpbh" len='{{value.zpzushu}}'>
+                <div ng-repeat="(k, v) in value.zpbharr" ng-bind="v.val"></div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+</div>
+
+</div>
+</div>
+     
+  </div>
+
+  <!-- 七天送检END -->
+  <!-- 送检记录 -->
+  <div id="insperec" class="tab-pane pt_16">
+    <div>
+      <a class="btn btn-danger btn-xs delete ng-scope" delmore="program_gether_del" from="program_gether_jilu"> <i class="fa fa-trash-o"></i>删除</a>
+    </div>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+              <th width="36" style="padding: 6px;">
+                <label>
+                    <input comcheckall="program_gether_jilu" type="checkbox" class="colored-blue">
+                    <span class="text"></span>
+                </label>
+              </th>
+              <th class="t_c">序号</th>
+              <th class="t_c" width="500">标题</th>
+              <th class="t_c">创建时间</th>
+              <th class="t_c">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-if="value.isdel!=1" ng-repeat="(key, value) in program_gether_jilu.datalist">
+                <td width="36" style="padding: 6px;">
+                   <label>
+                            <input type="checkbox" class="colored-blue" comcheck="check" ng-checked="value.check==1" value="{{value.codeid}}">
+                            <span class="text"></span>
+                        </label>
+                </td>
+                <td class="t_c" ng-bind="key+1"></td>
+                <td class="t_c sb_cp" >
+                  <input type="text" ng-model="value.jlname" comedit="jlname" class="form-control"> 
+                </td>
+                <td class="t_c" ng-bind="value.addtime"></td>
+                 <td class="t_c" > <a href="/main/jilu.html?id={{value.codeid}}" target="_blank">查看</a></td>
+            </tr>
+          
+        </tbody>
+    </table>
+
+    <div id="page" class="t_c">
+        
+    </div>
+  </div>
+  <!-- 送检记录END -->
+      
+  </div>
+
+ </div>   
+
+</div>

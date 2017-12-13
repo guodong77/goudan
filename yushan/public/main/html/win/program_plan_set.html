@@ -1,0 +1,22 @@
+<div  class="widget-body win form-horizontal bgc_b">
+  <div class="winbody summary" w="508px" h="578px" style="padding-top: 0px">
+  <div style="height: 500px;" class="of_ay">
+ 
+	<div class="row" ng-if="value.isdel!=1" ng-repeat="(key, value) in program_plan_betonlist.datalist|orderBy:'myorder'">
+		<div class="col-xs-12">
+			<div class="checkbox t_l">
+				<label>
+					<input type="checkbox" checkedit="{{win.extendone}}" ng-checked="value[win.extendone]==1">	
+					<span class="text" ng-bind="value.bybuwei"></span>
+				</label>
+			</div>
+		</div>
+
+	</div>
+  </div> 
+	</div>
+	<!-- <div class=" ysbtn t_c mt_8">
+		 <button type="button" class="btn btn-blue">保存</button>
+		 <button type="button" class="b_2 btn btn-default layui-layer-close">取消</button>
+	</div> -->
+</div>

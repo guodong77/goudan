@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>恒信达</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <include file="public@head"/>
+</head>
+<body>
+
+<header class="m-hd paging-hd">
+    <section class="am-show-md-up">
+        <div class="top-nav">
+            <a href="index.html" rel="nofollow" class="m-logo"><img src="__TMPL__/portal/images/logo2.png"/></a>
+            <include file="public@nav"/>
+
+
+            <nav data-am-widget="header" class="am-header am-show-sm-only">
+                <div class="am-header-left am-header-nav">
+                    <a href="/" rel="nofollow">
+                        <i class="am-header-icon am-icon-home"></i> 首页
+                    </a>
+                </div>
+                <h1 class="am-header-title">
+                    <a href="/" rel="nofollow">恒信达</a>
+                </h1>
+                <div class="am-header-right am-header-nav">
+                    <a href="#right-link" class="" data-am-offcanvas="{target: '#r-nav'}">
+                        <i class="am-header-icon am-icon-bars"></i> 菜单
+                    </a>
+                </div>
+            </nav>
+
+            <!-- 侧边栏内容 -->
+            <include file="public@sider"/>
+
+        </div>
+</header>
+
+
+
+<div class="common-ad">
+    <div class="box">
+        <dl>
+            <dt>{$category.name}</dt>
+            <dd>{$category.description}</dd>
+        </dl>
+    </div>
+    <img src="__TMPL__/portal/images/banner-s2.jpg"/>
+</div>
+
+<div class="main-box">
+    <div class="breadcrumb"><a href="index.html">首页</a>   /   <a href="#">{$category.name}</a></div>
+    <div class="d-box">
+        <div class="d-left">
+            <dl class="title"><dt>{$category.name}</dt><dd>About us </dd></dl>
+            <ul class="s-nav">
+
+            </ul>
+        </div>
+        <!--<div class="d-left">-->
+        <!--<dl class="title"><dt>关于我们</dt><dd>About us </dd></dl>-->
+        <!--<ul class="s-nav">-->
+        <!--<li><a href="#">公司简介</a></li>-->
+        <!--<li><a href="#">加入我们</a></li>-->
+        <!--<li><a href="#">免责声明</a></li>-->
+        <!--<li class="hover"><a href="#">联系方式</a></li>-->
+        <!--</ul>-->
+        <!--</div>-->
+
+        <div class="d-right contact-box">
+
+            <dl class="info">
+                <dt>{$article.post_title}</dt>
+                <dd>{$article.post_content}</dd>
+            </dl>
+
+            <php>
+                $after_content_hook_param=[
+                'object_id'=>$article['id'],
+                'table_name'=>'portal_post',
+                'object_title'=>$article['post_title'],
+                'user_id'=>$article['user_id'],
+                'url'=>cmf_url_encode('portal/Article/index',array('id'=>$article['id'],'cid'=>$category['id'])),
+                'object'=>$article
+                ];
+            </php>
+            <hook name="after_content" param="after_content_hook_param"/>
+
+            <php>
+                $comment_hook_param=[
+                'object_id'=>$article['id'],
+                'table_name'=>'portal_post',
+                'object_title'=>$article['post_title'],
+                'url'=>cmf_url_encode('portal/Article/index',array('id'=>$article['id'],'cid'=>$category['id']))
+                ];
+                $comment=hook_one('comment',$comment_hook_param);
+            </php>
+            <div class="map" id="dituContent">
+
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+</div>
+
+<include file="public@footer"/>
+
+<include file="public@scripts"/>
+
+<hook name="before_body_end"/>
+
+</body>
+</html>

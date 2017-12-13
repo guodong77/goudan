@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>恒信达</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <link rel="stylesheet" href="__TMPL__/portal/assets/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="__TMPL__/portal/style/account.css"/>
+</head>
+<body>
+
+<header class="m-hd">
+    <section class="am-show-md-up">
+    <div class="top-nav">
+
+
+        <nav>
+          <ul class="am-nav am-nav-pills ">
+            <li class="home"><a href="index.html"></a></li>
+            <li class="am-active"><a href="#">Messaging</a></li>
+            <li><a href="#">Utilities & tools</a></li>
+            <li><a href="#">Reseller</a></li>
+            <li><a href="#">General</a></li>
+          </ul>                                    
+        </nav>  
+
+        <div class="snav"><a class="cc" href="#">Balance: ${$userinfo['balance']}</a><a href="#">{$username}</a></div>		
+    </div>                                    
+    </section>
+	                                                                                        
+	
+    <nav data-am-widget="header" class="am-header am-show-sm-only">
+      <div class="am-header-left am-header-nav">
+        <a href="/" rel="nofollow">
+          <i class="am-header-icon am-icon-home"></i> 首页
+        </a>
+      </div>
+      <h1 class="am-header-title">
+        <a href="/" rel="nofollow">恒信达</a>
+      </h1>
+      <div class="am-header-right am-header-nav">
+        <a href="#right-link" class="" data-am-offcanvas="{target: '#r-nav'}">
+          <i class="am-header-icon am-icon-bars"></i> 菜单
+        </a>
+      </div>
+    </nav>
+
+    <!-- 侧边栏内容 -->
+    <div id="r-nav" class="am-offcanvas">
+      <div class="am-offcanvas-bar am-offcanvas-bar-flip">
+        <nav class="am-offcanvas-content">
+            <a href="/" rel="nofollow"><span class="logo"><img src="images/logo2.png"/></span></a>
+            <div class="am-active"><a href="#" rel="nofollow">Messaging</a></div>
+            <div><a href="#" rel="nofollow">Utilities & tools</a></div>
+            <div><a href="#" rel="nofollow">Reseller</a></div>
+            <div><a href="#" rel="nofollow">General</a></div>
+            <div><a href="#" rel="nofollow">Username</a></div>                                                                        
+        </nav>
+      </div>                              
+ 
+    </div>                                                                                        
+</header>    
+
+
+
+<div class="common-ad">
+<div class="box">
+  <h2>Account settings</h2>
+  <div class="logo"></div>
+</div>
+</div>
+
+
+<div class="common-topnav">
+  <ul class="box">
+   <li><a href="#">My account</a></li>
+   <li><a href="#">Billing addresses</a></li>
+   <li><a href="#">Registered numeric senders</a></li>
+   <li><a href="#">User details</a></li>
+   <li><a href="#">Password change</a></li>
+   <li class="hover"><a href="/portal/notification">Notifications</a></li>
+   <li><a href="#">Documents</a></li>
+   <li><a href="#">Report URL's</a></li>
+ </ul>
+</div>
+
+
+<div class="common-box common-box2">
+  <form action="/portal/notification/editPost" method="post" accept-charset="utf-8">
+
+   <div class="htitle"><span>Editing Low account balance notification</span></div>
+   <div class="d-right">
+	     <div class="main-form">
+		    <div class="mf-title">Notification parameters</div>
+		    <dl class="f-title"><dt>Name</dt><dd>Value</dd></dl>
+		    <dl><dt>Account balance limit</dt><dd><input class="txt" type="text" name="limit" value="{$notification['limit']}" /></dd></dl>
+		    <dl><dt>Reminder delay in days</dt><dd><input class="txt" type="text" name="remind" value="{$notification['remind']}" /></dd></dl>
+			
+		    <div class="mf-title margint70">Recipient parameters</div>
+		    <dl><dt>Email notification</dt><dd>
+        
+          <php>
+          if($notification['emailstatus']){
+           echo '<input name="emailstatus" type="checkbox" value="1" checked  />';
+          }else{
+            echo '<input name="emailstatus" type="checkbox" value="1" />';
+          }
+          </php>
+
+
+
+        </dd></dl>
+		    <dl><dt>Email</dt><dd><input class="txt" type="text" name="email" value="{$notification['email']}" /></dd></dl>
+		    <dl><dt>SMS notification</dt><dd>   
+          <php>
+            if($notification['smsstatus']){
+             echo '<input name="smsstatus" type="checkbox" value="1" checked  />';
+            }else{
+              echo '<input name="smsstatus" type="checkbox" value="1" />';
+            }
+          </php></dd></dl>
+			
+			
+		    <div class="but-box"><a class="common-but" href="/portal/notification">Cancel</a> <input class="common-but" type="submit" value="Save" /></div>
+		 </div> 
+	</div>
+    </form>
+</div>
+
+
+
+	
+
+<footer class="footer">
+
+  <div class="txtall"><div class="tbox">
+    <div class="fleft"><i>优秀的短信服务商</i></div>
+    <div class="fright"> Copyright  2007-2017 HXDSMS, All Rights Reserved.</div>
+  </div></div>
+  
+  </footer>
+
+
+
+<include file="public@scripts"/>
+
+<hook name="before_body_end"/>
+
+
+</body>
+</html>

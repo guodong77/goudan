@@ -1,0 +1,169 @@
+<div ng-controller="com_ctrl">
+<div class="dpn" id="win" ng-include="win.url" onload="winready()"></div>
+	<div class="row" >
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    	<div class="row ">
+    		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">  
+
+	        <div class="prol" ng-if="value.isdel!=1" ng-repeat="(key, value) in program_pro_list.datalist">
+    	 		<i comdelone="program_pro_del" sendid="{{value.codeid}}" class="sclose"></i>
+		     <div class="row">
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 of_fh ellipsisstyle">
+				<span title="{{value.prname}}" gotopro class="ptitle" ng-bind="value.prname"></span>
+			</div>
+			<div class="fr mt_5"><!-- class="col-lg-8 col-md-8 col-sm-8 col-xs-8" -->
+				<ul class="titlist">
+					<li>
+					<a href="#/program/weather" setnowprosin prcodeid="{{value.codeid}}" setlocalstorage="cityid" code="{{value.cityid}}" title="">
+						<div class="ysbtn1 bgc_blue of_fh">
+							<span><span ng-bind="value.city"></span>温度</span>
+						</div>
+					 </a>
+					</li>
+					<li><a href="#/program/gantt" setnowprosin prcodeid="{{value.codeid}}" title="">
+						<div class="ysbtn1 bgc_blue of_fh">
+							<span>横道图</span>
+						</div> </a>
+					</li>
+					<li>
+						<div prowinedit="program_pro_info"  class="ysbtn1 bgc_blue of_fh">
+							<span>工程概况</span>
+						</div> 
+					</li>
+					<li>
+					<a href="#/program/gether" setnowprosin prcodeid="{{value.codeid}}" title="">
+						<div class="ysbtn1 bgc_blue of_fh">
+							<span>七天送检</span>
+						</div> </a>
+					</li>
+				   <!-- <li>
+					<div class="ysbtn1 bgc_blue of_fh">
+							<span>土建资料</span>
+						</div> 
+					</li>
+					<li>
+					<div class="ysbtn1 bgc_blue of_fh" comwinadd="program_gantt_ganttadd">
+							<span>新建横道图</span>
+						</div> 
+					</li>
+					 <li>
+					<div class="ysbtn1 bgc_blue of_fh" comwinedit="program_gantt_ganttedit">
+							<span>横道图编辑</span>
+						</div> 
+					</li>
+					<li>
+					<div class="ysbtn1 bgc_blue of_fh" comwinedit="program_gantt_ganttitemset">
+							<span>横道图作业编辑</span>
+						</div> 
+					</li>
+					<li>
+					<div class="ysbtn1 bgc_blue of_fh" comwinedit="program_plan_matergather">
+							<span>送检计划-原材-汇总打印</span>
+						</div> 
+					</li>
+					<li>
+					<div class="ysbtn1 bgc_blue of_fh" comwinedit="program_plan_factoryset">
+							<span>送检计划-原材-出厂编号</span>
+						</div> 
+					</li>
+					<li>
+					<div class="ysbtn1 bgc_blue of_fh" comwinedit="program_plan_materypset">
+							<span>送检计划-原材-样品编号</span>
+						</div> 
+					</li>
+					<li>
+					<div class="ysbtn1 bgc_blue of_fh" comwinedit="program_plan_betongather">
+							<span>送检计划-混凝土-汇总打印</span>
+						</div> 
+					</li>
+					<li>
+					<div class="ysbtn1 bgc_blue of_fh" comwinedit="program_plan_chipset">
+							<span>送检计划-混凝土-标养等芯片</span>
+						</div> 
+					</li>
+					<li>
+					<div class="ysbtn1 bgc_blue of_fh" comwinedit="program_plan_betonypset">
+							<span>送检计划-混凝土-标养等样品</span>
+						</div> 
+					</li>
+					<li>
+					<div class="ysbtn1 bgc_blue of_fh" comwinedit="program_plan_resultset">
+							<span>送检计划-混凝土-标养等结果</span>
+						</div> 
+					</li> -->
+					</ul>
+				</div> 
+			</div>
+    	 			<div class="blist">
+	    	 			<div class="lititle">
+	    	 				<!-- <span class="f_16 active">子单位</span> -->
+	    	 				<!-- <span class="m_lr15">/</span>
+	    	 				<span class="f_16">施工机械</span> -->
+	    	 			</div>
+	    	 			<ul>
+	    	 				<li ng-if="v.isdel!=1" ng-repeat="(k, v) in value.sinchl.datalist">
+	    	 					<div class="sinbody">
+	    	 						<i class="sclosex" comdelone="program_pro_sindel" sendid="{{v.codeid}}" ></i> 
+	    	 						<div class="stitle opt hand color{{v.rd}}" sinwinedit='program_pro_sinedit'>
+	    	 						<span  title="{{v.sname}}" ng-bind="v.sname"></span>
+
+	    	 						
+	    	 						</div>
+	    	 						<div class="ltit">
+	    	 						<p><a href="#program/work" setnowprosin prcodeid="{{value.codeid}}" scodeid="{{v.codeid}}">进度管理</a></p>
+	    	 						<p><a href="#program/plan" setnowprosin prcodeid="{{value.codeid}}" scodeid="{{v.codeid}}"><span >送检计划</span></a></p>
+	    	 						<!-- <p><a href="#program/struct"  setnowprosin prcodeid="{{value.codeid}}" scodeid="{{v.codeid}}">工程资料</a></p> -->
+	    	 						</div>
+	    	 						
+	    	 					</div>
+	    	 				</li>
+	    	 				 	    	 					    	 					    	 				
+	    	 				<li>
+	    	 					<div class="sinbody" comwinadd='program_pro_sinadd' extendone="{{value.codeid}}" extendtwo="{{key}}"> 
+	    	 						<div class="stitle color19 hand">
+ <span title="添加子单位" style="font-size:80px;margin-top:-10px;margin-left:-27px;position:absolute;">+</span>  
+	    	 						</div>
+	    	 						<div class="ltit">
+	    	 						<p>&nbsp;</p>
+	    	 						<p><a style="font-size: 18px;">添加子单位</a></p>
+	    	 						<p>&nbsp;</p>
+	    	 						</div>
+	    	 						
+	    	 					</div>
+	    	 				</li>
+	    	 			</ul>
+	    	 			<div class="cl"> </div>
+    	 			</div>
+    	 			
+    	 		</div>
+
+
+    	 		<div  ng-if="program_pro_list.datalist.length==0" class="prol" style="background: #fff;"><!-- ng-if="!program_pro_list.datalist.length" --> 
+    	 			<div class="row"> 
+    	 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    	 					 <div class="apstyle" comwinadd="program_pro_add">
+    	 					 <div style="display: inline-block;"><img src="/main/images/addpro.png" alt=""></div>
+	    	 					<span >添加工程</span> 
+	    	 				 </div>
+    	 				</div>
+    	 				
+    	 				
+    	 			</div>
+    	 			 
+    	 			
+    	 		</div>
+    	 		<div  comwinadd="program_pro_add" ng-if="program_pro_list.datalist.length" class="prohasadd">
+    	 		</div>	
+
+    	 		</div>
+
+
+    		<div id='page' class="t_c"> </div>
+    	</div>
+    </div>
+</div>
+
+
+
+
+</div>
