@@ -1,0 +1,67 @@
+{
+    "code": 1,
+    "msg": "未登錄",
+    "data": {
+                "content":{
+                    "img":"require('../public/img/Group3.png')",
+                    "title":"旭日领域商住楼",
+                    "name":"王小花",
+                    "structure":"框剪结构",
+                    "button":"申请加入",
+                    "address":"深圳",
+                    "date":"2017-09-14",
+                    "date1":"2017-09-14"
+                },
+                "content1":{
+                    "money":"9912万元",
+                    "area":"5111",
+                    "licence":"934656",
+                    "card":"12345",
+                    "address":"福建省龙灯建设集团有限公司",
+                },
+                "content2":{
+                    "construction":"福建省龙灯建设集团有限公司",
+                    "build":"福建省龙灯建设集团有限公司",
+                    "supervisor":"福建省龙灯建设集团有限公司",
+                    "survey":"福建省龙灯建设集团有限公司",
+                },
+                "content3":{
+                    "subunits":"5",
+                    "a":{
+                        "left":"一栋",
+                        "right":"5层"
+                    },
+                    "b":{
+                        "left":"二栋",
+                        "right":"5层"
+                    },
+                    "c":{
+                        "left":"二栋",
+                        "right":"5层"
+                    },
+                    "d":{
+                        "left":"二栋",
+                        "right":"5层"
+                    },
+                    "e":{
+                        "left":"二栋",
+                        "right":"5层"
+                    },
+                    "f":{
+                        "left":"二栋",
+                        "right":"5层"
+                    },
+                    "g":{
+                        "left":"二栋",
+                        "right":"5层"
+                    },
+                },
+                "content4" : {
+                    "num":"2",
+                    "a":"一栋",
+                    "b":"二栋",
+                }
+            }, 
+
+    "arr": ""
+  }

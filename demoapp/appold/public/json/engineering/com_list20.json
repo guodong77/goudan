@@ -1,0 +1,29 @@
+{
+    "code": 1,
+    "msg": "未登錄",
+    "data": 
+        [
+            {
+                "name":"王小花",
+                "company":"万达集团",
+                "img":"require('../public/img/more.png')",
+                "date":"2017-09-14",
+                "button":"申请关联"
+            }, 
+            {
+                "name":"王小花",
+                "company":"万达集团",
+                "img":"require('../public/img/more.png')",
+                "date":"2017-09-14",
+                "button":"申请关联"
+            }, 
+            {
+                "name":"王小花",
+                "company":"万达集团",
+                "img":"require('../public/img/more.png')",
+                "date":"2017-09-14",
+                "button":"申请关联"
+            }, 
+        ],
+    "arr": ""
+  }

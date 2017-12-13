@@ -1,0 +1,172 @@
+import React, { Component } from 'react';
+import { Container, Header, Content,Button,Item, Input,Text,Body,Left,Title,Right,Icon,Form,ScrollableTab,Card,CardItem,Tabs,Tab,Footer,Picker} from 'native-base';
+import { Col, Row, Grid } from 'react-native-easy-grid';
+import { StackNavigator, TabBarBottom, TabNavigator } from "react-navigation";
+import {AppRegistry,Image,View,TouchableOpacity}from 'react-native';
+import { Actions } from 'react-native-router-flux';
+let sco ={};
+import HeadNav1 from '../components/HeadNav1';
+export default class Songjian extends Component {
+  constructor(props) {
+    super(props); 
+    main.init('Songjian',this); 
+    sco = this;
+  }
+  
+  render() {
+    return (
+      <Container>
+        <HeadNav1
+            headerLeft={ <Icon name="arrow-back" style={{ color: "#FFF" }} />}
+            Left={Actions.pop}
+            headerText={
+         <View style={[styles.posr,styles.titleposition,{justifyContent:'center',flex:5,}]}>
+              <View style={[styles.pickerpa,styles.flexStart,styles.xjuzhong,]}>
+                <Text style={[styles.addToptitle,styles.whiteText,{fontSize:20,}]}>{sco.language}</Text>
+                <Image style={styles.morecss}  source={require('../public/img/xiala.png')} />
+              </View>
+              <Picker 
+                note
+                iosHeader="Select one"
+                mode="dropdown"
+                style={{ width: 100,opacity:0}}
+                selectedValue={sco.language}
+                onValueChange={(lang) => sco.picker(lang)}
+              >
+              <Item label="一栋" value="一栋"/>
+              <Item label="二栋" value="二栋" />
+              <Item label="三栋" value="三栋" />
+              </Picker>
+            </View>
+            }
+          headerRight={ 
+            <View style={{flexDirection:'row'}}>
+              <TouchableOpacity  >
+                    <Image  source={require('../public/img/jiahao.png')} />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={Actions.Teditedlist} style={styles.iconpos}>
+                    <Image  source={require('../public/img/icon-发布.png')} />
+                </TouchableOpacity>
+            </View>
+            }
+        />
+        {/* <Header style={[styles.gctopColor,styles.gctopheight]}>
+          <Left>
+            <TouchableOpacity transparent onPress={Actions.pop}>
+              <Image  source={require('../public/img/返回03.png')} />
+            </TouchableOpacity>
+          </Left>
+          <Body style={styles.titleposition}>
+            <View style={[styles.posr,styles.titleposition]}>
+              <View style={[styles.pickerpa,styles.flexStart,styles.xjuzhong]}>
+                <Text style={[styles.addToptitle,styles.whiteText]}>{sco.language}</Text>
+                <Image style={styles.morecss}  source={require('../public/img/xiala.png')} />
+              </View>
+              <Picker 
+                note
+                iosHeader="Select one"
+                mode="dropdown"
+                style={{ width: 100,opacity:0}}
+                selectedValue={sco.language}
+                onValueChange={(lang) => sco.picker(lang)}
+              >
+              <Item label="一栋" value="一栋"/>
+              <Item label="二栋" value="二栋" />
+              <Item label="三栋" value="三栋" />
+              </Picker>
+            </View>
+          </Body>
+          <Right>
+            <TouchableOpacity onPress={() => {sco.onListShow()}} >
+                <Image  source={require('../public/img/jiahao.png')} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={Actions.Teditedlist} style={styles.iconpos}>
+                <Image  source={require('../public/img/icon-发布.png')} />
+            </TouchableOpacity>
+          </Right>
+        </Header> */}
+        
+        <Content style={styles.whitebackground}>
+          <Tabs renderTabBar={()=> <ScrollableTab />}>
+            <Tab heading="标样">
+              <Card>
+                <CardItem>
+                  <Left>
+                    <Image style={[styles.yuanquan,styles.yuanquanpos]} source={require('../public/img/yuan1.png')} />
+                  <Body>
+                    <Text>序号·部位</Text>
+                    <View style={styles.flexStart}> 
+                      <Text note style={styles.f12}>C</Text> 
+                      <Text note style={styles.f12}>1栋</Text>
+                    </View>
+                    <View style={styles.flexStart}> 
+                      <Text note style={styles.f12}>浇筑：</Text> 
+                      <Text note style={styles.f12}>送检：</Text>
+                      <Text note style={styles.f12}>0天</Text>
+                    </View>
+                  </Body> 
+                  </Left>
+                  <Right><Image source={require('../public/img/三点02.png')} /></Right>
+                </CardItem>
+                <View style={styles.clearbuttom}></View>
+              </Card>
+
+              <Card>
+                <CardItem>
+                  <Left>
+                    <Image style={[styles.yuanquan,styles.yuanquanpos]} source={require('../public/img/yuan1.png')} />
+                  <Body>
+                    <Text>1·部位-新增</Text>
+                    <View style={styles.flexStart}> 
+                      <Text note style={styles.f12}>C</Text> 
+                      <Text note style={styles.f12}>1栋</Text>
+                    </View>
+                    <View style={styles.flexStart}> 
+                      <Text note style={styles.f12}>浇筑：</Text> 
+                      <Text note style={styles.f12}>送检：</Text>
+                      <Text note style={styles.f12}>0天</Text>
+                    </View>
+                  </Body> 
+                  </Left>
+                  <Right><Image source={require('../public/img/三点02.png')} /></Right>
+                </CardItem>
+                <View style={styles.clearbuttom}></View>
+              </Card>
+            </Tab>
+            <Tab heading="同养">
+              <Text>待审核</Text>
+            </Tab>
+            <Tab heading="抗渗">
+              <Text>待审核</Text>
+            </Tab>
+            <Tab heading="柱头">
+              <Text>待审核</Text>
+            </Tab>
+            <Tab heading="柱头">
+              <Text>待审核</Text>
+            </Tab>
+            <Tab heading="柱头">
+              <Text>待审核</Text>
+            </Tab>
+          </Tabs>
+        </Content>
+
+        <Footer style={[styles.whitebackground,styles.songjianfooter]}>
+          <Left style={[styles.flexStart,styles.xjuzhong,styles.sctoptitle]}>
+            <Image style={[styles.yuanquan,styles.footyuanquanpos]} source={require('../public/img/yuan1.png')} />
+            <Text note style={styles.f15}>全选</Text>
+          </Left>
+          <Right>
+            <View style={[styles.joinpk,styles.marginato,styles.xjuzhong]}>
+              <Text style={styles.whiteText}>加入皮卡车</Text>
+            </View>
+          </Right>
+        </Footer>
+      </Container>
+    );
+  }
+
+
+};
+
+  

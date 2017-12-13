@@ -1,0 +1,63 @@
+import React, { Component } from 'react';
+import {AppRegistry,StyleSheet,Text,View,Image,Modal,ImageBackground,Platform,StatusBar,TouchableOpacity,ScrollView,TextInput,TouchableHighlight}from 'react-native';
+import { Actions } from 'react-native-router-flux';
+import HeadNav from '../components/HeadNav';
+let sco = {}
+export default class Baddnew extends Component {
+  constructor(props) {
+    super(props); 
+    main.init('Baddnew',this); 
+    sco = this;
+    sco.state = {modalVisible: false};
+  }
+
+  setModalVisible(visible) {
+    sco.setState({modalVisible: visible});
+  }
+
+  render() {
+    return (
+      <View style={styles.NewContent}>
+            <HeadNav 
+              headerText='发布动态'
+              headerRight='发布'
+              fn={()=>{sco.comtime('com_list');sco.com_detail.params.content=''}}
+            />
+        <TextInput 
+          style={styles.NewText} 
+          multiline={true} 
+          placeholder='说点什么和大家分享吧...' 
+          underlineColorAndroid="transparent" 
+          placeholderTextColor ='#cccccc'
+          value={sco.com_detail.params.content}
+          onChangeText={(text) =>{sco.ysinput(sco,'com_list.params.content',text)}}
+          
+          />
+       
+        <TouchableHighlight onPress={() => {sco.setModalVisible(true)}} >
+          <Image style={styles.NewImg} source={require('../public/img/加号.png')} />
+        </TouchableHighlight>
+
+         <Modal
+            animationType={"fade"}
+            transparent={true}
+            visible={sco.state.modalVisible}
+             onRequestClose={() => {alert("Modal has been closed.")}}>
+            <View style={[styles.TalkContainer,styles.NewImgBody]}>
+              <View style={styles.NewImgContainer}>
+                <Text style={[styles.NewImgChoose,styles.NewImgPhoto]}>拍照</Text>
+                <Text style={styles.NewImgChoose}>从手机相册选择</Text>
+              </View>
+              <View style={styles.NewImgContainer}>
+                 <Text style={styles.NewImgChoose} onPress={() => {sco.setModalVisible(!sco.state.modalVisible)}}>取消</Text>
+              </View>
+            </View>
+        </Modal>
+
+      
+      </View>
+    )
+  }
+}
+
+  

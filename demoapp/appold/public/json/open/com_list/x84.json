@@ -1,0 +1,60 @@
+{
+    "code": 1,
+    "msg": "無權限",
+    "data":[
+            {
+                "position": "全部",
+                "position1": "全部1",
+            },
+            {
+                "position": "房产建筑",
+                "position1": "房产建筑1",
+            },
+            {
+                "position": "IT互联网",
+                "position1": "IT互联网1",
+            },
+            {
+                "position": "通讯电子",
+                "position1": "通讯电子1",
+            },
+            {
+                "position": "山西",
+                "position1": "山西1",
+            },
+            {
+                "position": "陕西",
+                "position1": "陕西1",
+            },
+            {
+                "position": "吉林",
+                "position1": "吉林1",
+            },
+            {
+                "position": "上海",
+                "position1": "上海1",
+            },
+            {
+                "position": "湖南",
+                "position1": "湖南1",
+            },
+            {
+                "position": "湖北",
+                "position1": "湖北1",
+            },
+            {
+                "position": "山西",
+                "position1": "山西1",
+            },
+            {
+                "position": "陕西",
+                "position1": "陕西1",
+            },
+            {
+                "position": "吉林",
+                "position1": "吉林1",
+            }
+        ],
+    "arr": ""
+  }
+

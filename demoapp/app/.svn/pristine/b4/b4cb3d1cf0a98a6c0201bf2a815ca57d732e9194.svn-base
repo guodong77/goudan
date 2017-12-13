@@ -1,0 +1,53 @@
+import React, { Component } from 'react';
+import {AppRegistry,StyleSheet,Text,View,Image,Modal,ImageBackground,FlatList,Platform,StatusBar,TouchableOpacity,ScrollView,TextInput,TouchableHighlight}from 'react-native';
+import {Container, Header, Content, Button,Icon,InputGroup,Input, Right, Footer, Title,Card,CardItem} from 'native-base';
+import { Actions } from 'react-native-router-flux';
+import HeadNav from '../components/HeadNav';
+let sco = {}
+export default class Pask extends Component {
+  constructor(props) {
+    super(props); 
+    main.init('Pask',this);  
+    sco = this;
+  }
+
+
+  render() {
+    return (
+        <Container>
+           <HeadNav headerText='我的问答'/>
+
+          <FlatList
+            onRefresh={this.refreshing}
+            refreshing={true}
+            data={[{key: 'DO you like it the root directory?'}, {key: '设计师'},{key: '前端工程师'},{key: 'we'},{key: 'va'}]}
+            renderItem={({item}) =>
+
+          <View style={styles.BuildAskContentTop}>
+                <View style={{flexDirection:'row'}}>
+                  <Text style={{fontSize:20,color:'#343434',width:300,marginBottom:5}}>{item.key}</Text>
+                  <View style={styles.BuildPersonalXiala}>
+                      <TouchableHighlight  style={{marginLeft:30,marginTop:5}}>
+                        <Image  source={require('../public/img/叉叉.png')} />
+                      </TouchableHighlight>
+                  </View>
+                </View>
+                <Text style={styles.BuildAskContent} onPress={() => {Actions.Baskdetail({name: 'Brent'})}}>This source code is licensed under the BSD-style license found in the
+                    LICENSE file in the root directory of this source tree. 
+                </Text>
+                <View style={styles.BuildAskContentImg}>
+                  <View style={styles.BuildAskContentHeadImg}>
+                    <Text>20人参与</Text>
+                  </View>
+                  <View>
+                    <Text>2017-08-27</Text>
+                  </View>   
+                </View>
+            </View>
+             }/>
+        </Container>
+    )
+  }
+}
+
+  

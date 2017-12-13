@@ -1,0 +1,33 @@
+{
+    "code": 1,
+    "msg": "無權限",
+    "data":[
+            {
+                "url": require('../public/img/avther.png'),
+                "name":"张三胖",
+                "site":"深圳 宝安",
+                "expect":"web前端",
+                "workExperience":{
+                    "company":"深圳宇杉信息科技有限公司",
+                    "time":"2017.08-至今",
+                     "expect":"web前端",
+                     "content":"负责公司前端代码编写维护"
+                    },
+                "workExperience1":{
+                    "company":"深圳宇杉信息科技有限公司",
+                    "time":"2017.08-至今",
+                     "expect":"web前端",
+                     "content":"负责公司前端代码编写维护"
+                    },
+                "EducationalExperience":{
+                    "company":"惠州学院",
+                    "time":"2017.08-2019.09",
+                     "expect":"软件工程",
+                     "content":"本科"
+                    },
+                "content":"1、想死死死死死死死死死死死死死；2、噩噩噩噩噩噩噩噩噩噩噩噩噩噩；3、停停停停停停停停停停；4、滴答滴答滴答滴答；5、哈哈哈哈哈哈哈哈哈哈；"
+            },
+        ],
+    "arr": ""
+  }
+

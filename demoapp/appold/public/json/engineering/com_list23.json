@@ -1,0 +1,28 @@
+{
+    "code": 1,
+    "msg": "未登錄",
+    "data": 
+        [
+            {
+                "name":"王小花",
+                "img":"require('../public/img/more.png')",
+                "position":"施工员"
+            }, 
+            {
+                "name":"王小花",
+                "img":"require('../public/img/more.png')",
+                "position":"施工员"
+            }, 
+            {
+                "name":"王小花",
+                "img":"require('../public/img/more.png')",
+                "position":"施工员"
+            }, 
+            {
+                "name":"王小花",
+                "img":"require('../public/img/more.png')",
+                "position":"施工员"
+            }, 
+        ],
+    "arr": ""
+  }

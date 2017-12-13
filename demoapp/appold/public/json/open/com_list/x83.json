@@ -1,0 +1,60 @@
+{
+    "code": 1,
+    "msg": "無權限",
+    "data":[
+            {
+                "position": "全部",
+                "position1": "全部1",
+            },
+            {
+                "position": "广东",
+                "position1": "广东1",
+            },
+            {
+                "position": "天津",
+                "position1": "天津1",
+            },
+            {
+                "position": "河北",
+                "position1": "河北1",
+            },
+            {
+                "position": "山西",
+                "position1": "山西1",
+            },
+            {
+                "position": "陕西",
+                "position1": "陕西1",
+            },
+            {
+                "position": "吉林",
+                "position1": "吉林1",
+            },
+            {
+                "position": "上海",
+                "position1": "上海1",
+            },
+            {
+                "position": "湖南",
+                "position1": "湖南1",
+            },
+            {
+                "position": "湖北",
+                "position1": "湖北1",
+            },
+            {
+                "position": "山西",
+                "position1": "山西1",
+            },
+            {
+                "position": "陕西",
+                "position1": "陕西1",
+            },
+            {
+                "position": "吉林",
+                "position1": "吉林1",
+            }
+        ],
+    "arr": ""
+  }
+

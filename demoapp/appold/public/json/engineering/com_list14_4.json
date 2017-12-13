@@ -1,0 +1,37 @@
+{
+    "code": 1,
+    "msg": "未登錄",
+    "data": [
+            {
+                "title":"序号·部位",
+                "Serial":"C",
+                "number":"1栋",
+                "time":"0天",
+            },
+            {
+                "title":"序号·部位",
+                "Serial":"C",
+                "number":"1栋",
+                "time":"0天",
+            },
+            {
+                "title":"序号·部位",
+                "Serial":"C",
+                "number":"1栋",
+                "time":"0天",
+            },
+            {
+                "title":"序号·部位",
+                "Serial":"C",
+                "number":"1栋",
+                "time":"0天",
+            },
+            {
+                "title":"序号·部位",
+                "Serial":"C",
+                "number":"1栋",
+                "time":"0天",
+            },
+        ],
+    "arr": ""
+  }

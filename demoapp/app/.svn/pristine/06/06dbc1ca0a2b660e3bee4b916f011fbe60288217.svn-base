@@ -1,0 +1,114 @@
+import React, { Component } from 'react';
+import { Container, Header, Content,Button,Item, Input,Text,Body,Left,Title,Right,Form,Label,List,ListItem,Badge,} from 'native-base';
+import { Col, Row, Grid } from 'react-native-easy-grid';
+import { StackNavigator, TabBarBottom, TabNavigator } from "react-navigation";
+import {AppRegistry,Image,View,TouchableOpacity,Modal}from 'react-native';
+import { Actions } from 'react-native-router-flux';
+let sco ={};
+export default class Picstorage extends Component {
+  constructor(props) {
+    super(props); 
+    main.init('Picstorage',this); 
+    sco = this;
+  }
+  
+  render() {
+    return (
+      <Container>
+        <Header style={[styles.gctopColor,styles.gctopheight]}>
+          <Left>
+            <TouchableOpacity transparent onPress={Actions.pop}>
+              <Image  source={require('../public/img/返回03.png')} />
+            </TouchableOpacity>
+          </Left>
+          <Body style={styles.titleposition}>
+            <Title style={styles.addToptitle}>项目图库</Title>
+          </Body>
+          <Right>
+            <TouchableOpacity onPress={() => {sco.onListShow()}} >
+                <Image  source={require('../public/img/jiahao.png')} />
+            </TouchableOpacity>
+            <TouchableOpacity  style={styles.iconpos}>
+                <Image  source={require('../public/img/icon-发布.png')} />
+            </TouchableOpacity>
+          </Right>
+        </Header>
+
+        <Content style={styles.whitebackground}>
+          <List>
+            <ListItem avatar button onPress={Actions.Picdetail}>
+              <Left>
+                <Image style={styles.listimg} source={require('../public/img/wenjianjia.png')}/>
+              </Left>
+              <Body>
+                <Text>   
+                  文件夹
+                </Text>
+              </Body>
+              <Right style={styles.xjuzhong}>      
+                <Image source={require('../public/img/xiala.png')}/>      
+              </Right>
+              </ListItem>
+
+            <ListItem avatar button onPress={Actions.Picdetail}>
+              <Left>
+                <Image style={styles.listimg} source={require('../public/img/tupian.png')}/>   
+              </Left>
+              <Body>
+                <Text>   
+                  文件夹
+                </Text>
+              </Body>
+              <Right style={styles.xjuzhong}>      
+                <Image source={require('../public/img/xiala.png')}/>      
+              </Right>
+              </ListItem>
+          </List>
+
+        </Content>
+        <Modal
+            animationType={"fade"}
+            transparent={true}
+            visible={sco.modalVisible}
+            onRequestClose={() => {alert("Modal has been closed.")}}>
+            <View style={[styles.TalkContainer,styles.NewImgBody]}>
+              <View style={styles.NewImgContainer}>
+                <Text onPress={() => {sco.onCreateShow()}} style={[styles.NewImgChoose,styles.NewImgPhoto]}>创建文件夹</Text>
+                <Text style={[styles.NewImgChoose,styles.NewImgPhoto]}>拍照</Text>
+                <Text style={styles.NewImgChoose}>从手机相册选择</Text>
+              </View>
+              <View style={styles.NewImgContainer}>
+                 <Text style={styles.NewImgChoose} onPress={() => {sco.onListShow()}}>取消</Text>
+              </View>
+            </View>
+        </Modal>
+
+
+        <Modal
+            animationType={"fade"}
+            transparent={true}
+            visible={sco.createmodal}
+            onRequestClose={() => {alert("Modal has been closed.")}}>
+            <View style={styles.TalkContainer}>
+              <View style={[styles.NewImgContainer,styles.filepop]}>
+                <Text>创建文件夹</Text>
+                <View style={[styles.fileinput,styles.xjuzhong]}>
+                  <Input placeholder="文件夹名" 
+                  placeholderTextColor='#CCC'/>
+                </View>
+                <Grid>
+                  <Col style={styles.filetext}><Text onPress={() => {sco.onCreateShow()}}>取消</Text></Col>
+                  <Col style={styles.filetext}><Text style={styles.NewImgChoose}>创建</Text></Col>
+                </Grid>
+              </View>
+            </View>
+        </Modal>
+
+      </Container>
+    );
+  }
+
+
+};
+
+  

@@ -1,0 +1,82 @@
+import React, { Component } from 'react';
+import { Container, Header, Content,Button,Item, Input,Text,Body,Left,Title,Right,Form,Label,List,ListItem,Card,CardItem} from 'native-base';
+import { Col, Row, Grid } from 'react-native-easy-grid';
+import { StackNavigator, TabBarBottom, TabNavigator } from "react-navigation";
+import {AppRegistry,Image,View,TouchableOpacity}from 'react-native';
+let sco ={};
+export default class Weatherglass extends Component {
+  constructor(props) {
+    super(props); 
+    main.init('Weatherglass',this); 
+    sco = this;
+  }
+  
+  render() {
+    return (
+      <Container>
+        <Header style={[styles.gctopColor,styles.gctopheight,styles.worktimeRow,styles.xjuzhong]}>
+          <View>
+            <TouchableOpacity  onPress={() =>sco.ysnav.goBack()}>
+              <Image  source={require('../public/img/返回03.png')} />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.xjuzhong}>
+            <Title style={styles.addToptitle}>2017年9月 </Title>
+            <Image  source={require('../public/img/xiala.png')} />
+          </View>
+          <View>
+            <TouchableOpacity onPress={() => sco.ysnav.navigate('Weatherevent')}>
+                <Image  source={require('../public/img/jiahao.png')} />
+            </TouchableOpacity>
+          </View>
+        </Header>
+          <Content>
+            <View style={[styles.marginato,styles.middletext,styles.mh24]}>
+              <Image source={require('../public/img/duoyunimg.png')}>
+                <View style={styles.worktimeRow}>
+                  <Left>
+                    <Text style={[styles.relateLeft,styles.wtext,styles.whiteText]}>09/28  星期五</Text>
+                    <Text style={[styles.wtext,styles.whiteText]}><Text style={[styles.f26,styles.whiteText]}>32C</Text>／26C</Text>
+                  </Left>
+                  <Body>
+                    <Image style={styles.mt20} source={require('../public/img/duoyun.png')}/>
+                    <Text style={styles.whiteText}>多云</Text>
+                  </Body>
+                  <Right style={styles.topsd}>
+                  <TouchableOpacity onPress={() => sco.ysnav.navigate('Weatherglassedit')}>
+                    <Image style={styles.mh24} source={require('../public/img/三点01.png')}/>
+                  </TouchableOpacity>
+                  </Right>
+                </View>
+              </Image>
+            </View>
+            <Card>
+              <CardItem>
+                <Left>
+                  <Image style={styles.yuanquan1} source={require('../public/img/avther.png')} />
+                  <Body>
+                    <Text note>王小花</Text>
+                    <Text note>09-03 10:30</Text>
+                  </Body>
+                </Left>
+                <Right style={styles.hdtright}>
+                    <TouchableOpacity onPress={() => sco.ysnav.navigate('Tjoinproject')}>
+                      <Image source={require('../public/img/三点02.png')} />
+                    </TouchableOpacity>
+                  </Right>
+              </CardItem>
+              <CardItem>
+                 <Text>
+                  内容内容内容内容内容内容内容内容内容内容内容内容内容
+                 </Text> 
+              </CardItem>
+            </Card>
+          </Content>
+      </Container>
+    );
+  }
+
+
+};
+
+  

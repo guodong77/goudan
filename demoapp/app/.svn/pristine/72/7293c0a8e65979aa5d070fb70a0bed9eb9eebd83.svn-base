@@ -1,0 +1,276 @@
+import React, { Component } from 'react';
+import {AppRegistry,StyleSheet,Text,View,Image,Modal,ImageBackground,Platform,StatusBar,TouchableOpacity,ScrollView,TextInput,TouchableHighlight}from 'react-native';
+import {Container, Header, Content, Button,Icon, Right, Footer, Title,Card,CardItem} from 'native-base';
+import Picker from 'react-native-picker';
+import area from '../public/json/area.json';
+import conf from '../js/conf';
+import { Actions } from 'react-native-router-flux';
+let sco = {}
+import HeadNav from '../components/HeadNav';
+export default class Pinfo extends Component {
+    constructor(props, context) {
+      super(props, context);
+    main.init('Pinfo',this); 
+    sco = this;
+    sco.state = {
+      modalVisible: false,
+      modalCompany:false,
+      a: false,
+      b:false,
+    };
+  }
+    _createAreaData() {
+        let data = [];
+        let len = area.length;
+        for(let i=0;i<len;i++){
+            let city = [];
+            for(let j=0,cityLen=area[i]['city'].length;j<cityLen;j++){
+                let _city = {};
+                _city[area[i]['city'][j]['name']] = area[i]['city'][j]['area'];
+                city.push(_city);
+            }
+
+            let _data = {};
+            _data[area[i]['name']] = city;
+            data.push(_data);
+        }
+        return data;
+    }
+    _showAreaPicker() {
+        Picker.init({
+            pickerData: this._createAreaData(),
+            pickerFontSize:18,
+            pickerConfirmBtnText:"完成",
+            pickerCancelBtnText:" " , 
+            pickerTitleText:" ",
+            pickerConfirmBtnColor:[102, 102, 102, 1],
+            pickerToolBarBg:[255,255,255,1],
+            pickerBg:[255,255,255,1],
+            pickerFontColor:[51,51,51,1],
+            pickerToolBarFontSize:16,
+            wheelFlex:[1,2,1],
+            selectedValue: ['广东', '深圳', '宝安区'],
+            onPickerConfirm: () => {
+                sco.bb(sco.state.b)
+            },
+            // onPickerCancel: pickedValue => {
+            //     console.log('area', pickedValue);
+            // },
+            // onPickerSelect: pickedValue => {
+            //     //Picker.select(['山东', '青岛', '黄岛区'])
+            //     console.log('area', pickedValue);
+            // }
+          
+        });
+          Picker.show();
+    }
+
+    _showSexPicker() {
+      Picker.init({
+          pickerData: ["男","女"],
+          pickerFontSize:18,
+          pickerConfirmBtnText:"完成",
+          pickerCancelBtnText:" " , 
+          pickerTitleText:" ",
+          pickerConfirmBtnColor:[102, 102, 102, 1],
+          pickerToolBarBg:[255,255,255,1],
+          pickerBg:[255,255,255,1],
+          pickerFontColor:[51,51,51,1],
+          pickerToolBarFontSize:16,
+          wheelFlex:[1,2,1],
+          selectedValue: ['男'],
+          onPickerConfirm:(pickedValue)  => {
+              sco.aa(sco.state.a)
+          },
+          // onPickerCancel: pickedValue => {
+          //     console.log('area', pickedValue);
+          // },
+          // onPickerSelect: pickedValue => {
+          //     //Picker.select(['山东', '青岛', '黄岛区'])
+          //     console.log('area', pickedValue);
+          // }
+      });
+      Picker.show();
+  }
+  setModalVisible(visible) {
+    sco.setState({modalVisible: visible});
+  }
+  aa(a) {
+    sco.setState({a: !a});
+  }
+  bb(b) {
+    sco.setState({b: !b});
+  }
+  setmodalCompany(visible) {
+    sco.setState({modalCompany: visible});
+  }
+
+  render() {
+    let sex = sco.com_list1.data.sex?"男":"女"
+    return (
+        <Container>
+                     <HeadNav 
+                     headerText='编辑个人资料'
+                     headerRight='完成'
+                     fn={()=>{alert(1)}}
+                   />
+              <Card >
+                          <View style={styles.PcomMsgView}>  
+                            <CardItem style={styles.PersonalTypeCardItem}> 
+                                <Text style={styles.PersonalTopMsg}>头像</Text>
+                              <Right style={styles.PcomTypeIcons}>
+                              <TouchableHighlight  onPress={() => {sco.setModalVisible(true)}} >
+                                <Image style={styles.PersonalTopImg} source={{uri:sco.com_list1.data.img}}/>
+                              </TouchableHighlight>
+                                <Icon  name="ios-arrow-forward" />
+                              </Right>
+                             </CardItem>
+                          </View>
+
+                          <View style={styles.PcomMsgView}>  
+                            <CardItem style={styles.PersonalTypeCardItem}> 
+                                <Text style={styles.PersonalTopMsg}>账号</Text>
+                              <Right style={styles.PcomType}>
+                                <Text>{sco.com_list1.data.account}</Text>
+                              </Right>
+                             </CardItem>
+                          </View>
+
+                          <View style={styles.PcomMsgView}>  
+                            <CardItem style={styles.PersonalTypeCardItem}> 
+                                <Text style={styles.PersonalTopMsg}>姓名</Text>
+                              <Right style={styles.PcomTypeIcons}>
+                <Text onPress={() => {Actions.PEditName({name: 'Brent'})}} style={{marginLeft:3,marginRight:10}}>{sco.com_list1.data.name}</Text>
+                                <Icon  name="ios-arrow-forward" />
+                              </Right>
+                             </CardItem>
+                          </View>
+
+                          <View style={styles.PcomMsgView}>  
+                            <CardItem style={styles.PersonalTypeCardItem}> 
+                                <Text style={styles.PersonalTopMsg}>性别</Text>
+                              <Right style={styles.PcomTypeIcons}>
+                                <Text  onPress={() => {sco.aa(sco.state.a)}} style={{marginLeft:-20,marginRight:10}}>{sex}</Text>
+                                <Icon  name="ios-arrow-forward" />
+                              </Right>
+                             </CardItem>
+                          </View>
+
+                          <View style={styles.PcomMsgView}>  
+                            <CardItem style={styles.PersonalTypeCardItem}> 
+                                <Text style={styles.PersonalTopMsg}>职务</Text>
+                              <Right style={styles.PcomTypeIcons}>
+                <Text onPress={() => {Actions.PEditPost({name: 'Brent'})}} style={{marginLeft:16,marginRight:10}} >{sco.com_list1.data.duty}</Text>
+                                <Icon  name="ios-arrow-forward" />
+                              </Right>
+                             </CardItem>
+                          </View>
+
+                          <View style={styles.PcomMsgView}>  
+                            <CardItem style={styles.PersonalTypeCardItem}> 
+                                <Text style={styles.PersonalTopMsg} >公司</Text>
+                              <Right style={styles.PcomTypeIcons}>
+                                <Text onPress={() => {sco.setmodalCompany(true)}} style={{marginLeft:16,marginRight:10}}>{sco.com_list1.data.company}</Text>
+                                <Icon  name="ios-arrow-forward" />
+                              </Right>
+                             </CardItem>
+                          </View>
+
+                          <View style={styles.PcomMsgView}>  
+                            <CardItem style={styles.PersonalTypeCardItem}> 
+                                <Text style={styles.PersonalTopMsg}>所在城市</Text>
+                              <Right style={styles.PcomTypeIcons}>
+                                {/* <Text onPress={this._showAreaPicker.bind(this)} style={{marginLeft:-20,marginRight:10}}>{sco.com_list1.data.city}</Text> */}
+                                <Text onPress={() => {sco.bb(sco.state.b)}} style={{marginLeft:-20,marginRight:10}}>{sco.com_list1.data.city}</Text>
+                                {/* <Text onPress={() => {navigate('PickerDemo', {name: 'Brent'})}} style={{marginLeft:-20,marginRight:10}}>{sco.com_list1.data.city}</Text> */}
+                                <Icon  name="ios-arrow-forward" />
+                              </Right>
+                             </CardItem>
+                          </View>
+
+                          <View style={styles.PcomMsgView}>  
+                            <CardItem style={styles.PersonalTypeCardItem}> 
+                                <Text style={styles.PersonalTopMsg}>手机号码</Text>
+                              <Right style={styles.PcomTypeIcons}>
+                <Text onPress={() => {Actions.PEditPhone({name: 'Brent'})}} style={{marginLeft:-80,marginRight:10}}>{sco.com_list1.data.phone}</Text>
+                                <Icon  name="ios-arrow-forward" />
+                              </Right>
+                             </CardItem>
+                          </View>
+
+                          <View style={styles.PcomMsgView}>  
+                            <CardItem style={styles.PersonalTypeCardItem}> 
+                                <Text style={styles.PersonalTopMsg}>邮箱</Text>
+                              <Right style={styles.PcomTypeIcons}>
+                <Text onPress={() => {Actions.PEditMail({name: 'Brent'})}} style={{marginLeft:-88,marginRight:10}}>{sco.com_list1.data.e_mail}</Text>
+                                <Icon  name="ios-arrow-forward" />
+                              </Right>
+                             </CardItem>
+                          </View>
+             </Card> 
+
+
+             <Modal
+                animationType={"fade"}
+                transparent={true}
+                visible={sco.state.modalVisible}
+                 onRequestClose={() => {alert("")}}>
+                <View style={[styles.TalkContainer,styles.NewImgBody]}>
+                  <View style={styles.NewImgContainer}>
+                    <Text style={[styles.NewImgChoose,styles.NewImgPhoto]}>拍照</Text>
+                    <Text style={styles.NewImgChoose}>从手机相册选择</Text>
+                  </View>
+                  <View style={styles.NewImgContainer}>
+                     <Text style={styles.NewImgChoose} onPress={() => {sco.setModalVisible(!sco.state.modalVisible)}}>取消</Text>
+                  </View>
+                </View>
+            </Modal> 
+            <Modal
+                animationType={"slide"}
+                transparent={true}
+                visible={sco.state.b}
+                 onRequestClose={() => {alert("")}}>
+                 <View style={[styles.TalkContainer,styles.NewImgBody]}>
+                  {sco.state.b&&sco._showAreaPicker()}
+                </View>
+            </Modal> 
+            <Modal
+                animationType={"slide"}
+                transparent={true}
+                visible={sco.state.a}
+                 onRequestClose={() => {alert("")}}>
+                 <View style={[styles.TalkContainer,styles.NewImgBody]}>
+                  {sco.state.a&&sco._showSexPicker()}
+                </View>
+            </Modal> 
+            <Modal
+                animationType={"fade"}
+                transparent={true}
+                visible={sco.state.modalCompany}
+                 onRequestClose={() => {alert("")}}>
+                <View style={styles.TalkContainer}>
+                  <View style={styles.ChangeCompanyMsg}>
+                    <View style={styles.ChangeCompanyNotice}>
+                      <Text style={styles.ChangeCompanyNoticeTitle}>更换公司注意事项</Text>
+                      <Text style={styles.ChangeCompanyNoticeText}>1.您发布的的职位将被视为情况予待审核或删除处理</Text>
+                      <Text style={styles.ChangeCompanyNoticeText}>2.你若已验证，认证状态将被取消，需要重新验证</Text>
+                      <Text style={styles.ChangeCompanyNoticeText}>3.公司信息会被清空,需要重新填写</Text>
+                      <Text style={styles.ChangeCompanyNoticeText}>4.一旦操作成功，将不能撤回，请谨慎操作</Text>
+                    </View>
+                    <View style={styles.ChangeCompanyBottons}>
+                      <Button style={styles.ChangeCompanyBotton} >
+                        <Text onPress={() => {sco.setmodalCompany(!sco.state.modalCompany)}}>取消</Text>
+                      </Button>
+                      <Button style={styles.ChangeCompanyBotton}>
+                        <Text style={styles.ChangeCompanyBottonActive}   onPress={()=>{Actions.PEditCompany, {name: 'Brent'},sco.setmodalCompany(!sco.state.modalCompany)}}>更换公司</Text>
+                      </Button>
+                    </View>
+                  </View>
+                </View>
+            </Modal>            
+        </Container>
+    )
+  }
+}
+
+  

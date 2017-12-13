@@ -1,0 +1,61 @@
+import React, { Component } from 'react';
+import { Container, Header, Content,Button,Item, Input,Text,Body,Left,Right,Title,Switch,List,ListItem} from 'native-base';
+import { Col, Row, Grid } from 'react-native-easy-grid';
+import { StackNavigator, TabBarBottom, TabNavigator } from "react-navigation";
+import {AppRegistry,Image,View,TouchableOpacity}from 'react-native';
+let sco ={};
+export default class Addrole extends Component {
+  constructor(props) {
+    super(props); 
+    main.init('Addrole',this); 
+    sco = this;
+  }
+  
+  render() {
+    return (
+      <Container>
+        <Header style={[styles.gctopColor,styles.gctopheight]}>
+          <Left>
+            <TouchableOpacity transparent onPress={() =>sco.ysnav.goBack()}>
+              <Image  source={require('../public/img/返回03.png')} />
+            </TouchableOpacity>
+          </Left>
+          <Body style={styles.titleposition}>
+            <Title style={styles.addToptitle}>添加角色</Title>
+          </Body>
+          <Right>
+            <TouchableOpacity  transparent onPress={() => sco.ysnav.goBack()}>
+              <Text style={[styles.f16,styles.whiteText]}>完成</Text>
+            </TouchableOpacity>
+          </Right>
+        </Header>
+        <Content >
+          <List style={styles.whitebackground}> 
+              <ListItem style={styles.ListItemtype} first>
+                <Text style={styles.labelwidth}>角色名称</Text>
+                <Input placeholder="请输入角色名称" 
+                placeholderTextColor='#CCC'/>
+              </ListItem>
+              <ListItem style={styles.ListItemtype}>
+                <Text style={styles.labelwidth}>模块名称</Text>
+                <Input placeholder="请输入部位名称" 
+                placeholderTextColor='#CCC' />
+              </ListItem>
+              <ListItem style={[styles.ListItemtype,styles.worktimeRow]}>
+                <Text style={styles.labelwidth}>查看</Text>
+                <Switch value={false} onTintColor="#50B948" />
+              </ListItem>
+              <ListItem style={[styles.ListItemtype,styles.worktimeRow]} last>
+                <Text style={styles.labelwidth}>管理</Text>
+                <Switch value={false} onTintColor="#50B948" />
+              </ListItem>
+          </List> 
+        </Content>
+      </Container>
+    );
+  }
+
+
+};
+
+  

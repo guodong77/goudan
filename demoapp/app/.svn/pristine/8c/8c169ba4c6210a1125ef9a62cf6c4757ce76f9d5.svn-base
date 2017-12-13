@@ -1,0 +1,104 @@
+import React, { Component } from 'react';
+import { Container, Header, Content,Button,Item, Input,Text,Body,Left,Title,Right,Form,Label} from 'native-base';
+import { Col, Row, Grid } from 'react-native-easy-grid';
+import { StackNavigator, TabBarBottom, TabNavigator } from "react-navigation";
+import {AppRegistry,Image,View,TouchableOpacity}from 'react-native';
+import { Actions } from 'react-native-router-flux';
+let sco ={};
+export default class Tjoinproject extends Component {
+  constructor(props) {
+    super(props); 
+    main.init('Tjoinproject',this); 
+    sco = this;
+  }
+  
+  render() {
+    return (
+      <Container>
+        <Header searchBar rounded style={[styles.gctopColor,styles.gctopheight]}>
+          <Item style={styles.searchbox}>
+            <Image style={styles.searchimg} source={require('../public/img/icon-搜索.png')}/>
+            <Input placeholder="输入工程名称" placeholderTextColor='#CCC'/>
+          </Item>
+          <TouchableOpacity onPress={Actions.pop}>
+            <View style={styles.cancel}>
+              <Text style={[styles.f16,styles.whiteText]}>取消</Text>
+            </View>
+          </TouchableOpacity>
+        </Header>
+        <Content>
+          <View>
+            <View style={[styles.searchCardItem,styles.whitebackground]}>
+              <Grid>
+                <Col size={1} style={styles.colpos}>
+                  <Image source={require('../public/img/gclogo.png')}/>
+                </Col>
+                <Col size={4}>
+                  <Row size={1.5}>
+                    <Text>旭日领域商住楼</Text>
+                    <View>
+                      <TouchableOpacity>
+                      <View style={styles.apply}>
+                        <Text style={[styles.f14,styles.applyText]}>申请加入</Text>
+                      </View>
+                      </TouchableOpacity>
+                    </View>
+                  </Row>
+                  <Row style={styles.xjuzhong} size={1.5}> 
+                    <Image  source={require('../public/img/admin.png')} />
+                    <Text note style={styles.f12}>王小花</Text>
+                    <Image style={styles.textpos}  source={require('../public/img/jiegou.png')} />
+                    <Text note style={styles.f12}>框剪结构</Text>
+                    <Image style={styles.textpos}  source={require('../public/img/dizhi.png')} />
+                    <Text note style={styles.f12}>深圳</Text>
+                  </Row>
+                  <Row size={1} style={styles.worktimeRow}>
+                    <Text  style={styles.worktime1}>开工：2017-09-17</Text>
+                    <Text  style={styles.worktime2}>竣工：2017-09-17</Text>
+                  </Row>
+                </Col>
+              </Grid>      
+            </View>
+
+            <View style={[styles.searchCardItem,styles.whitebackground]}>
+              <Grid>
+                <Col size={1} style={styles.colpos}>
+                  <Image source={require('../public/img/gclogo.png')}/>
+                </Col>
+                <Col size={4}>
+                  <Row size={1.5}>
+                    <Text>旭日领域商住楼</Text>
+                    <View>
+                      <TouchableOpacity>
+                      <View style={styles.apply}>
+                        <Text style={[styles.f14,styles.applyText]}>申请加入</Text>
+                      </View>
+                      </TouchableOpacity>
+                    </View>
+                  </Row>
+                  <Row style={styles.xjuzhong} size={1.5}> 
+                    <Image  source={require('../public/img/admin.png')} />
+                    <Text note style={styles.f12}>王小花</Text>
+                    <Image style={styles.textpos}  source={require('../public/img/jiegou.png')} />
+                    <Text note style={styles.f12}>框剪结构</Text>
+                    <Image style={styles.textpos}  source={require('../public/img/dizhi.png')} />
+                    <Text note style={styles.f12}>深圳</Text>
+                  </Row>
+                  <Row size={1} style={styles.worktimeRow}>
+                    <Text  style={styles.worktime1}>开工：2017-09-17</Text>
+                    <Text  style={styles.worktime2}>竣工：2017-09-17</Text>
+                  </Row>
+                </Col>
+              </Grid>      
+            </View>
+              
+            </View>
+        </Content>
+      </Container>
+    );
+  }
+
+
+};
+
+  

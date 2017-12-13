@@ -1,0 +1,156 @@
+import React, { Component } from 'react';
+import { Container, Header, Content,Button,Item, Input,Text,Body,Left,Title,Right,Form,Label,List,ListItem,Badge} from 'native-base';
+import { Col, Row, Grid } from 'react-native-easy-grid';
+import { StackNavigator, TabBarBottom, TabNavigator } from "react-navigation";
+import {AppRegistry,Image,View,TouchableOpacity}from 'react-native';
+import { Actions } from 'react-native-router-flux';
+let sco ={};
+export default class Tprojectdetail extends Component {
+  constructor(props) {
+    super(props); 
+    main.init('Tprojectdetail',this); 
+    sco = this;
+    debugger;
+  }
+
+
+//子单位列表填充
+sinlist(arr){
+  var com = [];
+  arr.map((el,i)=>{
+    com.push(<ListItem key={i} button onPress={Actions.Tsondetail} style={[styles.worktimeRow,styles.ListItemtype]}>
+                <Text>{el.sname}</Text>
+                <Badge info style={styles.badgetype}><Text>{el.cengshu}层</Text></Badge>
+              </ListItem>);
+  });
+  return com;
+}
+
+
+//子单位列表填充
+jixielist(arr){
+  var com = [];
+  arr.map((el,i)=>{
+    com.push( <ListItem key={i}  button onPress={Actions.Teditemac} style={[styles.worktimeRow,styles.ListItemtype]}>
+                <Text>{el.jname}</Text>
+                <Badge info style={styles.badgetype}><Text></Text></Badge>
+              </ListItem>);
+  })
+    return com;
+}
+
+  
+  render() {
+    return (
+      <Container>
+        <Header style={[styles.gctopColor,styles.gctopheight]}>
+          <Left >
+            <TouchableOpacity style={styles.b1} transparent onPress={Actions.pop}>
+              <Image  source={require('../public/img/返回03.png')} />
+            </TouchableOpacity>
+          </Left>
+          <Body style={styles.titleposition}>
+            <Title style={styles.addToptitle}>工程详情</Title>
+          </Body>
+          <Right>
+            <TouchableOpacity onPress={() => {sco.toggle('show')}} >
+                <Image  source={require('../public/img/jiahao.png')} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={Actions.Teditedlist} style={styles.iconpos}>
+                <Image  source={require('../public/img/icon-发布.png')} />
+            </TouchableOpacity>
+          </Right>
+        </Header>
+        {sco.show == true&&
+            <View style={styles.toppop}>
+              <View>
+            <TouchableOpacity style={styles.toppopitem} onPress={Actions.Taddson}>
+                  <Text style={styles.toppoptext}>添加子单位</Text>
+                </TouchableOpacity>
+              </View>
+              <View>
+            <TouchableOpacity style={styles.toppopitem} onPress={Actions.Taddmac}>
+                  <Text style={styles.toppoptext}>添加机械</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          }
+        <Content>
+            <View style={[styles.searchCardItem,styles.whitebackground,styles.xqcard]}>
+              <Grid>
+                <Col size={1} style={styles.colpos}>
+                  <Image source={require('../public/img/gclogo.png')}/>
+                </Col>
+                <Col size={4}>
+                  <Row size={1.5}>
+                    <Text>{sco.com_detail.data.prname}</Text>
+                  </Row>
+                  <Row style={styles.xjuzhong} size={1.5}> 
+                    <Image  source={require('../public/img/admin.png')} />
+                    <Text note style={styles.f12}>{sco.com_detail.data.nickname}</Text>
+                    <Image style={styles.textpos}  source={require('../public/img/jiegou.png')} />
+                    <Text note style={styles.f12}>{sco.com_detail.data.jiekou}</Text>
+                    <Image style={styles.textpos}  source={require('../public/img/dizhi.png')} />
+                    <Text note style={styles.f12}>{sco.com_detail.data.cityv}</Text>
+                  </Row>
+                  <Row size={1} style={styles.worktimeRow}>
+                    <Text  style={styles.worktime1}>开工：{sco.com_detail.data.kaigong!=0?sco.com_detail.data.kaigong:''}</Text>
+                    <Text  style={styles.worktime2}>竣工：{sco.com_detail.data.jungong!=0?sco.com_detail.data.jungong:''}</Text>
+                  </Row>
+                </Col>
+              </Grid>      
+            </View>
+            <Grid style={[styles.xqcard1,styles.xqcard,styles.whitebackground]}>  
+              <Row>
+                <Text>造价：</Text><Text>{sco.com_detail.data.cityv}</Text>
+              </Row>
+              <Row >
+                <Text>面积：</Text><Text>{sco.com_detail.data.cityv}</Text>
+              </Row>
+              <Row >
+                <Text>施工许可证号：</Text><Text>{sco.com_detail.data.cityv}</Text>
+              </Row>
+              <Row >
+                <Text>见证卡号：</Text><Text>{sco.com_detail.data.cityv}</Text>
+              </Row>
+              <Row >
+                <Text>地址：</Text><Text>{sco.com_detail.data.cityv}</Text>
+              </Row>
+            </Grid>
+            <Grid style={[styles.xqcard1,styles.xqcard,styles.whitebackground]}>  
+              <Row>
+                <Text>施工单位：</Text><Text>{sco.com_detail.data.cityv}</Text>
+              </Row>
+              <Row >
+                <Text>建设单位：</Text><Text>{sco.com_detail.data.cityv}</Text>
+              </Row>
+              <Row >
+                <Text>监理单位：</Text><Text>{sco.com_detail.data.cityv}</Text>
+              </Row>
+              <Row >
+                <Text>勘察单位：</Text><Text>{sco.com_detail.data.cityv}</Text>
+              </Row>
+            </Grid>
+            <View style={styles.xqcard}>
+                <Text>子单位·{sco.com_detail.data.child&&sco.com_detail.data.child.lenght}</Text>
+            </View>
+            <List style={styles.whitebackground}> 
+            {sco.sinlist(sco.com_detail.data.child)}
+              
+               
+            </List> 
+            <View style={[styles.xqcard,styles.listtitle]}>
+                <Text>施工机械·{sco.com_detail.data.jixie&&sco.com_detail.data.jixie.lenght}</Text>
+            </View>
+            <List style={styles.whitebackground}> 
+             {sco.jixielist(sco.com_detail.data.jixie)} 
+            </List> 
+        </Content>
+      </Container>
+    );
+  }
+
+
+};
+
+  

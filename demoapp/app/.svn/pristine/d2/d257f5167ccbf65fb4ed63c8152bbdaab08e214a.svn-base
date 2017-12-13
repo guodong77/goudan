@@ -1,0 +1,301 @@
+import React, { Component } from 'react';
+import {AppRegistry,StyleSheet,Text,View,Image,FlatList,Modal,PanResponder,ImageBackground,Platform,StatusBar,ScrollView,TextInput,TouchableOpacity}from 'react-native';
+import Basklist from './Basklist';
+import Bneedlist from './Bneedlist';
+// import LoadingView from '../components/LoadingView';
+import HeadNav1 from '../components/HeadNav1';
+import {Container, Header, Content, Button,Icon, Right, Footer,FooterTab, Title,Card,CardItem} from 'native-base'
+import { Actions } from 'react-native-router-flux';
+
+let sco = {}
+
+export default class Buildlist extends Component {
+  constructor(props) {
+    super(props); 
+    main.init('Buildlist',this);  
+    sco = this;
+    sco.state = {
+      modalVisible: false,
+      modalShare: false,
+      ModelClose: false,
+      showText: false,
+      changeImg:true,
+    };
+  }
+ 
+  setModalVisible(visible) {
+    sco.setState({modalVisible: visible});
+  }
+
+  setModalShare(visible) {
+    sco.setState({modalShare: visible});
+  }
+
+  setModelClose(visible) {
+    sco.setState({ModelClose: visible});
+  }
+
+  showXiala(){
+    sco.setState({showText:!sco.state.showText});
+  }
+
+  _onPress(){
+    sco.setState({changeImg:!sco.state.changeImg});
+  }
+  forRow(rowData){
+    let value = rowData.item;
+    return (
+      <View style={styles.BuildContent}>
+              <View style={styles.BuildPersonal}>
+                <Image source={require('../public/img/Oval2.png')}/>
+                  <View style={styles.BuildPersonalText}>
+                    <Text style={styles.BuildPersonalName}>{value.nickname}</Text>
+                    <Text style={styles.BuildPersonalMsg}>{value.job}</Text>
+                  </View>
+                  <View style={styles.BuildPersonalXiala}>
+                    <TouchableOpacity style={[styles.BuildPersonalImg,{marginLeft:160}]} onPress={() => {sco.showXiala()}}>
+                      <Image  source={require('../public/img/下拉.png')} />
+                    </TouchableOpacity>
+                {sco.state.showText?
+                  <View style={styles.Xiala}>
+                              <View style={styles.XialaTop}>
+                                <Text style={styles.XialaText}>收藏</Text>
+                              </View>
+                              <Text style={styles.XialaText}>举报</Text>
+                            </View>:null
+                          }
+                  </View>
+              </View>
+              <View style={styles.BuildDetail}>
+              <View style={styles.BuildDetailTextView}>
+            <Text numberOfLines={sco.SC.Number} style={styles.BuildDetailText} onPress={() => {Actions.Builddetail({name: 'Brent'})}}>
+                {value.description}
+                </Text>
+                <Text style={styles.BuildAllText} onPress={() =>{sco.ChangeNumber()}}>{sco.SC.FullText}</Text>
+              </View>
+
+              <View style={styles.BuildDetailView}>
+                <Image style={styles.BuildDetailImg} source={require('../public/img/img-1.png')}></Image>
+                <Image style={[styles.BuildDetailImg,styles.BuildDetailMiddle]} source={require('../public/img/img-2.png')}></Image>
+                <Image style={styles.BuildDetailImg} source={require('../public/img/img-3.png')}></Image>
+              </View>
+            </View>
+            <View style={styles.BuildClient}>
+              <View style={styles.BuildClientImg}>
+                <TouchableOpacity onPress={() => {sco.ChangeImg(sco.SC,item.id,item.status)}}>
+                  <Image source={require('../public/img/点赞05.png')}></Image>
+                </TouchableOpacity>
+              </View>
+              <Text>{value.thumbcount}</Text>
+              <View style={[styles.BuildClientImg,styles.BuildSend]}>
+                <TouchableOpacity>
+                  <Image   source={require('../public/img/转发.png')}></Image>
+                </TouchableOpacity>
+              </View>
+              <Text>{value.forwarding}</Text>
+              <Image style={[styles.BuildClientImg,styles.BuildComent]}  source={require('../public/img/评论.png')}></Image>
+              <Text onPress={() => {sco.comtime('com_editadd')}}>{value.comnum}</Text>
+            </View>
+
+            <View style={styles.BuildComentDetail}>
+              <View style={styles.Coment}>
+                <Text style={styles.ComentBlue}>小明：</Text><Text>我是加我很快就静安寺你看</Text>
+              </View>
+              <View style={styles.Coment}>
+              <Text style={styles.ComentBlue}>小明</Text><Text>回复</Text>
+              <Text style={styles.ComentBlue}>王小花：</Text><Text>静安寺你看</Text>
+              </View>
+              <View style={styles.Coment}>
+                <Text style={styles.ComentBlue}>小明：</Text><Text>孔大萨阿萨帝</Text>
+              </View>
+              <Text style={[styles.ComentBlue,styles.ComentCheck]}>查看全部110条评论></Text>
+            </View>
+
+
+          
+        </View>
+         )
+  }
+
+  render() { 
+      
+
+    return(
+
+      <View> 
+        {/*主页头部*/}
+        <HeadNav1 
+            headerLeft={ <Image  source={require('../public/img/search.png')} /> }
+            headerText={
+              <View style={{flexDirection:'row',justifyContent:'space-around',flex:1,}}>
+               <Text style={[styles.TheprojectTopText,sco.tapshow == 0?styles.BuildActive:'']} onPress={() => {sco.funtapshow(0)}}>建筑圈</Text>
+               <Text style={[styles.TheprojectTopText,sco.tapshow == 1?styles.BuildActive:'']} onPress={() => {sco.funtapshow(1)}}>问答</Text>
+              </View> 
+            }
+            headerRight={<Image  source={require('../public/img/jiahao.png')} />}
+            Left={Actions.Comsearch}
+            Right={()=>{alert(2)}}
+        />
+        {/* <Header style={[styles.gctopColor,styles.gctopheight,styles.worktimeRow,styles.xjuzhong]}>
+          <View>
+            <TouchableOpacity onPress={() => {sco.onListShow()}}>
+              <Image  source={require('../public/img/search.png')} />
+            </TouchableOpacity>
+          </View>
+          <Text style={[styles.TheprojectTopText,sco.tapshow == 0?styles.BuildActive:'']} onPress={() => {sco.funtapshow(0)}}>建筑圈</Text>
+          <Text style={[styles.TheprojectTopText,sco.tapshow == 1?styles.BuildActive:'']} onPress={() => {sco.funtapshow(1)}}>问答</Text>
+          <View style={styles.gctopimg}>
+            <TouchableOpacity onPress={() => {sco.onListShow()}}>
+              <Image  source={require('../public/img/jiahao.png')} />
+            </TouchableOpacity>
+          </View>
+        </Header> */}
+        {/*建筑圈*/}
+        {sco.tapshow == 0&&
+            <FlatList
+              style={{marginBottom:50}}
+              data={sco.com_list.data}
+              renderItem={sco.forRow} 
+              onEndReached={(info)=>{
+              sco.comtime('com_list_page');
+              }
+              }
+              onEndReachedThreshold={0.2}
+              refreshing={false}
+              onRefresh={()=>{sco.type = 0;sco.comtime('com_list_page'); }}
+            />
+        }  
+
+        {/*问答*/}
+        {sco.tapshow == 1&&
+          <Basklist navigation={sco.props.navigation}/>
+        }
+
+        {/*需求*/}
+        {sco.tapshow == 2&&
+         <Bneedlist navigation={sco.props.navigation}/>
+        }
+
+       
+
+        {/*发布*/}
+        <Modal
+            animationType={"fade"}
+            transparent={true}
+            visible={this.state.modalVisible}
+            onRequestClose={() => {sco.setModalVisible(!sco.state.modalVisible)}}>
+            <View style={styles.TalkContainer}>
+              <View style={styles.innerContainer}>
+                  <View style={[styles.Container,styles.ContainerTop]}>
+                  <Text style={styles.ContainerTopText}>发布</Text>
+                  <TouchableOpacity onPress={() => {sco.setModalVisible(!sco.state.modalVisible)}}>
+                    <Image  source={require('../public/img/叉叉.png')}></Image>
+                  </TouchableOpacity>
+                </View>
+
+                <View style={[styles.Container,styles.ContainerMiddle]}>
+                  <TouchableOpacity  onPress= {()=>{Actions.Baddnew, sco.setModalVisible(!sco.state.modalVisible),{name: 'Brent'} }}>
+                    <Image  source={require('../public/img/动态.png')}></Image>
+                  </TouchableOpacity>
+                  <TouchableOpacity   onPress= {()=>{Actions.Baddnew, sco.setModalVisible(!sco.state.modalVisible),{name: 'Brent'} }}>
+                    <Image  style={styles.ContainerAsk}  source={require('../public/img/问答.png')}></Image>
+                  </TouchableOpacity><TouchableOpacity     onPress= {()=>{Actions.Baddnew, sco.setModalVisible(!sco.state.modalVisible),{name: 'Brent'} }}>
+                    <Image  source={require('../public/img/需求.png')}></Image>
+                  </TouchableOpacity>
+                </View>
+
+                <View style={[styles.Container,styles.ContainerBottom]}>
+                  <Text>动态</Text>
+                  <Text style={styles.ContainerAskText}>问答</Text>
+                  <Text>需求</Text>
+                </View>
+              </View>
+            </View>
+        </Modal>
+
+        {/*分享*/}
+        <Modal
+            animationType={"fade"}
+            transparent={true}
+            visible={this.state.modalShare}
+            onRequestClose={() => {sco.setModalShare(false)}}>
+            <View style={styles.ShareBody}>
+              <View style={styles.ShareContainer}>
+                <View>
+                  <Text style={styles.ShareTitle}>分享到</Text>
+                </View>
+                <View style={styles.ShareIcons}>
+                  <TouchableOpacity style={styles.ShareIcon} onPress={() => {sco.setModelClose(true)}}>
+                    <Image  source={require('../public/img/icon-朋友圈.png')} />
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.ShareIcon} >
+                    <Image  source={require('../public/img/icon-朋友圈.png')} />
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.ShareIcon} >
+                    <Image  source={require('../public/img/icon-微信.png')} />
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.ShareIcon} >
+                    <Image  source={require('../public/img/icon-QQ01.png')} />
+                  </TouchableOpacity>
+                </View>
+                <View style={styles.ShareIcons}>
+                  <Text style={styles.ShareIconText}>建筑圈</Text>
+                  <Text style={styles.ShareIconText}>朋友圈</Text>
+                  <Text style={styles.ShareIconText}>微信好友</Text>
+                  <Text style={styles.ShareIconText}>QQ好友</Text>
+                </View>
+                <View style={styles.ShareCancel}>
+                  <TouchableOpacity onPress={() => {sco.setModalShare(false)}}>
+                    <Text style={styles.ShareCancelText}>取消</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </View>
+        </Modal>
+
+        {/*分享动态*/}
+        <Modal
+            animationType={"fade"}
+            transparent={true}
+            visible={this.state.ModelClose}
+            onRequestClose={() => {sco.setModelClose(!sco.state.ModelClose)}}>
+            <View style={styles.BuildShare}>
+              <View style={styles.BuildShareContainer}>
+                <View>
+                  <Text>分享实名动态</Text>
+                </View>
+
+                <View style={styles.BuildSharePersonal}>
+                  <Image  source={require('../public/img/icon-QQ01.png')} />
+                  <Text numberOfLines={2} style={styles.BuildShareText}>
+                    <Text>虽然常用</Text>
+                    <Text style={styles.BuildShareTextIcon}>|</Text>
+                    <Text>JS编辑器</Text>
+                    说：笔者推荐笔者推荐笔者推荐笔者推荐，因为它有更完善的语法提示和补全。
+                  </Text>
+                </View>
+
+                <TextInput style={styles.BuildShareInput} placeholderTextColor ='#cccccc' underlineColorAndroid="transparent" multiline={true}  placeholder='说点什么吧...'></TextInput>
+
+                <View style={styles.BuildShareButtons}>
+                    <View style={styles.BuildShareButton}> 
+                      <Text style={styles.BuildShareButtonText} onPress={() => {sco.setModelClose(!sco.state.ModelClose)}}>取消</Text>
+                    </View>
+                    <View style={styles.BuildShareButton}> 
+                      <Text style={[styles.BuildShareButtonText,styles.BuildShareButtonAtive]} onPress={() => {sco.setModelClose(!sco.state.ModelClose)}}>确定</Text>
+                    </View>
+                </View>
+              </View>
+            </View>
+        </Modal>
+
+       </View>
+      
+    )
+  }
+
+
+
+};
+
+  
